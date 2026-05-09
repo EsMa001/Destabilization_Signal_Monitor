@@ -182,27 +182,34 @@ However, there are three clear sense-making risks:
 That means the repository is already governance-rich, but not yet governance-clean.
 
 ## Decision for next migration step
-Recommended next step:
-- do not yet convert the full requirement tree to final YAML
-- first create a baseline decision package for the highest-impact ambiguities
+Status update:
+- the baseline decision package has now been created in `docs/planning/2026-05-09_baseline_decisions.md`
 
-Priority ambiguities now visible:
-1. active country-scope baseline: 3-country origin vs 10-country operational baseline
-2. active time-horizon baseline: 365-day language vs 356-day implementation/config baseline
-3. artifact governance model for `TV-*` and `OI-*`
+Resolved decisions:
+1. active default country baseline = 10 countries
+2. country count must remain parameterizable
+3. active default historical horizon = 365 days
+4. historical horizon must remain parameterizable
+5. `TV-*` becomes a first-class governed verification artifact
+6. `OI-*` becomes a first-class governed issue artifact
+7. open issues should be resolved autonomously where safe, and escalated only for high-impact semantic ambiguity
+
+Updated interpretation of previously observed contradictions:
+- 3-country scope now becomes historical-origin context unless explicitly re-scoped
+- 356-day baseline behavior is now non-default legacy/variant candidate behavior unless explicitly justified later
 
 ## Recommended next work package
-WP-04 should focus on baseline normalization decisions before or together with the first YAML migration.
+WP-05 should now begin the first machine-readable migration preparation with the resolved baseline in force.
 
-Recommended WP-04 scope:
-- create a small baseline decision document
-- define authoritative current baseline for country scope and time horizon
-- define how `TV-*` and `OI-*` will be represented in the future `vmodel/` structure
-- then begin migration of `PSR/PSyR/PSwR` into YAML with these decisions fixed
+Recommended WP-05 scope:
+- start preparing YAML-oriented migration of `PSR/PSyR/PSwR`
+- define first-class target representation for `TV-*` and `OI-*`
+- identify requirements and config statements that still conflict with the accepted 10-country / 365-day defaults
+- autonomously clean up low-risk open issues that are purely documentary or consistency-related
 
 ## Summary
 This work package produced a usable machine-readable requirement inventory and surfaced real content-level contradictions that matter for the later V-Model-light migration.
 
 Most important outcome:
 The main migration risk is no longer “missing requirements”.
-The main migration risk is “migrating historically layered requirements into YAML without first resolving active-baseline ambiguities”.
+The main migration risk is “migrating historically layered requirements into YAML without first classifying baseline/default/parameterized/legacy statements correctly”.

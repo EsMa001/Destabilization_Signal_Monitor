@@ -266,6 +266,9 @@ Expected focus:
 - confirm canonical test command(s)
 - align documented quick-start with actual environment requirements
 
+Status update:
+- completed in commit `396e5ae`
+
 ### WP-03: Requirement inventory extraction
 Objective:
 - extract all existing requirement IDs into a structured inventory
@@ -275,29 +278,39 @@ Expected outputs:
 - source mapping to current markdown documents
 - first status normalization proposal (`accepted`, `implemented`, `provisional`, `open`, etc.)
 
-### WP-04: YAML baseline for stakeholder/system/software requirements
+Status update:
+- completed in commit `f5db326`
+- outputs:
+  - `docs/planning/2026-05-09_requirement_inventory.json`
+  - `docs/planning/2026-05-09_requirement_inventory_review.md`
+
+### WP-04: Baseline decision package
 Objective:
-- create machine-readable requirement artifacts in `vmodel/requirements/`
+- resolve the highest-impact migration ambiguities before YAML migration
 
-Expected rule:
-- start with migration and parity, not semantic rewriting
+Resolved decisions:
+- active default country baseline = 10 countries
+- country count remains parameterizable
+- active default historical horizon = 365 days
+- historical horizon remains parameterizable
+- `TV-*` will be modeled as first-class governed verification artifacts
+- `OI-*` will be modeled as first-class governed issue artifacts
+- open issues should be resolved autonomously where safe; escalate only high-impact semantic ambiguity
 
-### WP-05: Traceability link normalization
+Status update:
+- completed in current work package
+- output:
+  - `docs/planning/2026-05-09_baseline_decisions.md`
+
+### WP-05: First YAML-oriented migration preparation
 Objective:
-- convert matrix-style traceability into explicit link records
+- prepare first machine-readable migration of baseline requirements and governed support artifacts
 
-Expected outputs:
-- `vmodel/traceability/trace_links.yaml`
-- first consistency checks between requirements, code, and tests
-
-### WP-06: Contradiction and baseline review
-Objective:
-- review migrated requirement set for contradictions, obsolete scope statements, and baseline ambiguities
-
-Special focus areas already identified:
-- 3-country origin vs 10-country operational baseline
-- documented repository layout vs actual repository shape
-- prototype framing vs current multi-layer product-like feature depth
+Expected focus:
+- classify current requirement statements into active baseline / historical origin / parameterized capability / legacy variant
+- define first-class target representation for `TV-*` and `OI-*`
+- identify and clean low-risk open issues that are documentary or consistency-related
+- prepare first `vmodel/` artifact skeleton with minimum ambiguity
 
 ## Initial content-level review findings for discussion
 These points are not blockers for this work package, but they should be explicitly reviewed in later steps:
