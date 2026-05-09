@@ -124,9 +124,42 @@ Notes for review candidates:
 
 ## Quick start
 ```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -e ".[dev,api]"
 python -m pytest
 python -m proto.pipeline.run_proto
 ```
+
+## Python environment and reproducibility
+The backend/core repository currently assumes a Python environment with declared package dependencies installed from `pyproject.toml`.
+
+Recommended backend/core setup:
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install --upgrade pip
+pip install -e ".[dev,api]"
+```
+
+If `python -m venv .venv` fails because `ensurepip` is unavailable, install the OS package that provides venv support first (for example `python3.12-venv` / `python3.13-venv` on Debian/Ubuntu-derived systems).
+
+What this installs:
+- core runtime dependencies for config loading, plotting, and API schemas
+- test dependencies for `pytest`
+- API server dependency for `uvicorn`
+
+Canonical backend/core commands:
+```bash
+python -m pytest
+python -m proto.pipeline.run_proto
+python -m uvicorn api.main:app --reload --host 127.0.0.1 --port 8000
+```
+
+Notes:
+- `python -m pytest` is the canonical test entrypoint for the Python repository root.
+- Frontend setup is separate and lives under `frontend/` with its own `package.json` / `package-lock.json`.
+- If only backend/core work is needed, frontend Node dependencies do not need to be installed.
 
 ## Backend API MVP quick start
 The project now includes a FastAPI backend layer under `api/` for frontend coupling.

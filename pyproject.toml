@@ -7,9 +7,28 @@ name = "country-destabilization-proto"
 version = "0.1.0"
 description = "Country destabilization prototype"
 requires-python = ">=3.12"
+dependencies = [
+  "PyYAML>=6.0",
+  "matplotlib>=3.9",
+  "fastapi>=0.115",
+  "pydantic>=2.7",
+]
+
+[project.optional-dependencies]
+api = [
+  "uvicorn[standard]>=0.30",
+]
+dev = [
+  "pytest>=8.3",
+  "httpx>=0.27",
+]
 
 [tool.setuptools]
 include-package-data = true
 
 [tool.setuptools.packages.find]
 include = ["proto*", "api*"]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = ["tests"]
