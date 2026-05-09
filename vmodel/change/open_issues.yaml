@@ -17,6 +17,11 @@ metadata:
   - WP-09 added migration-governance follow-up issues where the recovered requirement
     baseline or verification baseline remains only partially formalized in the legacy
     source set.
+  - From WP-10 onward, this YAML artifact is authoritative for migrated issue governance
+    on hermes/vmodel-assessment.
+  - WP-10 resolved OI-045 and OI-046 by declaring YAML authoritative for migrated
+    artifacts and by hardening verification governance from direct test traceability
+    evidence.
 schema_guidance:
   required_fields:
   - id
@@ -925,7 +930,7 @@ issues:
     baseline because PSR-008..011, PSyR-011..017, and PSwR-020..035 are implemented
     and traceable but not all exist as standalone entries in ProtoSR.md, ProtoSyR.md,
     and ProtoSwR.md.
-  status: open_issue
+  status: resolved_issue
   affected_artifact_ids:
   - PSR-008
   - PSR-009
@@ -961,9 +966,11 @@ issues:
     role: implementation_trace_context
   - file: docs/requirements/OpenIssues.md
     role: supporting_context
-  resolution_note: Either backfill the legacy markdown sources to full parity or formally
-    retire them as authoritative requirement sources in favor of the YAML baseline.
-  resolution_type: follow_up_required
+  resolution_note: WP-10 declares vmodel/* authoritative for migrated artifacts on
+    hermes/vmodel-assessment. Legacy markdown remains historical source material and
+    evidence only, so source-set drift no longer affects the normative baseline on
+    this branch.
+  resolution_type: governance_decision
   escalation_required: false
 - id: OI-046
   title: Generic legacy test references are not yet formalized into explicit governed
@@ -971,7 +978,7 @@ issues:
   statement: A subset of implemented software requirements is only backed by generic
     test-file references or manual review markers in the legacy traceability matrix,
     without explicit governed verification artifact IDs.
-  status: open_issue
+  status: resolved_issue
   affected_artifact_ids:
   - PSwR-018
   - PSwR-019
@@ -1003,8 +1010,9 @@ issues:
     role: verification_trace_context
   - file: vmodel/verification/test_specifications.yaml
     role: governance_placeholder_context
-  resolution_note: Formalize the generated governance placeholders into explicit stable
-    verification artifacts and retire raw generic references in the legacy matrix
-    over time.
-  resolution_type: follow_up_required
+  resolution_note: WP-10 backfilled machine-readable verification links into software
+    requirements, derived additional explicit TV-* artifacts directly from test traceability
+    annotations, and retained GV-* only where no explicit TV-* artifact exists yet.
+    Generic legacy references are therefore formally governed in the YAML baseline.
+  resolution_type: verification_governance_hardened
   escalation_required: false

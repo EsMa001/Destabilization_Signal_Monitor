@@ -21,3 +21,9 @@ Authoritative baseline decisions currently in force:
 - historical horizon must remain parameterizable
 - `TV-*` are first-class verification artifacts
 - `OI-*` are first-class governed issue artifacts
+
+
+Authoritative source-of-truth rule on this migration branch:
+- for artifacts already migrated into `vmodel/*`, the `vmodel/*` representation is authoritative on `hermes/vmodel-assessment`
+- legacy `docs/*` requirement and traceability markdown remains source material and historical evidence, but no longer overrides migrated YAML artifacts
+- if migrated YAML and legacy markdown disagree, the discrepancy must be resolved in favor of the normalized `vmodel/*` baseline and tracked as governance debt only if backward-document compatibility is still needed

@@ -27,6 +27,13 @@ metadata:
   - PSwR-020..PSwR-035 are currently missing as explicit entries in ProtoSwR.md and
     were therefore recovered from the legacy traceability matrix and open-issue set
     as an initial low-risk migration step.
+  - From WP-10 onward, this YAML artifact is authoritative for migrated software requirements
+    on hermes/vmodel-assessment; legacy markdown remains historical source material
+    only.
+  - WP-10 normalized stale provisional statuses where stronger code/test/open-issue
+    evidence showed the legacy traceability matrix status was outdated.
+  - WP-10 retired PSwR-068 from the active baseline because the transitional Event
+    not_available rule is superseded by the operational Event layer baseline.
 schema_guidance:
   required_fields:
   - id
@@ -55,6 +62,8 @@ requirements:
   - PSyR-007
   child_verification_ids:
   - TV-PSwR-001-INT-001
+  - TV-PSwR-003-001
+  - TV-PSwR-004-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-001
@@ -96,6 +105,7 @@ requirements:
   parent_system_ids:
   - PSyR-005
   child_verification_ids:
+  - TV-PSwR-001-INT-001
   - TV-PSwR-003-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
@@ -111,6 +121,7 @@ requirements:
   parent_system_ids:
   - PSyR-005
   child_verification_ids:
+  - TV-PSwR-001-INT-001
   - TV-PSwR-004-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
@@ -126,6 +137,7 @@ requirements:
   parent_system_ids:
   - PSyR-005
   child_verification_ids:
+  - TV-PSwR-001-INT-001
   - TV-PSwR-005-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
@@ -141,6 +153,7 @@ requirements:
   parent_system_ids:
   - PSyR-005
   child_verification_ids:
+  - TV-PSwR-001-INT-001
   - TV-PSwR-006-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
@@ -156,7 +169,9 @@ requirements:
   parent_system_ids:
   - PSyR-003
   child_verification_ids:
+  - TV-PSwR-001-INT-001
   - TV-PSwR-007-001
+  - TV-PSwR-007-002
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-007
@@ -173,6 +188,7 @@ requirements:
   - PSyR-003
   - PSyR-004
   child_verification_ids:
+  - TV-PSwR-001-INT-001
   - TV-PSwR-008-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
@@ -189,6 +205,7 @@ requirements:
   parent_system_ids:
   - PSyR-003
   child_verification_ids:
+  - TV-PSwR-001-INT-001
   - TV-PSwR-009-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
@@ -204,6 +221,7 @@ requirements:
   parent_system_ids:
   - PSyR-003
   child_verification_ids:
+  - TV-PSwR-007-002
   - TV-PSwR-010-001
   - TV-PSwR-010-INT-001
   source_refs:
@@ -220,6 +238,8 @@ requirements:
   parent_system_ids:
   - PSyR-003
   child_verification_ids:
+  - TV-PSwR-007-002
+  - TV-PSwR-010-INT-001
   - TV-PSwR-011-001
   - TV-PSwR-011-002
   source_refs:
@@ -237,7 +257,10 @@ requirements:
   parent_system_ids:
   - PSyR-003
   child_verification_ids:
+  - TV-PSwR-010-INT-001
   - TV-PSwR-012-001
+  - TV-PSwR-012-002
+  - TV-PSwR-012-003
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-012
@@ -253,7 +276,10 @@ requirements:
   - PSyR-002
   - PSyR-003
   child_verification_ids:
+  - TV-PSwR-010-INT-001
   - TV-PSwR-013-001
+  - TV-PSwR-013-002
+  - TV-PSwR-013-003
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-013
@@ -269,6 +295,7 @@ requirements:
   parent_system_ids:
   - PSyR-003
   child_verification_ids:
+  - TV-PSwR-010-INT-001
   - TV-PSwR-014-001
   - TV-PSwR-014-002
   source_refs:
@@ -285,7 +312,36 @@ requirements:
   parent_system_ids:
   - PSyR-006
   - PSyR-007
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-015
@@ -299,7 +355,38 @@ requirements:
   migration_tags: []
   parent_system_ids:
   - PSyR-006
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-016-002
+  - TV-PSwR-032-002
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-016
@@ -319,6 +406,15 @@ requirements:
   - TV-PSwR-017-001
   - TV-PSwR-017-002
   - TV-PSwR-017-003
+  - TV-PSyR-009-002
+  - TV-PSyR-009-007
+  - TV-PSyR-009-008
+  - TV-PSyR-010-001
+  - TV-PSyR-010-003
+  - TV-PSyR-010-005
+  - TV-PSyR-010-006
+  - TV-PSyR-010-007
+  - TV-PSyR-010-009
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-017
@@ -340,7 +436,8 @@ requirements:
   - PSyR-023
   - PSyR-030
   - PSyR-034
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSyR-009-008
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-018
@@ -359,7 +456,8 @@ requirements:
   - PSyR-030
   - PSyR-034
   - PSyR-043
-  child_verification_ids: []
+  child_verification_ids:
+  - GV-PSwR-019-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-019
@@ -426,6 +524,9 @@ requirements:
   child_verification_ids:
   - TV-PSwR-022-001
   - TV-PSwR-022-002
+  - TV-PSwR-022-003
+  - TV-PSwR-022-004
+  - TV-PSwR-022-005
   source_refs:
   - file: docs/traceability/TraceabilityMatrix.md
     role: implementation_trace_context
@@ -491,7 +592,9 @@ requirements:
   parent_system_ids:
   - PSyR-012
   - PSyR-017
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-021-002
+  - TV-PSwR-025-001
   source_refs:
   - file: docs/traceability/TraceabilityMatrix.md
     role: implementation_trace_context
@@ -514,6 +617,11 @@ requirements:
   - PSyR-012
   - PSyR-017
   child_verification_ids:
+  - TV-PSwR-021-002
+  - TV-PSwR-022-001
+  - TV-PSwR-022-003
+  - TV-PSwR-022-004
+  - TV-PSwR-022-005
   - TV-PSwR-026-001
   source_refs:
   - file: docs/traceability/TraceabilityMatrix.md
@@ -559,7 +667,8 @@ requirements:
   parent_system_ids:
   - PSyR-012
   - PSyR-017
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-021-002
   source_refs:
   - file: docs/traceability/TraceabilityMatrix.md
     role: implementation_trace_context
@@ -583,7 +692,39 @@ requirements:
   - PSyR-015
   - PSyR-016
   - PSyR-017
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-029-003
+  - TV-PSwR-029-004
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
+  - TV-PSyR-017-001
   source_refs:
   - file: docs/traceability/TraceabilityMatrix.md
     role: implementation_trace_context
@@ -604,7 +745,37 @@ requirements:
   - version_origin_v2_2
   parent_system_ids:
   - PSyR-016
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
+  - TV-PSyR-013-001
   source_refs:
   - file: docs/traceability/TraceabilityMatrix.md
     role: implementation_trace_context
@@ -650,7 +821,37 @@ requirements:
   - PSyR-012
   - PSyR-015
   - PSyR-016
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-032-002
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/traceability/TraceabilityMatrix.md
     role: implementation_trace_context
@@ -673,7 +874,37 @@ requirements:
   - PSyR-011
   - PSyR-015
   child_verification_ids:
+  - TV-PSwR-022-005
   - TV-PSwR-033-001
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/traceability/TraceabilityMatrix.md
     role: implementation_trace_context
@@ -697,7 +928,38 @@ requirements:
   - PSyR-012
   - PSyR-015
   child_verification_ids:
+  - TV-PSwR-029-003
   - TV-PSwR-034-001
+  - TV-PSwR-034-002
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/traceability/TraceabilityMatrix.md
     role: implementation_trace_context
@@ -708,6 +970,8 @@ requirements:
     is missing as an explicit standalone entry in ProtoSwR.md. It is therefore migrated
     from traceability and open-issue evidence and should later be re-established in
     the authoritative requirement source set.
+  - Remains provisional because OI-017 still records that historical helper sources
+    are treated as time-constant without full historical source versioning.
 - id: PSwR-035
   title: Parametric historical target countries
   statement: The software shall allow the historical target-country set to be configured
@@ -741,7 +1005,37 @@ requirements:
   migration_tags: []
   parent_system_ids:
   - PSyR-018
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-036-001
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-036
@@ -757,7 +1051,11 @@ requirements:
   migration_tags: []
   parent_system_ids:
   - PSyR-018
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-036-001
+  - TV-PSwR-056-001
+  - TV-PSwR-071-002
+  - TV-PSwR-091-002
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-037
@@ -772,7 +1070,9 @@ requirements:
   migration_tags: []
   parent_system_ids:
   - PSyR-022
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-038-001
+  - TV-PSwR-056-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-038
@@ -789,7 +1089,45 @@ requirements:
   parent_system_ids:
   - PSyR-018
   - PSyR-022
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-039-001
+  - TV-PSwR-048-001
+  - TV-PSwR-049-001
+  - TV-PSwR-050-001
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-059-001
+  - TV-PSwR-060-001
+  - TV-PSwR-061-001
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-071-001
+  - TV-PSwR-080-001
+  - TV-PSwR-091-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-039
@@ -801,11 +1139,11 @@ requirements:
     auf ein Teilsignal `s_i` in `[0,1]` anwenden koennen. Fuer ausgewaehlte Quellen
     muss zusaetzlich ein transparenter Normalisierungs-Scope (`per_country` oder `global`)
     konfigurierbar sein.
-  status: provisional_requirement
+  status: implemented_requirement
   baseline_classification: active_baseline
   migration_tags:
   - parameterized_capability
-  - source_status_implemented_with_provisional_scope
+  - wp10_status_normalized_from_stale_trace_matrix
   parent_system_ids:
   - PSyR-018
   - PSyR-021
@@ -814,47 +1152,161 @@ requirements:
   - TV-PSwR-040-001
   - TV-PSwR-040-002
   - TV-PSwR-040-003
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-060-002
+  - TV-PSwR-061-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-072-001
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-040
   - file: docs/traceability/TraceabilityMatrix.md
     role: implementation_trace_context
+  notes:
+  - WP-10 normalized this requirement from provisional to implemented because explicit
+    code traces, test traces, and resolved calibration/governance issues show the
+    legacy matrix status is stale for the current baseline.
+  - WP-10 normalized this requirement from provisional to implemented because explicit
+    code traces, resolved issue context, and direct explicit TV-backed test coverage
+    show the legacy matrix status is stale for the current baseline.
 - id: PSwR-041
   title: Group fusion
   statement: Die Software muss Quellen innerhalb ihrer Gruppe ueber eine einfache
     transparente gewichtete Mittelung fusionieren koennen.
-  status: provisional_requirement
+  status: implemented_requirement
   baseline_classification: active_baseline
   migration_tags:
-  - source_status_implemented_with_provisional_scope
+  - wp10_status_normalized_from_stale_trace_matrix
   parent_system_ids:
   - PSyR-019
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-041-001
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-079-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-041
   - file: docs/traceability/TraceabilityMatrix.md
     role: implementation_trace_context
+  notes:
+  - WP-10 normalized this requirement from provisional to implemented because explicit
+    code traces, test traces, and resolved calibration/governance issues show the
+    legacy matrix status is stale for the current baseline.
+  - WP-10 normalized this requirement from provisional to implemented because explicit
+    code traces, resolved issue context, and direct explicit TV-backed test coverage
+    show the legacy matrix status is stale for the current baseline.
 - id: PSwR-042
   title: Fusion total score
   statement: Die Software muss aus den Gruppensignalen einen parallelen Fusion-Gesamtscore
     ueber transparente konfigurierbare Gruppengewichte berechnen koennen. Ein gruppenuebergreifender
     Bonusmechanismus darf optional vorhanden sein, muss im ersten V3.1-MVP aber standardmaessig
     deaktiviert bleiben.
-  status: provisional_requirement
+  status: implemented_requirement
   baseline_classification: active_baseline
   migration_tags:
   - parameterized_capability
-  - source_status_implemented_with_provisional_scope
   - version_origin_v3_1
+  - wp10_status_normalized_from_stale_trace_matrix
   parent_system_ids:
   - PSyR-020
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-041-001
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-042
   - file: docs/traceability/TraceabilityMatrix.md
     role: implementation_trace_context
+  notes:
+  - WP-10 normalized this requirement from provisional to implemented because explicit
+    code traces, test traces, and resolved calibration/governance issues show the
+    legacy matrix status is stale for the current baseline.
+  - WP-10 normalized this requirement from provisional to implemented because explicit
+    code traces, resolved issue context, and direct explicit TV-backed test coverage
+    show the legacy matrix status is stale for the current baseline.
 - id: PSwR-043
   title: Target periods for fusion
   statement: Die Software muss fuer die Fusion definierte Zielperioden verarbeiten
@@ -866,7 +1318,37 @@ requirements:
   - PSyR-022
   - PSyR-023
   - PSyR-027
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-043-001
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-043
@@ -882,7 +1364,9 @@ requirements:
   parent_system_ids:
   - PSyR-018
   - PSyR-022
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-071-002
+  - TV-PSwR-091-002
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-044
@@ -894,18 +1378,55 @@ requirements:
     und sichtbar ausgeben. Die Confidence-Berechnung soll explizit Coverage-, Aktualitaets-,
     Vollstaendigkeits- und Konsistenzkomponenten ausweisen und darf moderate Penalties
     fuer Einzel-Layer-Dominanz bzw. `limited`-Gruppenabdeckung enthalten.
-  status: provisional_requirement
+  status: implemented_requirement
   baseline_classification: active_baseline
   migration_tags:
-  - source_status_implemented_with_provisional_scope
+  - wp10_status_normalized_from_stale_trace_matrix
   parent_system_ids:
   - PSyR-020
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-041-001
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-045
   - file: docs/traceability/TraceabilityMatrix.md
     role: implementation_trace_context
+  notes:
+  - WP-10 normalized this requirement from provisional to implemented because explicit
+    code traces, test traces, and resolved calibration/governance issues show the
+    legacy matrix status is stale for the current baseline.
+  - WP-10 normalized this requirement from provisional to implemented because explicit
+    code traces, resolved issue context, and direct explicit TV-backed test coverage
+    show the legacy matrix status is stale for the current baseline.
 - id: PSwR-046
   title: Group scores
   statement: Die Software muss fuer die Layer/Gruppen numerische Gruppenscores erzeugen
@@ -915,18 +1436,55 @@ requirements:
   status: provisional_requirement
   baseline_classification: active_baseline
   migration_tags:
-  - source_status_implemented_with_provisional_scope
   - version_origin_v3_1
   - version_origin_v4_2
+  - wp10_status_normalized_from_stale_trace_matrix
   parent_system_ids:
   - PSyR-019
   - PSyR-020
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-046
   - file: docs/traceability/TraceabilityMatrix.md
     role: implementation_trace_context
+  notes:
+  - WP-10 normalized this requirement from provisional to implemented because explicit
+    code traces, test traces, and resolved calibration/governance issues show the
+    legacy matrix status is stale for the current baseline.
+  - Remains provisional in WP-10 because implementation evidence is strong but current
+    explicit verification trace for group scores is still indirect through shared
+    fusion and pipeline tests rather than a dedicated refreshed legacy verification
+    row.
 - id: PSwR-047
   title: Parallel run path
   statement: Die Software muss den neuen Fusion-Pfad parallel zum bestehenden Cluster-/Score-Pfad
@@ -936,7 +1494,37 @@ requirements:
   migration_tags: []
   parent_system_ids:
   - PSyR-020
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-047-001
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-047
@@ -951,7 +1539,37 @@ requirements:
   migration_tags: []
   parent_system_ids:
   - PSyR-021
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-048-001
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-048
@@ -966,7 +1584,37 @@ requirements:
   migration_tags: []
   parent_system_ids:
   - PSyR-021
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-049-001
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-049
@@ -981,7 +1629,37 @@ requirements:
   migration_tags: []
   parent_system_ids:
   - PSyR-021
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-050-001
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-050
@@ -998,7 +1676,38 @@ requirements:
   parent_system_ids:
   - PSyR-020
   - PSyR-028
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-051-001
+  - TV-PSwR-053-001
+  - TV-PSwR-053-002
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-051
@@ -1015,7 +1724,36 @@ requirements:
   parent_system_ids:
   - PSyR-019
   - PSyR-020
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-052
@@ -1033,6 +1771,34 @@ requirements:
   child_verification_ids:
   - TV-PSwR-053-001
   - TV-PSwR-053-002
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-053
@@ -1083,7 +1849,10 @@ requirements:
   parent_system_ids:
   - PSyR-027
   child_verification_ids:
+  - TV-PSwR-054-001
+  - TV-PSwR-056-001
   - TV-PSwR-056-002
+  - TV-PSwR-086-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-056
@@ -1100,7 +1869,35 @@ requirements:
   - PSyR-023
   - PSyR-027
   child_verification_ids:
+  - TV-PSwR-053-001
   - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-057
@@ -1117,8 +1914,36 @@ requirements:
   - PSyR-023
   - PSyR-028
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
   - TV-PSwR-058-001
   - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-058
@@ -1134,7 +1959,36 @@ requirements:
   parent_system_ids:
   - PSyR-024
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
   - TV-PSwR-059-001
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-059
@@ -1150,8 +2004,37 @@ requirements:
   parent_system_ids:
   - PSyR-025
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
   - TV-PSwR-060-001
   - TV-PSwR-060-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-060
@@ -1168,13 +2051,45 @@ requirements:
   parent_system_ids:
   - PSyR-026
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
   - TV-PSwR-061-001
   - TV-PSwR-061-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-061
   - file: docs/traceability/TraceabilityMatrix.md
     role: implementation_trace_context
+  notes:
+  - Remains provisional because OI-031 still leaves narrative semantic validation,
+    taxonomy control, and review workflow open.
 - id: PSwR-062
   title: Historical fusion group scores
   statement: Die Software muss historische Fusion-Gruppenscores je Land/Periode erzeugen
@@ -1185,7 +2100,37 @@ requirements:
   parent_system_ids:
   - PSyR-023
   - PSyR-028
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-056-002
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-062
@@ -1202,7 +2147,39 @@ requirements:
   parent_system_ids:
   - PSyR-023
   - PSyR-028
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-056-002
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-064-002
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-086-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-063
@@ -1221,8 +2198,37 @@ requirements:
   - PSyR-023
   - PSyR-028
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
   - TV-PSwR-064-001
   - TV-PSwR-064-002
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-073-001
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-064
@@ -1238,7 +2244,35 @@ requirements:
   parent_system_ids:
   - PSyR-028
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
   - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-065
@@ -1255,8 +2289,37 @@ requirements:
   parent_system_ids:
   - PSyR-028
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-056-002
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-064-002
+  - TV-PSwR-065-001
   - TV-PSwR-066-001
   - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-066
@@ -1276,7 +2339,36 @@ requirements:
   - PSyR-020
   - PSyR-023
   - PSyR-028
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-067
@@ -1287,20 +2379,53 @@ requirements:
   statement: Die Software darf die Gruppe `event` in V3.2 weiterhin als `not_available`
     ausgeben, sofern dies explizit markiert bleibt. Ab V3.3 wird diese Uebergangsregel
     durch die operative Event-Integration (`PSwR-073`) abgeloest.
-  status: provisional_requirement
-  baseline_classification: active_baseline
+  status: retired_requirement
+  baseline_classification: legacy_variant
   migration_tags:
-  - source_status_implemented_with_provisional_scope
+  - superseded_by_event_operationalization
   - version_origin_v3_2
   - version_origin_v3_3
   parent_system_ids:
   - PSyR-023
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-068
   - file: docs/traceability/TraceabilityMatrix.md
     role: implementation_trace_context
+  notes:
+  - WP-10 retired this transitional V3.2 requirement from the active baseline because
+    the event layer is operational in the current baseline and the temporary not_available
+    rule is superseded by PSwR-073 and resolved OI-033.
 - id: PSwR-069
   title: Fusion status includes historical counts
   statement: Die Software muss den Fusion-Status-Export um historische Record-Zaehlungen
@@ -1312,8 +2437,35 @@ requirements:
   parent_system_ids:
   - PSyR-028
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
   - TV-PSwR-069-001
   - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-069
@@ -1329,7 +2481,36 @@ requirements:
   migration_tags: []
   parent_system_ids:
   - PSyR-023
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-070
@@ -1346,8 +2527,37 @@ requirements:
   parent_system_ids:
   - PSyR-029
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
   - TV-PSwR-071-001
   - TV-PSwR-071-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-071
@@ -1364,7 +2574,38 @@ requirements:
   parent_system_ids:
   - PSyR-029
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-071-001
+  - TV-PSwR-071-002
   - TV-PSwR-072-001
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-072
@@ -1382,7 +2623,36 @@ requirements:
   parent_system_ids:
   - PSyR-029
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
   - TV-PSwR-073-001
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-073
@@ -1397,7 +2667,36 @@ requirements:
   migration_tags: []
   parent_system_ids:
   - PSyR-029
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-074
@@ -1413,7 +2712,36 @@ requirements:
   migration_tags: []
   parent_system_ids:
   - PSyR-030
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-075
@@ -1428,7 +2756,36 @@ requirements:
   migration_tags: []
   parent_system_ids:
   - PSyR-030
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-076
@@ -1445,7 +2802,37 @@ requirements:
   parent_system_ids:
   - PSyR-030
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
   - TV-PSwR-077-001
+  - TV-PSwR-080-001
+  - TV-PSwR-081-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-077
@@ -1462,7 +2849,36 @@ requirements:
   parent_system_ids:
   - PSyR-030
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
   - TV-PSwR-078-001
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-078
@@ -1481,8 +2897,37 @@ requirements:
   - PSyR-030
   - PSyR-032
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
   - TV-PSwR-079-001
   - TV-PSwR-079-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-079
@@ -1498,8 +2943,39 @@ requirements:
   parent_system_ids:
   - PSyR-031
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-077-001
   - TV-PSwR-080-001
   - TV-PSwR-080-002
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-096-002
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-112-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-080
@@ -1515,7 +2991,39 @@ requirements:
   parent_system_ids:
   - PSyR-031
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-080-002
   - TV-PSwR-081-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-096-002
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-112-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-081
@@ -1531,7 +3039,36 @@ requirements:
   migration_tags: []
   parent_system_ids:
   - PSyR-031
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-082
@@ -1566,7 +3103,8 @@ requirements:
   migration_tags: []
   parent_system_ids:
   - PSyR-032
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-083-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-084
@@ -1584,6 +3122,7 @@ requirements:
   child_verification_ids:
   - TV-PSwR-085-001
   - TV-PSwR-085-002
+  - TV-PSwR-094-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-085
@@ -1600,6 +3139,7 @@ requirements:
   parent_system_ids:
   - PSyR-033
   child_verification_ids:
+  - TV-PSwR-085-002
   - TV-PSwR-086-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
@@ -1615,7 +3155,8 @@ requirements:
   migration_tags: []
   parent_system_ids:
   - PSyR-032
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-083-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-087
@@ -1631,7 +3172,8 @@ requirements:
   - version_origin_v4_1
   parent_system_ids:
   - PSyR-032
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-083-002
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-088
@@ -1646,7 +3188,10 @@ requirements:
   migration_tags: []
   parent_system_ids:
   - PSyR-033
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-085-001
+  - TV-PSwR-085-002
+  - TV-PSwR-094-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-089
@@ -1662,7 +3207,8 @@ requirements:
   - version_origin_v4_1
   parent_system_ids:
   - PSyR-033
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-085-002
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-090
@@ -1679,8 +3225,37 @@ requirements:
   parent_system_ids:
   - PSyR-034
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
   - TV-PSwR-091-001
   - TV-PSwR-091-002
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-091
@@ -1697,7 +3272,38 @@ requirements:
   - parameterized_capability
   parent_system_ids:
   - PSyR-034
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-091-001
+  - TV-PSwR-091-002
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-092
@@ -1714,7 +3320,36 @@ requirements:
   parent_system_ids:
   - PSyR-034
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
   - TV-PSwR-093-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-093
@@ -1731,7 +3366,36 @@ requirements:
   parent_system_ids:
   - PSyR-035
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
   - TV-PSwR-094-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-094
@@ -1748,7 +3412,35 @@ requirements:
   parent_system_ids:
   - PSyR-035
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
   - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-095
@@ -1764,8 +3456,38 @@ requirements:
   parent_system_ids:
   - PSyR-035
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-080-002
+  - TV-PSwR-095-001
   - TV-PSwR-096-001
   - TV-PSwR-096-002
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-112-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-096
@@ -1784,7 +3506,8 @@ requirements:
   - version_origin_v4_3
   parent_system_ids:
   - PSyR-036
-  child_verification_ids: []
+  child_verification_ids:
+  - GV-PSwR-097-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-097
@@ -1806,8 +3529,36 @@ requirements:
   parent_system_ids:
   - PSyR-037
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
   - TV-PSwR-098-001
   - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-098
@@ -1826,7 +3577,37 @@ requirements:
   migration_tags: []
   parent_system_ids:
   - PSyR-038
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-099
@@ -1842,7 +3623,37 @@ requirements:
   migration_tags: []
   parent_system_ids:
   - PSyR-038
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-100
@@ -1861,7 +3672,36 @@ requirements:
   - version_origin_v4_3
   parent_system_ids:
   - PSyR-038
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-101
@@ -1880,7 +3720,37 @@ requirements:
   - version_origin_v4_3
   parent_system_ids:
   - PSyR-038
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-102
@@ -1895,7 +3765,36 @@ requirements:
   migration_tags: []
   parent_system_ids:
   - PSyR-038
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-103
@@ -1911,7 +3810,39 @@ requirements:
   - version_origin_v4_3
   parent_system_ids:
   - PSyR-038
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-080-002
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-096-002
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-112-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-104
@@ -1930,7 +3861,36 @@ requirements:
   parent_system_ids:
   - PSyR-039
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
   - TV-PSwR-105-001
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-105
@@ -1951,7 +3911,37 @@ requirements:
   parent_system_ids:
   - PSyR-039
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-105-001
   - TV-PSwR-106-001
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-106
@@ -1969,7 +3959,36 @@ requirements:
   parent_system_ids:
   - PSyR-039
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-105-001
   - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-107
@@ -1987,7 +4006,36 @@ requirements:
   - PSyR-039
   - PSyR-040
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-105-001
+  - TV-PSwR-107-001
   - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-108
@@ -2005,7 +4053,36 @@ requirements:
   - PSyR-039
   - PSyR-040
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-105-001
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
   - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-109
@@ -2022,7 +4099,37 @@ requirements:
   parent_system_ids:
   - PSyR-039
   - PSyR-040
-  child_verification_ids: []
+  child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-105-001
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-110
@@ -2040,7 +4147,37 @@ requirements:
   parent_system_ids:
   - PSyR-040
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-053-002
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-105-001
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
   - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-111
@@ -2058,7 +4195,39 @@ requirements:
   parent_system_ids:
   - PSyR-040
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-080-002
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-096-002
+  - TV-PSwR-098-002
+  - TV-PSwR-105-001
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
   - TV-PSwR-112-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-112
@@ -2077,7 +4246,35 @@ requirements:
   parent_system_ids:
   - PSyR-041
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
   - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-113
@@ -2094,7 +4291,35 @@ requirements:
   parent_system_ids:
   - PSyR-041
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
   - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-114
@@ -2111,7 +4336,35 @@ requirements:
   parent_system_ids:
   - PSyR-042
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
   - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-115
@@ -2128,7 +4381,35 @@ requirements:
   parent_system_ids:
   - PSyR-042
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
   - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-116
@@ -2145,7 +4426,35 @@ requirements:
   parent_system_ids:
   - PSyR-043
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
   - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-117
@@ -2161,7 +4470,35 @@ requirements:
   parent_system_ids:
   - PSyR-043
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
   - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-118
@@ -2178,7 +4515,35 @@ requirements:
   parent_system_ids:
   - PSyR-043
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
   - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-119
@@ -2196,7 +4561,35 @@ requirements:
   parent_system_ids:
   - PSyR-043
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
   - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-120
@@ -2213,7 +4606,35 @@ requirements:
   parent_system_ids:
   - PSyR-043
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
   - TV-PSwR-121-001
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-121
@@ -2232,8 +4653,37 @@ requirements:
   - PSyR-042
   - PSyR-043
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
   - TV-PSwR-122-001
   - TV-PSwR-122-002
+  - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-122
@@ -2250,7 +4700,35 @@ requirements:
   parent_system_ids:
   - PSyR-043
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
   - TV-PSwR-123-001
+  - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-123
@@ -2274,7 +4752,35 @@ requirements:
   parent_system_ids:
   - PSyR-043
   child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-057-001
+  - TV-PSwR-058-002
+  - TV-PSwR-064-001
+  - TV-PSwR-065-001
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  - TV-PSwR-080-001
+  - TV-PSwR-095-001
+  - TV-PSwR-096-001
+  - TV-PSwR-098-002
+  - TV-PSwR-107-001
+  - TV-PSwR-108-001
+  - TV-PSwR-109-001
+  - TV-PSwR-111-001
+  - TV-PSwR-113-001
+  - TV-PSwR-114-001
+  - TV-PSwR-115-001
+  - TV-PSwR-116-001
+  - TV-PSwR-117-001
+  - TV-PSwR-118-001
+  - TV-PSwR-119-001
+  - TV-PSwR-120-001
+  - TV-PSwR-121-001
+  - TV-PSwR-123-001
   - TV-PSwR-124-001
+  - TV-PSyR-012-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-124
