@@ -1,33 +1,598 @@
 metadata:
   artifact_type: system_requirements
-  migration_status: skeleton_initialized
+  migration_status: initial_population
   baseline_decision_source: docs/planning/2026-05-09_baseline_decisions.md
   source_documents:
-    - docs/requirements/ProtoSyR.md
+  - docs/requirements/ProtoSyR.md
+  - vmodel/requirements/stakeholder_requirements.yaml
   classification_rules:
-    - active_baseline
-    - historical_origin
-    - parameterized_capability
-    - legacy_variant
+  - active_baseline
+  - historical_origin
+  - parameterized_capability
+  - legacy_variant
   allowed_statuses:
-    - candidate_baseline_requirement
-    - accepted_baseline_requirement
-    - implemented_requirement
-    - provisional_requirement
-    - retired_requirement
+  - candidate_baseline_requirement
+  - accepted_baseline_requirement
+  - implemented_requirement
+  - provisional_requirement
+  - retired_requirement
+  notes:
+  - System requirements are derived from the migrated stakeholder baseline and normalized to the accepted 10-country and 365-day defaults where applicable.
+  - Bidirectional stakeholder<->system links are now populated.
+  - Child software links remain empty until formal software derivation is completed.
 schema_guidance:
   required_fields:
-    - id
-    - title
-    - statement
-    - status
-    - baseline_classification
-    - source_refs
-    - parent_stakeholder_ids
-    - child_software_ids
+  - id
+  - title
+  - statement
+  - status
+  - baseline_classification
+  - source_refs
+  - parent_stakeholder_ids
+  - child_software_ids
   optional_fields:
-    - migration_tags
-    - rationale
-    - notes
-    - supersedes
-requirements: []
+  - migration_tags
+  - rationale
+  - notes
+  - supersedes
+requirements:
+- id: PSyR-001
+  title: Default country baseline and configurable country selection
+  statement: The system shall support a default operational baseline of 10 countries and shall allow the selected country set to be configured when needed.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - normalized_from_three_country_origin
+  - parameterized_capability
+  parent_stakeholder_ids:
+  - PSR-002
+  - PSR-006
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-001
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSyR-002
+  title: Analysis windows and default annual horizon
+  statement: The system shall support short-term and medium-term analysis windows and shall use a default annual horizon of 365 days while allowing horizon configuration when needed.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - normalized_from_12m_and_356_day_wording
+  - parameterized_capability
+  parent_stakeholder_ids:
+  - PSR-001
+  - PSR-005
+  - PSR-024
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-002
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSyR-003
+  title: Core cluster generation
+  statement: The system shall generate the core analytical clusters tension, escalation, and vulnerability.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_stakeholder_ids:
+  - PSR-001
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-003
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSyR-004
+  title: Escalation subdivision
+  statement: The system shall distinguish internal escalation from external or warlike escalation.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_stakeholder_ids:
+  - PSR-001
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-004
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSyR-005
+  title: Core source processing baseline
+  statement: The system shall process the core source baseline GDELT, UCDP, bridge data, and context data.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_stakeholder_ids:
+  - PSR-001
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-005
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSyR-006
+  title: Reporting and handout generation
+  statement: The system shall generate a report or handout including plots.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_stakeholder_ids:
+  - PSR-003
+  - PSR-005
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-006
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSyR-007
+  title: Structured exports
+  statement: The system shall generate structured exports for downstream review and use.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_stakeholder_ids:
+  - PSR-003
+  - PSR-004
+  - PSR-007
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-007
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSyR-008
+  title: Run metadata persistence
+  statement: The system shall store run metadata for each execution.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_stakeholder_ids:
+  - PSR-007
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-008
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSyR-009
+  title: Run comparison capability
+  statement: The system shall compare runs against a previous stored run.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_stakeholder_ids:
+  - PSR-007
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-009
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSyR-010
+  title: Reference-run capability
+  statement: The system shall store and reuse a reference run.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_stakeholder_ids:
+  - PSR-007
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-010
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSyR-018
+  title: Canonical observation schema
+  statement: The system shall transform new sources into a shared canonical observation schema before further processing.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v3
+  parent_stakeholder_ids:
+  - PSR-012
+  - PSR-014
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-018
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSyR-019
+  title: Parallel layer and group view
+  statement: The system shall maintain, in parallel to the cluster view, the layer and group space Event, Narrative, Governance, Market/Food, Shock, Displacement, and Structural.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v3
+  parent_stakeholder_ids:
+  - PSR-012
+  - PSR-013
+  - PSR-017
+  - PSR-020
+  - PSR-023
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-019
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSyR-020
+  title: Parallel fusion score path
+  statement: The system shall generate group scores and a fusion total score in addition to the existing score path.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v3
+  parent_stakeholder_ids:
+  - PSR-013
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-020
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSyR-021
+  title: Initial V3.1 source baseline
+  statement: The system shall process at least FAO FFPI, FAO FPMA, and UN Comtrade in the initial multi-source expansion.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v3_1
+  parent_stakeholder_ids:
+  - PSR-015
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-021
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSyR-022
+  title: Handling of mixed native periods
+  statement: The system shall process sources with different native temporal resolutions without forcing them prematurely into a single raw-data grid.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v3
+  parent_stakeholder_ids:
+  - PSR-012
+  - PSR-014
+  - PSR-016
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-022
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSyR-023
+  title: Historical fusion path
+  statement: The system shall provide a historical trajectory for the fusion result space in addition to snapshot values.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v3_2
+  parent_stakeholder_ids:
+  - PSR-016
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-023
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSyR-024
+  title: Shock layer with GDACS
+  statement: The system shall integrate GDACS as a Shock-layer source into the canonical observation and fusion path.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v3_2
+  parent_stakeholder_ids:
+  - PSR-017
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-024
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSyR-025
+  title: Displacement layer with UNHCR
+  statement: The system shall integrate UNHCR as a Displacement-layer source into the canonical observation and fusion path.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v3_2
+  parent_stakeholder_ids:
+  - PSR-017
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-025
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSyR-026
+  title: Operational narrative layer
+  statement: The system shall provide a clearly separated structured narrative or expert-input adapter path.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v3_2
+  parent_stakeholder_ids:
+  - PSR-017
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-026
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSyR-027
+  title: Monthly target periods for historical fusion
+  statement: The system shall compute the historical fusion path over explicit monthly target periods.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v3_2
+  parent_stakeholder_ids:
+  - PSR-016
+  - PSR-018
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-027
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSyR-028
+  title: Historical fusion reporting
+  statement: The system shall output historical fusion artifacts as an additional result space, including reporting aids for coverage and driver interpretation.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v3_2
+  - hardening_v3_2_1
+  parent_stakeholder_ids:
+  - PSR-016
+  - PSR-018
+  - PSR-019
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-028
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSyR-029
+  title: Operational event-layer integration
+  statement: The system shall operate the Event layer with at least one real event source in the canonical observation and fusion path.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v3_3
+  parent_stakeholder_ids:
+  - PSR-020
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-029
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSyR-030
+  title: Validation framework with reference episodes
+  statement: The system shall provide and evaluate an explicit validation framework with versioned reference episodes.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v4_0
+  parent_stakeholder_ids:
+  - PSR-021
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-030
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSyR-031
+  title: Validation status in review artifacts
+  statement: The system shall transport validation status in regular fusion artifacts and in review artifacts.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v4_0
+  parent_stakeholder_ids:
+  - PSR-021
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-031
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSyR-032
+  title: Freshness and staleness control for dynamic layers
+  statement: The system shall operate an explicit freshness and staleness model for time-dynamic layers that consistently influences score, confidence, and diagnostics.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v4_1
+  parent_stakeholder_ids:
+  - PSR-022
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-032
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSyR-033
+  title: Operational responsiveness view
+  statement: The system shall provide an operational responsiveness view and transport it in exports, handout, and acceptance artifacts.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v4_1
+  parent_stakeholder_ids:
+  - PSR-022
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-033
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSyR-034
+  title: Governance layer in canonical fusion path
+  statement: The system shall maintain an independent governance layer with a clearly named source in the canonical observation and fusion path and compute it in snapshot and historical fusion.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v4_2
+  parent_stakeholder_ids:
+  - PSR-023
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-034
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSyR-035
+  title: Governance diagnostics in validation and review artifacts
+  statement: The system shall transport governance-specific diagnostics, warnings, and validation hints in validation summary, handout, acceptance snapshot, and review bundle.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v4_2
+  parent_stakeholder_ids:
+  - PSR-023
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-035
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSyR-036
+  title: Default 10-country comparative baseline
+  statement: The system shall use a default 10-country comparative baseline and keep the selection explicit, consistent, and configurable across configuration, pipeline, and artifacts.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - normalized_from_fixed_10_country_wording
+  - parameterized_capability
+  - version_origin_v4_3
+  parent_stakeholder_ids:
+  - PSR-002
+  - PSR-006
+  - PSR-024
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-036
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSyR-037
+  title: Full default 365-day country profiles
+  statement: The system shall process and export a full default 365-day profile for all countries in the active comparison set, marking data gaps explicitly without excluding countries from comparison; the profile horizon shall remain configurable.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - normalized_from_356_day_variant
+  - parameterized_capability
+  - version_origin_v4_3
+  parent_stakeholder_ids:
+  - PSR-024
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-037
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSyR-038
+  title: Comparative diagnostics and equal-depth reporting
+  statement: The system shall provide global comparative diagnostics and per-country annual profiles, with a handout structure that presents a global comparison part before equally deep country sections.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v4_3
+  parent_stakeholder_ids:
+  - PSR-003
+  - PSR-024
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-038
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSyR-039
+  title: Peak attribution in multi-country historical trajectories
+  statement: The system shall provide explicit peak attribution for country trajectories, showing dominant groups, global versus country-specific contributions, freshness context, and support breadth.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - normalized_from_356_day_variant
+  - version_origin_v4_3_1
+  parent_stakeholder_ids:
+  - PSR-025
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-039
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSyR-040
+  title: Event-alignment and synchronization review view
+  statement: The system shall distinguish event-supported, weakly supported, globally co-moving, and model-driven peak situations in review outputs.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v4_3_1
+  parent_stakeholder_ids:
+  - PSR-025
+  - PSR-026
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-040
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSyR-041
+  title: Structured event-registry review path
+  statement: The system shall provide a stable versioned event-registry path that can be used in runs without live-web dependency.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v4_3_2
+  parent_stakeholder_ids:
+  - PSR-026
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-041
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSyR-042
+  title: Staged peak-event matching
+  statement: The system shall mirror detected peaks against the event-registry space using a staged matching logic with match classes, match confidence, and evidence fields.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v4_3_2
+  parent_stakeholder_ids:
+  - PSR-026
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-042
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSyR-043
+  title: Event-alignment diagnostics and review artifacts
+  statement: The system shall provide event-alignment coverage, country-level alignment maturity, and explicit uncertainties as export, handout, and bundle artifacts.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v4_3_2
+  parent_stakeholder_ids:
+  - PSR-026
+  child_software_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSyR.md
+    id: PSyR-043
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context

@@ -44,7 +44,11 @@ requirements:
   migration_tags:
   - normalized_language
   parent_stakeholder_ids: []
-  child_system_ids: []
+  child_system_ids:
+  - PSyR-002
+  - PSyR-003
+  - PSyR-004
+  - PSyR-005
   source_refs:
   - file: docs/requirements/ProtoSR.md
     id: PSR-001
@@ -59,7 +63,9 @@ requirements:
   - parameterized_capability
   - normalized_from_three_country_origin
   parent_stakeholder_ids: []
-  child_system_ids: []
+  child_system_ids:
+  - PSyR-001
+  - PSyR-036
   source_refs:
   - file: docs/requirements/ProtoSR.md
     id: PSR-002
@@ -72,7 +78,10 @@ requirements:
   baseline_classification: active_baseline
   migration_tags: []
   parent_stakeholder_ids: []
-  child_system_ids: []
+  child_system_ids:
+  - PSyR-006
+  - PSyR-007
+  - PSyR-038
   source_refs:
   - file: docs/requirements/ProtoSR.md
     id: PSR-003
@@ -85,7 +94,8 @@ requirements:
   baseline_classification: active_baseline
   migration_tags: []
   parent_stakeholder_ids: []
-  child_system_ids: []
+  child_system_ids:
+  - PSyR-007
   source_refs:
   - file: docs/requirements/ProtoSR.md
     id: PSR-004
@@ -98,7 +108,9 @@ requirements:
   baseline_classification: active_baseline
   migration_tags: []
   parent_stakeholder_ids: []
-  child_system_ids: []
+  child_system_ids:
+  - PSyR-002
+  - PSyR-006
   source_refs:
   - file: docs/requirements/ProtoSR.md
     id: PSR-005
@@ -113,7 +125,9 @@ requirements:
   - normalized_from_three_country_origin
   - parameterized_capability
   parent_stakeholder_ids: []
-  child_system_ids: []
+  child_system_ids:
+  - PSyR-001
+  - PSyR-036
   source_refs:
   - file: docs/requirements/ProtoSR.md
     id: PSR-006
@@ -126,7 +140,11 @@ requirements:
   baseline_classification: active_baseline
   migration_tags: []
   parent_stakeholder_ids: []
-  child_system_ids: []
+  child_system_ids:
+  - PSyR-007
+  - PSyR-008
+  - PSyR-009
+  - PSyR-010
   source_refs:
   - file: docs/requirements/ProtoSR.md
     id: PSR-007
@@ -140,7 +158,10 @@ requirements:
   migration_tags:
   - version_origin_v3
   parent_stakeholder_ids: []
-  child_system_ids: []
+  child_system_ids:
+  - PSyR-018
+  - PSyR-019
+  - PSyR-022
   source_refs:
   - file: docs/requirements/ProtoSR.md
     id: PSR-012
@@ -154,7 +175,9 @@ requirements:
   migration_tags:
   - version_origin_v3
   parent_stakeholder_ids: []
-  child_system_ids: []
+  child_system_ids:
+  - PSyR-019
+  - PSyR-020
   source_refs:
   - file: docs/requirements/ProtoSR.md
     id: PSR-013
@@ -168,7 +191,9 @@ requirements:
   migration_tags:
   - version_origin_v3
   parent_stakeholder_ids: []
-  child_system_ids: []
+  child_system_ids:
+  - PSyR-018
+  - PSyR-022
   source_refs:
   - file: docs/requirements/ProtoSR.md
     id: PSR-014
@@ -183,7 +208,8 @@ requirements:
   - version_origin_v3_1
   - milestone_wording_normalized
   parent_stakeholder_ids: []
-  child_system_ids: []
+  child_system_ids:
+  - PSyR-021
   source_refs:
   - file: docs/requirements/ProtoSR.md
     id: PSR-015
@@ -197,7 +223,11 @@ requirements:
   migration_tags:
   - version_origin_v3_2
   parent_stakeholder_ids: []
-  child_system_ids: []
+  child_system_ids:
+  - PSyR-022
+  - PSyR-023
+  - PSyR-027
+  - PSyR-028
   source_refs:
   - file: docs/requirements/ProtoSR.md
     id: PSR-016
@@ -211,7 +241,11 @@ requirements:
   migration_tags:
   - version_origin_v3_2
   parent_stakeholder_ids: []
-  child_system_ids: []
+  child_system_ids:
+  - PSyR-019
+  - PSyR-024
+  - PSyR-025
+  - PSyR-026
   source_refs:
   - file: docs/requirements/ProtoSR.md
     id: PSR-017
@@ -226,7 +260,9 @@ requirements:
   - version_origin_v3_2
   - hardening_v3_2_1
   parent_stakeholder_ids: []
-  child_system_ids: []
+  child_system_ids:
+  - PSyR-027
+  - PSyR-028
   source_refs:
   - file: docs/requirements/ProtoSR.md
     id: PSR-018
@@ -240,7 +276,8 @@ requirements:
   migration_tags:
   - version_origin_v3_2
   parent_stakeholder_ids: []
-  child_system_ids: []
+  child_system_ids:
+  - PSyR-028
   source_refs:
   - file: docs/requirements/ProtoSR.md
     id: PSR-019
@@ -254,7 +291,9 @@ requirements:
   migration_tags:
   - version_origin_v3_3
   parent_stakeholder_ids: []
-  child_system_ids: []
+  child_system_ids:
+  - PSyR-019
+  - PSyR-029
   source_refs:
   - file: docs/requirements/ProtoSR.md
     id: PSR-020
@@ -268,7 +307,9 @@ requirements:
   migration_tags:
   - version_origin_v4_0
   parent_stakeholder_ids: []
-  child_system_ids: []
+  child_system_ids:
+  - PSyR-030
+  - PSyR-031
   source_refs:
   - file: docs/requirements/ProtoSR.md
     id: PSR-021
@@ -282,7 +323,9 @@ requirements:
   migration_tags:
   - version_origin_v4_1
   parent_stakeholder_ids: []
-  child_system_ids: []
+  child_system_ids:
+  - PSyR-032
+  - PSyR-033
   source_refs:
   - file: docs/requirements/ProtoSR.md
     id: PSR-022
@@ -296,7 +339,10 @@ requirements:
   migration_tags:
   - version_origin_v4_2
   parent_stakeholder_ids: []
-  child_system_ids: []
+  child_system_ids:
+  - PSyR-019
+  - PSyR-034
+  - PSyR-035
   source_refs:
   - file: docs/requirements/ProtoSR.md
     id: PSR-023
@@ -312,7 +358,11 @@ requirements:
   - normalized_from_356_day_variant
   - version_origin_v4_3
   parent_stakeholder_ids: []
-  child_system_ids: []
+  child_system_ids:
+  - PSyR-002
+  - PSyR-036
+  - PSyR-037
+  - PSyR-038
   source_refs:
   - file: docs/requirements/ProtoSR.md
     id: PSR-024
@@ -327,7 +377,9 @@ requirements:
   - normalized_from_356_day_variant
   - version_origin_v4_3_1
   parent_stakeholder_ids: []
-  child_system_ids: []
+  child_system_ids:
+  - PSyR-039
+  - PSyR-040
   source_refs:
   - file: docs/requirements/ProtoSR.md
     id: PSR-025
@@ -341,7 +393,11 @@ requirements:
   migration_tags:
   - version_origin_v4_3_2
   parent_stakeholder_ids: []
-  child_system_ids: []
+  child_system_ids:
+  - PSyR-040
+  - PSyR-041
+  - PSyR-042
+  - PSyR-043
   source_refs:
   - file: docs/requirements/ProtoSR.md
     id: PSR-026
