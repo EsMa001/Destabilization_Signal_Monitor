@@ -1,6 +1,6 @@
 metadata:
   artifact_type: test_specifications
-  migration_status: implementation_trace_hardened
+  migration_status: governed_verification_baseline
   baseline_decision_source: docs/planning/2026-05-09_baseline_decisions.md
   source_documents:
   - docs/traceability/TraceabilityMatrix.md
@@ -26,6 +26,10 @@ metadata:
     from test traceability annotations.
   - From WP-10 onward, this YAML artifact is authoritative for migrated verification
     governance on hermes/vmodel-assessment.
+  - WP-11 promotes the two remaining GV placeholders into governed TV artifacts where
+    the branch baseline can justify stable requirement-level verification management.
+  - WP-11 adds TV-PSwR-046-001 as a governed requirement-level verification artifact
+    derived from explicit fusion and pipeline test traceability context.
 schema_guidance:
   required_fields:
   - id
@@ -39,33 +43,6 @@ schema_guidance:
   - implementation_refs
   - test_level
 specifications:
-- id: GV-PSwR-019-001
-  title: Governance placeholder for legacy generic verification reference of PSwR-019
-  verification_type: governance_placeholder
-  linked_requirement_ids:
-  - PSwR-019
-  source_refs:
-  - file: docs/traceability/TraceabilityMatrix.md
-    requirement_id: PSwR-019
-  status: candidate_verification_artifact
-  test_level: mixed
-  automation_status: partially_formalized
-  implementation_refs:
-  - command: python -m pytest
-  - note: manual_review_required
-- id: GV-PSwR-097-001
-  title: Governance placeholder for legacy generic verification reference of PSwR-097
-  verification_type: governance_placeholder
-  linked_requirement_ids:
-  - PSwR-097
-  source_refs:
-  - file: docs/traceability/TraceabilityMatrix.md
-    requirement_id: PSwR-097
-  status: candidate_verification_artifact
-  test_level: integration
-  automation_status: partially_formalized
-  implementation_refs:
-  - path: tests/test_config.py
 - id: TV-PSR-010-002
   title: Derived verification artifact TV-PSR-010-002
   verification_type: derived_automated_test
@@ -502,6 +479,23 @@ specifications:
   implementation_refs:
   - path: tests/test_pipeline.py
   - path: tests/test_runs.py
+- id: TV-PSwR-019-001
+  title: Governed traceability review for requirement references in code and tests
+  verification_type: mixed_review
+  linked_requirement_ids:
+  - PSwR-019
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-019
+  - file: tests/test_pipeline.py
+    role: regression_execution_context
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: mixed_automated_and_manual
+  implementation_refs:
+  - command: python -m pytest
+  - note: manual_review_required_for_requirement_reference_annotations
+  - path: tests/test_pipeline.py
 - id: TV-PSwR-021-001
   title: Verification for PSwR-021
   verification_type: automated_test
@@ -898,6 +892,22 @@ specifications:
   automation_status: automated
   implementation_refs:
   - path: tests/test_fusion.py
+- id: TV-PSwR-046-001
+  title: Governed verification for numeric group-score generation
+  verification_type: derived_automated_test
+  linked_requirement_ids:
+  - PSwR-046
+  source_refs:
+  - file: tests/test_fusion.py
+    role: test_traceability_annotation
+  - file: tests/test_pipeline.py
+    role: integration_traceability_annotation
+  status: implemented_verification_artifact
+  test_level: integration
+  automation_status: automated
+  implementation_refs:
+  - path: tests/test_fusion.py
+  - path: tests/test_pipeline.py
 - id: TV-PSwR-047-001
   title: Derived verification artifact TV-PSwR-047-001
   verification_type: derived_automated_test
@@ -3162,6 +3172,21 @@ specifications:
   automation_status: automated
   implementation_refs:
   - path: tests/test_pipeline.py
+- id: TV-PSwR-097-001
+  title: Governed configuration validation for enforced 10-country comparative baseline
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-097
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-097
+  - file: tests/test_config.py
+    role: governed_requirement_mapping
+  status: implemented_verification_artifact
+  test_level: integration
+  automation_status: automated
+  implementation_refs:
+  - path: tests/test_config.py
 - id: TV-PSwR-098-001
   title: Verification for PSwR-098
   verification_type: automated_test

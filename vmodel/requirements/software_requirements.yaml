@@ -34,6 +34,10 @@ metadata:
     evidence showed the legacy traceability matrix status was outdated.
   - WP-10 retired PSwR-068 from the active baseline because the transitional Event
     not_available rule is superseded by the operational Event layer baseline.
+  - WP-11 resolved the remaining status ambiguity for PSwR-046 by introducing a governed
+    requirement-level verification artifact.
+  - After WP-11, only PSwR-034 and PSwR-061 remain genuinely provisional in the migrated
+    software baseline.
 schema_guidance:
   required_fields:
   - id
@@ -457,7 +461,7 @@ requirements:
   - PSyR-034
   - PSyR-043
   child_verification_ids:
-  - GV-PSwR-019-001
+  - TV-PSwR-019-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-019
@@ -972,6 +976,9 @@ requirements:
     the authoritative requirement source set.
   - Remains provisional because OI-017 still records that historical helper sources
     are treated as time-constant without full historical source versioning.
+  - WP-11 keeps this requirement provisional because the model still relies on intentionally
+    time-constant helper-source treatment without historical source versioning; this
+    is an actual methodological limitation, not just stale traceability.
 - id: PSwR-035
   title: Parametric historical target countries
   statement: The software shall allow the historical target-country set to be configured
@@ -1433,16 +1440,18 @@ requirements:
     koennen. Nicht tief integrierte Gruppen duerfen im V3.1-MVP als `not_available`
     markiert werden, sofern `Market/Food` und `Structural` als echte Scores vorliegen.
     Ab V4.2 muss `Governance` als eigenstaendige Gruppe numerisch ausweisbar sein.
-  status: provisional_requirement
+  status: implemented_requirement
   baseline_classification: active_baseline
   migration_tags:
   - version_origin_v3_1
   - version_origin_v4_2
   - wp10_status_normalized_from_stale_trace_matrix
+  - wp11_status_normalized_from_governed_verification
   parent_system_ids:
   - PSyR-019
   - PSyR-020
   child_verification_ids:
+  - TV-PSwR-046-001
   - TV-PSwR-053-001
   - TV-PSwR-057-001
   - TV-PSwR-058-002
@@ -1481,10 +1490,9 @@ requirements:
   - WP-10 normalized this requirement from provisional to implemented because explicit
     code traces, test traces, and resolved calibration/governance issues show the
     legacy matrix status is stale for the current baseline.
-  - Remains provisional in WP-10 because implementation evidence is strong but current
-    explicit verification trace for group scores is still indirect through shared
-    fusion and pipeline tests rather than a dedicated refreshed legacy verification
-    row.
+  - WP-11 normalized this requirement from provisional to implemented because governed
+    verification artifact TV-PSwR-046-001 now makes the existing fusion and pipeline
+    evidence explicit at requirement level.
 - id: PSwR-047
   title: Parallel run path
   statement: Die Software muss den neuen Fusion-Pfad parallel zum bestehenden Cluster-/Score-Pfad
@@ -2090,6 +2098,9 @@ requirements:
   notes:
   - Remains provisional because OI-031 still leaves narrative semantic validation,
     taxonomy control, and review workflow open.
+  - WP-11 keeps this requirement provisional because semantic governance for narrative
+    topics, direction labels, and editorial review is still open even though loading
+    and transformation are implemented.
 - id: PSwR-062
   title: Historical fusion group scores
   statement: Die Software muss historische Fusion-Gruppenscores je Land/Periode erzeugen
@@ -3507,7 +3518,7 @@ requirements:
   parent_system_ids:
   - PSyR-036
   child_verification_ids:
-  - GV-PSwR-097-001
+  - TV-PSwR-097-001
   source_refs:
   - file: docs/requirements/ProtoSwR.md
     id: PSwR-097

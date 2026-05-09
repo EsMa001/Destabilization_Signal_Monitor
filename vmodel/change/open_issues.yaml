@@ -22,6 +22,8 @@ metadata:
   - WP-10 resolved OI-045 and OI-046 by declaring YAML authoritative for migrated
     artifacts and by hardening verification governance from direct test traceability
     evidence.
+  - WP-11 completes the remaining GV-placeholder cleanup and leaves only genuinely
+    methodological provisional software requirements open.
 schema_guidance:
   required_fields:
   - id
@@ -1010,9 +1012,8 @@ issues:
     role: verification_trace_context
   - file: vmodel/verification/test_specifications.yaml
     role: governance_placeholder_context
-  resolution_note: WP-10 backfilled machine-readable verification links into software
-    requirements, derived additional explicit TV-* artifacts directly from test traceability
-    annotations, and retained GV-* only where no explicit TV-* artifact exists yet.
-    Generic legacy references are therefore formally governed in the YAML baseline.
-  resolution_type: verification_governance_hardened
+  resolution_note: WP-11 completes the WP-10 governance hardening by promoting the
+    two remaining GV placeholders into governed TV artifacts and by adding TV-PSwR-046-001
+    as an explicit requirement-level verification artifact for group-score behavior.
+  resolution_type: verification_governance_completed
   escalation_required: false
