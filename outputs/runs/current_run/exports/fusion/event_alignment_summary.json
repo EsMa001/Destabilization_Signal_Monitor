@@ -1,0 +1,30 @@
+[
+  {
+    "peak_event_match_record_count": 30,
+    "credible_match_count": 21,
+    "no_credible_match_count": 1,
+    "multi_event_overlap_count": 5,
+    "credible_match_ratio": 0.7,
+    "no_credible_match_ratio": 0.0333,
+    "multi_event_overlap_ratio": 0.1667,
+    "mean_match_confidence": 0.6281,
+    "high_coverage_country_count": 4,
+    "low_coverage_country_count": 3,
+    "high_coverage_countries": [
+      "China",
+      "Nigeria",
+      "Russia",
+      "Taiwan"
+    ],
+    "low_coverage_countries": [
+      "Germany",
+      "Japan",
+      "Poland"
+    ],
+    "country_alignment_maturity_mean": 0.6425,
+    "country_alignment_high_count": 4,
+    "country_alignment_low_count": 1,
+    "peak_alignment_quality_score": 0.5756,
+    "event_coverage_quality_score": 0.78
+  }
+]

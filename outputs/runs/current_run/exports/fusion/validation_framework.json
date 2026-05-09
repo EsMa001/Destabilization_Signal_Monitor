@@ -1,0 +1,206 @@
+[
+  {
+    "validation_version": "v4.3.2",
+    "reference_episodes_version": "v4.3.2",
+    "countries": [
+      "Germany",
+      "Israel",
+      "Iran",
+      "Ukraine",
+      "Russia",
+      "Japan",
+      "China",
+      "Taiwan",
+      "Poland",
+      "Nigeria"
+    ],
+    "reference_episodes_path": "data/validation/reference_episodes.csv",
+    "reference_episode_count": 40,
+    "expected_country_ranking": [
+      "Iran",
+      "Ukraine",
+      "Nigeria",
+      "Russia",
+      "Israel",
+      "Taiwan",
+      "China",
+      "Poland",
+      "Germany",
+      "Japan"
+    ],
+    "evaluation_criteria": {
+      "peak_hit": "observed_peak_stage >= expected_total_reaction_stage",
+      "timing_fit": "abs(observed_peak_month - expected_peak_month) <= tolerance_months",
+      "group_hit": "expected groups overlap with top validation drivers",
+      "ranking_fit": "snapshot rank order compared to expected country ranking",
+      "dominance": "dominant_group_share >= configured threshold",
+      "governance_instability": "governance group score >= activation threshold",
+      "support_profile": "broad if >=3 active groups, else narrow",
+      "freshness_coverage": "fresh_contribution_share >= configured minimum",
+      "stale_burden": "stale_contribution_share <= configured maximum",
+      "dynamic_readiness": "share of fresh dynamic groups >= configured minimum",
+      "response_lag": "timing lag compared against configured tolerance",
+      "change_detection_fit": "significant historical deltas align with expected episode reaction windows",
+      "year_profile_comparison": "country-level 356-day profile metrics (level, range, volatility, peak structure)",
+      "country_ranking_trajectory": "period-level rank evolution across all countries",
+      "peak_detection_quality": "peaks are local maxima with explicit prominence/rise/fall/width/separation checks",
+      "peak_attribution": "peaks provide dominant groups, support breadth and global-vs-country decomposition",
+      "event_peak_support": "peaks are classified as event_supported / weakly_supported / not_event_validated",
+      "event_registry_alignment": "peaks are matched against analyst event-registry windows with temporal/thematic/support scoring",
+      "peak_event_match_classes": "direct_match / plausible_context_match / weak_match / no_credible_match / multi_event_overlap",
+      "event_coverage_diagnostics": "coverage tracks credible/no-match/multi-overlap shares globally and per country",
+      "country_alignment_maturity": "country-level maturity score combines credible match ratio, directness, confidence and global-wave dependence",
+      "peak_synchronization": "cross-country peak clustering flags globally co-moving waves vs country-specific spikes",
+      "market_food_dominance_hardening": "market_food global pressure is tracked separately from local peak pressure"
+    },
+    "calibration_profile": {
+      "group_weights": {
+        "event": 0.16,
+        "narrative": 0.14,
+        "governance": 0.15,
+        "market_food": 0.18,
+        "shock": 0.14,
+        "displacement": 0.13,
+        "structural": 0.1
+      },
+      "source_weights": {
+        "market_food": {
+          "fao_ffpi": 0.55,
+          "fao_fpma": 0.45
+        },
+        "structural": {
+          "un_comtrade": 1.0
+        },
+        "shock": {
+          "gdacs": 1.0
+        },
+        "displacement": {
+          "unhcr": 1.0
+        },
+        "narrative": {
+          "narrative_input": 1.0
+        },
+        "governance": {
+          "governance_input": 1.0
+        },
+        "event": {
+          "gdelt_event": 1.0
+        }
+      },
+      "fusion_stage_thresholds": {
+        "low_max": 34.0,
+        "elevated_max": 60.0,
+        "high_max": 82.0
+      },
+      "fusion_trend_delta_epsilon": 2.0,
+      "event_reactivity": {
+        "stale_after_days": 20,
+        "decay_half_life_days": 30,
+        "minimum_decay_factor": 0.25,
+        "fresh_boost_factor": 1.1
+      },
+      "freshness_model": {
+        "default": {
+          "fresh_max_days": 30.0,
+          "stale_max_days": 120.0,
+          "aging_floor_factor": 0.8,
+          "stale_half_life_days": 60.0,
+          "minimum_decay_factor": 0.45
+        },
+        "event": {
+          "fresh_max_days": 7.0,
+          "stale_max_days": 28.0,
+          "aging_floor_factor": 0.55,
+          "stale_half_life_days": 18.0,
+          "minimum_decay_factor": 0.18
+        },
+        "narrative": {
+          "fresh_max_days": 21.0,
+          "stale_max_days": 75.0,
+          "aging_floor_factor": 0.74,
+          "stale_half_life_days": 45.0,
+          "minimum_decay_factor": 0.35
+        },
+        "governance": {
+          "fresh_max_days": 45.0,
+          "stale_max_days": 150.0,
+          "aging_floor_factor": 0.82,
+          "stale_half_life_days": 90.0,
+          "minimum_decay_factor": 0.62
+        },
+        "market_food": {
+          "fresh_max_days": 35.0,
+          "stale_max_days": 90.0,
+          "aging_floor_factor": 0.75,
+          "stale_half_life_days": 50.0,
+          "minimum_decay_factor": 0.32
+        },
+        "shock": {
+          "fresh_max_days": 14.0,
+          "stale_max_days": 60.0,
+          "aging_floor_factor": 0.68,
+          "stale_half_life_days": 35.0,
+          "minimum_decay_factor": 0.3
+        },
+        "displacement": {
+          "fresh_max_days": 28.0,
+          "stale_max_days": 95.0,
+          "aging_floor_factor": 0.76,
+          "stale_half_life_days": 55.0,
+          "minimum_decay_factor": 0.36
+        },
+        "structural": {
+          "fresh_max_days": 150.0,
+          "stale_max_days": 420.0,
+          "aging_floor_factor": 0.92,
+          "stale_half_life_days": 210.0,
+          "minimum_decay_factor": 0.72
+        }
+      },
+      "operational_freshness_thresholds": {
+        "minimum_fresh_contribution_share": 0.3,
+        "maximum_stale_contribution_share": 0.45,
+        "dynamic_layer_readiness_min_share": 0.5
+      },
+      "historical_responsiveness": {
+        "delta_threshold": 2.5,
+        "response_lag_tolerance_months": 1,
+        "dynamic_groups": [
+          "event",
+          "narrative",
+          "governance",
+          "shock",
+          "displacement"
+        ]
+      },
+      "diagnostics": {
+        "group_activation_threshold": 55.0,
+        "dominance_share_threshold": 0.34,
+        "structural_outlier_gap": 30.0
+      },
+      "peak_attribution": {
+        "peak_prominence_min": 1.0,
+        "peak_min_rise": 0.5,
+        "peak_min_fall": 0.5,
+        "peak_min_separation_periods": 0,
+        "peak_quality_floor": 1.0,
+        "support_group_min_share": 0.12,
+        "country_specific_share_threshold": 0.4,
+        "global_share_warning_threshold": 0.55,
+        "model_driven_global_share_threshold": 0.7,
+        "single_group_dominance_threshold": 0.58,
+        "event_support_weak_threshold": 0.45,
+        "event_support_strong_threshold": 0.7,
+        "event_marker_registry_path": "data/validation/event_marker_registry.csv"
+      },
+      "event_alignment": {
+        "event_registry_path": "data/validation/event_registry.csv",
+        "temporal_distance_days": 75,
+        "direct_match_threshold": 0.72,
+        "context_match_threshold": 0.56,
+        "weak_match_threshold": 0.4,
+        "multi_overlap_min_events": 2
+      }
+    }
+  }
+]

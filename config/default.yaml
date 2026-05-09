@@ -1,0 +1,248 @@
+project_name: country-destabilization-proto
+countries:
+  - Germany
+  - Israel
+  - Iran
+  - Ukraine
+  - Russia
+  - Japan
+  - China
+  - Taiwan
+  - Poland
+  - Nigeria
+windows:
+  short_days: 7
+  recent_days: 30
+  baseline_days: 356
+historical:
+  horizon_days: 356
+  window_days: 7
+  min_valid_days: 5
+  aggregation: rolling_mean
+  countries:
+    - Germany
+    - Israel
+    - Iran
+    - Ukraine
+    - Russia
+    - Japan
+    - China
+    - Taiwan
+    - Poland
+    - Nigeria
+  compact_daily_report: false
+versions:
+  query_version: v1
+  scoring_version: v4.3
+  bridge_file_version: v1
+  context_table_version: v1
+output:
+  report_dir: outputs/runs
+  reference_dir: outputs/reference
+scoring:
+  stage:
+    low_max: 30
+    elevated_max: 56
+    high_max: 80
+  trend:
+    delta_epsilon: 1.25
+v3_1:
+  enabled: true
+  sources:
+    fao_ffpi:
+      path: data/fao_ffpi/fao_ffpi.csv
+      normalization:
+        method: z_score
+    fao_fpma:
+      path: data/fao_fpma/fao_fpma.csv
+      normalization:
+        method: percentile
+    un_comtrade:
+      path: data/un_comtrade/un_comtrade.csv
+      normalization:
+        method: baseline_deviation
+        baseline_value: 0.35
+        baseline_scale: 0.35
+    gdacs:
+      path: data/gdacs/gdacs_events.csv
+      normalization:
+        method: z_score
+    unhcr:
+      path: data/unhcr/unhcr_displacement.csv
+      normalization:
+        method: z_score
+        scope: global
+    narrative_input:
+      path: data/narrative_input/narrative_input.csv
+      normalization:
+        method: z_score
+        scope: global
+    governance_input:
+      path: data/governance_input/governance_input.csv
+      normalization:
+        method: z_score
+        scope: global
+    gdelt_event:
+      path: data/gdelt/gdelt_events.csv
+      normalization:
+        method: z_score
+        scope: global
+  fusion:
+    target_period_days: 356
+    groups:
+      - event
+      - narrative
+      - governance
+      - market_food
+      - shock
+      - displacement
+      - structural
+    source_to_group:
+      fao_ffpi: market_food
+      fao_fpma: market_food
+      un_comtrade: structural
+      gdacs: shock
+      unhcr: displacement
+      narrative_input: narrative
+      governance_input: governance
+      gdelt_event: event
+    source_weights:
+      market_food:
+        fao_ffpi: 0.55
+        fao_fpma: 0.45
+      structural:
+        un_comtrade: 1.0
+      shock:
+        gdacs: 1.0
+      displacement:
+        unhcr: 1.0
+      narrative:
+        narrative_input: 1.0
+      governance:
+        governance_input: 1.0
+      event:
+        gdelt_event: 1.0
+    group_weights:
+      event: 0.16
+      narrative: 0.14
+      governance: 0.15
+      market_food: 0.18
+      shock: 0.14
+      displacement: 0.13
+      structural: 0.1
+    bonus:
+      enabled: false
+      threshold: 70.0
+      points: 5.0
+      min_groups: 2
+    confidence:
+      max_age_days: 240
+      coverage_weight: 0.35
+      recency_weight: 0.25
+      completeness_weight: 0.25
+      consistency_weight: 0.15
+    historical:
+      enabled: true
+      target_periodicity: monthly
+      horizon_months: 12
+    calibration:
+      stage_low_max: 34.0
+      stage_elevated_max: 60.0
+      stage_high_max: 82.0
+      trend_delta_epsilon: 2.0
+      group_activation_threshold: 55.0
+      dominance_share_threshold: 0.34
+      market_food_dominance_threshold: 0.34
+      structural_outlier_gap: 30.0
+      event_stale_after_days: 20
+      event_decay_half_life_days: 30
+      event_min_decay_factor: 0.25
+      event_fresh_boost_factor: 1.1
+      event_stale_warning_days: 45
+      limited_coverage_threshold: 0.5
+      reduced_coverage_threshold: 0.75
+      freshness_model:
+        default:
+          fresh_max_days: 30
+          stale_max_days: 120
+          aging_floor_factor: 0.8
+          stale_half_life_days: 60
+          minimum_decay_factor: 0.45
+        event:
+          fresh_max_days: 7
+          stale_max_days: 28
+          aging_floor_factor: 0.55
+          stale_half_life_days: 18
+          minimum_decay_factor: 0.18
+        narrative:
+          fresh_max_days: 21
+          stale_max_days: 75
+          aging_floor_factor: 0.74
+          stale_half_life_days: 45
+          minimum_decay_factor: 0.35
+        governance:
+          fresh_max_days: 45
+          stale_max_days: 150
+          aging_floor_factor: 0.82
+          stale_half_life_days: 90
+          minimum_decay_factor: 0.62
+        market_food:
+          fresh_max_days: 35
+          stale_max_days: 90
+          aging_floor_factor: 0.75
+          stale_half_life_days: 50
+          minimum_decay_factor: 0.32
+        shock:
+          fresh_max_days: 14
+          stale_max_days: 60
+          aging_floor_factor: 0.68
+          stale_half_life_days: 35
+          minimum_decay_factor: 0.3
+        displacement:
+          fresh_max_days: 28
+          stale_max_days: 95
+          aging_floor_factor: 0.76
+          stale_half_life_days: 55
+          minimum_decay_factor: 0.36
+        structural:
+          fresh_max_days: 150
+          stale_max_days: 420
+          aging_floor_factor: 0.92
+          stale_half_life_days: 210
+          minimum_decay_factor: 0.72
+      freshness_min_fresh_contribution_share: 0.3
+      freshness_max_stale_contribution_share: 0.45
+      dynamic_layer_readiness_min_share: 0.5
+      responsiveness_delta_threshold: 2.5
+      responsiveness_lag_tolerance_months: 1
+      peak_prominence_min: 1.0
+      peak_min_rise: 0.5
+      peak_min_fall: 0.5
+      peak_min_separation_periods: 0
+      peak_quality_floor: 1.0
+      peak_support_group_min_share: 0.12
+      peak_country_specific_share_threshold: 0.4
+      peak_global_share_warning_threshold: 0.55
+      peak_model_driven_global_share_threshold: 0.7
+      peak_single_group_dominance_threshold: 0.58
+      peak_event_support_weak_threshold: 0.45
+      peak_event_support_strong_threshold: 0.7
+      event_alignment_temporal_distance_days: 75
+      event_alignment_direct_match_threshold: 0.72
+      event_alignment_context_match_threshold: 0.56
+      event_alignment_weak_match_threshold: 0.4
+      event_alignment_multi_overlap_min_events: 2
+      event_registry_path: data/validation/event_registry.csv
+      event_marker_registry_path: data/validation/event_marker_registry.csv
+      expected_ranking:
+        - Iran
+        - Ukraine
+        - Nigeria
+        - Russia
+        - Israel
+        - Taiwan
+        - China
+        - Poland
+        - Germany
+        - Japan
+      reference_episodes_path: data/validation/reference_episodes.csv

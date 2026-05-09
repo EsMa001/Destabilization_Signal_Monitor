@@ -1,0 +1,132 @@
+{
+  "status": "ok",
+  "baseline_label": "previous_run",
+  "current_run": {
+    "run_timestamp": "2026-04-04T07:24:29.597990+00:00",
+    "countries": [
+      "Iran",
+      "Israel",
+      "Germany"
+    ],
+    "short_days": 7,
+    "recent_days": 30,
+    "baseline_days": 365,
+    "query_version": "v1",
+    "scoring_version": "v2.1",
+    "bridge_file_version": "v1",
+    "context_table_version": "v1",
+    "metadata_schema_version": "v2",
+    "proposed_run_status": "erfolgreich",
+    "effective_run_status": "erfolgreich",
+    "run_status_overridden": false
+  },
+  "baseline_run": {
+    "baseline_days": 365,
+    "bridge_file_version": "v1",
+    "context_table_version": "v1",
+    "countries": [
+      "Iran",
+      "Israel",
+      "Germany"
+    ],
+    "metadata_schema_version": "v2",
+    "proposed_run_status": "erfolgreich",
+    "query_version": "v1",
+    "recent_days": 30,
+    "run_status": "erfolgreich",
+    "run_status_overridden": false,
+    "run_timestamp": "2026-04-04T07:20:38.911988+00:00",
+    "scoring_version": "v2.1",
+    "short_days": 7
+  },
+  "overview": {
+    "items": 9,
+    "zunehmend": 0,
+    "rückläufig": 0,
+    "stabil": 9,
+    "kein_vergleich": 0
+  },
+  "comparisons": [
+    {
+      "country": "Iran",
+      "cluster": "tension",
+      "current_score": 78.3333,
+      "baseline_score": 78.3333,
+      "delta_absolute": 0.0,
+      "delta_relative_percent": 0.0,
+      "delta_direction": "stabil"
+    },
+    {
+      "country": "Iran",
+      "cluster": "escalation",
+      "current_score": 75.625,
+      "baseline_score": 75.625,
+      "delta_absolute": 0.0,
+      "delta_relative_percent": 0.0,
+      "delta_direction": "stabil"
+    },
+    {
+      "country": "Iran",
+      "cluster": "vulnerability",
+      "current_score": 72.6667,
+      "baseline_score": 72.6667,
+      "delta_absolute": 0.0,
+      "delta_relative_percent": 0.0,
+      "delta_direction": "stabil"
+    },
+    {
+      "country": "Israel",
+      "cluster": "tension",
+      "current_score": 64.0,
+      "baseline_score": 64.0,
+      "delta_absolute": 0.0,
+      "delta_relative_percent": 0.0,
+      "delta_direction": "stabil"
+    },
+    {
+      "country": "Israel",
+      "cluster": "escalation",
+      "current_score": 69.875,
+      "baseline_score": 69.875,
+      "delta_absolute": 0.0,
+      "delta_relative_percent": 0.0,
+      "delta_direction": "stabil"
+    },
+    {
+      "country": "Israel",
+      "cluster": "vulnerability",
+      "current_score": 59.6667,
+      "baseline_score": 59.6667,
+      "delta_absolute": 0.0,
+      "delta_relative_percent": 0.0,
+      "delta_direction": "stabil"
+    },
+    {
+      "country": "Germany",
+      "cluster": "tension",
+      "current_score": 48.3333,
+      "baseline_score": 48.3333,
+      "delta_absolute": 0.0,
+      "delta_relative_percent": 0.0,
+      "delta_direction": "stabil"
+    },
+    {
+      "country": "Germany",
+      "cluster": "escalation",
+      "current_score": 16.125,
+      "baseline_score": 16.125,
+      "delta_absolute": 0.0,
+      "delta_relative_percent": 0.0,
+      "delta_direction": "stabil"
+    },
+    {
+      "country": "Germany",
+      "cluster": "vulnerability",
+      "current_score": 39.6667,
+      "baseline_score": 39.6667,
+      "delta_absolute": 0.0,
+      "delta_relative_percent": 0.0,
+      "delta_direction": "stabil"
+    }
+  ]
+}

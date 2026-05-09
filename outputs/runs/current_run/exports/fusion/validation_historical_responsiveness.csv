@@ -1,0 +1,11 @@
+country,period_count,compared_period_count,mean_abs_delta,max_abs_delta,significant_change_count,significant_change_ratio,latest_delta,recent_change_detected,responsiveness_profile
+China,12,11,8.6855,19.22,11,1.0,-9.82,True,reactive
+Germany,12,11,6.78,12.28,9,0.8182,-0.66,False,reactive
+Iran,12,11,7.9909,18.22,8,0.7273,-12.81,True,reactive
+Israel,12,11,8.32,14.73,9,0.8182,-4.57,True,reactive
+Japan,12,11,5.47,10.16,8,0.7273,-0.5,False,reactive
+Nigeria,12,11,9.2636,19.79,10,0.9091,-8.57,True,reactive
+Poland,12,11,7.1709,13.38,10,0.9091,-13.38,True,reactive
+Russia,12,11,8.6773,16.02,10,0.9091,-11.87,True,reactive
+Taiwan,12,11,8.2209,18.34,9,0.8182,-18.34,True,reactive
+Ukraine,12,11,9.0664,14.97,11,1.0,-14.97,True,reactive

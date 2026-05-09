@@ -1,0 +1,21 @@
+marker_id,country,period_start,period_end,event_label,event_type,support_weight,support_confidence,provenance
+evt_ger_001,Germany,2025-11-01,2025-12-31,Budget and coalition stress peak,domestic_politics,0.58,0.62,analyst_annotation_v4_3_1
+evt_ger_002,Germany,2026-02-01,2026-03-31,Industrial and strike pressure,domestic_protest,0.46,0.55,analyst_annotation_v4_3_1
+evt_isr_001,Israel,2025-10-01,2025-11-30,Gaza and border escalation window,security_escalation,0.82,0.83,analyst_annotation_v4_3_1
+evt_isr_002,Israel,2026-03-01,2026-04-30,Regional military alert phase,security_escalation,0.78,0.8,analyst_annotation_v4_3_1
+evt_irn_001,Iran,2025-11-01,2026-01-31,Proxy confrontation and sanction pressure,external_conflict,0.74,0.76,analyst_annotation_v4_3_1
+evt_irn_002,Iran,2026-02-01,2026-03-31,Domestic-control and external friction pulse,security_politics,0.69,0.71,analyst_annotation_v4_3_1
+evt_ukr_001,Ukraine,2025-10-01,2025-12-31,Major front-line and infrastructure stress,war_phase,0.88,0.87,analyst_annotation_v4_3_1
+evt_ukr_002,Ukraine,2026-02-01,2026-04-30,Renewed strike and battlefield volatility,war_phase,0.86,0.85,analyst_annotation_v4_3_1
+evt_rus_001,Russia,2025-10-01,2025-12-31,Cross-border military and sanction dynamics,war_phase,0.76,0.75,analyst_annotation_v4_3_1
+evt_rus_002,Russia,2026-02-01,2026-04-30,Security and mobilization pressure window,security_politics,0.72,0.72,analyst_annotation_v4_3_1
+evt_jpn_001,Japan,2025-08-01,2025-10-31,Yen and policy stress cycle,economic_policy,0.48,0.54,analyst_annotation_v4_3_1
+evt_jpn_002,Japan,2026-01-01,2026-03-31,Regional security alert and policy response,security_policy,0.44,0.52,analyst_annotation_v4_3_1
+evt_chn_001,China,2025-09-01,2025-11-30,Property and local-finance pressure phase,economic_governance,0.52,0.58,analyst_annotation_v4_3_1
+evt_chn_002,China,2026-01-01,2026-04-30,Taiwan-strait and maritime signaling rise,security_signal,0.7,0.72,analyst_annotation_v4_3_1
+evt_twn_001,Taiwan,2025-10-01,2025-12-31,Air and maritime pressure phase,security_signal,0.77,0.79,analyst_annotation_v4_3_1
+evt_twn_002,Taiwan,2026-02-01,2026-04-30,Election-cycle and cross-strait alert pulse,security_politics,0.74,0.75,analyst_annotation_v4_3_1
+evt_pol_001,Poland,2025-09-01,2025-11-30,Border-security and migration policy stress,security_policy,0.57,0.61,analyst_annotation_v4_3_1
+evt_pol_002,Poland,2026-02-01,2026-03-31,Institutional conflict and protest cycle,domestic_politics,0.51,0.56,analyst_annotation_v4_3_1
+evt_nga_001,Nigeria,2025-09-01,2025-12-31,Subnational violence and inflation pressure,security_economic,0.71,0.73,analyst_annotation_v4_3_1
+evt_nga_002,Nigeria,2026-01-01,2026-04-30,Election-governance and insecurity pulse,governance_security,0.68,0.7,analyst_annotation_v4_3_1

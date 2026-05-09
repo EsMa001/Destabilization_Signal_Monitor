@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "country-destabilization-proto"
+version = "0.1.0"
+description = "Country destabilization prototype"
+requires-python = ">=3.12"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["proto*", "api*"]

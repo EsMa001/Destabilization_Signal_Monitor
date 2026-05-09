@@ -1,0 +1,11 @@
+{
+  "status": "ok",
+  "historical_enabled": true,
+  "historical_limited_marker": false,
+  "constant_clusters": [
+    "vulnerability"
+  ],
+  "method_notes": {
+    "vulnerability_cluster_role": "structural_baseline_cluster"
+  }
+}

@@ -1,0 +1,9 @@
+period_label,target_period_end,peak_country_count,total_country_count,peak_country_ratio,peak_countries,mean_global_share,mean_country_specific_share,mean_peak_confidence_score,dominant_wave_group,synchronization_class
+2025-06,2025-06-30,3,10,0.3,Germany|Iran|Japan,0.9054,0.0946,0.5875,market_food,country_specific_wave
+2025-07,2025-07-31,5,10,0.5,Israel|Japan|Nigeria|Russia|Ukraine,0.8628,0.1372,0.6571,market_food,moderately_synchronized_wave
+2025-08,2025-08-31,6,10,0.6,China|Iran|Poland|Russia|Taiwan|Ukraine,0.878,0.122,0.6562,market_food,highly_synchronized_wave
+2025-11,2025-11-30,1,10,0.1,Germany,1.0,0.0,0.6392,market_food,country_specific_wave
+2025-12,2025-12-31,4,10,0.4,Germany|Iran|Israel|Japan,0.8949,0.1051,0.6324,market_food,moderately_synchronized_wave
+2026-01,2026-01-31,3,10,0.3,China|Israel|Nigeria,0.8786,0.1214,0.697,market_food,country_specific_wave
+2026-02,2026-02-28,6,10,0.6,China|Nigeria|Poland|Russia|Taiwan|Ukraine,0.8796,0.1204,0.6888,market_food,highly_synchronized_wave
+2026-03,2026-03-31,2,10,0.2,Poland|Taiwan,0.9092,0.0908,0.6727,market_food,country_specific_wave

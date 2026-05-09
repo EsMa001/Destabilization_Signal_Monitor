@@ -1,0 +1,11 @@
+country,current_fusion_score,confidence_score,confidence_level,operational_freshness_status,fresh_contribution_share,stale_contribution_share,dynamic_layer_readiness,year_max_score,year_max_period,year_min_score,year_min_period,year_range_score,year_mean_score,year_volatility_std,year_mean_abs_delta,peak_count,peak_intensity_mean,dominant_group,support_profile,fresh_support_profile,stale_support_profile
+China,36.38,91.59,hoch,fresh_operational,0.8089,0.0,True,65.42,2026-02,35.95,2025-10,29.47,47.11,8.4664,8.6855,0,0.0,event,narrow,broad,none
+Germany,23.18,91.39,hoch,fresh_operational,0.8449,0.0,True,47.74,2025-12,23.18,2026-04,24.56,33.69,8.5238,6.78,0,0.0,market_food,narrow,broad,none
+Iran,54.39,91.9,hoch,fresh_operational,0.8066,0.0,True,78.37,2026-02,53.99,2025-10,24.38,68.01,9.1772,7.9909,0,0.0,event,broad,broad,none
+Israel,40.02,91.5,hoch,fresh_operational,0.8112,0.0,True,70.45,2026-01,40.02,2026-04,30.43,55.9,10.0325,8.32,0,0.0,event,narrow,broad,none
+Japan,17.72,91.34,hoch,fresh_operational,0.8316,0.0,True,38.73,2025-07,17.72,2026-04,21.01,29.74,6.9678,5.47,0,0.0,narrative,narrow,broad,none
+Nigeria,50.12,91.76,hoch,fresh_operational,0.8143,0.0,True,78.48,2026-02,50.12,2025-10,28.36,63.46,10.0426,9.2636,0,0.0,event,broad,broad,none
+Poland,29.38,91.44,hoch,fresh_operational,0.7949,0.0,True,54.86,2026-02,29.38,2026-04,25.48,41.69,7.4164,7.1709,0,0.0,event,narrow,broad,none
+Russia,49.13,91.74,hoch,fresh_operational,0.8105,0.0,True,74.24,2026-02,48.13,2025-10,26.11,60.91,9.0103,8.6773,0,0.0,event,broad,broad,none
+Taiwan,41.59,91.81,hoch,fresh_operational,0.806,0.0,True,61.96,2026-02,38.11,2025-10,23.85,51.05,8.5956,8.2209,0,0.0,event,narrow,broad,none
+Ukraine,53.08,91.82,hoch,fresh_operational,0.8065,0.0,True,79.51,2026-02,52.33,2025-10,27.18,65.02,9.0966,9.0664,0,0.0,event,broad,broad,none

@@ -1,0 +1,63 @@
+{
+  "reference_schema_version": "v2",
+  "reference_info_timestamp": "2026-04-13T19:45:15.482616+00:00",
+  "reference_action": "already_exists",
+  "reference_dir": "outputs/reference/current_reference",
+  "summary_present": true,
+  "summary_path": "outputs/reference/current_reference/exports/summary_export.json",
+  "metadata_schema_version": "v2",
+  "required_run_metadata_keys": [
+    "run_timestamp",
+    "countries",
+    "short_days",
+    "recent_days",
+    "baseline_days",
+    "query_version",
+    "scoring_version",
+    "bridge_file_version",
+    "context_table_version",
+    "proposed_run_status",
+    "run_status",
+    "run_status_overridden"
+  ],
+  "missing_run_metadata_keys": [],
+  "run_metadata_complete": true,
+  "legacy_fallback_mode": false,
+  "run_timestamp": "2026-04-04T07:24:29.597990+00:00",
+  "proposed_run_status": "erfolgreich",
+  "effective_run_status": "erfolgreich",
+  "run_status_overridden": false,
+  "query_version": "v1",
+  "scoring_version": "v2.1",
+  "bridge_file_version": "v1",
+  "context_table_version": "v1",
+  "countries": [
+    "Iran",
+    "Israel",
+    "Germany"
+  ],
+  "time_windows": {
+    "short_days": 7,
+    "recent_days": 30,
+    "baseline_days": 365
+  },
+  "run_metadata": {
+    "baseline_days": 365,
+    "bridge_file_version": "v1",
+    "context_table_version": "v1",
+    "countries": [
+      "Iran",
+      "Israel",
+      "Germany"
+    ],
+    "metadata_schema_version": "v2",
+    "proposed_run_status": "erfolgreich",
+    "query_version": "v1",
+    "recent_days": 30,
+    "run_status": "erfolgreich",
+    "run_status_overridden": false,
+    "run_timestamp": "2026-04-04T07:24:29.597990+00:00",
+    "scoring_version": "v2.1",
+    "short_days": 7
+  }
+}

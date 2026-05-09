@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>STRATOS-4 // Mission Setup</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&amp;family=Space_Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#6ffbbe",
+                        "secondary-container": "#3c4a5e",
+                        "on-surface": "#dae2fd",
+                        "on-error-container": "#ffdad6",
+                        "error-container": "#93000a",
+                        "secondary-fixed": "#d5e3fd",
+                        "on-secondary-container": "#abb9d2",
+                        "on-secondary-fixed": "#0d1c2f",
+                        "on-primary-fixed": "#002113",
+                        "on-primary": "#003824",
+                        "outline-variant": "#3c4a3c",
+                        "outline": "#869583",
+                        "tertiary-fixed-dim": "#89ceff",
+                        "tertiary-fixed": "#c9e6ff",
+                        "surface-tint": "#4edea3",
+                        "on-primary-fixed-variant": "#005236",
+                        "surface-container-lowest": "#060e20",
+                        "on-error": "#690005",
+                        "primary-fixed-dim": "#4edea3",
+                        "on-primary-container": "#004b32",
+                        "surface-container-highest": "#2d3449",
+                        "surface-variant": "#2d3449",
+                        "surface-dim": "#0b1326",
+                        "surface-container": "#171f33",
+                        "on-surface-variant": "#bbcbb8",
+                        "secondary": "#b9c7e0",
+                        "tertiary": "#8ed0ff",
+                        "secondary-fixed-dim": "#b9c7e0",
+                        "on-tertiary": "#00344d",
+                        "surface-bright": "#31394d",
+                        "inverse-primary": "#006c49",
+                        "inverse-on-surface": "#283044",
+                        "on-tertiary-fixed-variant": "#004c6e",
+                        "inverse-surface": "#dae2fd",
+                        "on-tertiary-container": "#004565",
+                        "surface-container-low": "#131b2e",
+                        "on-secondary-fixed-variant": "#3a485c",
+                        "tertiary-container": "#38b7fc",
+                        "primary": "#51e1a5",
+                        "primary-container": "#2ac48b",
+                        "on-secondary": "#233144",
+                        "surface": "#0b1326",
+                        "on-tertiary-fixed": "#001e2f",
+                        "on-background": "#dae2fd",
+                        "background": "#0b1326",
+                        "error": "#ffb4ab",
+                        "surface-container-high": "#222a3d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Space_Grotesk"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #0b1326; }
+        ::-webkit-scrollbar-thumb { background: #31394d; }
+        ::-webkit-scrollbar-thumb:hover { background: #51e1a5; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col py-6 z-50 bg-[#0b1326] w-64 border-r-0">
+<div class="px-6 mb-10">
+<div class="flex flex-col gap-1">
+<span class="text-[#51e1a5] font-black tracking-tighter text-xl">STRATOS-4</span>
+<span class="font-['Space_Grotesk'] text-[0.6875rem] text-[#51e1a5] tracking-widest">SECTOR-7//ACTIVE</span>
+</div>
+</div>
+<nav class="flex-1 flex flex-col">
+<a class="flex items-center px-6 py-3 gap-3 transition-colors duration-150 text-[#bbcbb8] opacity-70 hover:bg-[#31394d] hover:text-[#51e1a5]" href="#">
+<span class="material-symbols-outlined text-lg">dashboard</span>
+<span class="font-['Space_Grotesk'] text-[0.6875rem] uppercase tracking-wider">Overview</span>
+</a>
+<a class="flex items-center px-6 py-3 gap-3 transition-all text-[#51e1a5] border-l-2 border-[#51e1a5] bg-[#31394d]" href="#">
+<span class="material-symbols-outlined text-lg">terminal</span>
+<span class="font-['Space_Grotesk'] text-[0.6875rem] uppercase tracking-wider">Runs</span>
+</a>
+<a class="flex items-center px-6 py-3 gap-3 transition-colors duration-150 text-[#bbcbb8] opacity-70 hover:bg-[#31394d] hover:text-[#51e1a5]" href="#">
+<span class="material-symbols-outlined text-lg">public</span>
+<span class="font-['Space_Grotesk'] text-[0.6875rem] uppercase tracking-wider">Countries</span>
+</a>
+<a class="flex items-center px-6 py-3 gap-3 transition-colors duration-150 text-[#bbcbb8] opacity-70 hover:bg-[#31394d] hover:text-[#51e1a5]" href="#">
+<span class="material-symbols-outlined text-lg">compare_arrows</span>
+<span class="font-['Space_Grotesk'] text-[0.6875rem] uppercase tracking-wider">Compare</span>
+</a>
+<a class="flex items-center px-6 py-3 gap-3 transition-colors duration-150 text-[#bbcbb8] opacity-70 hover:bg-[#31394d] hover:text-[#51e1a5]" href="#">
+<span class="material-symbols-outlined text-lg">layers</span>
+<span class="font-['Space_Grotesk'] text-[0.6875rem] uppercase tracking-wider">Artifacts</span>
+</a>
+<a class="flex items-center px-6 py-3 gap-3 transition-colors duration-150 text-[#bbcbb8] opacity-70 hover:bg-[#31394d] hover:text-[#51e1a5]" href="#">
+<span class="material-symbols-outlined text-lg">radar</span>
+<span class="font-['Space_Grotesk'] text-[0.6875rem] uppercase tracking-wider">Coverage</span>
+</a>
+<div class="mt-auto">
+<a class="flex items-center px-6 py-3 gap-3 transition-colors duration-150 text-[#bbcbb8] opacity-70 hover:bg-[#31394d] hover:text-[#51e1a5]" href="#">
+<span class="material-symbols-outlined text-lg">settings</span>
+<span class="font-['Space_Grotesk'] text-[0.6875rem] uppercase tracking-wider">Settings</span>
+</a>
+</div>
+</nav>
+</aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 left-64 flex justify-between items-center px-6 h-16 z-40 bg-[#0b1326]/70 backdrop-blur-xl border-b border-[#3c4a3c]/15">
+<div class="flex items-center gap-8">
+<span class="text-[#51e1a5] font-bold text-lg font-['Space_Grotesk'] tracking-widest">TACTICAL_INTEL_OPS</span>
+<div class="relative w-96">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-[#51e1a5] material-symbols-outlined text-sm">search</span>
+<input class="w-full bg-surface-container-low border-none border-b border-outline/20 focus:ring-0 focus:border-primary text-xs font-label tracking-widest py-2 pl-10" placeholder="QUERY_SYSTEM..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-[#bbcbb8] cursor-pointer hover:text-[#51e1a5]">sensors</span>
+<span class="material-symbols-outlined text-[#bbcbb8] cursor-pointer hover:text-[#51e1a5]">notifications</span>
+<div class="flex items-center gap-3 border-l border-outline-variant/15 pl-6">
+<div class="text-right">
+<div class="text-[10px] font-label text-on-surface-variant tracking-tighter">OPERATOR_ID</div>
+<div class="text-xs font-label text-primary">S7-INTEL-042</div>
+</div>
+<span class="material-symbols-outlined text-primary text-3xl">account_circle</span>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pl-64 pt-16 min-h-screen">
+<div class="p-8 grid grid-cols-12 gap-8 max-w-[1600px] mx-auto">
+<!-- Left Side: Configuration Area -->
+<div class="col-span-12 lg:col-span-8 space-y-8">
+<!-- Section: Header -->
+<div>
+<div class="w-4 h-0.5 bg-primary mb-2"></div>
+<h1 class="text-2xl font-black uppercase tracking-widest font-headline">Mission Setup // Run_Builder</h1>
+<p class="text-on-surface-variant text-xs font-label tracking-wider mt-1 uppercase">Initialize tactical data ingestion parameters for Sector-7</p>
+</div>
+<!-- Bento Grid Configuration -->
+<div class="grid grid-cols-2 gap-6">
+<!-- Operation Presets -->
+<div class="col-span-2 bg-surface-container-low p-6 space-y-4">
+<div class="flex justify-between items-center border-b border-outline-variant/10 pb-3">
+<h2 class="text-xs font-label font-bold uppercase tracking-widest text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">rebase_edit</span>
+                                Operation Presets
+                            </h2>
+<span class="text-[10px] font-label text-outline uppercase tracking-tighter">Select Baseline Config</span>
+</div>
+<div class="grid grid-cols-3 gap-4">
+<div class="border border-primary bg-surface-bright p-4 cursor-pointer group">
+<div class="text-primary font-label text-[10px] mb-1">PRESET_01</div>
+<div class="text-sm font-headline font-bold uppercase">Deep_Scan</div>
+<div class="text-[10px] text-on-surface-variant mt-2 font-label leading-relaxed">MAXIMUM LATENCY / HIGH GRANULARITY / GEO-FENCED</div>
+</div>
+<div class="border border-outline-variant/30 bg-surface-container p-4 cursor-pointer hover:bg-surface-bright hover:border-primary/50 transition-all group">
+<div class="text-outline font-label text-[10px] mb-1 group-hover:text-primary">PRESET_02</div>
+<div class="text-sm font-headline font-bold uppercase">Rapid_Pulse</div>
+<div class="text-[10px] text-on-surface-variant mt-2 font-label leading-relaxed">LOW LATENCY / INTERMITTENT BURST / GLOBAL</div>
+</div>
+<div class="border border-outline-variant/30 bg-surface-container p-4 cursor-pointer hover:bg-surface-bright hover:border-primary/50 transition-all group">
+<div class="text-outline font-label text-[10px] mb-1 group-hover:text-primary">PRESET_03</div>
+<div class="text-sm font-headline font-bold uppercase">Stealth_Trace</div>
+<div class="text-[10px] text-on-surface-variant mt-2 font-label leading-relaxed">RANDOMIZED NODES / DARK-NET FOCUS / MINIMAL FOOTPRINT</div>
+</div>
+</div>
+</div>
+<!-- Temporal Horizon (Date Picker) -->
+<div class="bg-surface-container-low p-6 space-y-4">
+<div class="flex justify-between items-center border-b border-outline-variant/10 pb-3">
+<h2 class="text-xs font-label font-bold uppercase tracking-widest text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">schedule</span>
+                                Temporal Horizon
+                            </h2>
+</div>
+<div class="space-y-4">
+<div class="space-y-1">
+<label class="text-[9px] font-label text-outline uppercase tracking-widest">Start_Sequence</label>
+<div class="relative">
+<input class="w-full bg-surface-container border-none border-b border-outline/30 focus:border-primary focus:ring-0 font-label text-xs tracking-widest py-3" type="date" value="2024-05-20"/>
+</div>
+</div>
+<div class="space-y-1">
+<label class="text-[9px] font-label text-outline uppercase tracking-widest">End_Sequence</label>
+<div class="relative">
+<input class="w-full bg-surface-container border-none border-b border-outline/30 focus:border-primary focus:ring-0 font-label text-xs tracking-widest py-3" type="date" value="2024-06-20"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Tactical Node Selection -->
+<div class="bg-surface-container-low p-6 space-y-4">
+<div class="flex justify-between items-center border-b border-outline-variant/10 pb-3">
+<h2 class="text-xs font-label font-bold uppercase tracking-widest text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">public</span>
+                                Tactical Node Selection
+                            </h2>
+</div>
+<div class="flex flex-wrap gap-2">
+<div class="bg-surface-bright px-3 py-1 flex items-center gap-2 group border border-primary/20">
+<span class="font-label text-[10px] tracking-widest">US_WEST_01</span>
+<span class="material-symbols-outlined text-xs text-primary cursor-pointer">close</span>
+</div>
+<div class="bg-surface-bright px-3 py-1 flex items-center gap-2 border border-primary/20">
+<span class="font-label text-[10px] tracking-widest">EU_NORTH_04</span>
+<span class="material-symbols-outlined text-xs text-primary cursor-pointer">close</span>
+</div>
+<div class="bg-surface-bright px-3 py-1 flex items-center gap-2 border border-primary/20">
+<span class="font-label text-[10px] tracking-widest">ASIA_PAC_09</span>
+<span class="material-symbols-outlined text-xs text-primary cursor-pointer">close</span>
+</div>
+<div class="bg-surface-container px-3 py-1 flex items-center gap-2 border border-outline-variant/30 hover:border-primary/50 cursor-pointer">
+<span class="font-label text-[10px] tracking-widest text-outline">+ ADD_NODE</span>
+</div>
+</div>
+<div class="relative h-24 overflow-hidden border border-outline-variant/10 mt-4">
+<div class="absolute inset-0 bg-[#0b1326] opacity-40"></div>
+<img class="w-full h-full object-cover grayscale brightness-50 opacity-30" data-alt="High contrast dark stylized digital world map with vector line topography and glowing data points" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAP3RbdM8FyzrUyCIqC-H_M0i9Goct6anfe8L7azQhLXhf1Kb21nM-IUTjDf-f1EuJ-Dlx7ypxLg7EA4YNHBXNJJiaEQBhtCSGBqCUcm5OCzuvBRMtj--4xIUfrzCmJnlsi_tart2CC2C-Jn_moRtOluFuVTnI8R1vmpHm-RFQmm0ugbiR-WkGyI4HGKzItX8exP3JrGz0LxxlwTvOUZ8YRw3d598QK_MOTfxQTVqh2xDimz8JohYDJidLrBxks0tJRLZWNPcHjTPc"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="text-[9px] font-label text-primary tracking-[0.3em] uppercase">Visualizing_Coverage_Grid...</span>
+</div>
+</div>
+</div>
+<!-- Intelligence Layers -->
+<div class="col-span-2 bg-surface-container-low p-6 space-y-4">
+<div class="flex justify-between items-center border-b border-outline-variant/10 pb-3">
+<h2 class="text-xs font-label font-bold uppercase tracking-widest text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">layers</span>
+                                Intelligence Layer Selection
+                            </h2>
+</div>
+<div class="grid grid-cols-4 gap-4">
+<div class="bg-surface-container-high p-4 flex flex-col gap-3 group cursor-pointer hover:bg-surface-bright transition-all">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary" data-weight="fill">radar</span>
+<div class="w-2 h-2 bg-primary"></div>
+</div>
+<div>
+<div class="text-[10px] font-label font-bold tracking-widest">SIGNAL</div>
+<div class="text-[9px] text-on-surface-variant mt-1 font-label uppercase">RF_Spectrum Analysis</div>
+</div>
+</div>
+<div class="bg-surface-container-high p-4 flex flex-col gap-3 group cursor-pointer border border-primary/40 bg-surface-bright">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary" data-weight="fill">language</span>
+<div class="w-2 h-2 bg-primary"></div>
+</div>
+<div>
+<div class="text-[10px] font-label font-bold tracking-widest">OSINT</div>
+<div class="text-[9px] text-on-surface-variant mt-1 font-label uppercase">Public Data Mining</div>
+</div>
+</div>
+<div class="bg-surface-container-high p-4 flex flex-col gap-3 group cursor-pointer hover:bg-surface-bright transition-all opacity-50">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-outline">group</span>
+<div class="w-2 h-2 bg-outline-variant"></div>
+</div>
+<div>
+<div class="text-[10px] font-label font-bold tracking-widest text-outline">HUMINT</div>
+<div class="text-[9px] text-on-surface-variant mt-1 font-label uppercase">Field Asset Feeds</div>
+</div>
+</div>
+<div class="bg-surface-container-high p-4 flex flex-col gap-3 group cursor-pointer hover:bg-surface-bright transition-all">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary" data-weight="fill">map</span>
+<div class="w-2 h-2 bg-primary"></div>
+</div>
+<div>
+<div class="text-[10px] font-label font-bold tracking-widest">GEOSPATIAL</div>
+<div class="text-[9px] text-on-surface-variant mt-1 font-label uppercase">Satellite Imagery</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Side: Summary Briefing Panel -->
+<div class="col-span-12 lg:col-span-4">
+<div class="sticky top-24 bg-surface-container-high border border-outline-variant/15 flex flex-col min-h-[600px]">
+<!-- Briefing Header -->
+<div class="bg-surface-bright p-6 border-b border-outline-variant/20">
+<h3 class="text-sm font-headline font-black uppercase tracking-widest text-primary">Mission Briefing</h3>
+<div class="text-[10px] font-label text-on-surface-variant mt-1 uppercase tracking-tighter">SUMMARY_ID: XRN-9942-B</div>
+</div>
+<div class="flex-1 p-6 space-y-8 overflow-y-auto">
+<!-- Briefing Metrics -->
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-1">
+<div class="text-[9px] font-label text-outline uppercase tracking-widest">Estimated_Scope</div>
+<div class="text-xl font-headline font-bold">4.2 TB<span class="text-xs text-primary ml-1">RAW</span></div>
+</div>
+<div class="space-y-1">
+<div class="text-[9px] font-label text-outline uppercase tracking-widest">Nodes_Engaged</div>
+<div class="text-xl font-headline font-bold">12<span class="text-xs text-primary ml-1">ACTIVE</span></div>
+</div>
+</div>
+<!-- Load Indicator -->
+<div class="space-y-3">
+<div class="flex justify-between items-end">
+<div class="text-[9px] font-label text-outline uppercase tracking-widest">Computational_Load</div>
+<div class="text-sm font-label font-bold text-primary">68%</div>
+</div>
+<div class="h-2 bg-surface flex overflow-hidden">
+<div class="h-full bg-primary" style="width: 68%"></div>
+<div class="h-full bg-primary/20 animate-pulse" style="width: 12%"></div>
+</div>
+<div class="text-[8px] font-label text-on-surface-variant uppercase text-right tracking-tighter">System Reserve: 20% | Critical Threshold: 85%</div>
+</div>
+<!-- Tactical Specs -->
+<div class="space-y-4">
+<div class="w-full h-px bg-outline-variant/10"></div>
+<div class="flex justify-between text-[10px] font-label uppercase tracking-widest">
+<span class="text-on-surface-variant">Encryption_Level</span>
+<span>AES-256-GCM</span>
+</div>
+<div class="flex justify-between text-[10px] font-label uppercase tracking-widest">
+<span class="text-on-surface-variant">Burst_Frequency</span>
+<span>850 MHz</span>
+</div>
+<div class="flex justify-between text-[10px] font-label uppercase tracking-widest">
+<span class="text-on-surface-variant">Asset_Priority</span>
+<span class="text-primary">ALPHA-1</span>
+</div>
+<div class="w-full h-px bg-outline-variant/10"></div>
+</div>
+<!-- Summary Terminal Output -->
+<div class="bg-surface p-4 border border-outline-variant/10">
+<div class="flex items-center gap-2 mb-3">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="text-[9px] font-label text-primary tracking-widest uppercase">System_Readiness: OK</span>
+</div>
+<div class="text-[9px] font-label text-on-surface-variant/70 leading-relaxed font-mono">
+                                &gt; INITIALIZING_HANDSHAKE...<br/>
+                                &gt; NODES_SYNCHRONIZED...<br/>
+                                &gt; DATA_PIPELINE_VALIDATED...<br/>
+                                &gt; AWAITING_OPERATOR_AUTHORIZATION_KEY...
+                            </div>
+</div>
+</div>
+<!-- Final Action -->
+<div class="p-6 bg-surface-container-high border-t border-outline-variant/20">
+<button class="w-full bg-gradient-to-b from-primary to-primary-container text-on-primary py-4 px-6 font-headline font-black uppercase tracking-[0.2em] text-sm flex items-center justify-center gap-3 group transition-all">
+                            START RUN SEQUENCE
+                            <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">double_arrow</span>
+</button>
+<div class="mt-4 flex justify-center items-center gap-4 text-[8px] font-label text-outline uppercase tracking-[0.2em]">
+<span class="hover:text-primary cursor-pointer transition-colors">Abort_Sequence</span>
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+<span class="hover:text-primary cursor-pointer transition-colors">Export_Config</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- System Metadata Footer (Canvas context) -->
+<div class="px-8 pb-8 flex justify-between items-end opacity-40">
+<div class="font-label text-[8px] uppercase tracking-[0.3em] space-y-1">
+<div>Environment: Production_Grid_S7</div>
+<div>Kernel: STRATOS_v4.2.0-STABLE</div>
+</div>
+<div class="font-label text-[8px] uppercase tracking-[0.3em] text-right">
+<div>Lat: 37.7749° N, Long: 122.4194° W</div>
+<div>Server_Time: 14:22:09_UTC</div>
+</div>
+</div>
+</main>
+</body></html>

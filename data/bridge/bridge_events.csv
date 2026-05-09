@@ -1,0 +1,11 @@
+date,country,event_type,cluster,subcluster,severity,description,source_note,confidence,include_in_cluster
+2025-11-10,Ukraine,security_event,escalation,external,0.9,Bridge escalation marker,manual_seed_v43,medium,true
+2025-12-18,Russia,security_event,escalation,external,0.8,Bridge escalation marker,manual_seed_v43,medium,true
+2026-01-15,Iran,security_event,escalation,external,0.8,Bridge escalation marker,manual_seed_v43,medium,true
+2026-02-04,Israel,security_event,escalation,external,0.7,Bridge escalation marker,manual_seed_v43,medium,true
+2026-03-08,Nigeria,security_event,escalation,internal,0.8,Bridge escalation marker,manual_seed_v43,medium,true
+2025-10-22,Germany,protest_marker,tension,na,0.3,Bridge protest marker,manual_seed_v43,medium,true
+2025-12-05,Poland,protest_marker,tension,na,0.4,Bridge protest marker,manual_seed_v43,medium,true
+2026-01-22,Taiwan,crisis_marker,tension,na,0.5,Bridge crisis marker,manual_seed_v43,medium,true
+2026-02-18,China,negativity_marker,tension,na,0.4,Bridge negativity marker,manual_seed_v43,medium,true
+2026-03-26,Japan,protest_marker,tension,na,0.2,Bridge protest marker,manual_seed_v43,medium,true

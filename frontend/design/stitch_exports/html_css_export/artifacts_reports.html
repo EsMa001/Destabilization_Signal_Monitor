@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>STRATOS-4 // ARTIFACTS &amp; REPORTS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&amp;family=Space_Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#6ffbbe",
+                        "secondary-container": "#3c4a5e",
+                        "on-surface": "#dae2fd",
+                        "on-error-container": "#ffdad6",
+                        "error-container": "#93000a",
+                        "secondary-fixed": "#d5e3fd",
+                        "on-secondary-container": "#abb9d2",
+                        "on-secondary-fixed": "#0d1c2f",
+                        "on-primary-fixed": "#002113",
+                        "on-primary": "#003824",
+                        "outline-variant": "#3c4a3c",
+                        "outline": "#869583",
+                        "tertiary-fixed-dim": "#89ceff",
+                        "tertiary-fixed": "#c9e6ff",
+                        "surface-tint": "#4edea3",
+                        "on-primary-fixed-variant": "#005236",
+                        "surface-container-lowest": "#060e20",
+                        "on-error": "#690005",
+                        "primary-fixed-dim": "#4edea3",
+                        "on-primary-container": "#004b32",
+                        "surface-container-highest": "#2d3449",
+                        "surface-variant": "#2d3449",
+                        "surface-dim": "#0b1326",
+                        "surface-container": "#171f33",
+                        "on-surface-variant": "#bbcbb8",
+                        "secondary": "#b9c7e0",
+                        "tertiary": "#8ed0ff",
+                        "secondary-fixed-dim": "#b9c7e0",
+                        "on-tertiary": "#00344d",
+                        "surface-bright": "#31394d",
+                        "inverse-primary": "#006c49",
+                        "inverse-on-surface": "#283044",
+                        "on-tertiary-fixed-variant": "#004c6e",
+                        "inverse-surface": "#dae2fd",
+                        "on-tertiary-container": "#004565",
+                        "surface-container-low": "#131b2e",
+                        "on-secondary-fixed-variant": "#3a485c",
+                        "tertiary-container": "#38b7fc",
+                        "primary": "#51e1a5",
+                        "primary-container": "#2ac48b",
+                        "on-secondary": "#233144",
+                        "surface": "#0b1326",
+                        "on-tertiary-fixed": "#001e2f",
+                        "on-background": "#dae2fd",
+                        "background": "#0b1326",
+                        "error": "#ffb4ab",
+                        "surface-container-high": "#222a3d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Space_Grotesk"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #0b1326;
+            color: #dae2fd;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #0b1326;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #3c4a3c;
+        }
+    </style>
+</head>
+<body class="font-body selection:bg-primary selection:text-on-primary">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col py-6 z-50 bg-[#0b1326] w-64 border-r-0">
+<div class="px-6 mb-10">
+<div class="text-[#51e1a5] font-black tracking-tighter text-xl mb-1 uppercase">STRATOS-4</div>
+<div class="font-['Space_Grotesk'] text-[0.6875rem] text-[#51e1a5] tracking-widest opacity-80 uppercase">SECTOR-7//ACTIVE</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center px-6 py-3 text-[#bbcbb8] opacity-70 font-['Space_Grotesk'] text-[0.6875rem] uppercase tracking-wider hover:bg-[#31394d] hover:text-[#51e1a5] transition-colors duration-150" href="#">
+<span class="material-symbols-outlined mr-3 text-lg">dashboard</span>
+                Overview
+            </a>
+<a class="flex items-center px-6 py-3 text-[#bbcbb8] opacity-70 font-['Space_Grotesk'] text-[0.6875rem] uppercase tracking-wider hover:bg-[#31394d] hover:text-[#51e1a5] transition-colors duration-150" href="#">
+<span class="material-symbols-outlined mr-3 text-lg">terminal</span>
+                Runs
+            </a>
+<a class="flex items-center px-6 py-3 text-[#bbcbb8] opacity-70 font-['Space_Grotesk'] text-[0.6875rem] uppercase tracking-wider hover:bg-[#31394d] hover:text-[#51e1a5] transition-colors duration-150" href="#">
+<span class="material-symbols-outlined mr-3 text-lg">public</span>
+                Countries
+            </a>
+<a class="flex items-center px-6 py-3 text-[#bbcbb8] opacity-70 font-['Space_Grotesk'] text-[0.6875rem] uppercase tracking-wider hover:bg-[#31394d] hover:text-[#51e1a5] transition-colors duration-150" href="#">
+<span class="material-symbols-outlined mr-3 text-lg">compare_arrows</span>
+                Compare
+            </a>
+<!-- Active Tab: Artifacts -->
+<a class="flex items-center px-6 py-3 text-[#51e1a5] border-l-2 border-[#51e1a5] bg-[#31394d] font-['Space_Grotesk'] text-[0.6875rem] uppercase tracking-wider transition-all" href="#">
+<span class="material-symbols-outlined mr-3 text-lg">layers</span>
+                Artifacts
+            </a>
+<a class="flex items-center px-6 py-3 text-[#bbcbb8] opacity-70 font-['Space_Grotesk'] text-[0.6875rem] uppercase tracking-wider hover:bg-[#31394d] hover:text-[#51e1a5] transition-colors duration-150" href="#">
+<span class="material-symbols-outlined mr-3 text-lg">radar</span>
+                Coverage
+            </a>
+<a class="flex items-center px-6 py-3 text-[#bbcbb8] opacity-70 font-['Space_Grotesk'] text-[0.6875rem] uppercase tracking-wider hover:bg-[#31394d] hover:text-[#51e1a5] transition-colors duration-150" href="#">
+<span class="material-symbols-outlined mr-3 text-lg">settings</span>
+                Settings
+            </a>
+</nav>
+<div class="px-6 pt-6 mt-auto border-t border-[#3c4a3c]/15">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-surface-container-highest border border-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm">security</span>
+</div>
+<div>
+<div class="text-[0.625rem] font-label text-on-surface-variant uppercase tracking-tighter">Operator</div>
+<div class="text-[0.6875rem] font-label text-primary font-bold">INTEL_UNIT_04</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 left-64 flex justify-between items-center px-8 h-16 z-40 bg-[#0b1326]/70 backdrop-blur-xl border-b border-[#3c4a3c]/15">
+<div class="flex items-center gap-8 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-0 top-1/2 -translate-y-1/2 text-[#bbcbb8] text-sm">search</span>
+<input class="w-full bg-transparent border-none pl-8 text-xs font-label tracking-widest text-primary focus:ring-0 placeholder:text-[#bbcbb8]/30 uppercase" placeholder="FILTER_ARTIFACTS_BY_UID_OR_REGION..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-[#bbcbb8] hover:text-[#51e1a5] transition-colors">
+<span class="material-symbols-outlined">sensors</span>
+</button>
+<button class="text-[#bbcbb8] hover:text-[#51e1a5] transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-1.5 h-1.5 bg-primary"></span>
+</button>
+<button class="text-[#bbcbb8] hover:text-[#51e1a5] transition-colors">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-16 min-h-screen bg-surface">
+<div class="p-8 grid grid-cols-12 gap-8">
+<!-- Header Section -->
+<div class="col-span-12 mb-4">
+<div class="flex items-end justify-between">
+<div>
+<div class="h-0.5 w-4 bg-primary mb-2"></div>
+<h1 class="text-3xl font-extrabold tracking-tighter text-on-surface uppercase mb-1">Artifacts &amp; Reports</h1>
+<p class="font-label text-xs text-on-surface-variant tracking-widest uppercase">Centralized intelligence repository // encrypted_access_only</p>
+</div>
+<div class="flex gap-4">
+<button class="px-4 py-2 border border-outline-variant bg-surface-container-low hover:bg-surface-bright text-primary font-label text-[0.6875rem] uppercase tracking-widest transition-all">
+                            Filter: All Regions
+                        </button>
+<button class="px-6 py-2 bg-primary text-on-primary font-bold font-label text-[0.6875rem] uppercase tracking-widest hover:bg-primary-container transition-all">
+                            Export Manifest
+                        </button>
+</div>
+</div>
+</div>
+<!-- Bento Grid Content -->
+<div class="col-span-12 lg:col-span-8 space-y-8">
+<!-- Category Tabs -->
+<div class="flex gap-1 border-b border-outline-variant/30">
+<button class="px-6 py-3 border-b-2 border-primary text-primary font-label text-xs tracking-widest uppercase bg-surface-container-low">All_Files</button>
+<button class="px-6 py-3 text-on-surface-variant font-label text-xs tracking-widest uppercase hover:text-primary transition-colors">Intelligence_Audits</button>
+<button class="px-6 py-3 text-on-surface-variant font-label text-xs tracking-widest uppercase hover:text-primary transition-colors">Telemetry_Bundles</button>
+<button class="px-6 py-3 text-on-surface-variant font-label text-xs tracking-widest uppercase hover:text-primary transition-colors">Metric_Exports</button>
+</div>
+<!-- Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Card 1: PDF Audit -->
+<div class="bg-surface-container-low p-5 group transition-all relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary opacity-30 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-error-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-error text-xl">picture_as_pdf</span>
+</div>
+<div>
+<h3 class="text-on-surface font-bold text-sm tracking-tight uppercase">Intelligence_Audit_V4.pdf</h3>
+<p class="font-label text-[0.625rem] text-on-surface-variant tracking-widest uppercase">UID: AUD-772-K9</p>
+</div>
+</div>
+<span class="font-label text-[0.625rem] bg-surface-container-high px-2 py-0.5 text-on-surface-variant">4.2 MB</span>
+</div>
+<div class="aspect-video bg-surface-container-high mb-6 relative group-hover:scale-[1.02] transition-transform duration-500 overflow-hidden">
+<img class="w-full h-full object-cover opacity-60" data-alt="abstract digital data visualization with neon green lines and geometric shapes on a dark background representing encrypted intelligence audit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3Ud6PtTFvdIfSfYmhdPNChefWjBcOIxTTvSAUSvdmgV4E1gJQg28N7O2lgPEKdR4W_a3NukxhI3E-eLV7R9ZlFzH1xkXTvMUnzSdiDbt0tolkyA8yNTCife3mzlScP16PVQ7NYjawR1KARHg_jjlqTIxjJGlVnYDJoiihKY1j3GqN18sq6nB5oN29kml04Lk4H0A6QCWk_eWmOtmcHUW0Zoow5Gmq7Kt6KuoioK9peNDYF_gJeJfO6VbtCUsYQ9JgiChiwuRHU2o"/>
+<div class="absolute inset-0 flex items-center justify-center bg-surface/40 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="text-primary font-label text-[0.625rem] tracking-[0.2em] uppercase">Secured_Preview</span>
+</div>
+</div>
+<div class="flex justify-between items-center pt-2">
+<div class="flex gap-2">
+<button class="p-2 border border-outline-variant hover:border-primary text-primary transition-all">
+<span class="material-symbols-outlined text-sm">visibility</span>
+</button>
+<button class="p-2 border border-outline-variant hover:border-primary text-primary transition-all">
+<span class="material-symbols-outlined text-sm">download</span>
+</button>
+<button class="p-2 border border-outline-variant hover:border-error text-error transition-all">
+<span class="material-symbols-outlined text-sm">archive</span>
+</button>
+</div>
+<span class="font-label text-[0.625rem] text-primary tracking-widest">REGION: SECTOR_7</span>
+</div>
+</div>
+<!-- Card 2: ZIP Telemetry -->
+<div class="bg-surface-container-low p-5 group transition-all relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-tertiary opacity-30 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-tertiary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-xl">inventory_2</span>
+</div>
+<div>
+<h3 class="text-on-surface font-bold text-sm tracking-tight uppercase">Telemetry_Dump_2023.zip</h3>
+<p class="font-label text-[0.625rem] text-on-surface-variant tracking-widest uppercase">UID: TEL-991-A1</p>
+</div>
+</div>
+<span class="font-label text-[0.625rem] bg-surface-container-high px-2 py-0.5 text-on-surface-variant">128.5 MB</span>
+</div>
+<div class="aspect-video bg-surface-container-high mb-6 relative overflow-hidden">
+<img class="w-full h-full object-cover opacity-60" data-alt="top down view of complex glowing blue circuit board with intricate patterns and microchips representing telemetry data bundles" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNyv6LDSwmSwvo4Mt80NbQwh_tOR9LP56qOYWrrF5SSp6ZBVeLemxJ1XA6u8uNtg6GctQ2rWTHdcpeXtbCToymfzRyuMjI2AinI2b2hMIn90GfkGbITCuvMSSyRUvFf1BR7E_gHaxEdxdqEAb2n5-231lNBEI2ZSfopTFaFyAeeaVGK0gb758I1b3yu9k5wKUZKeUMFqybxbbM-1tpcinDloUVrOrXdSBuEqRgNyONX-kYiXYFRw7Swjd3ogI4FRm-3Nl5zHrwTyI"/>
+<div class="absolute inset-0 flex items-center justify-center bg-surface/40 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="text-tertiary font-label text-[0.625rem] tracking-[0.2em] uppercase">Contents_Locked</span>
+</div>
+</div>
+<div class="flex justify-between items-center pt-2">
+<div class="flex gap-2">
+<button class="p-2 border border-outline-variant hover:border-tertiary text-tertiary transition-all">
+<span class="material-symbols-outlined text-sm">visibility</span>
+</button>
+<button class="p-2 border border-outline-variant hover:border-tertiary text-tertiary transition-all">
+<span class="material-symbols-outlined text-sm">download</span>
+</button>
+<button class="p-2 border border-outline-variant hover:border-error text-error transition-all">
+<span class="material-symbols-outlined text-sm">archive</span>
+</button>
+</div>
+<span class="font-label text-[0.625rem] text-tertiary tracking-widest">REGION: GLOBAL_HUB</span>
+</div>
+</div>
+<!-- Card 3: CSV Export -->
+<div class="bg-surface-container-low p-5 group transition-all relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary opacity-30 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-xl">table_chart</span>
+</div>
+<div>
+<h3 class="text-on-surface font-bold text-sm tracking-tight uppercase">Metric_Export_Q3.csv</h3>
+<p class="font-label text-[0.625rem] text-on-surface-variant tracking-widest uppercase">UID: MET-004-X8</p>
+</div>
+</div>
+<span class="font-label text-[0.625rem] bg-surface-container-high px-2 py-0.5 text-on-surface-variant">842 KB</span>
+</div>
+<div class="aspect-video bg-surface-container-high mb-6 relative overflow-hidden">
+<img class="w-full h-full object-cover opacity-60" data-alt="minimalist spreadsheet data grid with green and white numbers over dark blue surface representing financial or tactical metrics" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5p7VIR8KInww6gaCYilxKzy1iViCQQ1ZFZWsd0d3ammqfWiop4CG6vc4GSfUBeamiKjoHXSjjy5eJpAND_yVFHEDbD2I2n2Fm7L0uOrzDwi5Kvu9Kt0oKHvimBmis8Gwtt7QZBSIiGt33gfkMSSKKkGS821W4qeW2rA0HdtC41nSOg7o7fFXOCqZYO5HO7AeiwfD1NW4_sdYeF-urxqf7MZL35zxNT0Kw5R3Vg7LYn3k_x7Mwxm6nECBf8gYjy2-sMIQnprobsX8"/>
+</div>
+<div class="flex justify-between items-center pt-2">
+<div class="flex gap-2">
+<button class="p-2 border border-outline-variant hover:border-primary text-primary transition-all">
+<span class="material-symbols-outlined text-sm">visibility</span>
+</button>
+<button class="p-2 border border-outline-variant hover:border-primary text-primary transition-all">
+<span class="material-symbols-outlined text-sm">download</span>
+</button>
+<button class="p-2 border border-outline-variant hover:border-error text-error transition-all">
+<span class="material-symbols-outlined text-sm">archive</span>
+</button>
+</div>
+<span class="font-label text-[0.625rem] text-primary tracking-widest">REGION: NORTH_AMER</span>
+</div>
+</div>
+<!-- Card 4: PNG Snapshot -->
+<div class="bg-surface-container-low p-5 group transition-all relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-secondary opacity-30 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-secondary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-xl">image</span>
+</div>
+<div>
+<h3 class="text-on-surface font-bold text-sm tracking-tight uppercase">Radar_Snapshot_B.png</h3>
+<p class="font-label text-[0.625rem] text-on-surface-variant tracking-widest uppercase">UID: IMG-112-Q4</p>
+</div>
+</div>
+<span class="font-label text-[0.625rem] bg-surface-container-high px-2 py-0.5 text-on-surface-variant">12.2 MB</span>
+</div>
+<div class="aspect-video bg-surface-container-high mb-6 relative overflow-hidden">
+<img class="w-full h-full object-cover opacity-60" data-alt="glowing earth viewed from space at night with light trails and data networks wrapping around the planet silhouette" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWxSrgToYLo_xjGfunFAjmXKS0TjcIBJ3BkvH7lIy1lXsWHntui1RfSbrE4wAydjNx8tZbMjvL7NYQMmsKC1y-39GVZ_W1qVXLh5FuJnFH65BM_6VSE2CxLOUW73Xgy__u1JTwMd48qqYaT2Uun3bZT5eFudKpSUuGUvgnPqYqWOSTUPoVwgf3h06jf3WNNzxM8M2cIZ7wIe3Nbb0mchuMCDXb2LkeeB4F3UVxBTEkpUwhxslREjLGwecucHkP_KFBC9y9qVBKLtA"/>
+</div>
+<div class="flex justify-between items-center pt-2">
+<div class="flex gap-2">
+<button class="p-2 border border-outline-variant hover:border-secondary text-secondary transition-all">
+<span class="material-symbols-outlined text-sm">visibility</span>
+</button>
+<button class="p-2 border border-outline-variant hover:border-secondary text-secondary transition-all">
+<span class="material-symbols-outlined text-sm">download</span>
+</button>
+<button class="p-2 border border-outline-variant hover:border-error text-error transition-all">
+<span class="material-symbols-outlined text-sm">archive</span>
+</button>
+</div>
+<span class="font-label text-[0.625rem] text-secondary tracking-widest">REGION: SOUTH_PAC</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Activity Column -->
+<div class="col-span-12 lg:col-span-4">
+<div class="bg-surface-container-low h-full flex flex-col overflow-hidden">
+<div class="p-6 border-b border-outline-variant/15 flex items-center justify-between">
+<div>
+<h2 class="text-sm font-bold text-on-surface uppercase tracking-widest mb-1">Recent Activity</h2>
+<p class="font-label text-[0.625rem] text-primary tracking-widest uppercase">System_Logs // Real-Time</p>
+</div>
+<span class="material-symbols-outlined text-primary text-sm">history</span>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar p-6 space-y-6">
+<!-- Activity Item 1 -->
+<div class="flex gap-4">
+<div class="relative flex-shrink-0">
+<div class="w-8 h-8 bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm">download</span>
+</div>
+<div class="absolute -top-1 -right-1 w-2 h-2 bg-primary"></div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<p class="text-[0.6875rem] font-bold text-on-surface uppercase">File Downloaded</p>
+<span class="font-label text-[0.625rem] text-on-surface-variant">02:14:15</span>
+</div>
+<p class="text-[0.625rem] font-label text-on-surface-variant leading-relaxed">
+<span class="text-primary">ADMIN_ROOT</span> downloaded <span class="text-on-surface">Audit_V4.pdf</span> from SECTOR_7 repository.
+                                </p>
+</div>
+</div>
+<!-- Activity Item 2 -->
+<div class="flex gap-4">
+<div class="relative flex-shrink-0">
+<div class="w-8 h-8 bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-sm">sync</span>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<p class="text-[0.6875rem] font-bold text-on-surface uppercase">Generation Complete</p>
+<span class="font-label text-[0.625rem] text-on-surface-variant">01:45:10</span>
+</div>
+<p class="text-[0.625rem] font-label text-on-surface-variant leading-relaxed">
+                                    System generated <span class="text-tertiary">Telemetry_Dump_2023.zip</span> following scheduled scan.
+                                </p>
+</div>
+</div>
+<!-- Activity Item 3 -->
+<div class="flex gap-4">
+<div class="relative flex-shrink-0">
+<div class="w-8 h-8 bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-error text-sm">archive</span>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<p class="text-[0.6875rem] font-bold text-on-surface uppercase">Artifact Archived</p>
+<span class="font-label text-[0.625rem] text-on-surface-variant">Yesterday</span>
+</div>
+<p class="text-[0.625rem] font-label text-on-surface-variant leading-relaxed">
+<span class="text-error">INTEL_UNIT_04</span> archived 12 files from <span class="text-on-surface">Legacy_Stream_A</span>.
+                                </p>
+</div>
+</div>
+<!-- Activity Item 4 -->
+<div class="flex gap-4">
+<div class="relative flex-shrink-0">
+<div class="w-8 h-8 bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm">visibility</span>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<p class="text-[0.6875rem] font-bold text-on-surface uppercase">Preview Triggered</p>
+<span class="font-label text-[0.625rem] text-on-surface-variant">Yesterday</span>
+</div>
+<p class="text-[0.625rem] font-label text-on-surface-variant leading-relaxed">
+                                    Deep scan preview initiated for <span class="text-on-surface">Metric_Export_Q3.csv</span>.
+                                </p>
+</div>
+</div>
+<!-- Mini Map Preview Widget -->
+<div class="mt-8 p-4 bg-surface-container-highest border border-outline-variant/10">
+<div class="flex items-center justify-between mb-4">
+<p class="font-label text-[0.625rem] text-primary tracking-widest uppercase">Origin_Tracking</p>
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+</div>
+<div class="h-32 w-full bg-surface-dim relative overflow-hidden">
+<img class="w-full h-full object-cover opacity-40 grayscale contrast-125" data-alt="highly stylized topographical map showing thermal heat zones in vibrant green and deep blue over a dark terrain background" data-location="Global" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvMsjvIUr8o6VBIgZUZ01LfYxpK7NNrrQMJ8a4pW7Dn3qPo64RGMg28IJAHCg6KKIK3HNQYH27F_wdYqc_LuuwuaC1sy6TMvzbRs47H5YQ3UdrQiekQzDzcHWTBFvWkpNpf2sKfiu-nc0SiR-zyfHIaJL6v1LU3Fioi1bPufpeuwI_erk3RhoTSCP646Cjci5rGesLXSbdQmfjnqgICKYmw9NFICvlsZaTfYZ8VxlwDf60oOFy-EUNcORtHekSPFqs3AX06UbtT2c"/>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="w-16 h-16 border border-primary/20 rounded-full flex items-center justify-center">
+<div class="w-8 h-8 border border-primary/40 rounded-full animate-ping"></div>
+</div>
+</div>
+</div>
+<div class="mt-4 grid grid-cols-2 gap-2">
+<div>
+<p class="font-label text-[0.5rem] text-on-surface-variant uppercase">Lat_Coord</p>
+<p class="font-label text-[0.6875rem] text-primary">34.0522° N</p>
+</div>
+<div>
+<p class="font-label text-[0.5rem] text-on-surface-variant uppercase">Long_Coord</p>
+<p class="font-label text-[0.6875rem] text-primary">118.2437° W</p>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 bg-surface-container-high border-t border-outline-variant/15">
+<button class="w-full py-3 bg-transparent border border-primary text-primary font-bold font-label text-[0.6875rem] uppercase tracking-[0.2em] hover:bg-primary/5 transition-all">
+                            Access_Full_Log
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,11 @@
+country,economic_vulnerability_score,economic_vulnerability_note,hybrid_vulnerability_score,hybrid_vulnerability_note,governance_stress_score,governance_stress_note
+Germany,41.0,Synthetic V4.3 economic vulnerability baseline,43.1,Synthetic V4.3 hybrid vulnerability baseline,44.7,Synthetic V4.3 governance stress baseline
+Israel,70.1,Synthetic V4.3 economic vulnerability baseline,68.2,Synthetic V4.3 hybrid vulnerability baseline,74.4,Synthetic V4.3 governance stress baseline
+Iran,87.7,Synthetic V4.3 economic vulnerability baseline,83.4,Synthetic V4.3 hybrid vulnerability baseline,92.4,Synthetic V4.3 governance stress baseline
+Ukraine,82.4,Synthetic V4.3 economic vulnerability baseline,78.8,Synthetic V4.3 hybrid vulnerability baseline,87.0,Synthetic V4.3 governance stress baseline
+Russia,77.1,Synthetic V4.3 economic vulnerability baseline,74.2,Synthetic V4.3 hybrid vulnerability baseline,81.6,Synthetic V4.3 governance stress baseline
+Japan,36.6,Synthetic V4.3 economic vulnerability baseline,39.3,Synthetic V4.3 hybrid vulnerability baseline,40.2,Synthetic V4.3 governance stress baseline
+China,60.4,Synthetic V4.3 economic vulnerability baseline,59.8,Synthetic V4.3 hybrid vulnerability baseline,64.5,Synthetic V4.3 governance stress baseline
+Taiwan,64.8,Synthetic V4.3 economic vulnerability baseline,63.6,Synthetic V4.3 hybrid vulnerability baseline,69.0,Synthetic V4.3 governance stress baseline
+Poland,53.4,Synthetic V4.3 economic vulnerability baseline,53.7,Synthetic V4.3 hybrid vulnerability baseline,57.3,Synthetic V4.3 governance stress baseline
+Nigeria,79.8,Synthetic V4.3 economic vulnerability baseline,76.5,Synthetic V4.3 hybrid vulnerability baseline,84.3,Synthetic V4.3 governance stress baseline

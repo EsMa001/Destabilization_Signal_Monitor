@@ -1,0 +1,92 @@
+[
+  {
+    "country": "Iran",
+    "cluster": "tension",
+    "cluster_score": 78.3333,
+    "stage": "hoch",
+    "trend": "stabil",
+    "confidence_score": 72.92,
+    "confidence_level": "hoch",
+    "summary_text": "gesellschaftlich-politische Spannung ist hoch; Trend stabil; Confidence hoch."
+  },
+  {
+    "country": "Iran",
+    "cluster": "escalation",
+    "cluster_score": 75.625,
+    "stage": "hoch",
+    "trend": "stabil",
+    "confidence_score": 76.75,
+    "confidence_level": "hoch",
+    "summary_text": "gewaltsame Eskalation ist hoch; Trend stabil; Confidence hoch."
+  },
+  {
+    "country": "Iran",
+    "cluster": "vulnerability",
+    "cluster_score": 72.6667,
+    "stage": "hoch",
+    "trend": "stabil",
+    "confidence_score": 69.28,
+    "confidence_level": "hoch",
+    "summary_text": "strukturelle / systemische Verwundbarkeit ist hoch; Trend stabil; Confidence hoch."
+  },
+  {
+    "country": "Israel",
+    "cluster": "tension",
+    "cluster_score": 64.0,
+    "stage": "hoch",
+    "trend": "stabil",
+    "confidence_score": 64.06,
+    "confidence_level": "mittel",
+    "summary_text": "gesellschaftlich-politische Spannung ist hoch; Trend stabil; Confidence mittel."
+  },
+  {
+    "country": "Israel",
+    "cluster": "escalation",
+    "cluster_score": 69.875,
+    "stage": "hoch",
+    "trend": "stabil",
+    "confidence_score": 64.66,
+    "confidence_level": "mittel",
+    "summary_text": "gewaltsame Eskalation ist hoch; Trend stabil; Confidence mittel."
+  },
+  {
+    "country": "Israel",
+    "cluster": "vulnerability",
+    "cluster_score": 59.6667,
+    "stage": "hoch",
+    "trend": "stabil",
+    "confidence_score": 63.13,
+    "confidence_level": "mittel",
+    "summary_text": "strukturelle / systemische Verwundbarkeit ist hoch; Trend stabil; Confidence mittel."
+  },
+  {
+    "country": "Germany",
+    "cluster": "tension",
+    "cluster_score": 48.3333,
+    "stage": "erhöht",
+    "trend": "stabil",
+    "confidence_score": 57.81,
+    "confidence_level": "mittel",
+    "summary_text": "gesellschaftlich-politische Spannung ist erhöht; Trend stabil; Confidence mittel."
+  },
+  {
+    "country": "Germany",
+    "cluster": "escalation",
+    "cluster_score": 16.125,
+    "stage": "niedrig",
+    "trend": "stabil",
+    "confidence_score": 75.14,
+    "confidence_level": "hoch",
+    "summary_text": "gewaltsame Eskalation ist niedrig; Trend stabil; Confidence hoch."
+  },
+  {
+    "country": "Germany",
+    "cluster": "vulnerability",
+    "cluster_score": 39.6667,
+    "stage": "erhöht",
+    "trend": "stabil",
+    "confidence_score": 60.76,
+    "confidence_level": "mittel",
+    "summary_text": "strukturelle / systemische Verwundbarkeit ist erhöht; Trend stabil; Confidence mittel."
+  }
+]

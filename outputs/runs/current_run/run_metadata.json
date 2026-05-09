@@ -1,0 +1,14 @@
+{
+  "run_timestamp": "2026-04-16T12:00:00+00:00",
+  "countries": ["Germany", "Iran"],
+  "short_days": 7,
+  "recent_days": 30,
+  "baseline_days": 356,
+  "query_version": "v1",
+  "scoring_version": "v4.3",
+  "bridge_file_version": "v1",
+  "context_table_version": "v1",
+  "proposed_run_status": "erfolgreich",
+  "run_status": "erfolgreich",
+  "run_status_overridden": false
+}

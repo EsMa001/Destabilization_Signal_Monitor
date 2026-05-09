@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&amp;family=Space_Grotesk:wght@300;400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#6ffbbe",
+                    "secondary-container": "#3c4a5e",
+                    "on-surface": "#dae2fd",
+                    "on-error-container": "#ffdad6",
+                    "error-container": "#93000a",
+                    "secondary-fixed": "#d5e3fd",
+                    "on-secondary-container": "#abb9d2",
+                    "on-secondary-fixed": "#0d1c2f",
+                    "on-primary-fixed": "#002113",
+                    "on-primary": "#003824",
+                    "outline-variant": "#3c4a3c",
+                    "outline": "#869583",
+                    "tertiary-fixed-dim": "#89ceff",
+                    "tertiary-fixed": "#c9e6ff",
+                    "surface-tint": "#4edea3",
+                    "on-primary-fixed-variant": "#005236",
+                    "surface-container-lowest": "#060e20",
+                    "on-error": "#690005",
+                    "primary-fixed-dim": "#4edea3",
+                    "on-primary-container": "#004b32",
+                    "surface-container-highest": "#2d3449",
+                    "surface-variant": "#2d3449",
+                    "surface-dim": "#0b1326",
+                    "surface-container": "#171f33",
+                    "on-surface-variant": "#bbcbb8",
+                    "secondary": "#b9c7e0",
+                    "tertiary": "#8ed0ff",
+                    "secondary-fixed-dim": "#b9c7e0",
+                    "on-tertiary": "#00344d",
+                    "surface-bright": "#31394d",
+                    "inverse-primary": "#006c49",
+                    "inverse-on-surface": "#283044",
+                    "on-tertiary-fixed-variant": "#004c6e",
+                    "inverse-surface": "#dae2fd",
+                    "on-tertiary-container": "#004565",
+                    "surface-container-low": "#131b2e",
+                    "on-secondary-fixed-variant": "#3a485c",
+                    "tertiary-container": "#38b7fc",
+                    "primary": "#51e1a5",
+                    "primary-container": "#2ac48b",
+                    "on-secondary": "#233144",
+                    "surface": "#0b1326",
+                    "on-tertiary-fixed": "#001e2f",
+                    "on-background": "#dae2fd",
+                    "background": "#0b1326",
+                    "error": "#ffb4ab",
+                    "surface-container-high": "#222a3d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .tonal-shift { background-color: #131b2e; }
+        .glass-panel {
+            background: rgba(23, 31, 51, 0.7);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<!-- SideNavBar Anchor -->
+<aside class="fixed left-0 top-0 h-full flex flex-col py-6 z-50 bg-[#0b1326] w-64">
+<div class="px-6 mb-8">
+<div class="text-[#51e1a5] font-black tracking-tighter text-xl uppercase">STRATOS-4</div>
+<div class="font-['Inter'] uppercase tracking-wider text-[0.6rem] text-[#51e1a5] opacity-80 mt-1">SECTOR-7//ACTIVE</div>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Overview -->
+<a class="flex items-center px-6 py-3 text-[#bbcbb8] opacity-70 hover:bg-[#31394d] hover:text-[#51e1a5] transition-colors duration-150 group" href="#">
+<span class="material-symbols-outlined mr-3 text-lg" data-icon="dashboard">dashboard</span>
+<span class="font-['Space_Grotesk'] text-[0.6875rem] uppercase tracking-widest">Overview</span>
+</a>
+<!-- Countries (Active) -->
+<a class="flex items-center px-6 py-3 text-[#51e1a5] border-l-2 border-[#51e1a5] bg-[#31394d] transition-all group" href="#">
+<span class="material-symbols-outlined mr-3 text-lg" data-icon="public">public</span>
+<span class="font-['Space_Grotesk'] text-[0.6875rem] uppercase tracking-widest">Countries</span>
+</a>
+<a class="flex items-center px-6 py-3 text-[#bbcbb8] opacity-70 hover:bg-[#31394d] hover:text-[#51e1a5] transition-colors duration-150 group" href="#">
+<span class="material-symbols-outlined mr-3 text-lg" data-icon="terminal">terminal</span>
+<span class="font-['Space_Grotesk'] text-[0.6875rem] uppercase tracking-widest">Runs</span>
+</a>
+<a class="flex items-center px-6 py-3 text-[#bbcbb8] opacity-70 hover:bg-[#31394d] hover:text-[#51e1a5] transition-colors duration-150 group" href="#">
+<span class="material-symbols-outlined mr-3 text-lg" data-icon="compare_arrows">compare_arrows</span>
+<span class="font-['Space_Grotesk'] text-[0.6875rem] uppercase tracking-widest">Compare</span>
+</a>
+<a class="flex items-center px-6 py-3 text-[#bbcbb8] opacity-70 hover:bg-[#31394d] hover:text-[#51e1a5] transition-colors duration-150 group" href="#">
+<span class="material-symbols-outlined mr-3 text-lg" data-icon="layers">layers</span>
+<span class="font-['Space_Grotesk'] text-[0.6875rem] uppercase tracking-widest">Artifacts</span>
+</a>
+<a class="flex items-center px-6 py-3 text-[#bbcbb8] opacity-70 hover:bg-[#31394d] hover:text-[#51e1a5] transition-colors duration-150 group" href="#">
+<span class="material-symbols-outlined mr-3 text-lg" data-icon="radar">radar</span>
+<span class="font-['Space_Grotesk'] text-[0.6875rem] uppercase tracking-widest">Coverage</span>
+</a>
+<a class="flex items-center px-6 py-3 text-[#bbcbb8] opacity-70 hover:bg-[#31394d] hover:text-[#51e1a5] transition-colors duration-150 group" href="#">
+<span class="material-symbols-outlined mr-3 text-lg" data-icon="settings">settings</span>
+<span class="font-['Space_Grotesk'] text-[0.6875rem] uppercase tracking-widest">Settings</span>
+</a>
+</nav>
+<div class="px-6 pt-6 mt-auto border-t border-outline-variant/10">
+<div class="flex items-center gap-3">
+<img alt="Security Intelligence Operator" class="w-8 h-8 rounded-full border border-primary/30" data-alt="close-up portrait of a serious female security analyst in a dark control room environment with subtle screen reflections on her face" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDn5eGZ2ZxTVAu0f28vQ8KC_emH8p6jlQdHt3Ne0x-Sw1xX4IIuYrXusQaUVnSuDmIWRY3Py1eExcky3icnn6ruB_HCWQvowzDXj1i9PpMkwg9mjBEI-OXyBkHgMCsOI9iyh6-pzvLF0ooWQ9MD48JYPZMoWp9GghWRAALLOIKQAUMU_iLWMeYRqLrjeQpWj0akhwFudF7jP5SGTwpsUn0XnKbshZre55OYJ771w5E5vwGIUPAe60lzko0anHm53qqMGdaz_DH6MaI"/>
+<div class="overflow-hidden">
+<p class="text-[0.65rem] font-bold text-on-surface truncate">OPERATOR_842</p>
+<p class="text-[0.55rem] text-primary font-mono truncate">LEVEL_4_CLEARANCE</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- TopNavBar Anchor -->
+<header class="fixed top-0 right-0 left-64 flex justify-between items-center px-6 h-16 z-40 bg-[#0b1326]/70 backdrop-blur-xl border-b border-[#3c4a3c]/15">
+<div class="flex items-center gap-4">
+<span class="font-['Space_Grotesk'] text-sm tracking-widest text-[#bbcbb8]">TACTICAL_INTEL_OPS</span>
+<div class="h-4 w-[1px] bg-outline-variant/30"></div>
+<div class="flex items-center bg-surface-container-low px-3 py-1.5 border-b border-outline/20">
+<span class="material-symbols-outlined text-sm text-outline mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs font-label uppercase tracking-tighter w-48 text-on-surface" placeholder="QUERY_SECTOR..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-[#bbcbb8] hover:text-[#51e1a5] transition-colors"><span class="material-symbols-outlined" data-icon="sensors">sensors</span></button>
+<button class="text-[#bbcbb8] hover:text-[#51e1a5] transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-1.5 h-1.5 bg-primary rounded-full"></span>
+</button>
+<button class="text-[#bbcbb8] hover:text-[#51e1a5] transition-colors"><span class="material-symbols-outlined" data-icon="account_circle">account_circle</span></button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pl-64 pt-16 min-h-screen">
+<div class="p-8">
+<!-- Context Header: Country Detail -->
+<div class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<div class="w-4 h-4 bg-primary"></div>
+<span class="font-label text-xs text-primary uppercase tracking-[0.2em]">Regional Protocol // Alpha-Zero</span>
+</div>
+<h1 class="text-5xl font-extrabold tracking-tighter uppercase text-on-surface leading-none">Singapore</h1>
+</div>
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-0 divide-x divide-outline-variant/20 bg-surface-container-low border border-outline-variant/10">
+<div class="p-4 px-6">
+<p class="font-label text-[0.6rem] text-on-surface-variant uppercase tracking-widest mb-1">Risk Score</p>
+<p class="text-2xl font-black text-primary font-mono tracking-tighter">0.14 <span class="text-[0.6rem] font-bold opacity-60">LOW</span></p>
+</div>
+<div class="p-4 px-6">
+<p class="font-label text-[0.6rem] text-on-surface-variant uppercase tracking-widest mb-1">Confidence</p>
+<p class="text-2xl font-black text-on-surface font-mono tracking-tighter">98.4%</p>
+</div>
+<div class="p-4 px-6">
+<p class="font-label text-[0.6rem] text-on-surface-variant uppercase tracking-widest mb-1">Freshness</p>
+<p class="text-2xl font-black text-on-surface font-mono tracking-tighter">02 <span class="text-[0.6rem] font-bold opacity-60">MIN</span></p>
+</div>
+<div class="p-4 px-6">
+<p class="font-label text-[0.6rem] text-on-surface-variant uppercase tracking-widest mb-1">Node Status</p>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 bg-primary animate-pulse"></span>
+<span class="text-xs font-bold text-primary font-mono">ACTIVE_LINK</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Mode Toggle & Tactical View -->
+<div class="flex items-center justify-between mb-6">
+<div class="flex bg-surface-container-high p-1">
+<button class="px-6 py-2 bg-primary text-on-primary font-label text-[0.65rem] font-bold tracking-widest uppercase transition-all">Daily Briefing</button>
+<button class="px-6 py-2 text-on-surface-variant hover:text-on-surface font-label text-[0.65rem] font-bold tracking-widest uppercase transition-all">Long-Term Trends</button>
+</div>
+<div class="flex gap-4">
+<button class="flex items-center gap-2 px-4 py-2 border border-outline-variant/30 font-label text-[0.6rem] uppercase tracking-widest hover:bg-surface-bright transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span> Export Report
+                    </button>
+</div>
+</div>
+<!-- Dashboard Grid -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Center: Briefing Content -->
+<div class="col-span-12 lg:col-span-8 space-y-6">
+<!-- Tactical Summary Card -->
+<div class="bg-surface-container-low p-8 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-12 bg-primary"></div>
+<div class="flex justify-between items-start mb-6">
+<h3 class="font-headline font-bold text-lg tracking-tight text-on-surface uppercase italic">Tactical Summary</h3>
+<span class="font-mono text-[0.6rem] text-outline">REF_ID: SG-2024-09X</span>
+</div>
+<p class="text-on-surface-variant leading-relaxed text-sm font-light max-w-2xl mb-6">
+                            Observation Period 00:00 - 23:59. Stability remains high across all critical sectors. Financial telemetry indicates a minor divergence in capital outflow signals, currently suppressed by domestic policy frameworks. Maritime traffic in the Straits of Malacca shows optimal flow with zero reported security anomalies in the last 24-hour cycle. Cyber-threat landscape remains baseline; persistent reconnaissance detected but effectively neutralized by perimeter logic.
+                        </p>
+<div class="grid grid-cols-3 gap-6 pt-6 border-t border-outline-variant/10">
+<div>
+<span class="block font-label text-[0.6rem] uppercase text-outline mb-1">Geopolitical</span>
+<span class="text-xs font-bold text-primary">NEUTRAL / STEADY</span>
+</div>
+<div>
+<span class="block font-label text-[0.6rem] uppercase text-outline mb-1">Infrastructure</span>
+<span class="text-xs font-bold text-primary">OPTIMAL</span>
+</div>
+<div>
+<span class="block font-label text-[0.6rem] uppercase text-outline mb-1">Cyber-Risk</span>
+<span class="text-xs font-bold text-tertiary">MINIMAL_ACTIVE</span>
+</div>
+</div>
+</div>
+<!-- Active Warnings & Latest Anomaly -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Active Warnings -->
+<div class="bg-surface-container-low p-6 border-l-2 border-primary-container">
+<div class="flex items-center justify-between mb-4">
+<h4 class="font-label text-xs font-bold uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base" data-icon="warning">warning</span> Active Warnings
+                                </h4>
+<span class="bg-primary/10 text-primary text-[0.6rem] px-2 py-0.5 font-bold">02 TOTAL</span>
+</div>
+<div class="space-y-3">
+<div class="bg-surface-container-high p-3">
+<p class="text-[0.65rem] font-bold text-on-surface">PORT_LOGISTICS_CONGESTION</p>
+<p class="text-[0.6rem] text-on-surface-variant mt-1 italic">Minor delay in Terminal 3 offloading; impact negligible.</p>
+</div>
+<div class="bg-surface-container-high p-3 opacity-60">
+<p class="text-[0.65rem] font-bold text-on-surface">WEATHER_ANOMALY_PRECIP</p>
+<p class="text-[0.6rem] text-on-surface-variant mt-1 italic">Flash flood warning for Sector-4 North. Expired.</p>
+</div>
+</div>
+</div>
+<!-- Latest Anomaly -->
+<div class="bg-surface-container-low p-6">
+<div class="flex items-center justify-between mb-4">
+<h4 class="font-label text-xs font-bold uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-base" data-icon="radar">radar</span> Latest Anomaly
+                                </h4>
+<span class="text-mono text-[0.6rem] text-outline">14:22:04 ZULU</span>
+</div>
+<div class="relative h-24 bg-surface-container-highest/30 mb-4 overflow-hidden">
+<!-- Mock Waveform -->
+<div class="absolute inset-0 flex items-center justify-center opacity-30">
+<div class="w-full flex items-end justify-center gap-0.5 px-4 h-12">
+<div class="w-1 bg-tertiary h-4"></div><div class="w-1 bg-tertiary h-6"></div><div class="w-1 bg-tertiary h-3"></div><div class="w-1 bg-tertiary h-8"></div><div class="w-1 bg-tertiary h-10"></div><div class="w-1 bg-error h-14"></div><div class="w-1 bg-error h-16"></div><div class="w-1 bg-error h-12"></div><div class="w-1 bg-tertiary h-8"></div><div class="w-1 bg-tertiary h-4"></div><div class="w-1 bg-tertiary h-6"></div><div class="w-1 bg-tertiary h-2"></div><div class="w-1 bg-tertiary h-5"></div>
+</div>
+</div>
+<div class="absolute top-2 left-2 flex items-center gap-1">
+<span class="w-1 h-1 bg-error rounded-full"></span>
+<span class="text-[0.5rem] font-mono text-error uppercase">Capital Outflow Spike</span>
+</div>
+</div>
+<p class="text-[0.6rem] text-on-surface-variant">Unusual high-frequency trade pattern detected in SGX:FIN sector. Analyzing source nodes.</p>
+</div>
+</div>
+<!-- Key Indicators: Risk Charts -->
+<div class="bg-surface-container-low p-6">
+<h4 class="font-label text-xs font-bold uppercase tracking-widest mb-6">Risk Multi-Indices</h4>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-[0.6rem] font-bold uppercase text-outline">Political Stability</span>
+<span class="text-[0.6rem] font-mono text-primary">0.02</span>
+</div>
+<div class="h-1 bg-surface-container-highest w-full">
+<div class="h-full bg-primary w-[4%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-[0.6rem] font-bold uppercase text-outline">Economic Pressure</span>
+<span class="text-[0.6rem] font-mono text-primary">0.21</span>
+</div>
+<div class="h-1 bg-surface-container-highest w-full">
+<div class="h-full bg-primary w-[21%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-[0.6rem] font-bold uppercase text-outline">Social Unrest</span>
+<span class="text-[0.6rem] font-mono text-primary">0.11</span>
+</div>
+<div class="h-1 bg-surface-container-highest w-full">
+<div class="h-full bg-primary w-[11%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Side: Data & Intelligence -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<!-- Data Coverage Panel -->
+<div class="tonal-shift p-6">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="cloud_sync">cloud_sync</span>
+<h4 class="font-label text-xs font-bold uppercase tracking-widest">Source Availability</h4>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<span class="text-[0.65rem] font-medium text-on-surface-variant">OSINT_DATA_STREAM</span>
+<span class="text-[0.6rem] font-mono text-primary uppercase">99% uptime</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-[0.65rem] font-medium text-on-surface-variant">SATELLITE_THERMAL_IMAGERY</span>
+<span class="text-[0.6rem] font-mono text-primary uppercase">LIVE</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-[0.65rem] font-medium text-on-surface-variant">SIGINT_INTERCEPT_NODE</span>
+<span class="text-[0.6rem] font-mono text-tertiary uppercase">LIMITED</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-[0.65rem] font-medium text-on-surface-variant">HUMINT_FIELD_REPORTS</span>
+<span class="text-[0.6rem] font-mono text-on-surface-variant uppercase">WEEKLY_SYNC</span>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-outline-variant/10">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-outline" data-icon="edit_note">edit_note</span>
+<span class="font-label text-[0.6rem] font-bold uppercase tracking-widest">Analyst Notes</span>
+</div>
+<div class="bg-surface-container-high p-4">
+<p class="text-[0.65rem] text-on-surface-variant italic mb-3 leading-relaxed">
+                                    "Continue monitoring SGX capital flows. The anomaly at 14:22 might be linked to regional currency fluctuations in adjacent sectors. Recommend no escalation at this time."
+                                </p>
+<div class="flex items-center justify-between">
+<span class="text-[0.55rem] font-mono text-outline">AUTH: ANL_ROBERTS</span>
+<button class="text-[0.55rem] font-bold text-primary uppercase tracking-tighter hover:underline">Add Note</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Sector Map Preview -->
+<div class="bg-surface-container-low border border-outline-variant/20 overflow-hidden">
+<div class="p-4 border-b border-outline-variant/10 flex justify-between items-center bg-surface-container-high/50">
+<span class="font-label text-[0.6rem] font-bold uppercase tracking-widest">Sector_Map [1.04N, 103.8E]</span>
+<span class="material-symbols-outlined text-xs" data-icon="fullscreen">fullscreen</span>
+</div>
+<div class="aspect-square relative grayscale opacity-80 hover:grayscale-0 transition-all duration-700">
+<img alt="Singapore Map" class="w-full h-full object-cover" data-alt="high-altitude satellite map of Singapore at night, showing dense urban lights and detailed coastal outlines in a high-contrast tactical style" data-location="Singapore" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqKfhLrl6tqFHMDuxnM1q-AtY47UzsWxOhyXL_aKPQwm2FkJWeoZwhZFM_4ujmAHTrXbyDCjki0KghUCu4nFTIlDfax9DfQ1RDdC6gsnI1na8wmjpes8-VvUL22v6YWlS2zKwNI4Z4OucACU5mEMbJbNRIClvnY7ZD7kSYSltn-fi-m1dtO42nM-1kXVYKdpX7wt5UI1PfEzBUFi0e9KkuqtFIlap518EHE1xvmHlO7lSfAb3BMB29g7oqd16WfkcJliKRkDJM9KM"/>
+<!-- Tactical HUD Overlays -->
+<div class="absolute inset-0 border-[20px] border-surface/40 pointer-events-none"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 border border-primary/40 flex items-center justify-center">
+<div class="w-1 h-1 bg-primary rounded-full animate-ping"></div>
+</div>
+<div class="absolute bottom-4 left-4 bg-surface/80 p-2 font-mono text-[0.5rem] text-primary">
+                                TRK_04: RECON_SCAN_ACTIVE
+                            </div>
+</div>
+</div>
+<!-- Threat Feed -->
+<div class="bg-surface-container-low p-6">
+<h4 class="font-label text-xs font-bold uppercase tracking-widest mb-4">Regional Feed</h4>
+<div class="space-y-4">
+<div class="flex gap-4">
+<div class="text-[0.55rem] font-mono text-outline mt-1">08:12</div>
+<div>
+<p class="text-[0.65rem] font-bold text-on-surface uppercase">KL_NODE_UPDATE</p>
+<p class="text-[0.6rem] text-on-surface-variant">Border crossing efficiency increased by 14%.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="text-[0.55rem] font-mono text-outline mt-1">06:45</div>
+<div>
+<p class="text-[0.65rem] font-bold text-on-surface uppercase">JAKARTA_OFFLINE</p>
+<p class="text-[0.6rem] text-error font-bold italic">Packet loss detected in maritime sensory array.</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 py-2 border border-outline-variant/30 text-[0.6rem] font-bold uppercase tracking-widest hover:bg-surface-bright transition-all">
+                            View Full Activity Log
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Tactical Footer Metadata -->
+<footer class="pl-64 h-10 bg-surface-container-lowest flex items-center justify-between px-8 border-t border-outline-variant/5">
+<div class="flex items-center gap-4">
+<span class="text-[0.55rem] font-mono text-outline uppercase tracking-widest">SYSTEM_VERSION: 4.0.8-ALPHA</span>
+<span class="text-[0.55rem] font-mono text-primary uppercase tracking-widest">SECURE_TUNNEL_ESTABLISHED</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+<span class="text-[0.55rem] font-mono text-on-surface-variant uppercase">Local Time: 14:48 SGT</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 bg-outline-variant rounded-full"></span>
+<span class="text-[0.55rem] font-mono text-on-surface-variant uppercase">Server: SG-WEST-01</span>
+</div>
+</div>
+</footer>
+</body></html>
