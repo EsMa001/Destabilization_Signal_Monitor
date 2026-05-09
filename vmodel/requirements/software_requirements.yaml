@@ -38,6 +38,11 @@ metadata:
     requirement-level verification artifact.
   - After WP-11, only PSwR-034 and PSwR-061 remain genuinely provisional in the migrated
     software baseline.
+  - WP-12 closes the remaining provisional software status backlog by clarifying scope
+    boundaries for PSwR-034 and PSwR-061.
+  - After WP-12, all active software requirements are implemented in the migrated
+    baseline; remaining debt is tracked as explicit enhancement/governance issues
+    instead of provisional requirement status.
 schema_guidance:
   required_fields:
   - id
@@ -922,12 +927,12 @@ requirements:
 - id: PSwR-034
   title: Constant historical helper sources
   statement: The software shall provide constant historical helper sources.
-  status: provisional_requirement
+  status: implemented_requirement
   baseline_classification: active_baseline
   migration_tags:
   - recovered_from_traceability_and_open_issues
-  - source_status_implemented_with_provisional_scope
   - version_origin_v2_2
+  - wp12_scope_clarified_to_implemented_baseline
   parent_system_ids:
   - PSyR-012
   - PSyR-015
@@ -979,6 +984,11 @@ requirements:
   - WP-11 keeps this requirement provisional because the model still relies on intentionally
     time-constant helper-source treatment without historical source versioning; this
     is an actual methodological limitation, not just stale traceability.
+  - WP-12 normalized this requirement from provisional to implemented because the
+    current baseline intentionally requires time-constant helper-source treatment
+    in historical mode, and the implementation plus explicit tests satisfy exactly
+    that scoped requirement. Future historical source versioning is treated as a separate
+    enhancement concern, not as a blocker for this baseline requirement.
 - id: PSwR-035
   title: Parametric historical target countries
   statement: The software shall allow the historical target-country set to be configured
@@ -2052,10 +2062,10 @@ requirements:
   title: Narrative input loader
   statement: Die Software muss strukturierte Narrative-/Expert-Inputs laden, in kanonische
     Beobachtungen ueberfuehren und dem Layer `Narrative` zuordnen koennen.
-  status: provisional_requirement
+  status: implemented_requirement
   baseline_classification: active_baseline
   migration_tags:
-  - source_status_implemented_with_provisional_scope
+  - wp12_scope_clarified_to_implemented_baseline
   parent_system_ids:
   - PSyR-026
   child_verification_ids:
@@ -2101,6 +2111,11 @@ requirements:
   - WP-11 keeps this requirement provisional because semantic governance for narrative
     topics, direction labels, and editorial review is still open even though loading
     and transformation are implemented.
+  - WP-12 normalized this requirement from provisional to implemented because the
+    current baseline requirement is satisfied by the implemented structured narrative-input
+    loading and canonical transformation path. Remaining taxonomy, direction-label,
+    and editorial-governance questions are treated as higher-level semantic-governance
+    follow-on concerns rather than blockers for the loader requirement itself.
 - id: PSwR-062
   title: Historical fusion group scores
   statement: Die Software muss historische Fusion-Gruppenscores je Land/Periode erzeugen

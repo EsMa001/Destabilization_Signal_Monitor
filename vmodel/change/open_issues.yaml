@@ -24,6 +24,10 @@ metadata:
     evidence.
   - WP-11 completes the remaining GV-placeholder cleanup and leaves only genuinely
     methodological provisional software requirements open.
+  - WP-12 resolves OI-017 and OI-031 by clarifying that the current branch baseline
+    is intentionally narrower than the possible future enhancement space.
+  - WP-12 adds OI-047 and OI-048 to preserve future enhancement/governance debt after
+    closing the remaining provisional requirement statuses.
 schema_guidance:
   required_fields:
   - id
@@ -293,16 +297,19 @@ issues:
   statement: Bridge-file and context-table contributions are to be treated as time-constant
     in the Historical Rolling Trend, but this is a provisional simplification without
     historical source versioning.
-  status: open_issue
+  status: resolved_issue
   affected_artifact_ids:
   - PSwR-034
   - PM-013
   source_refs:
   - file: docs/requirements/OpenIssues.md
     id: OI-017
-  resolution_note: V2.2 documents constant historical handling as provisional and
-    defers full historical versioning to a later iteration.
-  resolution_type: follow_up_required
+  resolution_note: WP-12 clarifies that the current baseline intentionally requires
+    time-constant historical helper-source treatment. The implementation and tests
+    satisfy PSwR-034 as written. Full historical source versioning remains a possible
+    future enhancement, but it is no longer treated as an unresolved blocker to the
+    current requirement baseline.
+  resolution_type: scope_clarified_current_baseline
   escalation_required: false
 - id: OI-018
   title: Historical validation is desired, but no explicit curated event-layer is
@@ -636,7 +643,7 @@ issues:
   statement: Narrative-Input ist im V3.2-MVP strukturiert integriert, aber semantische
     Validierung (Topic-Taxonomie, Richtungslabel-Harmonisierung, Redaktionsprozess)
     bleibt methodisch offen.
-  status: open_issue
+  status: resolved_issue
   affected_artifact_ids:
   - PSyR-026
   - PSwR-061
@@ -644,9 +651,12 @@ issues:
   source_refs:
   - file: docs/requirements/OpenIssues.md
     id: OI-031
-  resolution_note: V3.3 fuehrt ein kuratiertes Narrative-Validierungsprofil mit kontrollierten
-    Labelsets und Review-Workflow ein.
-  resolution_type: follow_up_required
+  resolution_note: WP-12 clarifies that PSwR-061 covers structured narrative-input
+    loading and canonical transformation, which are implemented and verified. Topic
+    taxonomy, direction-label harmonization, and editorial review remain possible
+    follow-on semantic-governance enhancements, but they no longer block the current
+    loader requirement baseline.
+  resolution_type: scope_clarified_current_baseline
   escalation_required: false
 - id: OI-032
   title: Monatliche Zielperioden sind implementiert, aber langfristige Regeln fuer
@@ -1016,4 +1026,46 @@ issues:
     two remaining GV placeholders into governed TV artifacts and by adding TV-PSwR-046-001
     as an explicit requirement-level verification artifact for group-score behavior.
   resolution_type: verification_governance_completed
+  escalation_required: false
+- id: OI-047
+  title: Historical helper-source versioning is a future enhancement beyond the current
+    constant-baseline rule
+  statement: The current historical helper-source baseline intentionally treats helper-source
+    contributions as time-constant. If future analysis requires historically versioned
+    helper sources, that capability must be introduced as a new explicit requirement
+    rather than silently broadening PSwR-034.
+  status: open_issue
+  affected_artifact_ids:
+  - PSwR-034
+  - PM-013
+  source_refs:
+  - file: vmodel/change/open_issues.yaml
+    role: wp12_scope_follow_on
+  - file: docs/planning/2026-05-09_wp11_residual_cleanup.md
+    role: prior_scope_context
+  resolution_note: If pursued later, create a dedicated requirement for historized
+    helper-source versioning and keep PSwR-034 scoped to the constant-baseline behavior.
+  resolution_type: follow_up_required
+  escalation_required: false
+- id: OI-048
+  title: Narrative semantic governance is a follow-on concern beyond the current loader
+    baseline
+  statement: The current narrative baseline implements loading and canonical transformation,
+    but a future governance layer may still define controlled topic taxonomy, direction-label
+    harmonization, and editorial review rules without changing the implemented loader
+    requirement baseline.
+  status: open_issue
+  affected_artifact_ids:
+  - PSwR-061
+  - PSyR-026
+  - PM-026
+  source_refs:
+  - file: vmodel/change/open_issues.yaml
+    role: wp12_scope_follow_on
+  - file: docs/planning/2026-05-09_wp11_residual_cleanup.md
+    role: prior_scope_context
+  resolution_note: If needed later, derive a dedicated semantic-governance requirement
+    or design-decision artifact for narrative taxonomy and review policy instead of
+    reopening PSwR-061 itself.
+  resolution_type: follow_up_required
   escalation_required: false
