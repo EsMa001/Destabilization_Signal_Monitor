@@ -5,6 +5,9 @@ This directory is the machine-readable governance target for migrating the curre
 Migration principles:
 - existing `docs/*` files remain source material during migration
 - `vmodel/*` becomes the normalized target layer
+- requirement artifacts must support bidirectional traceability
+  - parent links are mandatory when a parent exists
+  - child links are mandatory when a child exists
 - no requirement is considered fully migrated until its baseline role is classified explicitly as one of:
   - `active_baseline`
   - `historical_origin`

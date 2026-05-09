@@ -24,7 +24,9 @@ schema_guidance:
     - baseline_classification
     - source_refs
     - parent_stakeholder_ids
+    - child_software_ids
   optional_fields:
+    - migration_tags
     - rationale
     - notes
     - supersedes

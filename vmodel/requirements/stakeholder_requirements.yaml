@@ -1,31 +1,349 @@
 metadata:
   artifact_type: stakeholder_requirements
-  migration_status: skeleton_initialized
+  migration_status: initial_population
   baseline_decision_source: docs/planning/2026-05-09_baseline_decisions.md
   source_documents:
-    - docs/requirements/ProtoScope.md
-    - docs/requirements/ProtoSR.md
+  - docs/requirements/ProtoScope.md
+  - docs/requirements/ProtoSR.md
   classification_rules:
-    - active_baseline
-    - historical_origin
-    - parameterized_capability
-    - legacy_variant
+  - active_baseline
+  - historical_origin
+  - parameterized_capability
+  - legacy_variant
   allowed_statuses:
-    - candidate_baseline_requirement
-    - accepted_baseline_requirement
-    - implemented_requirement
-    - provisional_requirement
-    - retired_requirement
+  - candidate_baseline_requirement
+  - accepted_baseline_requirement
+  - implemented_requirement
+  - provisional_requirement
+  - retired_requirement
+  notes:
+  - Stakeholder requirements are normalized to the accepted 10-country and 365-day defaults where applicable.
+  - Bidirectional trace fields are present; child links remain empty until formal system derivation is completed.
+  - Historical-origin wording from the original markdown source is preserved via source_refs and migration_tags rather than as active baseline text.
 schema_guidance:
   required_fields:
-    - id
-    - title
-    - statement
-    - status
-    - baseline_classification
-    - source_refs
+  - id
+  - title
+  - statement
+  - status
+  - baseline_classification
+  - source_refs
+  - parent_stakeholder_ids
+  - child_system_ids
   optional_fields:
-    - rationale
-    - notes
-    - supersedes
-requirements: []
+  - migration_tags
+  - rationale
+  - notes
+  - supersedes
+requirements:
+- id: PSR-001
+  title: Goal of the prototype
+  statement: The prototype shall identify short-term anomalies in media and context data and make possible indications of political or societal destabilization visible.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - normalized_language
+  parent_stakeholder_ids: []
+  child_system_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSR.md
+    id: PSR-001
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSR-002
+  title: Default country baseline and configurable country scope
+  statement: The prototype shall operate by default on a 10-country baseline and shall allow the selected country set to be parameterized when needed.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - parameterized_capability
+  - normalized_from_three_country_origin
+  parent_stakeholder_ids: []
+  child_system_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSR.md
+    id: PSR-002
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSR-003
+  title: Analytical usability and presentability
+  statement: The prototype shall be analytically usable for internal review and at the same time presentable to stakeholders.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_stakeholder_ids: []
+  child_system_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSR.md
+    id: PSR-003
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSR-004
+  title: Explainability
+  statement: The derivation of results shall remain understandable and reviewable.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_stakeholder_ids: []
+  child_system_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSR.md
+    id: PSR-004
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSR-005
+  title: Time-series plots in handout
+  statement: The handout shall contain plots of central time trajectories.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_stakeholder_ids: []
+  child_system_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSR.md
+    id: PSR-005
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSR-006
+  title: Comparable country presentation structure
+  statement: All selected countries shall be presented using the same logical reporting structure.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - normalized_from_three_country_origin
+  - parameterized_capability
+  parent_stakeholder_ids: []
+  child_system_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSR.md
+    id: PSR-006
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSR-007
+  title: Run evaluation
+  statement: Every run shall be classifiable as successful, limited-use, or unusable.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_stakeholder_ids: []
+  child_system_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSR.md
+    id: PSR-007
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSR-012
+  title: Multi-source architecture
+  statement: The prototype shall support a transparent multi-source architecture with a clear layer/group view.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v3
+  parent_stakeholder_ids: []
+  child_system_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSR.md
+    id: PSR-012
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSR-013
+  title: Parallel fusion path
+  statement: The prototype shall provide a parallel fusion path in addition to the existing result space without replacing the existing cluster view.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v3
+  parent_stakeholder_ids: []
+  child_system_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSR.md
+    id: PSR-013
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSR-014
+  title: Provenance of new sources
+  statement: New multi-source signals shall remain traceable in both origin and derivation.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v3
+  parent_stakeholder_ids: []
+  child_system_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSR.md
+    id: PSR-014
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSR-015
+  title: Visible market/food fusion extension
+  statement: The multi-source extension shall provide a transparent Market/Food layer with additional fusion output that is visible to analysts.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v3_1
+  - milestone_wording_normalized
+  parent_stakeholder_ids: []
+  child_system_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSR.md
+    id: PSR-015
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSR-016
+  title: Historical fusion result space
+  statement: The prototype shall provide an additional historically analyzable fusion result space with monthly group and fusion trajectories without replacing the existing cluster-historical space.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v3_2
+  parent_stakeholder_ids: []
+  child_system_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSR.md
+    id: PSR-016
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSR-017
+  title: Expanded layer coverage
+  statement: The prototype shall operationally populate the Shock, Displacement, and Narrative layers.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v3_2
+  parent_stakeholder_ids: []
+  child_system_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSR.md
+    id: PSR-017
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSR-018
+  title: Time-aware fusion with driver hints
+  statement: The historical fusion path shall be time-aware and analyst-friendly, with visible dominant group contributions for recent increases and interpretable coverage and driver hints.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v3_2
+  - hardening_v3_2_1
+  parent_stakeholder_ids: []
+  child_system_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSR.md
+    id: PSR-018
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSR-019
+  title: Consistent fusion plot embedding
+  statement: Handout overview and country sections shall consistently reference existing fusion plot files.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v3_2
+  parent_stakeholder_ids: []
+  child_system_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSR.md
+    id: PSR-019
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSR-020
+  title: Operational event layer
+  statement: The prototype shall operationalize the Event layer with a real source, snapshot and historical effect, and analyst-facing explainability within the fusion space.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v3_3
+  parent_stakeholder_ids: []
+  child_system_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSR.md
+    id: PSR-020
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSR-021
+  title: External validation and calibration
+  statement: The prototype shall provide an explicit and traceable validation and calibration framework integrating historical reference episodes, metrics, and diagnosable calibration guidance for the multi-layer monitor.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v4_0
+  parent_stakeholder_ids: []
+  child_system_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSR.md
+    id: PSR-021
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSR-022
+  title: Operational freshness and responsiveness
+  statement: The prototype shall explicitly expose and improve operational freshness and responsiveness so that snapshot statements distinguish clearly between fresh, aging, and stale signals.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v4_1
+  parent_stakeholder_ids: []
+  child_system_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSR.md
+    id: PSR-022
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSR-023
+  title: Governance and political stability dimension
+  statement: The prototype shall integrate an explicit governance and political stability contribution space so that political capability, institutional stability, legitimacy, and socio-political cohesion are reflected systematically in snapshot, historical fusion, and validation.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v4_2
+  parent_stakeholder_ids: []
+  child_system_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSR.md
+    id: PSR-023
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSR-024
+  title: Comparative default baseline with parameterizable annual profiles
+  statement: The prototype shall provide a default cross-country comparison baseline of 10 countries, with each country analyzed, compared, validated, and reported over a full default 365-day profile; the profile horizon shall remain parameterizable when needed.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - parameterized_capability
+  - normalized_from_356_day_variant
+  - version_origin_v4_3
+  parent_stakeholder_ids: []
+  child_system_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSR.md
+    id: PSR-024
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSR-025
+  title: Peak attribution and event-alignment hardening
+  statement: The prototype shall harden peak interpretation within the default 365-day historical trajectory so that global background waves are better separated from country-specific peaks, peaks are explicitly attributed, and event-supported versus weakly supported peak situations are distinguishable.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - normalized_from_356_day_variant
+  - version_origin_v4_3_1
+  parent_stakeholder_ids: []
+  child_system_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSR.md
+    id: PSR-025
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
+- id: PSR-026
+  title: Analyst event registry and real-world alignment
+  statement: The prototype shall provide a structured analyst event-registry and review path that links peaks and central trajectory phases per country to real-world events while keeping the core pipeline runnable without mandatory live-web dependency.
+  status: candidate_baseline_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v4_3_2
+  parent_stakeholder_ids: []
+  child_system_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSR.md
+    id: PSR-026
+  - file: docs/planning/2026-05-09_baseline_decisions.md
+    role: baseline_decision_context
