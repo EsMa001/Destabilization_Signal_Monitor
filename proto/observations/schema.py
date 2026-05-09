@@ -36,6 +36,13 @@ class ObservationValidationError(ValueError):
 
 
 def _require_non_empty(value: str, *, field_name: str) -> None:
+    # Traceability:
+    # - PSyR-018
+    # - PSwR-036
+    # - PSwR-037
+    # - PSwR-038
+    # - PSwR-044
+    # - PM-016
     if not value.strip():
         raise ObservationValidationError(f"observation field {field_name!r} must be non-empty")
 

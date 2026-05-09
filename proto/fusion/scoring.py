@@ -84,6 +84,13 @@ def _group_contribution_points(
     group_scores: dict[str, float],
     group_weights: dict[str, float],
 ) -> dict[str, float]:
+    # Traceability:
+    # - PSR-022
+    # - PSyR-032
+    # - PSyR-019
+    # - PSyR-020
+    # - PSyR-029
+    # - PSwR-041
     if not group_scores:
         return {}
     weight_sum = sum(float(group_weights.get(group, 1.0)) for group in group_scores)
@@ -102,6 +109,13 @@ def _event_age_decay_factor(
     decay_half_life_days: int,
     minimum_decay_factor: float,
 ) -> float:
+    # Traceability:
+    # - PSR-022
+    # - PSyR-032
+    # - PSyR-019
+    # - PSyR-020
+    # - PSyR-029
+    # - PSwR-041
     if age_days <= stale_after_days:
         return 1.0
     overdue_days = age_days - stale_after_days
@@ -115,6 +129,13 @@ def _select_latest_observation(
     *,
     run_date: date,
 ) -> ObservationRecord | None:
+    # Traceability:
+    # - PSR-022
+    # - PSyR-032
+    # - PSyR-019
+    # - PSyR-020
+    # - PSyR-029
+    # - PSwR-041
     valid = [record for record in observations if record.period_end <= run_date]
     if not valid:
         return None
@@ -485,6 +506,13 @@ def summarize_group_availability(
 
 
 def _shift_year_month(*, year: int, month: int, delta_months: int) -> tuple[int, int]:
+    # Traceability:
+    # - PSR-022
+    # - PSyR-032
+    # - PSyR-019
+    # - PSyR-020
+    # - PSyR-029
+    # - PSwR-041
     month_index = (year * 12 + (month - 1)) + delta_months
     shifted_year = month_index // 12
     shifted_month = (month_index % 12) + 1
@@ -535,6 +563,13 @@ def _map_stage(
     elevated_max: float,
     high_max: float,
 ) -> str:
+    # Traceability:
+    # - PSR-022
+    # - PSyR-032
+    # - PSyR-019
+    # - PSyR-020
+    # - PSyR-029
+    # - PSwR-041
     if score <= low_max:
         return "niedrig"
     if score <= elevated_max:
@@ -545,6 +580,13 @@ def _map_stage(
 
 
 def _map_trend(*, current: float, previous: float | None, delta_epsilon: float) -> str:
+    # Traceability:
+    # - PSR-022
+    # - PSyR-032
+    # - PSyR-019
+    # - PSyR-020
+    # - PSyR-029
+    # - PSwR-041
     if previous is None:
         return "kein_vergleich"
     delta = current - previous
@@ -556,6 +598,13 @@ def _map_trend(*, current: float, previous: float | None, delta_epsilon: float) 
 
 
 def _historical_interpretation_status(*, available_group_ratio: float) -> str:
+    # Traceability:
+    # - PSR-022
+    # - PSyR-032
+    # - PSyR-019
+    # - PSyR-020
+    # - PSyR-029
+    # - PSwR-041
     if available_group_ratio < 0.5:
         return "limited_historical_coverage"
     if available_group_ratio < 0.75:

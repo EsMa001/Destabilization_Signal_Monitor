@@ -22,11 +22,17 @@ DEFAULT_HORIZONS = [7, 30, 356]
 
 @lru_cache(maxsize=1)
 def get_pipeline_config() -> PipelineConfig:
+    # Traceability:
+    # - AP-03
+    # - AP-08
     return load_pipeline_config(CONFIG_PATH)
 
 
 @lru_cache(maxsize=1)
 def get_raw_config() -> dict[str, Any]:
+    # Traceability:
+    # - AP-03
+    # - AP-08
     payload = yaml.safe_load(CONFIG_PATH.read_text(encoding="utf-8"))
     if isinstance(payload, dict):
         return payload
@@ -34,11 +40,17 @@ def get_raw_config() -> dict[str, Any]:
 
 
 def countries_options() -> list[dict[str, str]]:
+    # Traceability:
+    # - AP-03
+    # - AP-08
     config = get_pipeline_config()
     return [{"code": country, "label": country} for country in config.countries]
 
 
 def layer_options() -> list[dict[str, str]]:
+    # Traceability:
+    # - AP-03
+    # - AP-08
     config = get_pipeline_config()
     return [
         {
@@ -51,6 +63,9 @@ def layer_options() -> list[dict[str, str]]:
 
 
 def config_template() -> dict[str, object]:
+    # Traceability:
+    # - AP-03
+    # - AP-08
     config = get_pipeline_config()
     default_countries = config.countries[:3]
     preferred_layers = [layer for layer in ("event", "market_food", "governance") if layer in config.v3_1.fusion.groups]

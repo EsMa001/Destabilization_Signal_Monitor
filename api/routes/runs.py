@@ -36,36 +36,57 @@ router = APIRouter()
 
 @router.post("/runs", response_model=RunCreateResponse, status_code=status.HTTP_201_CREATED)
 def post_run(payload: RunCreateRequest) -> RunCreateResponse:
+    # Traceability:
+    # - AP-04
+    # - AP-05
     return create_run(payload)
 
 
 @router.get("/runs", response_model=RunsResponse)
 def get_runs() -> RunsResponse:
+    # Traceability:
+    # - AP-04
+    # - AP-05
     return list_runs()
 
 
 @router.get("/runs/{run_id}", response_model=RunDetailResponse)
 def get_run(run_id: str) -> RunDetailResponse:
+    # Traceability:
+    # - AP-04
+    # - AP-05
     return get_run_detail(run_id)
 
 
 @router.get("/runs/{run_id}/status", response_model=RunStatusResponse)
 def get_run_status_route(run_id: str) -> RunStatusResponse:
+    # Traceability:
+    # - AP-04
+    # - AP-05
     return get_run_status(run_id)
 
 
 @router.get("/runs/{run_id}/summary", response_model=RunSummaryResponse)
 def get_run_summary_route(run_id: str) -> RunSummaryResponse:
+    # Traceability:
+    # - AP-04
+    # - AP-05
     return get_run_summary(run_id)
 
 
 @router.get("/runs/{run_id}/artifacts", response_model=RunArtifactsResponse)
 def get_run_artifacts_route(run_id: str) -> RunArtifactsResponse:
+    # Traceability:
+    # - AP-04
+    # - AP-05
     return get_run_artifacts(run_id)
 
 
 @router.get("/runs/{run_id}/bundle")
 def get_run_bundle_route(run_id: str) -> FileResponse:
+    # Traceability:
+    # - AP-04
+    # - AP-05
     bundle_path = get_bundle_file(run_id)
     return FileResponse(
         path=bundle_path,
@@ -76,6 +97,9 @@ def get_run_bundle_route(run_id: str) -> FileResponse:
 
 @router.get("/runs/{run_id}/artifacts/{artifact_id}/download")
 def get_run_artifact_download_route(run_id: str, artifact_id: str) -> FileResponse:
+    # Traceability:
+    # - AP-04
+    # - AP-05
     artifact_path = get_artifact_file(run_id, artifact_id)
     return FileResponse(
         path=artifact_path,

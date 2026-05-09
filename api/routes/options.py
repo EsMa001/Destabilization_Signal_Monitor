@@ -21,16 +21,22 @@ router = APIRouter()
 
 @router.get("/options/countries", response_model=CountriesOptionsResponse)
 def get_options_countries() -> CountriesOptionsResponse:
+    # Traceability:
+    # - AP-03
     return CountriesOptionsResponse(countries=countries_options())
 
 
 @router.get("/options/layers", response_model=LayersOptionsResponse)
 def get_options_layers() -> LayersOptionsResponse:
+    # Traceability:
+    # - AP-03
     return LayersOptionsResponse(layers=layer_options())
 
 
 @router.get("/config/template", response_model=ConfigTemplateResponse)
 def get_config_template() -> ConfigTemplateResponse:
+    # Traceability:
+    # - AP-03
     payload = config_template()
     return ConfigTemplateResponse(**payload)
 

@@ -353,6 +353,10 @@ FILES: dict[str, str] = {
 
 
 def create_file(path: Path, content: str, overwrite: bool) -> None:
+    # Traceability:
+    # - SUP-003
+    # - AP-01
+    # - AP-11
     path.parent.mkdir(parents=True, exist_ok=True)
     if path.exists() and not overwrite:
         return
@@ -360,6 +364,10 @@ def create_file(path: Path, content: str, overwrite: bool) -> None:
 
 
 def main() -> None:
+    # Traceability:
+    # - SUP-003
+    # - AP-01
+    # - AP-11
     parser = argparse.ArgumentParser(
         description="Scaffold a separate frontend project structure."
     )

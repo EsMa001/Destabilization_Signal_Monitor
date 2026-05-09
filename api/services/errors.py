@@ -20,11 +20,15 @@ class ApiServiceError(Exception):
     trace_id: str | None = None
 
     def __post_init__(self) -> None:
+        # Traceability:
+        # - AP-07
         self.trace_id = self.trace_id or uuid4().hex
         super().__init__(self.message)
 
 
 def error_payload(error: ApiServiceError) -> dict[str, object]:
+    # Traceability:
+    # - AP-07
     return {
         "error": {
             "code": error.code,

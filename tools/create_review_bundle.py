@@ -95,6 +95,11 @@ REQUIRED_DOC_CANDIDATES: dict[str, list[str]] = {
 
 
 def _run_command(cmd: list[str], cwd: Path) -> dict[str, Any]:
+    # Traceability:
+    # - SUP-001
+    # - PSyR-031
+    # - PSwR-080
+    # - PSwR-096
     try:
         result = subprocess.run(
             cmd,
@@ -128,11 +133,21 @@ def _run_command(cmd: list[str], cwd: Path) -> dict[str, Any]:
 
 
 def _copy_file(src: Path, dst: Path) -> None:
+    # Traceability:
+    # - SUP-001
+    # - PSyR-031
+    # - PSwR-080
+    # - PSwR-096
     dst.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(src, dst)
 
 
 def _copy_tree(src: Path, dst: Path) -> bool:
+    # Traceability:
+    # - SUP-001
+    # - PSyR-031
+    # - PSwR-080
+    # - PSwR-096
     if not src.exists() or not src.is_dir():
         return False
     if dst.exists():
@@ -142,6 +157,11 @@ def _copy_tree(src: Path, dst: Path) -> bool:
 
 
 def _list_files(root: Path) -> list[str]:
+    # Traceability:
+    # - SUP-001
+    # - PSyR-031
+    # - PSwR-080
+    # - PSwR-096
     if not root.exists():
         return []
     return sorted(
@@ -152,6 +172,11 @@ def _list_files(root: Path) -> list[str]:
 
 
 def _resolve_doc(project_root: Path, candidates: list[str]) -> Path | None:
+    # Traceability:
+    # - SUP-001
+    # - PSyR-031
+    # - PSwR-080
+    # - PSwR-096
     for rel in candidates:
         p = project_root / rel
         if p.exists() and p.is_file():
@@ -160,12 +185,22 @@ def _resolve_doc(project_root: Path, candidates: list[str]) -> Path | None:
 
 
 def _read_text_if_exists(path: Path) -> str | None:
+    # Traceability:
+    # - SUP-001
+    # - PSyR-031
+    # - PSwR-080
+    # - PSwR-096
     if not path.exists() or not path.is_file():
         return None
     return path.read_text(encoding="utf-8", errors="replace")
 
 
 def _read_json_if_exists(path: Path) -> Any | None:
+    # Traceability:
+    # - SUP-001
+    # - PSyR-031
+    # - PSwR-080
+    # - PSwR-096
     text = _read_text_if_exists(path)
     if text is None:
         return None
@@ -176,6 +211,11 @@ def _read_json_if_exists(path: Path) -> Any | None:
 
 
 def _read_json_object_if_exists(path: Path) -> dict[str, Any] | None:
+    # Traceability:
+    # - SUP-001
+    # - PSyR-031
+    # - PSwR-080
+    # - PSwR-096
     payload = _read_json_if_exists(path)
     if isinstance(payload, dict):
         return payload
@@ -185,6 +225,11 @@ def _read_json_object_if_exists(path: Path) -> dict[str, Any] | None:
 
 
 def _read_csv_rows(path: Path, limit: int | None = None) -> list[dict[str, str]]:
+    # Traceability:
+    # - SUP-001
+    # - PSyR-031
+    # - PSwR-080
+    # - PSwR-096
     if not path.exists() or not path.is_file():
         return []
     rows: list[dict[str, str]] = []
@@ -198,6 +243,11 @@ def _read_csv_rows(path: Path, limit: int | None = None) -> list[dict[str, str]]
 
 
 def _find_handout_sections(handout_text: str, headings: list[str]) -> dict[str, str]:
+    # Traceability:
+    # - SUP-001
+    # - PSyR-031
+    # - PSwR-080
+    # - PSwR-096
     lines = handout_text.splitlines()
     results: dict[str, str] = {}
 
@@ -224,6 +274,11 @@ def _find_handout_sections(handout_text: str, headings: list[str]) -> dict[str, 
 
 
 def _summarize_group_scores(group_rows: list[dict[str, str]]) -> dict[str, Any]:
+    # Traceability:
+    # - SUP-001
+    # - PSyR-031
+    # - PSwR-080
+    # - PSwR-096
     by_country: dict[str, list[dict[str, str]]] = {}
     for row in group_rows:
         by_country.setdefault(row.get("country", "UNKNOWN"), []).append(row)
@@ -244,6 +299,11 @@ def _summarize_group_scores(group_rows: list[dict[str, str]]) -> dict[str, Any]:
                 )
 
         def parse_score(r: dict[str, str]) -> float:
+            # Traceability:
+            # - SUP-001
+            # - PSyR-031
+            # - PSwR-080
+            # - PSwR-096
             try:
                 return float(r.get("group_score", "nan"))
             except Exception:
@@ -263,7 +323,17 @@ def _summarize_group_scores(group_rows: list[dict[str, str]]) -> dict[str, Any]:
 
 
 def _summarize_fusion_totals(total_scores: list[dict[str, Any]]) -> dict[str, Any]:
+    # Traceability:
+    # - SUP-001
+    # - PSyR-031
+    # - PSwR-080
+    # - PSwR-096
     def parse_score(item: dict[str, Any]) -> float:
+        # Traceability:
+        # - SUP-001
+        # - PSyR-031
+        # - PSwR-080
+        # - PSwR-096
         try:
             return float(item.get("fusion_score", "nan"))
         except Exception:
@@ -278,6 +348,11 @@ def _summarize_fusion_totals(total_scores: list[dict[str, Any]]) -> dict[str, An
 
 
 def _write_json(path: Path, data: dict | list) -> None:
+    # Traceability:
+    # - SUP-001
+    # - PSyR-031
+    # - PSwR-080
+    # - PSwR-096
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
 
@@ -287,6 +362,11 @@ def create_acceptance_snapshot(bundle_dir: Path) -> None:
     Erzeugt review_meta/acceptance_snapshot.json und acceptance_snapshot.md
     auf Basis der bereits kopierten Bundle-Inhalte.
     """
+    # Traceability:
+    # - SUP-001
+    # - PSyR-031
+    # - PSwR-080
+    # - PSwR-096
     review_meta = bundle_dir / "review_meta"
     review_meta.mkdir(parents=True, exist_ok=True)
 
@@ -659,6 +739,11 @@ def create_acceptance_snapshot(bundle_dir: Path) -> None:
 
 
 def create_review_bundle(config: ReviewBundleConfig) -> Path:
+    # Traceability:
+    # - SUP-001
+    # - PSyR-031
+    # - PSwR-080
+    # - PSwR-096
     project_root = config.project_root.resolve()
     output_dir = config.output_dir.resolve()
     output_dir.mkdir(parents=True, exist_ok=True)

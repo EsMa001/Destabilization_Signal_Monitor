@@ -36,6 +36,11 @@ REQUIRED_RUN_METADATA_KEYS = (
 
 
 def _summary_path_candidates(base_dir: Path) -> list[Path]:
+    # Traceability:
+    # - PSyR-010
+    # - PSwR-017
+    # - ALG-008
+    # - PSyR-008
     return [
         base_dir / "exports" / "snapshot" / "summary_export.json",
         base_dir / "exports" / "summary_export.json",
@@ -43,6 +48,11 @@ def _summary_path_candidates(base_dir: Path) -> list[Path]:
 
 
 def _resolve_summary_path(base_dir: Path) -> Path | None:
+    # Traceability:
+    # - PSyR-010
+    # - PSwR-017
+    # - ALG-008
+    # - PSyR-008
     return next((path for path in _summary_path_candidates(base_dir) if path.exists()), None)
 
 
@@ -203,6 +213,11 @@ def _write_reference_info(reference_dir: Path, *, action: str) -> None:
 
 
 def _load_json_payload(path: Path) -> dict[str, Any]:
+    # Traceability:
+    # - PSyR-010
+    # - PSwR-017
+    # - ALG-008
+    # - PSyR-008
     if not path.exists():
         return {}
     try:
@@ -215,6 +230,11 @@ def _load_json_payload(path: Path) -> dict[str, Any]:
 
 
 def _legacy_reference_placeholder(countries: list[str]) -> dict[str, Any]:
+    # Traceability:
+    # - PSyR-010
+    # - PSwR-017
+    # - ALG-008
+    # - PSyR-008
     return {
         "run_timestamp": LEGACY_REFERENCE_TIMESTAMP,
         "countries": countries,
@@ -233,10 +253,20 @@ def _legacy_reference_placeholder(countries: list[str]) -> dict[str, Any]:
 
 
 def _is_complete_run_metadata(payload: dict[str, Any]) -> bool:
+    # Traceability:
+    # - PSyR-010
+    # - PSwR-017
+    # - ALG-008
+    # - PSyR-008
     return all(key in payload for key in REQUIRED_RUN_METADATA_KEYS)
 
 
 def _is_legacy_reference_metadata(payload: dict[str, Any]) -> bool:
+    # Traceability:
+    # - PSyR-010
+    # - PSwR-017
+    # - ALG-008
+    # - PSyR-008
     if not payload:
         return False
     if payload.get("run_timestamp") == LEGACY_REFERENCE_TIMESTAMP:

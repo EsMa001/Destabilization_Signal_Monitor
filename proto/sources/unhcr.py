@@ -44,6 +44,13 @@ class UnhcrRecord:
 
 def _derive_raw_signal(record: UnhcrRecord) -> float:
     # Transparent MVP mapping with positive-change emphasis.
+    # Traceability:
+    # - PSyR-025
+    # - PSwR-060
+    # - PSwR-039
+    # - PSwR-040
+    # - PM-016
+    # - PM-018
     positive_delta = max(0.0, record.delta_pressure)
     return round(
         0.6 * record.displacement_pressure + 0.25 * positive_delta + 0.15 * record.exposure,

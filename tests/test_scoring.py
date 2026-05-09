@@ -40,6 +40,13 @@ TREND_DOWN = "r\u00fcckl\u00e4ufig"
 
 
 def _build_all_features():
+    # Traceability:
+    # - PSwR-011
+    # - ALG-004
+    # - PSwR-010
+    # - ALG-001
+    # - ALG-002
+    # - ALG-003
     gdelt_records = load_gdelt_records(Path("data/gdelt/gdelt_events.csv"))
     ucdp_records = load_ucdp_records(Path("data/ucdp/ucdp_events.csv"))
     bridge_records = load_bridge_records(Path("data/bridge/bridge_events.csv"))

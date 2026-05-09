@@ -66,15 +66,30 @@ class _RunJob:
 
 
 def _utc_now() -> str:
+    # Traceability:
+    # - AP-04
+    # - AP-05
+    # - AP-08
+    # - AP-09
     return datetime.now(UTC).isoformat()
 
 
 def _is_truthy_env(name: str) -> bool:
+    # Traceability:
+    # - AP-04
+    # - AP-05
+    # - AP-08
+    # - AP-09
     value = os.environ.get(name, "")
     return value.strip().lower() in {"1", "true", "yes", "on"}
 
 
 def _sanitize_pipeline_status(value: str | None) -> str:
+    # Traceability:
+    # - AP-04
+    # - AP-05
+    # - AP-08
+    # - AP-09
     if not value:
         return ""
     lowered = value.strip().lower()
@@ -90,6 +105,11 @@ def _sanitize_pipeline_status(value: str | None) -> str:
 
 
 def _map_pipeline_status_to_api(value: str | None) -> str:
+    # Traceability:
+    # - AP-04
+    # - AP-05
+    # - AP-08
+    # - AP-09
     normalized = _sanitize_pipeline_status(value)
     if normalized == "erfolgreich":
         return "completed"
@@ -116,6 +136,11 @@ def _execute_pipeline_process() -> subprocess.CompletedProcess[str]:
 
 
 def _summary_export_path(run_dir: Path) -> Path | None:
+    # Traceability:
+    # - AP-04
+    # - AP-05
+    # - AP-08
+    # - AP-09
     candidates = [
         run_dir / "exports" / "snapshot" / "summary_export.json",
         run_dir / "exports" / "summary_export.json",
@@ -127,6 +152,11 @@ def _summary_export_path(run_dir: Path) -> Path | None:
 
 
 def _load_json(path: Path) -> dict[str, Any]:
+    # Traceability:
+    # - AP-04
+    # - AP-05
+    # - AP-08
+    # - AP-09
     if not path.exists():
         return {}
     try:
@@ -137,6 +167,11 @@ def _load_json(path: Path) -> dict[str, Any]:
 
 
 def _archive_current_run(run_id: str) -> Path:
+    # Traceability:
+    # - AP-04
+    # - AP-05
+    # - AP-08
+    # - AP-09
     config = get_pipeline_config()
     current_run_dir = config.report_dir / "current_run"
     if not current_run_dir.exists():
@@ -155,6 +190,11 @@ def _archive_current_run(run_id: str) -> Path:
 
 
 def _artifact_type_for_file(path: Path) -> str:
+    # Traceability:
+    # - AP-04
+    # - AP-05
+    # - AP-08
+    # - AP-09
     suffix = path.suffix.lower()
     if suffix == ".json":
         return "json"
@@ -168,6 +208,11 @@ def _artifact_type_for_file(path: Path) -> str:
 
 
 def _collect_artifacts(run_id: str, run_dir: Path) -> tuple[list[ArtifactItem], dict[str, Path]]:
+    # Traceability:
+    # - AP-04
+    # - AP-05
+    # - AP-08
+    # - AP-09
     artifact_specs: list[tuple[str, str, Path]] = []
     summary_path = _summary_export_path(run_dir)
     if summary_path is not None:
@@ -220,6 +265,11 @@ def _collect_artifacts(run_id: str, run_dir: Path) -> tuple[list[ArtifactItem], 
 
 
 def _build_summary_payload(run_dir: Path) -> tuple[dict[str, Any], list[str]]:
+    # Traceability:
+    # - AP-04
+    # - AP-05
+    # - AP-08
+    # - AP-09
     warnings: list[str] = []
     summary_path = _summary_export_path(run_dir)
     if summary_path is None:
@@ -243,6 +293,11 @@ def _build_summary_payload(run_dir: Path) -> tuple[dict[str, Any], list[str]]:
 
 
 def _run_record_from_job(job: _RunJob) -> RunRecord:
+    # Traceability:
+    # - AP-04
+    # - AP-05
+    # - AP-08
+    # - AP-09
     return RunRecord(
         run_id=job.run_id,
         status=job.status,  # type: ignore[arg-type]
@@ -257,6 +312,11 @@ def _run_record_from_job(job: _RunJob) -> RunRecord:
 
 
 def _set_job_failed(job: _RunJob, *, message: str, details: Any | None = None) -> None:
+    # Traceability:
+    # - AP-04
+    # - AP-05
+    # - AP-08
+    # - AP-09
     job.status = "failed"
     job.progress_percent = 100
     job.finished_at = _utc_now()
@@ -268,6 +328,11 @@ def _set_job_failed(job: _RunJob, *, message: str, details: Any | None = None) -
 
 
 def _execute_job(run_id: str) -> None:
+    # Traceability:
+    # - AP-04
+    # - AP-05
+    # - AP-08
+    # - AP-09
     global _ACTIVE_RUN_ID
     with _RUNS_LOCK:
         job = _RUNS.get(run_id)
@@ -364,6 +429,11 @@ def _execute_job(run_id: str) -> None:
 
 
 def _validate_create_payload(payload: RunCreateRequest) -> RunCreateRequest:
+    # Traceability:
+    # - AP-04
+    # - AP-05
+    # - AP-08
+    # - AP-09
     config = get_pipeline_config()
     allowed_countries = {country.lower(): country for country in config.countries}
     allowed_layers = {layer.lower(): layer for layer in config.v3_1.fusion.groups}
@@ -468,6 +538,11 @@ def create_run(payload: RunCreateRequest) -> RunCreateResponse:
 
 
 def list_runs() -> RunsResponse:
+    # Traceability:
+    # - AP-04
+    # - AP-05
+    # - AP-08
+    # - AP-09
     with _RUNS_LOCK:
         runs = [_run_record_from_job(job) for job in _RUNS.values()]
     runs.sort(key=lambda item: item.created_at, reverse=True)
@@ -475,6 +550,11 @@ def list_runs() -> RunsResponse:
 
 
 def _get_job_or_raise(run_id: str) -> _RunJob:
+    # Traceability:
+    # - AP-04
+    # - AP-05
+    # - AP-08
+    # - AP-09
     with _RUNS_LOCK:
         job = _RUNS.get(run_id)
         if job is None:
@@ -487,6 +567,11 @@ def _get_job_or_raise(run_id: str) -> _RunJob:
 
 
 def get_run_detail(run_id: str) -> RunDetailResponse:
+    # Traceability:
+    # - AP-04
+    # - AP-05
+    # - AP-08
+    # - AP-09
     job = _get_job_or_raise(run_id)
     return RunDetailResponse(
         run=_run_record_from_job(job),
@@ -495,6 +580,11 @@ def get_run_detail(run_id: str) -> RunDetailResponse:
 
 
 def get_run_status(run_id: str) -> RunStatusResponse:
+    # Traceability:
+    # - AP-04
+    # - AP-05
+    # - AP-08
+    # - AP-09
     job = _get_job_or_raise(run_id)
     progress = RunStatusProgress(
         phase="queued" if job.status == "queued" else "pipeline_execution" if job.status == "running" else "completed",
@@ -513,6 +603,11 @@ def get_run_status(run_id: str) -> RunStatusResponse:
 
 
 def get_run_summary(run_id: str) -> RunSummaryResponse:
+    # Traceability:
+    # - AP-04
+    # - AP-05
+    # - AP-08
+    # - AP-09
     job = _get_job_or_raise(run_id)
     return RunSummaryResponse(
         run_id=run_id,
@@ -522,6 +617,11 @@ def get_run_summary(run_id: str) -> RunSummaryResponse:
 
 
 def get_run_artifacts(run_id: str) -> RunArtifactsResponse:
+    # Traceability:
+    # - AP-04
+    # - AP-05
+    # - AP-08
+    # - AP-09
     job = _get_job_or_raise(run_id)
     return RunArtifactsResponse(
         run_id=run_id,
@@ -530,6 +630,11 @@ def get_run_artifacts(run_id: str) -> RunArtifactsResponse:
 
 
 def get_artifact_file(run_id: str, artifact_id: str) -> Path:
+    # Traceability:
+    # - AP-04
+    # - AP-05
+    # - AP-08
+    # - AP-09
     job = _get_job_or_raise(run_id)
     path = job.artifact_files.get(artifact_id)
     if path is None or not path.exists():
@@ -542,6 +647,11 @@ def get_artifact_file(run_id: str, artifact_id: str) -> Path:
 
 
 def get_bundle_file(run_id: str) -> Path:
+    # Traceability:
+    # - AP-04
+    # - AP-05
+    # - AP-08
+    # - AP-09
     job = _get_job_or_raise(run_id)
     if job.archive_dir is None or not job.archive_dir.exists():
         raise ApiServiceError(

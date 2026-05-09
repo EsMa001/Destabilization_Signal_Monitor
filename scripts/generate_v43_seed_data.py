@@ -70,19 +70,43 @@ class MonthPeriod:
 
 
 def _clamp(value: float, lower: float, upper: float) -> float:
+    # Traceability:
+    # - SUP-004
+    # - PSwR-098
+    # - PSwR-105
+    # - PSwR-113
+    # - PSwR-121
     return max(lower, min(upper, value))
 
 
 def _rng(country: str, salt: str) -> random.Random:
+    # Traceability:
+    # - SUP-004
+    # - PSwR-098
+    # - PSwR-105
+    # - PSwR-113
+    # - PSwR-121
     seed = sum(ord(ch) for ch in f"{country}:{salt}:v43")
     return random.Random(seed)
 
 
 def _day_index(current: date) -> int:
+    # Traceability:
+    # - SUP-004
+    # - PSwR-098
+    # - PSwR-105
+    # - PSwR-113
+    # - PSwR-121
     return (current - START_DATE).days
 
 
 def _peak_component(country: str, index: int) -> float:
+    # Traceability:
+    # - SUP-004
+    # - PSwR-098
+    # - PSwR-105
+    # - PSwR-113
+    # - PSwR-121
     peaks = PEAKS[country]
     total = 0.0
     for center, amplitude in peaks:
@@ -93,6 +117,12 @@ def _peak_component(country: str, index: int) -> float:
 
 
 def _monthly_periods() -> list[MonthPeriod]:
+    # Traceability:
+    # - SUP-004
+    # - PSwR-098
+    # - PSwR-105
+    # - PSwR-113
+    # - PSwR-121
     start = date(2025, 5, 1)
     periods: list[MonthPeriod] = []
     current = start
@@ -116,6 +146,12 @@ def _monthly_periods() -> list[MonthPeriod]:
 
 
 def _daily_pressure(country: str, current: date) -> float:
+    # Traceability:
+    # - SUP-004
+    # - PSwR-098
+    # - PSwR-105
+    # - PSwR-113
+    # - PSwR-121
     index = _day_index(current)
     base = BASE_RISK[country]
     seasonal = 0.04 * math.sin(2.0 * math.pi * index / 92.0)
@@ -125,6 +161,12 @@ def _daily_pressure(country: str, current: date) -> float:
 
 
 def _write_csv(path: Path, header: list[str], rows: list[list[str]]) -> None:
+    # Traceability:
+    # - SUP-004
+    # - PSwR-098
+    # - PSwR-105
+    # - PSwR-113
+    # - PSwR-121
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.writer(handle)
@@ -133,6 +175,12 @@ def _write_csv(path: Path, header: list[str], rows: list[list[str]]) -> None:
 
 
 def generate_gdelt(path: Path) -> None:
+    # Traceability:
+    # - SUP-004
+    # - PSwR-098
+    # - PSwR-105
+    # - PSwR-113
+    # - PSwR-121
     rows: list[list[str]] = []
     for country in COUNTRIES:
         country_rng = _rng(country, "gdelt")
@@ -166,6 +214,12 @@ def generate_gdelt(path: Path) -> None:
 
 
 def _external_factor(country: str) -> float:
+    # Traceability:
+    # - SUP-004
+    # - PSwR-098
+    # - PSwR-105
+    # - PSwR-113
+    # - PSwR-121
     return {
         "Iran": 0.92,
         "Israel": 0.82,
@@ -181,6 +235,12 @@ def _external_factor(country: str) -> float:
 
 
 def generate_ucdp(path: Path) -> None:
+    # Traceability:
+    # - SUP-004
+    # - PSwR-098
+    # - PSwR-105
+    # - PSwR-113
+    # - PSwR-121
     rows: list[list[str]] = []
     for country in COUNTRIES:
         country_rng = _rng(country, "ucdp")
@@ -213,6 +273,12 @@ def generate_ucdp(path: Path) -> None:
 
 
 def generate_bridge(path: Path) -> None:
+    # Traceability:
+    # - SUP-004
+    # - PSwR-098
+    # - PSwR-105
+    # - PSwR-113
+    # - PSwR-121
     rows = [
         ["2025-11-10", "Ukraine", "security_event", "escalation", "external", "0.9", "Bridge escalation marker", "manual_seed_v43", "medium", "true"],
         ["2025-12-18", "Russia", "security_event", "escalation", "external", "0.8", "Bridge escalation marker", "manual_seed_v43", "medium", "true"],
@@ -244,6 +310,12 @@ def generate_bridge(path: Path) -> None:
 
 
 def generate_context(path: Path) -> None:
+    # Traceability:
+    # - SUP-004
+    # - PSwR-098
+    # - PSwR-105
+    # - PSwR-113
+    # - PSwR-121
     rows: list[list[str]] = []
     for country in COUNTRIES:
         risk = BASE_RISK[country]
@@ -277,12 +349,24 @@ def generate_context(path: Path) -> None:
 
 
 def _monthly_base(country: str, period_index: int) -> float:
+    # Traceability:
+    # - SUP-004
+    # - PSwR-098
+    # - PSwR-105
+    # - PSwR-113
+    # - PSwR-121
     pressure = BASE_RISK[country]
     seasonal = 0.05 * math.sin(2.0 * math.pi * period_index / 6.0)
     return _clamp(pressure + seasonal + _peak_component(country, 80 + period_index * 24), 0.02, 0.98)
 
 
 def generate_fao_ffpi(path: Path, periods: list[MonthPeriod]) -> None:
+    # Traceability:
+    # - SUP-004
+    # - PSwR-098
+    # - PSwR-105
+    # - PSwR-113
+    # - PSwR-121
     rows: list[list[str]] = []
     for country in COUNTRIES:
         for i, period in enumerate(periods):
@@ -307,6 +391,12 @@ def generate_fao_ffpi(path: Path, periods: list[MonthPeriod]) -> None:
 
 
 def generate_fao_fpma(path: Path, periods: list[MonthPeriod]) -> None:
+    # Traceability:
+    # - SUP-004
+    # - PSwR-098
+    # - PSwR-105
+    # - PSwR-113
+    # - PSwR-121
     rows: list[list[str]] = []
     for country in COUNTRIES:
         for i, period in enumerate(periods):
@@ -331,6 +421,12 @@ def generate_fao_fpma(path: Path, periods: list[MonthPeriod]) -> None:
 
 
 def generate_un_comtrade(path: Path) -> None:
+    # Traceability:
+    # - SUP-004
+    # - PSwR-098
+    # - PSwR-105
+    # - PSwR-113
+    # - PSwR-121
     rows: list[list[str]] = []
     for country in COUNTRIES:
         risk = BASE_RISK[country]
@@ -356,6 +452,12 @@ def generate_un_comtrade(path: Path) -> None:
 
 
 def generate_gdacs(path: Path, periods: list[MonthPeriod]) -> None:
+    # Traceability:
+    # - SUP-004
+    # - PSwR-098
+    # - PSwR-105
+    # - PSwR-113
+    # - PSwR-121
     rows: list[list[str]] = []
     for country in COUNTRIES:
         for i, period in enumerate(periods):
@@ -399,6 +501,12 @@ def generate_gdacs(path: Path, periods: list[MonthPeriod]) -> None:
 
 
 def generate_unhcr(path: Path, periods: list[MonthPeriod]) -> None:
+    # Traceability:
+    # - SUP-004
+    # - PSwR-098
+    # - PSwR-105
+    # - PSwR-113
+    # - PSwR-121
     rows: list[list[str]] = []
     previous_by_country: dict[str, float] = {}
     for country in COUNTRIES:
@@ -441,6 +549,12 @@ def generate_unhcr(path: Path, periods: list[MonthPeriod]) -> None:
 
 
 def generate_narrative(path: Path, periods: list[MonthPeriod]) -> None:
+    # Traceability:
+    # - SUP-004
+    # - PSwR-098
+    # - PSwR-105
+    # - PSwR-113
+    # - PSwR-121
     rows: list[list[str]] = []
     for country in COUNTRIES:
         for i, period in enumerate(periods):
@@ -485,6 +599,12 @@ def generate_narrative(path: Path, periods: list[MonthPeriod]) -> None:
 
 
 def generate_governance(path: Path, periods: list[MonthPeriod]) -> None:
+    # Traceability:
+    # - SUP-004
+    # - PSwR-098
+    # - PSwR-105
+    # - PSwR-113
+    # - PSwR-121
     rows: list[list[str]] = []
     for country in COUNTRIES:
         for i, period in enumerate(periods):
@@ -530,6 +650,12 @@ def generate_governance(path: Path, periods: list[MonthPeriod]) -> None:
 
 
 def _expected_reaction(country: str) -> str:
+    # Traceability:
+    # - SUP-004
+    # - PSwR-098
+    # - PSwR-105
+    # - PSwR-113
+    # - PSwR-121
     risk = BASE_RISK[country]
     if risk >= 0.79:
         return "high"
@@ -539,6 +665,12 @@ def _expected_reaction(country: str) -> str:
 
 
 def _expected_groups(country: str) -> str:
+    # Traceability:
+    # - SUP-004
+    # - PSwR-098
+    # - PSwR-105
+    # - PSwR-113
+    # - PSwR-121
     risk = BASE_RISK[country]
     if risk >= 0.79:
         return "event|governance|displacement|shock|market_food"
@@ -550,6 +682,12 @@ def _expected_groups(country: str) -> str:
 
 
 def generate_reference_episodes(path: Path) -> None:
+    # Traceability:
+    # - SUP-004
+    # - PSwR-098
+    # - PSwR-105
+    # - PSwR-113
+    # - PSwR-121
     rows: list[list[str]] = []
     for country in COUNTRIES:
         reaction = _expected_reaction(country)
@@ -625,6 +763,12 @@ def generate_reference_episodes(path: Path) -> None:
 
 
 def main() -> None:
+    # Traceability:
+    # - SUP-004
+    # - PSwR-098
+    # - PSwR-105
+    # - PSwR-113
+    # - PSwR-121
     root = Path(__file__).resolve().parents[1]
     periods = _monthly_periods()
     generate_gdelt(root / "data/gdelt/gdelt_events.csv")

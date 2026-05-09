@@ -46,6 +46,11 @@ def load_run_metadata(path: Path | None) -> dict:
 
 
 def _delta_direction(value: float | None) -> str:
+    # Traceability:
+    # - PSyR-009
+    # - PSwR-017
+    # - PSyR-008
+    # - PSyR-010
     if value is None:
         return TREND_NO_COMPARISON
     if value > 0.5:
@@ -114,6 +119,11 @@ def compare_summary_records(
 
 
 def _comparison_overview(comparisons: list[dict]) -> dict[str, int]:
+    # Traceability:
+    # - PSyR-009
+    # - PSwR-017
+    # - PSyR-008
+    # - PSyR-010
     totals = {
         "items": len(comparisons),
         TREND_INCREASING: 0,

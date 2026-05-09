@@ -45,6 +45,13 @@ BRIDGE_SUBCLUSTER_DEFAULT_FEATURE = {
 
 
 def _clamp_score(value: float) -> float:
+    # Traceability:
+    # - PSwR-008
+    # - PSwR-001
+    # - ALG-002
+    # - PSyR-004
+    # - PM-001
+    # - PM-005
     return max(0.0, min(100.0, value))
 
 

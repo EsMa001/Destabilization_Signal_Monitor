@@ -61,6 +61,13 @@ PLOT_DPI = 140
 
 
 def _configure_date_axis(ax, x_values: list) -> None:
+    # Traceability:
+    # - PSwR-016
+    # - PM-005
+    # - PSwR-029
+    # - PSwR-032
+    # - PSwR-051
+    # - PSwR-065
     if not x_values:
         return
     first = x_values[0]

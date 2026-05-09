@@ -391,12 +391,26 @@ class PipelineConfig:
 
 
 def _require_mapping(raw: object, *, section: str) -> dict:
+    # Traceability:
+    # - PSwR-002
+    # - PSyR-001
+    # - PSyR-002
+    # - PSyR-032
+    # - PSyR-033
+    # - PSyR-013
     if not isinstance(raw, dict):
         raise ConfigValidationError(f"configuration section {section!r} must be a mapping")
     return raw
 
 
 def _require_keys(raw: dict, *, section: str, keys: list[str]) -> None:
+    # Traceability:
+    # - PSwR-002
+    # - PSyR-001
+    # - PSyR-002
+    # - PSyR-032
+    # - PSyR-033
+    # - PSyR-013
     missing = [key for key in keys if key not in raw]
     if missing:
         raise ConfigValidationError(
@@ -451,6 +465,13 @@ def _validate_windows(raw_windows: object) -> dict[str, int]:
 
 
 def _validate_versions(raw_versions: object) -> dict[str, str]:
+    # Traceability:
+    # - PSwR-002
+    # - PSyR-001
+    # - PSyR-002
+    # - PSyR-032
+    # - PSyR-033
+    # - PSyR-013
     versions = _require_mapping(raw_versions, section="versions")
     required = [
         "query_version",
@@ -469,6 +490,13 @@ def _validate_versions(raw_versions: object) -> dict[str, str]:
 
 
 def _validate_output(raw_output: object) -> dict[str, Path]:
+    # Traceability:
+    # - PSwR-002
+    # - PSyR-001
+    # - PSyR-002
+    # - PSyR-032
+    # - PSyR-033
+    # - PSyR-013
     output = _require_mapping(raw_output, section="output")
     required = ["report_dir", "reference_dir"]
     _require_keys(output, section="output", keys=required)
@@ -610,6 +638,13 @@ def _validate_v31_source_config(
     *,
     source_id: str,
 ) -> V31SourceConfig:
+    # Traceability:
+    # - PSwR-002
+    # - PSyR-001
+    # - PSyR-002
+    # - PSyR-032
+    # - PSyR-033
+    # - PSyR-013
     source = _require_mapping(raw, section=f"v3_1.sources.{source_id}")
     _require_keys(source, section=f"v3_1.sources.{source_id}", keys=["path", "normalization"])
     path_value = str(source["path"]).strip()
@@ -670,6 +705,13 @@ def _validate_freshness_rule(
     *,
     section: str,
 ) -> dict[str, float]:
+    # Traceability:
+    # - PSwR-002
+    # - PSyR-001
+    # - PSyR-002
+    # - PSyR-032
+    # - PSyR-033
+    # - PSyR-013
     rule = _require_mapping(raw_rule, section=section)
     _require_keys(
         rule,
@@ -720,6 +762,13 @@ def _validate_freshness_model(
     *,
     groups: list[str],
 ) -> dict[str, dict[str, float]]:
+    # Traceability:
+    # - PSwR-002
+    # - PSyR-001
+    # - PSyR-002
+    # - PSyR-032
+    # - PSyR-033
+    # - PSyR-013
     model = _require_mapping(raw_model, section="v3_1.fusion.calibration.freshness_model")
     if "default" not in model:
         raise ConfigValidationError("v3_1.fusion.calibration.freshness_model must include 'default'")

@@ -326,6 +326,13 @@ SNAPSHOT_SOURCE_RAW_FALLBACK = "raw_latest_fallback_no_historical_value"
 def _latest_score_by_cluster(
     cluster_scores: list[ScoreRecord],
 ) -> dict[tuple[str, str], ScoreRecord]:
+    # Traceability:
+    # - PSR-001
+    # - PSR-003
+    # - PSR-005
+    # - PSR-006
+    # - PSR-007
+    # - PSR-008
     latest: dict[tuple[str, str], ScoreRecord] = {}
     for score in cluster_scores:
         key = (score.country, score.cluster)
@@ -343,6 +350,13 @@ def _derive_source_count_by_cluster(
     bridge_records: list[BridgeRecord],
     context_records: list[ContextRecord],
 ) -> dict[tuple[str, str], int]:
+    # Traceability:
+    # - PSR-001
+    # - PSR-003
+    # - PSR-005
+    # - PSR-006
+    # - PSR-007
+    # - PSR-008
     source_count: dict[tuple[str, str], int] = {}
     for country in countries:
         canonical = canonical_country(country)
@@ -370,6 +384,13 @@ def _build_assessments(
     trend_by_cluster: dict[tuple[str, str], str],
     confidence_by_cluster: dict[tuple[str, str], tuple[float, str]],
 ) -> list[ClusterAssessment]:
+    # Traceability:
+    # - PSR-001
+    # - PSR-003
+    # - PSR-005
+    # - PSR-006
+    # - PSR-007
+    # - PSR-008
     assessments: list[ClusterAssessment] = []
     sorted_items = sorted(
         latest_cluster_scores.items(),
@@ -408,6 +429,13 @@ def _assessment_records(
     *,
     snapshot_source_by_cluster: dict[tuple[str, str], dict[str, object]],
 ) -> list[dict]:
+    # Traceability:
+    # - PSR-001
+    # - PSR-003
+    # - PSR-005
+    # - PSR-006
+    # - PSR-007
+    # - PSR-008
     rows: list[dict] = []
     for assessment in assessments:
         source = snapshot_source_by_cluster.get((assessment.country, assessment.cluster), {})
@@ -442,6 +470,13 @@ def _required_outputs_present(
     summary_path: Path,
     plot_paths: list[Path],
 ) -> bool:
+    # Traceability:
+    # - PSR-001
+    # - PSR-003
+    # - PSR-005
+    # - PSR-006
+    # - PSR-007
+    # - PSR-008
     return (
         features_path.exists()
         and scores_path.exists()
@@ -517,6 +552,13 @@ def _plots_by_country(
     plot_paths: list[Path],
     countries: list[str],
 ) -> dict[str, list[Path]]:
+    # Traceability:
+    # - PSR-001
+    # - PSR-003
+    # - PSR-005
+    # - PSR-006
+    # - PSR-007
+    # - PSR-008
     grouped: dict[str, list[Path]] = {country: [] for country in countries}
     for path in plot_paths:
         name = path.name.lower()
@@ -570,6 +612,13 @@ def _write_historical_status_file(
     enabled: bool,
     constant_clusters: set[str],
 ) -> None:
+    # Traceability:
+    # - PSR-001
+    # - PSR-003
+    # - PSR-005
+    # - PSR-006
+    # - PSR-007
+    # - PSR-008
     payload = {
         "status": status,
         "historical_enabled": enabled,
@@ -891,6 +940,13 @@ def _build_fusion_plausibility_warnings(
     validation_event_coverage: list[ValidationEventCoverageSummaryRecord] | None = None,
     validation_country_event_alignment: list[ValidationCountryEventAlignmentRecord] | None = None,
 ) -> list[dict[str, object]]:
+    # Traceability:
+    # - PSR-001
+    # - PSR-003
+    # - PSR-005
+    # - PSR-006
+    # - PSR-007
+    # - PSR-008
     warnings: list[dict[str, object]] = []
     if not group_records:
         return warnings
@@ -1334,6 +1390,13 @@ def _write_reference_comparison_payload(
     status: str,
     current_run_info: dict,
 ) -> dict:
+    # Traceability:
+    # - PSR-001
+    # - PSR-003
+    # - PSR-005
+    # - PSR-006
+    # - PSR-007
+    # - PSR-008
     payload = {
         "status": status,
         "baseline_label": "reference_run",
@@ -1354,12 +1417,26 @@ def _write_reference_comparison_payload(
 
 
 def _env_flag_enabled(value: str | None) -> bool:
+    # Traceability:
+    # - PSR-001
+    # - PSR-003
+    # - PSR-005
+    # - PSR-006
+    # - PSR-007
+    # - PSR-008
     if value is None:
         return False
     return value.strip().lower() in {"1", "true", "yes", "on"}
 
 
 def main() -> None:
+    # Traceability:
+    # - PSR-001
+    # - PSR-003
+    # - PSR-005
+    # - PSR-006
+    # - PSR-007
+    # - PSR-008
     config = load_pipeline_config(Path("config/default.yaml"))
     ordered_countries = sorted(config.countries, key=country_order_index)
     historical_countries = sorted(config.historical.countries, key=country_order_index)

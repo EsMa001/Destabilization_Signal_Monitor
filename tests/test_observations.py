@@ -17,6 +17,13 @@ from proto.sources.unhcr import load_unhcr_observations
 
 
 def _valid_observation(*, source_id: str = "fao_ffpi") -> ObservationRecord:
+    # Traceability:
+    # - PSyR-018
+    # - PSwR-036
+    # - PSwR-037
+    # - PSyR-022
+    # - PSwR-038
+    # - PSwR-039
     return ObservationRecord(
         source_id=source_id,
         layer="Market/Food",

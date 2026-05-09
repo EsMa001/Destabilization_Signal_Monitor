@@ -39,6 +39,9 @@ app.include_router(runs_router, prefix="/api/v1", tags=["runs"])
 
 @app.exception_handler(ApiServiceError)
 async def handle_api_service_error(_: Request, exc: ApiServiceError) -> JSONResponse:
+    # Traceability:
+    # - AP-01
+    # - AP-07
     return JSONResponse(
         status_code=exc.status_code,
         content=error_payload(exc),
@@ -47,6 +50,9 @@ async def handle_api_service_error(_: Request, exc: ApiServiceError) -> JSONResp
 
 @app.exception_handler(RequestValidationError)
 async def handle_validation_error(_: Request, exc: RequestValidationError) -> JSONResponse:
+    # Traceability:
+    # - AP-01
+    # - AP-07
     trace_id = uuid4().hex
     payload = ErrorEnvelope(
         error={
@@ -61,6 +67,9 @@ async def handle_validation_error(_: Request, exc: RequestValidationError) -> JS
 
 @app.exception_handler(Exception)
 async def handle_unexpected_error(request: Request, exc: Exception) -> JSONResponse:
+    # Traceability:
+    # - AP-01
+    # - AP-07
     if isinstance(exc, StarletteHTTPException):
         return await http_exception_handler(request, exc)
 

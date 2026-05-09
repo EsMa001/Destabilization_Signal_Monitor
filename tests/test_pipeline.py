@@ -32,15 +32,36 @@ EXPECTED_COUNTRIES = [
 
 
 def _load_json(path: Path) -> dict:
+    # Traceability:
+    # - PSR-003
+    # - PSR-005
+    # - PSR-009
+    # - PSR-010
+    # - PSR-011
+    # - PSR-012
     return json.loads(path.read_text(encoding="utf-8"))
 
 
 def _prepare_workspace(project_root: Path, tmp_path: Path) -> None:
+    # Traceability:
+    # - PSR-003
+    # - PSR-005
+    # - PSR-009
+    # - PSR-010
+    # - PSR-011
+    # - PSR-012
     shutil.copytree(project_root / "config", tmp_path / "config")
     shutil.copytree(project_root / "data", tmp_path / "data")
 
 
 def _country_block(handout: str, country_label: str) -> str:
+    # Traceability:
+    # - PSR-003
+    # - PSR-005
+    # - PSR-009
+    # - PSR-010
+    # - PSR-011
+    # - PSR-012
     marker = f"## {country_label}"
     start = handout.index(marker)
     next_index = handout.find("\n## ", start + len(marker))

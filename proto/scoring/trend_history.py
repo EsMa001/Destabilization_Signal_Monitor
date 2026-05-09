@@ -114,6 +114,13 @@ class HistoricalReviewCandidateRecord:
 
 
 def _iter_days(start_date: date, end_date: date):
+    # Traceability:
+    # - PSR-010
+    # - PSwR-020
+    # - PSwR-021
+    # - PSwR-023
+    # - PSwR-025
+    # - PSwR-026
     cursor = start_date
     while cursor <= end_date:
         yield cursor
@@ -378,6 +385,13 @@ def build_snapshot_context_by_cluster(
 
 
 def _parse_iso_date(value: object) -> date | None:
+    # Traceability:
+    # - PSR-010
+    # - PSwR-020
+    # - PSwR-021
+    # - PSwR-023
+    # - PSwR-025
+    # - PSwR-026
     if not isinstance(value, str) or not value.strip():
         return None
     try:
@@ -391,6 +405,13 @@ def _derive_snapshot_relation(
     point_date: date,
     snapshot_source_date: date | None,
 ) -> str:
+    # Traceability:
+    # - PSR-010
+    # - PSwR-020
+    # - PSwR-021
+    # - PSwR-023
+    # - PSwR-025
+    # - PSwR-026
     if snapshot_source_date is None:
         return "unknown_snapshot_source"
     if point_date == snapshot_source_date:
@@ -403,6 +424,13 @@ def _derive_snapshot_relation(
 def _driver_details_for_candidates(
     records: list[HistoricalRollingRecord],
 ) -> dict[tuple[str, str, date], dict[str, str | float | None]]:
+    # Traceability:
+    # - PSR-010
+    # - PSwR-020
+    # - PSwR-021
+    # - PSwR-023
+    # - PSwR-025
+    # - PSwR-026
     grouped: dict[tuple[str, str, date], list[HistoricalRollingRecord]] = defaultdict(list)
     for record in records:
         if record.score_name == "cluster_score" or record.rolling_value is None:

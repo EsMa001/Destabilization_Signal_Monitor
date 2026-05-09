@@ -38,6 +38,10 @@ def _window_mean(
     start_date: date,
     end_date: date,
 ) -> float:
+    # Traceability:
+    # - PSwR-013
+    # - ALG-006
+    # - PM-005
     values = [
         score.score_value
         for score in scores

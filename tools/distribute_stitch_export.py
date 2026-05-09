@@ -8,6 +8,11 @@ from tempfile import TemporaryDirectory
 
 
 def safe_slug(name: str) -> str:
+    # Traceability:
+    # - SUP-002
+    # - AP-01
+    # - AP-03
+    # - AP-11
     chars: list[str] = []
     for ch in name.strip().lower():
         if ch.isalnum():
@@ -21,6 +26,11 @@ def safe_slug(name: str) -> str:
 
 
 def ensure_dirs(repo_root: Path) -> dict[str, Path]:
+    # Traceability:
+    # - SUP-002
+    # - AP-01
+    # - AP-03
+    # - AP-11
     design_dir = repo_root / "frontend" / "design"
     stitch_dir = design_dir / "stitch_exports"
     screenshots_dir = stitch_dir / "screenshots"
@@ -38,6 +48,11 @@ def ensure_dirs(repo_root: Path) -> dict[str, Path]:
 
 
 def copy_design_md(source_root: Path, target_stitch_dir: Path) -> Path | None:
+    # Traceability:
+    # - SUP-002
+    # - AP-01
+    # - AP-03
+    # - AP-11
     design_files = list(source_root.rglob("DESIGN.md"))
     if not design_files:
         return None
@@ -49,6 +64,11 @@ def copy_design_md(source_root: Path, target_stitch_dir: Path) -> Path | None:
 
 
 def collect_screen_dirs(source_root: Path) -> list[Path]:
+    # Traceability:
+    # - SUP-002
+    # - AP-01
+    # - AP-03
+    # - AP-11
     result: list[Path] = []
 
     for path in source_root.rglob("*"):
@@ -69,6 +89,11 @@ def distribute_assets(
     screenshots_dir: Path,
     html_dir: Path,
 ) -> list[dict[str, str]]:
+    # Traceability:
+    # - SUP-002
+    # - AP-01
+    # - AP-03
+    # - AP-11
     inventory: list[dict[str, str]] = []
 
     for screen_dir in screen_dirs:
@@ -102,6 +127,11 @@ def distribute_assets(
 
 
 def write_inventory(stitch_dir: Path, inventory: list[dict[str, str]]) -> Path:
+    # Traceability:
+    # - SUP-002
+    # - AP-01
+    # - AP-03
+    # - AP-11
     out_path = stitch_dir / "stitch_inventory.md"
 
     lines = [
@@ -123,6 +153,11 @@ def write_inventory(stitch_dir: Path, inventory: list[dict[str, str]]) -> Path:
 
 
 def process_source_dir(source_dir: Path, repo_root: Path) -> None:
+    # Traceability:
+    # - SUP-002
+    # - AP-01
+    # - AP-03
+    # - AP-11
     dirs = ensure_dirs(repo_root)
 
     design_md = copy_design_md(source_dir, dirs["stitch_dir"])
@@ -145,6 +180,11 @@ def process_source_dir(source_dir: Path, repo_root: Path) -> None:
 
 
 def process_zip(zip_path: Path, repo_root: Path) -> None:
+    # Traceability:
+    # - SUP-002
+    # - AP-01
+    # - AP-03
+    # - AP-11
     with TemporaryDirectory() as tmp_dir:
         tmp_path = Path(tmp_dir)
         with zipfile.ZipFile(zip_path, "r") as zf:
@@ -153,6 +193,11 @@ def process_zip(zip_path: Path, repo_root: Path) -> None:
 
 
 def main() -> None:
+    # Traceability:
+    # - SUP-002
+    # - AP-01
+    # - AP-03
+    # - AP-11
     parser = argparse.ArgumentParser(
         description="Distribute Google Stitch export files into the frontend design folders."
     )

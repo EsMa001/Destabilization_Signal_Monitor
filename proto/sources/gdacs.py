@@ -48,11 +48,25 @@ class GdacsRecord:
 
 
 def _alert_weight(alert_level: str) -> float:
+    # Traceability:
+    # - PSyR-024
+    # - PSwR-059
+    # - PSwR-039
+    # - PSwR-040
+    # - PM-016
+    # - PM-018
     return ALERT_LEVEL_WEIGHTS.get(alert_level.strip().lower(), 0.5)
 
 
 def _derive_raw_signal(record: GdacsRecord) -> float:
     # Transparent MVP mapping: severity * alert_weight * relevance.
+    # Traceability:
+    # - PSyR-024
+    # - PSwR-059
+    # - PSwR-039
+    # - PSwR-040
+    # - PM-016
+    # - PM-018
     return round(record.severity * _alert_weight(record.alert_level) * record.relevance, 4)
 
 

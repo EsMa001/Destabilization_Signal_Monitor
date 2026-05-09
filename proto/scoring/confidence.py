@@ -15,6 +15,13 @@ from proto.models import ScoreRecord
 
 
 def _clamp_score(value: float) -> float:
+    # Traceability:
+    # - PSwR-014
+    # - ALG-007
+    # - PSwR-027
+    # - ALG-012
+    # - PSwR-023
+    # - PSwR-022
     return max(0.0, min(100.0, value))
 
 

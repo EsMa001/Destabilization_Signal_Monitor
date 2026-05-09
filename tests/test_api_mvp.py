@@ -21,6 +21,8 @@ from api.services.config_service import get_pipeline_config
 
 @pytest.fixture(autouse=True)
 def reset_run_state(monkeypatch: pytest.MonkeyPatch):
+    # Traceability:
+    # - AP-09
     run_service.reset_state_for_tests()
     config = get_pipeline_config()
     archive_root = config.report_dir / "api_archive"
@@ -34,6 +36,8 @@ def reset_run_state(monkeypatch: pytest.MonkeyPatch):
 
 
 def _write_fake_pipeline_outputs() -> None:
+    # Traceability:
+    # - AP-09
     config = get_pipeline_config()
     current_run = config.report_dir / "current_run"
     snapshot_export = current_run / "exports" / "snapshot"
@@ -81,6 +85,8 @@ def _write_fake_pipeline_outputs() -> None:
 
 
 def _fake_pipeline_process() -> subprocess.CompletedProcess[str]:
+    # Traceability:
+    # - AP-09
     _write_fake_pipeline_outputs()
     return subprocess.CompletedProcess(
         args=["python", "-m", "proto.pipeline.run_proto"],
@@ -91,6 +97,8 @@ def _fake_pipeline_process() -> subprocess.CompletedProcess[str]:
 
 
 def test_health_endpoint() -> None:
+    # Traceability:
+    # - AP-09
     client = TestClient(app)
     response = client.get("/api/v1/health")
     assert response.status_code == 200
@@ -100,6 +108,8 @@ def test_health_endpoint() -> None:
 
 
 def test_info_endpoint() -> None:
+    # Traceability:
+    # - AP-09
     client = TestClient(app)
     response = client.get("/api/v1/info")
     assert response.status_code == 200
@@ -109,6 +119,8 @@ def test_info_endpoint() -> None:
 
 
 def test_options_endpoints() -> None:
+    # Traceability:
+    # - AP-09
     client = TestClient(app)
     countries = client.get("/api/v1/options/countries")
     layers = client.get("/api/v1/options/layers")
@@ -123,6 +135,8 @@ def test_options_endpoints() -> None:
 
 
 def test_run_creation_and_status(monkeypatch: pytest.MonkeyPatch) -> None:
+    # Traceability:
+    # - AP-09
     monkeypatch.setattr(run_service, "_execute_pipeline_process", _fake_pipeline_process)
     client = TestClient(app)
     create_response = client.post(
@@ -150,6 +164,8 @@ def test_run_creation_and_status(monkeypatch: pytest.MonkeyPatch) -> None:
 
 
 def test_unknown_run_id_returns_standard_error() -> None:
+    # Traceability:
+    # - AP-09
     client = TestClient(app)
     response = client.get("/api/v1/runs/does_not_exist/status")
     assert response.status_code == 404
@@ -158,6 +174,8 @@ def test_unknown_run_id_returns_standard_error() -> None:
 
 
 def test_unknown_artifact_returns_standard_error(monkeypatch: pytest.MonkeyPatch) -> None:
+    # Traceability:
+    # - AP-09
     monkeypatch.setattr(run_service, "_execute_pipeline_process", _fake_pipeline_process)
     client = TestClient(app)
     create_response = client.post(

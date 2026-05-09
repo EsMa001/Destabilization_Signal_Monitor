@@ -21,6 +21,8 @@ router = APIRouter()
 
 @router.get("/health", response_model=HealthResponse)
 def get_health() -> HealthResponse:
+    # Traceability:
+    # - AP-02
     return HealthResponse(
         status="ok",
         api_version="v1",
@@ -30,6 +32,8 @@ def get_health() -> HealthResponse:
 
 @router.get("/info", response_model=InfoResponse)
 def get_info() -> InfoResponse:
+    # Traceability:
+    # - AP-02
     raw_config = get_raw_config()
     return InfoResponse(
         project_name=str(raw_config.get("project_name", "country-destabilization-proto")),

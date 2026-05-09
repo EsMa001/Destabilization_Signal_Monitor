@@ -50,6 +50,13 @@ def _observation(
     normalized_value: float,
     unit: str,
 ) -> ObservationRecord:
+    # Traceability:
+    # - PSwR-043
+    # - PSyR-022
+    # - PSwR-041
+    # - PSwR-042
+    # - PSwR-045
+    # - ALG-014
     return ObservationRecord(
         source_id=source_id,
         layer=layer,
@@ -2060,6 +2067,13 @@ def _alignment_peak(
     event_support_status: str = "event_supported",
     dominant_group: str | None = "event",
 ) -> ValidationPeakAttributionRecord:
+    # Traceability:
+    # - PSwR-043
+    # - PSyR-022
+    # - PSwR-041
+    # - PSwR-042
+    # - PSwR-045
+    # - ALG-014
     return ValidationPeakAttributionRecord(
         country=country,
         peak_rank=peak_rank,
@@ -2095,6 +2109,13 @@ def _alignment_peak(
 
 
 def _alignment_trajectory(*, country: str) -> ValidationTrajectoryProfileRecord:
+    # Traceability:
+    # - PSwR-043
+    # - PSyR-022
+    # - PSwR-041
+    # - PSwR-042
+    # - PSwR-045
+    # - ALG-014
     return ValidationTrajectoryProfileRecord(
         country=country,
         trajectory_profile="event-spiking",

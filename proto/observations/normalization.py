@@ -19,10 +19,18 @@ SUPPORTED_NORMALIZATION_METHODS = {
 
 
 def _clamp_01(value: float) -> float:
+    # Traceability:
+    # - PSwR-040
+    # - ALG-013
+    # - PM-018
     return max(0.0, min(1.0, value))
 
 
 def _normalize_z_score(values: list[float]) -> list[float]:
+    # Traceability:
+    # - PSwR-040
+    # - ALG-013
+    # - PM-018
     if not values:
         return []
     avg = mean(values)
@@ -39,6 +47,10 @@ def _normalize_z_score(values: list[float]) -> list[float]:
 
 
 def _normalize_percentile(values: list[float]) -> list[float]:
+    # Traceability:
+    # - PSwR-040
+    # - ALG-013
+    # - PM-018
     if not values:
         return []
     if len(values) == 1:
@@ -59,6 +71,10 @@ def _normalize_baseline_deviation(
     baseline_value: float,
     baseline_scale: float,
 ) -> list[float]:
+    # Traceability:
+    # - PSwR-040
+    # - ALG-013
+    # - PM-018
     if not values:
         return []
     denominator = max(1e-6, abs(baseline_scale))

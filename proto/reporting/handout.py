@@ -146,6 +146,13 @@ SNAPSHOT_SOURCE_RAW_FALLBACK = "raw_latest_fallback_no_historical_value"
 
 
 def _sorted_assessments(assessments: list[ClusterAssessment]) -> list[ClusterAssessment]:
+    # Traceability:
+    # - PSR-003
+    # - PSR-005
+    # - PSR-009
+    # - PSR-010
+    # - PSR-011
+    # - PSR-012
     return sorted(
         assessments,
         key=lambda item: (country_order_index(item.country), cluster_order_index(item.cluster)),
@@ -153,6 +160,13 @@ def _sorted_assessments(assessments: list[ClusterAssessment]) -> list[ClusterAss
 
 
 def _format_delta(value: float | None) -> str:
+    # Traceability:
+    # - PSR-003
+    # - PSR-005
+    # - PSR-009
+    # - PSR-010
+    # - PSR-011
+    # - PSR-012
     if value is None:
         return "n/a"
     if value > 0:
@@ -161,6 +175,13 @@ def _format_delta(value: float | None) -> str:
 
 
 def _format_interpretation_status(status: str) -> str:
+    # Traceability:
+    # - PSR-003
+    # - PSR-005
+    # - PSR-009
+    # - PSR-010
+    # - PSR-011
+    # - PSR-012
     if status == "limited_historical_coverage":
         return "limited_historical_coverage (eingeschraenkt interpretierbar)"
     if status == "reduced_historical_coverage":
@@ -171,6 +192,13 @@ def _format_interpretation_status(status: str) -> str:
 def _country_cluster_map(
     assessments: list[ClusterAssessment],
 ) -> dict[str, dict[str, ClusterAssessment]]:
+    # Traceability:
+    # - PSR-003
+    # - PSR-005
+    # - PSR-009
+    # - PSR-010
+    # - PSR-011
+    # - PSR-012
     by_country: dict[str, dict[str, ClusterAssessment]] = defaultdict(dict)
     for assessment in assessments:
         by_country[assessment.country][assessment.cluster] = assessment
@@ -178,6 +206,13 @@ def _country_cluster_map(
 
 
 def _comparison_map(payload: dict) -> dict[tuple[str, str], dict]:
+    # Traceability:
+    # - PSR-003
+    # - PSR-005
+    # - PSR-009
+    # - PSR-010
+    # - PSR-011
+    # - PSR-012
     return {
         (entry["country"], entry["cluster"]): entry
         for entry in payload.get("comparisons", [])
@@ -195,6 +230,13 @@ def _render_run_summary(
     reference_comparison_payload: dict,
     reference_action: str,
 ) -> list[str]:
+    # Traceability:
+    # - PSR-003
+    # - PSR-005
+    # - PSR-009
+    # - PSR-010
+    # - PSR-011
+    # - PSR-012
     return [
         "## Run-Zusammenfassung",
         "",
@@ -210,6 +252,13 @@ def _render_run_summary(
 
 
 def _render_versions(versions: dict[str, str]) -> list[str]:
+    # Traceability:
+    # - PSR-003
+    # - PSR-005
+    # - PSR-009
+    # - PSR-010
+    # - PSR-011
+    # - PSR-012
     return [
         "## Versionsst\u00e4nde",
         "",
@@ -222,6 +271,13 @@ def _render_versions(versions: dict[str, str]) -> list[str]:
 
 
 def _render_global_delta_overview(run_comparison_payload: dict) -> list[str]:
+    # Traceability:
+    # - PSR-003
+    # - PSR-005
+    # - PSR-009
+    # - PSR-010
+    # - PSR-011
+    # - PSR-012
     overview = run_comparison_payload.get("overview", {})
     return [
         "## Vergleich zum letzten Run (gesamt)",
@@ -238,6 +294,13 @@ def _render_global_delta_overview(run_comparison_payload: dict) -> list[str]:
 def _historical_latest_cluster_map(
     records: list["HistoricalRollingRecord"],
 ) -> dict[tuple[str, str], "HistoricalRollingRecord"]:
+    # Traceability:
+    # - PSR-003
+    # - PSR-005
+    # - PSR-009
+    # - PSR-010
+    # - PSR-011
+    # - PSR-012
     latest: dict[tuple[str, str], "HistoricalRollingRecord"] = {}
     for record in records:
         if record.score_name != "cluster_score" or not record.is_valid:
@@ -252,6 +315,13 @@ def _historical_latest_cluster_map(
 def _historical_valid_count_map(
     records: list["HistoricalRollingRecord"],
 ) -> dict[tuple[str, str], int]:
+    # Traceability:
+    # - PSR-003
+    # - PSR-005
+    # - PSR-009
+    # - PSR-010
+    # - PSR-011
+    # - PSR-012
     counts: dict[tuple[str, str], int] = defaultdict(int)
     for record in records:
         if record.score_name == "cluster_score" and record.is_valid:
@@ -260,6 +330,13 @@ def _historical_valid_count_map(
 
 
 def _format_snapshot_source_note(source: dict[str, object]) -> str:
+    # Traceability:
+    # - PSR-003
+    # - PSR-005
+    # - PSR-009
+    # - PSR-010
+    # - PSR-011
+    # - PSR-012
     mode = str(source.get("source_mode", SNAPSHOT_SOURCE_RAW_FALLBACK))
     source_date = source.get("source_date") or "n/a"
     valid_days = source.get("valid_days")
@@ -290,6 +367,13 @@ def _render_snapshot_block(
     snapshot_context: dict[tuple[str, str], dict[str, float | int | str | None]],
     snapshot_source_by_cluster: dict[tuple[str, str], dict[str, object]],
 ) -> list[str]:
+    # Traceability:
+    # - PSR-003
+    # - PSR-005
+    # - PSR-009
+    # - PSR-010
+    # - PSR-011
+    # - PSR-012
     lines = [
         "### 1) Current Snapshot (offiziell)",
         "",
@@ -338,6 +422,13 @@ def _render_historical_block(
     historical_limited_marker: bool,
     historical_constant_clusters: set[str],
 ) -> list[str]:
+    # Traceability:
+    # - PSR-003
+    # - PSR-005
+    # - PSR-009
+    # - PSR-010
+    # - PSR-011
+    # - PSR-012
     latest_map = _historical_latest_cluster_map(historical_records)
     valid_count_map = _historical_valid_count_map(historical_records)
     lines = [
@@ -370,6 +461,13 @@ def _render_plot_block(
     heading: str,
     plot_paths: list[Path],
 ) -> list[str]:
+    # Traceability:
+    # - PSR-003
+    # - PSR-005
+    # - PSR-009
+    # - PSR-010
+    # - PSR-011
+    # - PSR-012
     lines = [heading, ""]
     if not plot_paths:
         lines.append("manual review required: keine Plotdateien gefunden.")
@@ -384,6 +482,13 @@ def _render_plot_block(
 def _fusion_group_map(
     records: list["FusionGroupScoreRecord"],
 ) -> dict[str, list["FusionGroupScoreRecord"]]:
+    # Traceability:
+    # - PSR-003
+    # - PSR-005
+    # - PSR-009
+    # - PSR-010
+    # - PSR-011
+    # - PSR-012
     grouped: dict[str, list["FusionGroupScoreRecord"]] = defaultdict(list)
     for record in records:
         grouped[record.country].append(record)
@@ -395,12 +500,26 @@ def _fusion_group_map(
 def _fusion_total_map(
     records: list["FusionTotalScoreRecord"],
 ) -> dict[str, "FusionTotalScoreRecord"]:
+    # Traceability:
+    # - PSR-003
+    # - PSR-005
+    # - PSR-009
+    # - PSR-010
+    # - PSR-011
+    # - PSR-012
     return {record.country: record for record in records}
 
 
 def _fusion_historical_group_map(
     records: list["FusionHistoricalGroupScoreRecord"],
 ) -> dict[str, list["FusionHistoricalGroupScoreRecord"]]:
+    # Traceability:
+    # - PSR-003
+    # - PSR-005
+    # - PSR-009
+    # - PSR-010
+    # - PSR-011
+    # - PSR-012
     grouped: dict[str, list["FusionHistoricalGroupScoreRecord"]] = defaultdict(list)
     for record in records:
         grouped[record.country].append(record)
@@ -415,6 +534,13 @@ def _fusion_historical_group_map(
 def _fusion_historical_total_map(
     records: list["FusionHistoricalTotalScoreRecord"],
 ) -> dict[str, list["FusionHistoricalTotalScoreRecord"]]:
+    # Traceability:
+    # - PSR-003
+    # - PSR-005
+    # - PSR-009
+    # - PSR-010
+    # - PSR-011
+    # - PSR-012
     grouped: dict[str, list["FusionHistoricalTotalScoreRecord"]] = defaultdict(list)
     for record in records:
         grouped[record.country].append(record)
@@ -427,6 +553,13 @@ def _render_fusion_overview_block(
     *,
     fusion_total_scores: list["FusionTotalScoreRecord"],
 ) -> list[str]:
+    # Traceability:
+    # - PSR-003
+    # - PSR-005
+    # - PSR-009
+    # - PSR-010
+    # - PSR-011
+    # - PSR-012
     lines = [
         "## V3.1 Layer/Fusion Snapshot (zusaetzlich)",
         "",
@@ -454,6 +587,13 @@ def _render_fusion_plausibility_warnings_block(
     *,
     warnings: list[dict[str, object]],
 ) -> list[str]:
+    # Traceability:
+    # - PSR-003
+    # - PSR-005
+    # - PSR-009
+    # - PSR-010
+    # - PSR-011
+    # - PSR-012
     lines = [
         "## Fusion Plausibility Warnings",
         "",
@@ -477,6 +617,13 @@ def _render_fusion_validation_block(
     *,
     validation_summary: dict[str, object],
 ) -> list[str]:
+    # Traceability:
+    # - PSR-003
+    # - PSR-005
+    # - PSR-009
+    # - PSR-010
+    # - PSR-011
+    # - PSR-012
     lines = [
         "## V4.2 Governance, Validation & Operational Freshness (zusaetzlich)",
         "",
@@ -540,6 +687,13 @@ def _render_fusion_historical_overview_block(
     *,
     fusion_historical_total_scores: list["FusionHistoricalTotalScoreRecord"],
 ) -> list[str]:
+    # Traceability:
+    # - PSR-003
+    # - PSR-005
+    # - PSR-009
+    # - PSR-010
+    # - PSR-011
+    # - PSR-012
     lines = [
         "## V3.2 Historical Fusion View (zusaetzlich)",
         "",
@@ -593,6 +747,13 @@ def _render_fusion_country_block(
     fusion_total_score: "FusionTotalScoreRecord | None",
     validation_diagnostic: dict[str, object] | None,
 ) -> list[str]:
+    # Traceability:
+    # - PSR-003
+    # - PSR-005
+    # - PSR-009
+    # - PSR-010
+    # - PSR-011
+    # - PSR-012
     lines = [
         "### 2b) V3.1 Layer/Fusion (zusaetzlich)",
         "",
@@ -656,6 +817,13 @@ def _render_fusion_historical_country_block(
     fusion_historical_group_scores: list["FusionHistoricalGroupScoreRecord"],
     fusion_historical_total_scores: list["FusionHistoricalTotalScoreRecord"],
 ) -> list[str]:
+    # Traceability:
+    # - PSR-003
+    # - PSR-005
+    # - PSR-009
+    # - PSR-010
+    # - PSR-011
+    # - PSR-012
     lines = [
         "### 2c) V3.2 Historical Fusion (zusaetzlich)",
         "",
@@ -756,6 +924,13 @@ def _render_top_review_candidates_block(
     *,
     candidates: list["HistoricalReviewCandidateRecord"],
 ) -> list[str]:
+    # Traceability:
+    # - PSR-003
+    # - PSR-005
+    # - PSR-009
+    # - PSR-010
+    # - PSR-011
+    # - PSR-012
     lines = [
         "## Top historical review candidates",
         "",
@@ -797,6 +972,13 @@ def _render_top_review_candidates_block(
 
 
 def _as_float(payload: dict[str, object], key: str, default: float = 0.0) -> float:
+    # Traceability:
+    # - PSR-003
+    # - PSR-005
+    # - PSR-009
+    # - PSR-010
+    # - PSR-011
+    # - PSR-012
     value = payload.get(key, default)
     try:
         return float(value) if value is not None else default
@@ -805,6 +987,13 @@ def _as_float(payload: dict[str, object], key: str, default: float = 0.0) -> flo
 
 
 def _as_int(payload: dict[str, object], key: str, default: int = 0) -> int:
+    # Traceability:
+    # - PSR-003
+    # - PSR-005
+    # - PSR-009
+    # - PSR-010
+    # - PSR-011
+    # - PSR-012
     value = payload.get(key, default)
     try:
         return int(value) if value is not None else default
@@ -816,6 +1005,13 @@ def _render_v43_main_comparison_block(
     *,
     country_profiles: list[dict[str, object]],
 ) -> list[str]:
+    # Traceability:
+    # - PSR-003
+    # - PSR-005
+    # - PSR-009
+    # - PSR-010
+    # - PSR-011
+    # - PSR-012
     lines = [
         "## V4.3 Comparative Expansion: 10 Countries, Full 356-Day Profiles",
         "",
@@ -857,6 +1053,13 @@ def _render_v43_diagnostics_block(
     peak_phases: list[dict[str, object]],
     group_profiles: list[dict[str, object]],
 ) -> list[str]:
+    # Traceability:
+    # - PSR-003
+    # - PSR-005
+    # - PSR-009
+    # - PSR-010
+    # - PSR-011
+    # - PSR-012
     lines = [
         "## V4.3 Vertiefende Diagnostik",
         "",
@@ -914,6 +1117,13 @@ def _render_v431_peak_hardening_block(
     peak_synchronization: list[dict[str, object]],
     trajectory_profiles: list[dict[str, object]],
 ) -> list[str]:
+    # Traceability:
+    # - PSR-003
+    # - PSR-005
+    # - PSR-009
+    # - PSR-010
+    # - PSR-011
+    # - PSR-012
     lines = [
         "## V4.3.1 Peak Attribution & Event Alignment Hardening",
         "",
@@ -1006,6 +1216,13 @@ def _render_v432_event_alignment_block(
     event_coverage_summary: list[dict[str, object]],
     country_event_alignment: list[dict[str, object]],
 ) -> list[str]:
+    # Traceability:
+    # - PSR-003
+    # - PSR-005
+    # - PSR-009
+    # - PSR-010
+    # - PSR-011
+    # - PSR-012
     lines = [
         "## V4.3.2 Analyst Event Registry & Real-World Alignment",
         "",
@@ -1092,6 +1309,13 @@ def _render_v43_country_profile_block(
     country_event_alignment: dict[str, object] | None,
     trajectory_profile: dict[str, object] | None,
 ) -> list[str]:
+    # Traceability:
+    # - PSR-003
+    # - PSR-005
+    # - PSR-009
+    # - PSR-010
+    # - PSR-011
+    # - PSR-012
     lines = [
         "### 2d) V4.3 Jahresprofil (zusaetzlich)",
         "",

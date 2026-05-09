@@ -16,6 +16,10 @@ from proto.fusion.models import FusionGroupScoreRecord, FusionSourceSignalRecord
 
 
 def _clamp(value: float, *, low: float = 0.0, high: float = 100.0) -> float:
+    # Traceability:
+    # - PSwR-045
+    # - ALG-017
+    # - PM-021
     return max(low, min(high, value))
 
 

@@ -13,6 +13,12 @@ from proto.models import FeatureRecord, ScoreRecord
 
 
 def _clamp_score(value: float) -> float:
+    # Traceability:
+    # - PSwR-010
+    # - PM-001
+    # - ALG-001
+    # - ALG-002
+    # - ALG-003
     return max(0.0, min(100.0, value))
 
 
@@ -22,6 +28,12 @@ def _build_tension_subscores(
     score_date,
     features_by_name: dict[str, list[float]],
 ) -> list[ScoreRecord]:
+    # Traceability:
+    # - PSwR-010
+    # - PM-001
+    # - ALG-001
+    # - ALG-002
+    # - ALG-003
     output: list[ScoreRecord] = []
     mapping = {
         "protest_signal": "protest_subscore",
@@ -64,6 +76,12 @@ def _build_escalation_subscores(
     score_date,
     features_by_name: dict[str, list[float]],
 ) -> list[ScoreRecord]:
+    # Traceability:
+    # - PSwR-010
+    # - PM-001
+    # - ALG-001
+    # - ALG-002
+    # - ALG-003
     internal_features = [
         "internal_violence_signal",
         "repression_signal",
@@ -133,6 +151,12 @@ def _build_vulnerability_subscores(
     score_date,
     features_by_name: dict[str, list[float]],
 ) -> list[ScoreRecord]:
+    # Traceability:
+    # - PSwR-010
+    # - PM-001
+    # - ALG-001
+    # - ALG-002
+    # - ALG-003
     mapping = {
         "economic_vulnerability_signal": ("economic", "economic_subscore"),
         "hybrid_vulnerability_signal": ("hybrid", "hybrid_subscore"),

@@ -70,16 +70,37 @@ class GdeltEventMonthlyRecord:
 
 
 def _month_bounds(value: date) -> tuple[date, date]:
+    # Traceability:
+    # - PSyR-029
+    # - PSwR-071
+    # - PSwR-072
+    # - PSwR-039
+    # - PSwR-040
+    # - PM-032
     start = date(value.year, value.month, 1)
     end = date(value.year, value.month, monthrange(value.year, value.month)[1])
     return start, end
 
 
 def _clamp_01(value: float) -> float:
+    # Traceability:
+    # - PSyR-029
+    # - PSwR-071
+    # - PSwR-072
+    # - PSwR-039
+    # - PSwR-040
+    # - PM-032
     return max(0.0, min(1.0, value))
 
 
 def _recency_weight(*, event_date: date, period_start: date, period_end: date) -> float:
+    # Traceability:
+    # - PSyR-029
+    # - PSwR-071
+    # - PSwR-072
+    # - PSwR-039
+    # - PSwR-040
+    # - PM-032
     period_days = max(1, (period_end - period_start).days + 1)
     lag_days = max(0, (period_end - event_date).days)
     freshness = _clamp_01(1.0 - (lag_days / float(period_days)))
@@ -88,6 +109,13 @@ def _recency_weight(*, event_date: date, period_start: date, period_end: date) -
 
 
 def _event_type_weight(event_type: str) -> float:
+    # Traceability:
+    # - PSyR-029
+    # - PSwR-071
+    # - PSwR-072
+    # - PSwR-039
+    # - PSwR-040
+    # - PM-032
     return EVENT_CATEGORY_WEIGHTS.get(event_type.strip().lower(), 0.65)
 
 
@@ -97,6 +125,13 @@ def _row_event_intensity(
     period_start: date,
     period_end: date,
 ) -> float:
+    # Traceability:
+    # - PSyR-029
+    # - PSwR-071
+    # - PSwR-072
+    # - PSwR-039
+    # - PSwR-040
+    # - PM-032
     raw_component = _clamp_01(record.raw_value / 100.0)
     tone_component = _clamp_01(abs(record.tone) / 10.0)
     article_component = _clamp_01(math.log1p(max(0.0, record.article_count)) / math.log1p(250.0))

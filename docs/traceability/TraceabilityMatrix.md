@@ -246,3 +246,28 @@
 | AP-09 | Reusable UX components strengthening | `frontend/src/components/ui/PageHeader.tsx`, `frontend/src/components/ui/StateCard.tsx`, `frontend/src/components/charts/TrendLineChart.tsx`, `frontend/src/components/coverage/CoverageTable.tsx`, `frontend/src/components/artifacts/ArtifactList.tsx` | `frontend/tests/page-header.test.tsx`, `frontend/tests/trend-line-chart.test.tsx` | implemented |
 | AP-10 | Frontend docs and rest-point update | `frontend/README.md`, `frontend/design/frontend_design_handoff.md`, `IMPLEMENT.md` | manual review marker | implemented |
 | AP-11 | Tests and verification extension | `frontend/tests/*`, `frontend/package.json` | `frontend/tests/page-header.test.tsx`, `frontend/tests/trend-line-chart.test.tsx`, `frontend/tests/compare-view.test.tsx`, `frontend/tests/coverage-view.test.tsx`, `frontend/tests/artifacts-view.test.tsx` | implemented_with_environment_limit |
+
+## Backend API MVP Traceability (AP Scope)
+
+| Work Package | Description | Code Module | Test File | Status |
+|---|---|---|---|---|
+| AP-01 | FastAPI application shell and service packaging | `api/main.py`, `api/routes/__init__.py`, `api/services/__init__.py` | `tests/test_api_mvp.py` | implemented |
+| AP-02 | System/health endpoint contracts | `api/routes/system.py`, `api/schemas/system.py` | `tests/test_api_mvp.py` | implemented |
+| AP-03 | Options/config exposure | `api/routes/options.py`, `api/services/config_service.py`, `api/schemas/options.py` | `tests/test_api_mvp.py` | implemented |
+| AP-04 | Run API request/response surface | `api/routes/runs.py`, `api/services/run_service.py`, `api/schemas/runs.py` | `tests/test_api_mvp.py` | implemented |
+| AP-05 | Asynchronous run orchestration and artifact delivery | `api/routes/runs.py`, `api/services/run_service.py` | `tests/test_api_mvp.py` | implemented |
+| AP-06 | Shared API schemas and envelopes | `api/schemas/common.py`, `api/schemas/options.py`, `api/schemas/runs.py`, `api/schemas/system.py` | `tests/test_api_mvp.py` | implemented |
+| AP-07 | API error handling and validation responses | `api/main.py`, `api/services/errors.py`, `api/schemas/common.py` | `tests/test_api_mvp.py` | implemented |
+| AP-08 | Config-backed run/detail support services | `api/services/config_service.py`, `api/services/run_service.py` | `tests/test_api_mvp.py` | implemented |
+
+## Operational Support Tooling Traceability (Support Scope)
+
+| Support ID | Description | Code Module | Test File / Verification | Status |
+|---|---|---|---|---|
+| SUP-001 | Review-bundle and acceptance-snapshot assembly support | `tools/create_review_bundle.py` | `tests/test_pipeline.py`, manual review marker | implemented |
+| SUP-002 | Stitch-export distribution support for frontend design handoff | `tools/distribute_stitch_export.py` | manual review marker | implemented |
+| SUP-003 | Frontend scaffold generation support | `tools/scaffold_frontend_project.py` | manual review marker | implemented |
+| SUP-004 | Synthetic V4.3/V4.3.1/V4.3.2 seed and fixture generation support | `scripts/generate_v43_seed_data.py` | manual review marker | implemented |
+| SUP-005 | Project scaffold generation support | `scripts/generate_project_scaffold.py` | manual review marker | implemented |
+| SUP-006 | Local sample entrypoint support artifact | `main.py` | manual review marker | legacy_support_only |
+| SUP-007 | Pytest bootstrap/path setup support | `tests/conftest.py` | `python -m pytest` | implemented |

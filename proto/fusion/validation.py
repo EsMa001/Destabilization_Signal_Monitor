@@ -187,6 +187,13 @@ class ValidationReferenceEpisodeRecord:
     expected_total_summary: str
 
     def expected_groups_list(self) -> list[str]:
+        # Traceability:
+        # - PSR-004
+        # - PSR-016
+        # - PSR-018
+        # - PSR-021
+        # - PSR-022
+        # - PSR-023
         return [item.strip().lower() for item in self.expected_groups.split("|") if item.strip()]
 
 
@@ -765,10 +772,24 @@ class _PeakCandidate:
 
 
 def _parse_date(value: str) -> date:
+    # Traceability:
+    # - PSR-004
+    # - PSR-016
+    # - PSR-018
+    # - PSR-021
+    # - PSR-022
+    # - PSR-023
     return date.fromisoformat(value.strip())
 
 
 def _month_index(period_label: str) -> int:
+    # Traceability:
+    # - PSR-004
+    # - PSR-016
+    # - PSR-018
+    # - PSR-021
+    # - PSR-022
+    # - PSR-023
     year_text, month_text = period_label.split("-", maxsplit=1)
     year_value = int(year_text)
     month_value = int(month_text)
@@ -776,16 +797,37 @@ def _month_index(period_label: str) -> int:
 
 
 def _month_lag(current_period: str, expected_period: str) -> int:
+    # Traceability:
+    # - PSR-004
+    # - PSR-016
+    # - PSR-018
+    # - PSR-021
+    # - PSR-022
+    # - PSR-023
     return _month_index(current_period) - _month_index(expected_period)
 
 
 def _expected_stage_rank(expected_reaction: str) -> int:
+    # Traceability:
+    # - PSR-004
+    # - PSR-016
+    # - PSR-018
+    # - PSR-021
+    # - PSR-022
+    # - PSR-023
     normalized = expected_reaction.strip().lower()
     stage = EXPECTED_REACTION_MIN_STAGE.get(normalized, "erhoeht")
     return STAGE_RANK.get(stage, 2)
 
 
 def _expected_min_score(expected_reaction: str) -> float:
+    # Traceability:
+    # - PSR-004
+    # - PSR-016
+    # - PSR-018
+    # - PSR-021
+    # - PSR-022
+    # - PSR-023
     return EXPECTED_REACTION_MIN_SCORE.get(expected_reaction.strip().lower(), 45.0)
 
 
@@ -1486,6 +1528,13 @@ def _derive_operational_freshness_status(
 
 
 def _clamp(value: float, low: float, high: float) -> float:
+    # Traceability:
+    # - PSR-004
+    # - PSR-016
+    # - PSR-018
+    # - PSR-021
+    # - PSR-022
+    # - PSR-023
     return max(low, min(high, value))
 
 
@@ -1495,6 +1544,13 @@ def _estimate_peak_width(
     peak_index: int,
     prominence: float,
 ) -> int:
+    # Traceability:
+    # - PSR-004
+    # - PSR-016
+    # - PSR-018
+    # - PSR-021
+    # - PSR-022
+    # - PSR-023
     if not scores:
         return 0
     if prominence <= 0:
@@ -1520,6 +1576,13 @@ def _detect_country_peak_candidates(
     min_separation_periods: int,
     quality_floor: float,
 ) -> list[_PeakCandidate]:
+    # Traceability:
+    # - PSR-004
+    # - PSR-016
+    # - PSR-018
+    # - PSR-021
+    # - PSR-022
+    # - PSR-023
     if top_peak_count <= 0:
         raise ValueError("top_peak_count must be > 0")
     if not history:
@@ -1739,6 +1802,13 @@ def _detect_country_peak_candidates(
 
 
 def _parse_confidence_value(value: object, *, default: float = 0.6) -> float:
+    # Traceability:
+    # - PSR-004
+    # - PSR-016
+    # - PSR-018
+    # - PSR-021
+    # - PSR-022
+    # - PSR-023
     raw = str(value or "").strip().lower()
     if not raw:
         return default
@@ -1758,6 +1828,13 @@ def _parse_confidence_value(value: object, *, default: float = 0.6) -> float:
 
 
 def _normalize_relevance_groups(value: object) -> str:
+    # Traceability:
+    # - PSR-004
+    # - PSR-016
+    # - PSR-018
+    # - PSR-021
+    # - PSR-022
+    # - PSR-023
     raw = str(value or "").strip()
     if not raw:
         return ""
@@ -1774,6 +1851,13 @@ def _normalize_relevance_groups(value: object) -> str:
 
 
 def _parse_group_set(value: object) -> set[str]:
+    # Traceability:
+    # - PSR-004
+    # - PSR-016
+    # - PSR-018
+    # - PSR-021
+    # - PSR-022
+    # - PSR-023
     normalized = _normalize_relevance_groups(value)
     if not normalized:
         return set()
@@ -1867,6 +1951,13 @@ def load_event_registry(path: Path) -> list[ValidationEventRegistryRecord]:
 def _registry_to_marker_records(
     registry_rows: list[ValidationEventRegistryRecord],
 ) -> list[ValidationEventMarkerRecord]:
+    # Traceability:
+    # - PSR-004
+    # - PSR-016
+    # - PSR-018
+    # - PSR-021
+    # - PSR-022
+    # - PSR-023
     marker_rows: list[ValidationEventMarkerRecord] = []
     for item in registry_rows:
         marker_rows.append(
@@ -1886,6 +1977,13 @@ def _registry_to_marker_records(
 
 
 def _load_legacy_event_marker_registry(path: Path) -> list[ValidationEventMarkerRecord]:
+    # Traceability:
+    # - PSR-004
+    # - PSR-016
+    # - PSR-018
+    # - PSR-021
+    # - PSR-022
+    # - PSR-023
     if not path.exists() or not path.is_file():
         return []
 
@@ -1955,6 +2053,13 @@ def _resolve_peak_event_support(
     weak_threshold: float,
     strong_threshold: float,
 ) -> tuple[str, bool, list[ValidationEventMarkerRecord], float, float]:
+    # Traceability:
+    # - PSR-004
+    # - PSR-016
+    # - PSR-018
+    # - PSR-021
+    # - PSR-022
+    # - PSR-023
     markers = [
         marker
         for marker in event_markers_by_country.get(country, [])
@@ -1974,6 +2079,13 @@ def _resolve_peak_event_support(
 
 
 def _derive_peak_confidence_level(score: float) -> str:
+    # Traceability:
+    # - PSR-004
+    # - PSR-016
+    # - PSR-018
+    # - PSR-021
+    # - PSR-022
+    # - PSR-023
     if score >= 0.67:
         return "high"
     if score >= 0.45:
@@ -1993,6 +2105,13 @@ def _derive_trajectory_profile(
     support_profile: str,
     year_mean_score: float,
 ) -> str:
+    # Traceability:
+    # - PSR-004
+    # - PSR-016
+    # - PSR-018
+    # - PSR-021
+    # - PSR-022
+    # - PSR-023
     if globally_co_moving_peak_ratio >= 0.6:
         return "globally_co_moving"
     if event_supported_peak_ratio >= 0.4 and peak_count >= 2:
@@ -2855,6 +2974,13 @@ def compute_peak_attribution(
 
 
 def _distance_days_to_window(target: date, *, start: date, end: date) -> int:
+    # Traceability:
+    # - PSR-004
+    # - PSR-016
+    # - PSR-018
+    # - PSR-021
+    # - PSR-022
+    # - PSR-023
     if start <= target <= end:
         return 0
     if target < start:
@@ -2863,6 +2989,13 @@ def _distance_days_to_window(target: date, *, start: date, end: date) -> int:
 
 
 def _overlap_days(start_a: date, end_a: date, start_b: date, end_b: date) -> int:
+    # Traceability:
+    # - PSR-004
+    # - PSR-016
+    # - PSR-018
+    # - PSR-021
+    # - PSR-022
+    # - PSR-023
     overlap_start = max(start_a, start_b)
     overlap_end = min(end_a, end_b)
     if overlap_end < overlap_start:
@@ -2871,6 +3004,13 @@ def _overlap_days(start_a: date, end_a: date, start_b: date, end_b: date) -> int
 
 
 def _coverage_band(value: float) -> str:
+    # Traceability:
+    # - PSR-004
+    # - PSR-016
+    # - PSR-018
+    # - PSR-021
+    # - PSR-022
+    # - PSR-023
     if value >= 0.67:
         return "high"
     if value >= 0.4:
@@ -2879,6 +3019,13 @@ def _coverage_band(value: float) -> str:
 
 
 def _alignment_maturity_label(value: float) -> str:
+    # Traceability:
+    # - PSR-004
+    # - PSR-016
+    # - PSR-018
+    # - PSR-021
+    # - PSR-022
+    # - PSR-023
     if value >= 0.67:
         return "high"
     if value >= 0.45:

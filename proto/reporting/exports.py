@@ -15,12 +15,18 @@ import json
 
 
 def _serialize_value(value):
+    # Traceability:
+    # - PSyR-007
+    # - PSwR-001
     if hasattr(value, "isoformat"):
         return value.isoformat()
     return value
 
 
 def _records_to_rows(records: list[object]) -> list[dict]:
+    # Traceability:
+    # - PSyR-007
+    # - PSwR-001
     rows: list[dict] = []
     for record in records:
         if is_dataclass(record):

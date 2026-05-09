@@ -33,6 +33,13 @@ DEFAULT_EXPECTED_RANKING = [
 
 
 def _base_config_text(*, countries: list[str]) -> str:
+    # Traceability:
+    # - PSwR-002
+    # - PSyR-001
+    # - PSyR-002
+    # - PM-006
+    # - PSwR-012
+    # - ALG-005
     return "\n".join(
         [
             "countries:",

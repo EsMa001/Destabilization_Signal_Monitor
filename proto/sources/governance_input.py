@@ -34,6 +34,13 @@ SIGNAL_FAMILY = "governance_instability_pressure"
 
 
 def _clamp_01(value: float) -> float:
+    # Traceability:
+    # - PSR-023
+    # - PSyR-034
+    # - PSwR-091
+    # - PSwR-092
+    # - PSwR-039
+    # - PSwR-040
     return max(0.0, min(1.0, value))
 
 
@@ -61,6 +68,13 @@ def _derive_raw_signal(record: GovernanceInputRecord) -> float:
     - contention_pressure: polarization, protest pressure, policy blockage
     - resilience_dampener: high resilience can absorb part of fragility pressure
     """
+    # Traceability:
+    # - PSR-023
+    # - PSyR-034
+    # - PSwR-091
+    # - PSwR-092
+    # - PSwR-039
+    # - PSwR-040
     institutional_erosion = (
         0.55 * (1.0 - _clamp_01(record.government_effectiveness))
         + 0.45 * (1.0 - _clamp_01(record.institutional_trust))

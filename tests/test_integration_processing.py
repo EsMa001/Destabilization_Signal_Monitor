@@ -24,6 +24,13 @@ CALIBRATED_TREND_EPSILON = 1.25
 
 
 def _latest_summary_records_for_gdelt(gdelt_path: Path) -> list[dict]:
+    # Traceability:
+    # - PSwR-001
+    # - PSwR-003
+    # - PSwR-004
+    # - PSwR-005
+    # - PSwR-006
+    # - PSwR-007
     gdelt_records = load_gdelt_records(gdelt_path)
     ucdp_records = load_ucdp_records(Path("data/ucdp/ucdp_events.csv"))
     bridge_records = load_bridge_records(Path("data/bridge/bridge_events.csv"))

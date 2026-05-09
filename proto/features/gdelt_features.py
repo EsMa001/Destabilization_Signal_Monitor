@@ -37,6 +37,12 @@ MANDATORY_TENSION_FEATURES = [
 
 
 def _clamp_score(value: float) -> float:
+    # Traceability:
+    # - PSwR-007
+    # - PSwR-001
+    # - ALG-001
+    # - PM-001
+    # - PM-005
     return max(0.0, min(100.0, value))
 
 

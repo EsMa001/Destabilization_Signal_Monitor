@@ -48,11 +48,25 @@ class NarrativeInputRecord:
 
 
 def _direction_weight(raw_direction: str) -> float:
+    # Traceability:
+    # - PSyR-026
+    # - PSwR-061
+    # - PSwR-039
+    # - PSwR-040
+    # - PM-016
+    # - PM-018
     return DIRECTION_WEIGHTS.get(raw_direction.strip().lower(), 0.5)
 
 
 def _derive_raw_signal(record: NarrativeInputRecord) -> float:
     # Transparent MVP mapping from structured analyst/expert input.
+    # Traceability:
+    # - PSyR-026
+    # - PSwR-061
+    # - PSwR-039
+    # - PSwR-040
+    # - PM-016
+    # - PM-018
     return round(
         _direction_weight(record.narrative_direction) * record.relevance * record.confidence,
         4,

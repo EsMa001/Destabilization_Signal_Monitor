@@ -28,6 +28,8 @@ STRUCTURE = [
 ]
 
 def main() -> None:
+    # Traceability:
+    # - SUP-005
     parser = argparse.ArgumentParser()
     parser.add_argument("--target", default=".", help="Target directory")
     args = parser.parse_args()
