@@ -1,26 +1,1727 @@
 metadata:
   artifact_type: test_specifications
-  migration_status: skeleton_initialized
+  migration_status: initial_population_partial
   baseline_decision_source: docs/planning/2026-05-09_baseline_decisions.md
   source_documents:
-    - docs/traceability/TraceabilityMatrix.md
-    - docs/testing/TestStrategy.md
-    - docs/testing/ValidationPlan.md
+  - docs/traceability/TraceabilityMatrix.md
+  - docs/testing/TestStrategy.md
+  - docs/testing/ValidationPlan.md
   allowed_statuses:
-    - candidate_verification_artifact
-    - accepted_verification_artifact
-    - implemented_verification_artifact
-    - retired_verification_artifact
+  - candidate_verification_artifact
+  - accepted_verification_artifact
+  - implemented_verification_artifact
+  - retired_verification_artifact
+  notes:
+  - This initial migration captures explicit TV-* identifiers already present in the
+    legacy traceability matrix.
+  - Rows that only reference test files or generic pytest execution without an explicit
+    TV-* identifier remain to be formalized in a later verification work package.
 schema_guidance:
   required_fields:
-    - id
-    - title
-    - verification_type
-    - linked_requirement_ids
-    - source_refs
-    - status
+  - id
+  - title
+  - verification_type
+  - linked_requirement_ids
+  - source_refs
+  - status
   optional_fields:
-    - test_level
-    - automation_status
-    - implementation_refs
-specifications: []
+  - test_level
+  - automation_status
+  - implementation_refs
+specifications:
+- id: TV-PSwR-001-INT-001
+  title: Verification for PSwR-001
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-001
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-003
+  status: implemented_verification_artifact
+  test_level: integration
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-001-INT-001
+  - path: TV-PSwR-007-001
+  - path: TV-PSwR-008-001
+  - path: TV-PSwR-009-001
+  - path: tests/test_features.py
+  - path: tests/test_integration_processing.py
+- id: TV-PSwR-002-001
+  title: Verification for PSwR-002
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-002
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-001
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-002-001
+  - path: TV-PSwR-002-002
+  - path: TV-PSwR-002-005
+  - path: tests/test_config.py
+- id: TV-PSwR-002-002
+  title: Verification for PSwR-002
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-002
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-001
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-002-001
+  - path: TV-PSwR-002-002
+  - path: TV-PSwR-002-005
+  - path: tests/test_config.py
+- id: TV-PSwR-002-003
+  title: Verification for PSwR-002
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-002
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-002
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-002-001
+  - path: TV-PSwR-002-002
+  - path: TV-PSwR-002-003
+  - path: TV-PSwR-002-004
+  - path: TV-PSwR-002-005
+  - path: tests/test_config.py
+- id: TV-PSwR-002-004
+  title: Verification for PSwR-002
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-002
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-002
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-002-001
+  - path: TV-PSwR-002-004
+  - path: TV-PSwR-013-001
+  - path: tests/test_config.py
+  - path: tests/test_scoring.py
+- id: TV-PSwR-002-005
+  title: Verification for PSwR-002
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-002
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-001
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-002-001
+  - path: TV-PSwR-002-002
+  - path: TV-PSwR-002-005
+  - path: tests/test_config.py
+- id: TV-PSwR-003-001
+  title: Verification for PSwR-003
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-003
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-005
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-003-001
+  - path: TV-PSwR-004-001
+  - path: TV-PSwR-005-001
+  - path: TV-PSwR-006-001
+  - path: tests/test_sources.py
+- id: TV-PSwR-004-001
+  title: Verification for PSwR-004
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-004
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-005
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-003-001
+  - path: TV-PSwR-004-001
+  - path: TV-PSwR-005-001
+  - path: TV-PSwR-006-001
+  - path: tests/test_sources.py
+- id: TV-PSwR-005-001
+  title: Verification for PSwR-005
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-005
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-005
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-003-001
+  - path: TV-PSwR-004-001
+  - path: TV-PSwR-005-001
+  - path: TV-PSwR-006-001
+  - path: tests/test_sources.py
+- id: TV-PSwR-006-001
+  title: Verification for PSwR-006
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-006
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-005
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-003-001
+  - path: TV-PSwR-004-001
+  - path: TV-PSwR-005-001
+  - path: TV-PSwR-006-001
+  - path: tests/test_sources.py
+- id: TV-PSwR-007-001
+  title: Verification for PSwR-007
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-007
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-003
+  status: implemented_verification_artifact
+  test_level: integration
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-001-INT-001
+  - path: TV-PSwR-007-001
+  - path: TV-PSwR-008-001
+  - path: TV-PSwR-009-001
+  - path: tests/test_features.py
+  - path: tests/test_integration_processing.py
+- id: TV-PSwR-008-001
+  title: Verification for PSwR-008
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-008
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-003
+  status: implemented_verification_artifact
+  test_level: integration
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-001-INT-001
+  - path: TV-PSwR-007-001
+  - path: TV-PSwR-008-001
+  - path: TV-PSwR-009-001
+  - path: tests/test_features.py
+  - path: tests/test_integration_processing.py
+- id: TV-PSwR-009-001
+  title: Verification for PSwR-009
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-009
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-003
+  status: implemented_verification_artifact
+  test_level: integration
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-001-INT-001
+  - path: TV-PSwR-007-001
+  - path: TV-PSwR-008-001
+  - path: TV-PSwR-009-001
+  - path: tests/test_features.py
+  - path: tests/test_integration_processing.py
+- id: TV-PSwR-010-001
+  title: Verification for PSwR-010
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-010
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSR-004
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-010-001
+  - path: TV-PSwR-011-002
+  - path: tests/test_scoring.py
+- id: TV-PSwR-010-INT-001
+  title: Verification for PSwR-010
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-010
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-010
+  status: implemented_verification_artifact
+  test_level: integration
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-010-001
+  - path: TV-PSwR-010-INT-001
+  - path: tests/test_integration_processing.py
+  - path: tests/test_scoring.py
+- id: TV-PSwR-011-001
+  title: Verification for PSwR-011
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-011
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-011
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-011-001
+  - path: TV-PSwR-011-002
+  - path: tests/test_scoring.py
+- id: TV-PSwR-011-002
+  title: Verification for PSwR-011
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-011
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSR-004
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-010-001
+  - path: TV-PSwR-011-002
+  - path: tests/test_scoring.py
+- id: TV-PSwR-012-001
+  title: Verification for PSwR-012
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-012
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-012
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-012-001
+  - path: tests/test_scoring.py
+- id: TV-PSwR-013-001
+  title: Verification for PSwR-013
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-013
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-002
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-002-001
+  - path: TV-PSwR-002-004
+  - path: TV-PSwR-013-001
+  - path: tests/test_config.py
+  - path: tests/test_scoring.py
+- id: TV-PSwR-014-001
+  title: Verification for PSwR-014
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-014
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-014
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-014-001
+  - path: TV-PSwR-014-002
+  - path: tests/test_scoring.py
+- id: TV-PSwR-014-002
+  title: Verification for PSwR-014
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-014
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-014
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-014-001
+  - path: TV-PSwR-014-002
+  - path: tests/test_scoring.py
+- id: TV-PSwR-017-001
+  title: Verification for PSwR-017
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-017
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSR-007
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-017-001
+  - path: TV-PSwR-017-002
+  - path: TV-PSwR-017-003
+  - path: tests/test_pipeline.py
+  - path: tests/test_runs.py
+- id: TV-PSwR-017-002
+  title: Verification for PSwR-017
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-017
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSR-007
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-017-001
+  - path: TV-PSwR-017-002
+  - path: TV-PSwR-017-003
+  - path: tests/test_pipeline.py
+  - path: tests/test_runs.py
+- id: TV-PSwR-017-003
+  title: Verification for PSwR-017
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-017
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSR-007
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-017-001
+  - path: TV-PSwR-017-002
+  - path: TV-PSwR-017-003
+  - path: tests/test_pipeline.py
+  - path: tests/test_runs.py
+- id: TV-PSwR-021-001
+  title: Verification for PSwR-021
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-021
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-014
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-021-001
+  - path: tests/test_config.py
+- id: TV-PSwR-021-002
+  title: Verification for PSwR-021
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-021
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-020
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-021-002
+  - path: tests/test_scoring.py
+- id: TV-PSwR-022-001
+  title: Verification for PSwR-022
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-022
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-022
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-022-001
+  - path: TV-PSwR-022-002
+  - path: tests/test_pipeline.py
+  - path: tests/test_scoring.py
+- id: TV-PSwR-022-002
+  title: Verification for PSwR-022
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-022
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-022
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-022-001
+  - path: TV-PSwR-022-002
+  - path: tests/test_pipeline.py
+  - path: tests/test_scoring.py
+- id: TV-PSwR-024-001
+  title: Verification for PSwR-024
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-024
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-024
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-024-001
+  - path: tests/test_scoring.py
+- id: TV-PSwR-026-001
+  title: Verification for PSwR-026
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-026
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-026
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-021-002
+  - path: TV-PSwR-026-001
+  - path: tests/test_config.py
+  - path: tests/test_scoring.py
+- id: TV-PSwR-027-001
+  title: Verification for PSwR-027
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-027
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-023
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-021-002
+  - path: TV-PSwR-027-001
+  - path: tests/test_scoring.py
+- id: TV-PSwR-031-001
+  title: Verification for PSwR-031
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-031
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-031
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-031-001
+  - path: TV-PSwR-031-002
+  - path: tests/test_config.py
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-031-002
+  title: Verification for PSwR-031
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-031
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-015
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-031-002
+  - path: TV-PSyR-012-001
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-033-001
+  title: Verification for PSwR-033
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-033
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSR-009
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-033-001
+  - path: TV-PSyR-012-001
+  - path: tests/test_pipeline.py
+  - path: tests/test_scoring.py
+- id: TV-PSwR-034-001
+  title: Verification for PSwR-034
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-034
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-034
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-034-001
+  - path: tests/test_scoring.py
+- id: TV-PSwR-035-001
+  title: Verification for PSwR-035
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-035
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-035
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-035-001
+  - path: tests/test_config.py
+- id: TV-PSwR-040-001
+  title: Verification for PSwR-040
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-040
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-040
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-040-001
+  - path: TV-PSwR-040-002
+  - path: TV-PSwR-040-003
+  - path: tests/test_config.py
+  - path: tests/test_observations.py
+  - path: tests/test_sources.py
+- id: TV-PSwR-040-002
+  title: Verification for PSwR-040
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-040
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-040
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-040-001
+  - path: TV-PSwR-040-002
+  - path: TV-PSwR-040-003
+  - path: tests/test_config.py
+  - path: tests/test_observations.py
+  - path: tests/test_sources.py
+- id: TV-PSwR-040-003
+  title: Verification for PSwR-040
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-040
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-040
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-040-001
+  - path: TV-PSwR-040-002
+  - path: TV-PSwR-040-003
+  - path: tests/test_config.py
+  - path: tests/test_observations.py
+  - path: tests/test_sources.py
+- id: TV-PSwR-053-001
+  title: Verification for PSwR-053
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-053
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-053
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-053-001
+  - path: TV-PSwR-053-002
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-053-002
+  title: Verification for PSwR-053
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-053
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-053
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-053-001
+  - path: TV-PSwR-053-002
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-054-001
+  title: Verification for PSwR-054
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-054
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-054
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-054-001
+  - path: tests/test_config.py
+- id: TV-PSwR-056-002
+  title: Verification for PSwR-056
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-056
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-056
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-056-002
+  - path: tests/test_fusion.py
+- id: TV-PSwR-057-001
+  title: Verification for PSwR-057
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-057
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-057
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-057-001
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-058-001
+  title: Verification for PSwR-058
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-058
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-058
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-058-001
+  - path: TV-PSwR-058-002
+  - path: tests/test_fusion.py
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-058-002
+  title: Verification for PSwR-058
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-058
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-058
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-058-001
+  - path: TV-PSwR-058-002
+  - path: tests/test_fusion.py
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-059-001
+  title: Verification for PSwR-059
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-059
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-059
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-059-001
+  - path: tests/test_sources.py
+- id: TV-PSwR-060-001
+  title: Verification for PSwR-060
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-060
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-060
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-060-001
+  - path: TV-PSwR-060-002
+  - path: tests/test_sources.py
+- id: TV-PSwR-060-002
+  title: Verification for PSwR-060
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-060
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-060
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-060-001
+  - path: TV-PSwR-060-002
+  - path: tests/test_sources.py
+- id: TV-PSwR-061-001
+  title: Verification for PSwR-061
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-061
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-055
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-061-001
+  - path: tests/test_sources.py
+- id: TV-PSwR-061-002
+  title: Verification for PSwR-061
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-061
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-061
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-061-001
+  - path: TV-PSwR-061-002
+  - path: tests/test_sources.py
+- id: TV-PSwR-064-001
+  title: Verification for PSwR-064
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-064
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-064
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-064-001
+  - path: TV-PSwR-064-002
+  - path: tests/test_fusion.py
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-064-002
+  title: Verification for PSwR-064
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-064
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-064
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-064-001
+  - path: TV-PSwR-064-002
+  - path: tests/test_fusion.py
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-065-001
+  title: Verification for PSwR-065
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-065
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-065
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-065-001
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-066-001
+  title: Verification for PSwR-066
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-066
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-066
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-066-001
+  - path: TV-PSwR-066-002
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-066-002
+  title: Verification for PSwR-066
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-066
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-066
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-066-001
+  - path: TV-PSwR-066-002
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-069-001
+  title: Verification for PSwR-069
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-069
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-069
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-069-001
+  - path: TV-PSwR-069-002
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-069-002
+  title: Verification for PSwR-069
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-069
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-069
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-069-001
+  - path: TV-PSwR-069-002
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-071-001
+  title: Verification for PSwR-071
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-071
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-071
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-071-001
+  - path: TV-PSwR-071-002
+  - path: tests/test_observations.py
+  - path: tests/test_sources.py
+- id: TV-PSwR-071-002
+  title: Verification for PSwR-071
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-071
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-071
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-071-001
+  - path: TV-PSwR-071-002
+  - path: tests/test_observations.py
+  - path: tests/test_sources.py
+- id: TV-PSwR-072-001
+  title: Verification for PSwR-072
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-072
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-072
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-072-001
+  - path: tests/test_sources.py
+- id: TV-PSwR-073-001
+  title: Verification for PSwR-073
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-073
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-073
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-073-001
+  - path: tests/test_fusion.py
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-077-001
+  title: Verification for PSwR-077
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-077
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-030
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-077-001
+  - path: TV-PSwR-080-001
+  - path: tests/test_fusion.py
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-078-001
+  title: Verification for PSwR-078
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-078
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-078
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-078-001
+  - path: tests/test_config.py
+- id: TV-PSwR-079-001
+  title: Verification for PSwR-079
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-079
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-079
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-079-001
+  - path: TV-PSwR-079-002
+  - path: tests/test_config.py
+  - path: tests/test_fusion.py
+- id: TV-PSwR-079-002
+  title: Verification for PSwR-079
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-079
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-079
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-079-001
+  - path: TV-PSwR-079-002
+  - path: tests/test_config.py
+  - path: tests/test_fusion.py
+- id: TV-PSwR-080-001
+  title: Verification for PSwR-080
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-080
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-030
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-077-001
+  - path: TV-PSwR-080-001
+  - path: tests/test_fusion.py
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-080-002
+  title: Verification for PSwR-080
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-080
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-031
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-080-001
+  - path: TV-PSwR-080-002
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-081-001
+  title: Verification for PSwR-081
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-081
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-081
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-080-001
+  - path: TV-PSwR-081-001
+  - path: tests/test_fusion.py
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-083-001
+  title: Verification for PSwR-083
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-083
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-032
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-083-001
+  - path: TV-PSwR-083-002
+  - path: tests/test_config.py
+  - path: tests/test_fusion.py
+- id: TV-PSwR-083-002
+  title: Verification for PSwR-083
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-083
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-032
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-083-001
+  - path: TV-PSwR-083-002
+  - path: tests/test_config.py
+  - path: tests/test_fusion.py
+- id: TV-PSwR-085-001
+  title: Verification for PSwR-085
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-085
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-085
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-085-001
+  - path: TV-PSwR-085-002
+  - path: tests/test_fusion.py
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-085-002
+  title: Verification for PSwR-085
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-085
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSR-022
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-085-002
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-086-001
+  title: Verification for PSwR-086
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-086
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-086
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-086-001
+  - path: tests/test_fusion.py
+- id: TV-PSwR-091-001
+  title: Verification for PSwR-091
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-091
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-034
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-091-001
+  - path: TV-PSwR-091-002
+  - path: TV-PSwR-093-001
+  - path: tests/test_fusion.py
+  - path: tests/test_observations.py
+  - path: tests/test_sources.py
+- id: TV-PSwR-091-002
+  title: Verification for PSwR-091
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-091
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-034
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-091-001
+  - path: TV-PSwR-091-002
+  - path: TV-PSwR-093-001
+  - path: tests/test_fusion.py
+  - path: tests/test_observations.py
+  - path: tests/test_sources.py
+- id: TV-PSwR-093-001
+  title: Verification for PSwR-093
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-093
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSR-023
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-093-001
+  - path: TV-PSwR-096-001
+  - path: tests/test_fusion.py
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-094-001
+  title: Verification for PSwR-094
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-094
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-035
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-094-001
+  - path: TV-PSwR-096-001
+  - path: tests/test_fusion.py
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-095-001
+  title: Verification for PSwR-095
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-095
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-093
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-093-001
+  - path: TV-PSwR-095-001
+  - path: tests/test_fusion.py
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-096-001
+  title: Verification for PSwR-096
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-096
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSR-023
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-093-001
+  - path: TV-PSwR-096-001
+  - path: tests/test_fusion.py
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-096-002
+  title: Verification for PSwR-096
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-096
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-096
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-080-002
+  - path: TV-PSwR-096-001
+  - path: TV-PSwR-096-002
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-098-001
+  title: Verification for PSwR-098
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-098
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-037
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-098-001
+  - path: TV-PSwR-098-002
+  - path: tests/test_fusion.py
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-098-002
+  title: Verification for PSwR-098
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-098
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSR-024
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-098-002
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-105-001
+  title: Verification for PSwR-105
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-105
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSR-025
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-105-001
+  - path: TV-PSwR-107-001
+  - path: tests/test_fusion.py
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-106-001
+  title: Verification for PSwR-106
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-106
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-106
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-106-001
+  - path: tests/test_config.py
+- id: TV-PSwR-107-001
+  title: Verification for PSwR-107
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-107
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSR-025
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-105-001
+  - path: TV-PSwR-107-001
+  - path: tests/test_fusion.py
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-108-001
+  title: Verification for PSwR-108
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-108
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-039
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-105-001
+  - path: TV-PSwR-108-001
+  - path: tests/test_fusion.py
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-109-001
+  title: Verification for PSwR-109
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-109
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-109
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-105-001
+  - path: TV-PSwR-109-001
+  - path: tests/test_fusion.py
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-111-001
+  title: Verification for PSwR-111
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-111
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-111
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-111-001
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-112-001
+  title: Verification for PSwR-112
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-112
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-040
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-112-001
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-113-001
+  title: Verification for PSwR-113
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-113
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSR-026
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-113-001
+  - path: TV-PSwR-120-001
+  - path: TV-PSwR-123-001
+  - path: TV-PSwR-124-001
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-114-001
+  title: Verification for PSwR-114
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-114
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-041
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-113-001
+  - path: TV-PSwR-114-001
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-115-001
+  title: Verification for PSwR-115
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-115
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-042
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-115-001
+  - path: TV-PSwR-116-001
+  - path: TV-PSwR-118-001
+  - path: tests/test_fusion.py
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-116-001
+  title: Verification for PSwR-116
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-116
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-042
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-115-001
+  - path: TV-PSwR-116-001
+  - path: TV-PSwR-118-001
+  - path: tests/test_fusion.py
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-117-001
+  title: Verification for PSwR-117
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-117
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-043
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-117-001
+  - path: TV-PSwR-119-001
+  - path: TV-PSwR-120-001
+  - path: TV-PSwR-121-001
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-118-001
+  title: Verification for PSwR-118
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-118
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-042
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-115-001
+  - path: TV-PSwR-116-001
+  - path: TV-PSwR-118-001
+  - path: tests/test_fusion.py
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-119-001
+  title: Verification for PSwR-119
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-119
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-043
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-117-001
+  - path: TV-PSwR-119-001
+  - path: TV-PSwR-120-001
+  - path: TV-PSwR-121-001
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-120-001
+  title: Verification for PSwR-120
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-120
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSR-026
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-113-001
+  - path: TV-PSwR-120-001
+  - path: TV-PSwR-123-001
+  - path: TV-PSwR-124-001
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-121-001
+  title: Verification for PSwR-121
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-121
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-043
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-117-001
+  - path: TV-PSwR-119-001
+  - path: TV-PSwR-120-001
+  - path: TV-PSwR-121-001
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-122-001
+  title: Verification for PSwR-122
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-122
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-122
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-122-001
+  - path: TV-PSwR-122-002
+  - path: tests/test_config.py
+- id: TV-PSwR-122-002
+  title: Verification for PSwR-122
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-122
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-122
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-122-001
+  - path: TV-PSwR-122-002
+  - path: tests/test_config.py
+- id: TV-PSwR-123-001
+  title: Verification for PSwR-123
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-123
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSR-026
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-113-001
+  - path: TV-PSwR-120-001
+  - path: TV-PSwR-123-001
+  - path: TV-PSwR-124-001
+  - path: tests/test_pipeline.py
+- id: TV-PSwR-124-001
+  title: Verification for PSwR-124
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSwR-124
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSR-026
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSwR-113-001
+  - path: TV-PSwR-120-001
+  - path: TV-PSwR-123-001
+  - path: TV-PSwR-124-001
+  - path: tests/test_pipeline.py
+- id: TV-PSyR-006-001
+  title: Verification for PSyR-006
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSyR-006
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSR-001
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSyR-006-001
+  - path: tests/test_pipeline.py
+- id: TV-PSyR-009-001
+  title: Verification for PSyR-009
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSyR-009
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-009
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSyR-009-001
+  - path: tests/test_runs.py
+- id: TV-PSyR-010-001
+  title: Verification for PSyR-010
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSyR-010
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-010
+  status: implemented_verification_artifact
+  test_level: unit
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSyR-010-001
+  - path: tests/test_runs.py
+- id: TV-PSyR-012-001
+  title: Verification for PSyR-012
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSyR-012
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSR-008
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSyR-012-001
+  - path: tests/test_pipeline.py
+- id: TV-PSyR-017-001
+  title: Verification for PSyR-017
+  verification_type: automated_test
+  linked_requirement_ids:
+  - PSyR-017
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSyR-017
+  status: implemented_verification_artifact
+  test_level: system
+  automation_status: automated
+  implementation_refs:
+  - path: TV-PSyR-017-001
+  - path: tests/test_pipeline.py

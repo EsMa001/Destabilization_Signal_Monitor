@@ -1,33 +1,2282 @@
 metadata:
   artifact_type: software_requirements
-  migration_status: skeleton_initialized
+  migration_status: initial_population
   baseline_decision_source: docs/planning/2026-05-09_baseline_decisions.md
   source_documents:
-    - docs/requirements/ProtoSwR.md
+  - docs/requirements/ProtoSwR.md
+  - docs/traceability/TraceabilityMatrix.md
+  - docs/requirements/OpenIssues.md
+  - vmodel/requirements/system_requirements.yaml
   classification_rules:
-    - active_baseline
-    - historical_origin
-    - parameterized_capability
-    - legacy_variant
+  - active_baseline
+  - historical_origin
+  - parameterized_capability
+  - legacy_variant
   allowed_statuses:
-    - candidate_baseline_requirement
-    - accepted_baseline_requirement
-    - implemented_requirement
-    - provisional_requirement
-    - retired_requirement
+  - candidate_baseline_requirement
+  - accepted_baseline_requirement
+  - implemented_requirement
+  - provisional_requirement
+  - retired_requirement
+  notes:
+  - Software requirements are derived from the normalized system layer and the legacy
+    software requirement artifacts.
+  - Bidirectional system<->software links are now populated.
+  - Legacy fixed 10-country and 356-day wording is normalized to the accepted default
+    baseline of 10 countries and 365 days where applicable.
+  - PSwR-020..PSwR-035 are currently missing as explicit entries in ProtoSwR.md and
+    were therefore recovered from the legacy traceability matrix and open-issue set
+    as an initial low-risk migration step.
 schema_guidance:
   required_fields:
-    - id
-    - title
-    - statement
-    - status
-    - baseline_classification
-    - source_refs
-    - parent_system_ids
-    - child_verification_ids
+  - id
+  - title
+  - statement
+  - status
+  - baseline_classification
+  - source_refs
+  - parent_system_ids
+  - child_verification_ids
   optional_fields:
-    - migration_tags
-    - rationale
-    - notes
-    - supersedes
-requirements: []
+  - migration_tags
+  - rationale
+  - notes
+  - supersedes
+requirements:
+- id: PSwR-001
+  title: Separation raw/features/scores/presentation
+  statement: Die Software muss Rohdaten, Features, Scores und Darstellung klar trennen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-003
+  - PSyR-006
+  - PSyR-007
+  child_verification_ids:
+  - TV-PSwR-001-INT-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-001
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-002
+  title: Standard V1 config
+  statement: The software shall provide a standard configuration that realizes the
+    accepted default baseline, including 10 countries by default and a default annual
+    horizon of 365 days, while allowing supported parameterization where required.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - parameterized_capability
+  - version_origin_v1
+  parent_system_ids:
+  - PSyR-001
+  - PSyR-002
+  - PSyR-013
+  - PSyR-036
+  - PSyR-037
+  child_verification_ids:
+  - TV-PSwR-002-001
+  - TV-PSwR-002-002
+  - TV-PSwR-002-003
+  - TV-PSwR-002-004
+  - TV-PSwR-002-005
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-002
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-003
+  title: GDELT loader
+  statement: Die Software muss GDELT-Daten laden und in ein internes Modell überführen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-005
+  child_verification_ids:
+  - TV-PSwR-003-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-003
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-004
+  title: UCDP loader
+  statement: Die Software muss UCDP-Daten laden und in ein internes Modell überführen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-005
+  child_verification_ids:
+  - TV-PSwR-004-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-004
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-005
+  title: Bridge loader
+  statement: Die Software muss eine kleine Ereignis-Bridge-Datei laden.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-005
+  child_verification_ids:
+  - TV-PSwR-005-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-005
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-006
+  title: Context loader
+  statement: Die Software muss eine kuratierte Kontexttabelle laden.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-005
+  child_verification_ids:
+  - TV-PSwR-006-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-006
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-007
+  title: Tension features
+  statement: Die Software muss Features für gesellschaftlich-politische Spannung erzeugen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-003
+  child_verification_ids:
+  - TV-PSwR-007-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-007
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-008
+  title: Escalation features
+  statement: Die Software muss Features für interne und externe / kriegerische Eskalation
+    erzeugen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-003
+  - PSyR-004
+  child_verification_ids:
+  - TV-PSwR-008-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-008
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-009
+  title: Vulnerability features
+  statement: Die Software muss Features für strukturelle / systemische Verwundbarkeit
+    erzeugen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-003
+  child_verification_ids:
+  - TV-PSwR-009-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-009
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-010
+  title: 3-5 subscores per cluster
+  statement: Die Software muss 3–5 Teil-Scores je Cluster verarbeiten können.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-003
+  child_verification_ids:
+  - TV-PSwR-010-001
+  - TV-PSwR-010-INT-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-010
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-011
+  title: Cluster scores
+  statement: Die Software muss pro Cluster einen numerischen Cluster-Score erzeugen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-003
+  child_verification_ids:
+  - TV-PSwR-011-001
+  - TV-PSwR-011-002
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-011
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-012
+  title: Stage mapping
+  statement: Die Software muss Cluster-Scores in niedrig / erhöht / hoch / sehr hoch
+    verdichten.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-003
+  child_verification_ids:
+  - TV-PSwR-012-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-012
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-013
+  title: Trend mapping
+  statement: Die Software muss Trends als rückläufig / stabil / zunehmend ausgeben.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-002
+  - PSyR-003
+  child_verification_ids:
+  - TV-PSwR-013-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-013
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-014
+  title: Confidence score + level
+  statement: Die Software muss Confidence numerisch und als niedrig / mittel / hoch
+    ausgeben.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-003
+  child_verification_ids:
+  - TV-PSwR-014-001
+  - TV-PSwR-014-002
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-014
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-015
+  title: Short interpretation texts
+  statement: Die Software muss pro Land und Cluster kurze Textinterpretationen erzeugen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-006
+  - PSyR-007
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-015
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-016
+  title: Plots
+  statement: Die Software muss zentrale Zeitverläufe plotten.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-006
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-016
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-017
+  title: Run status
+  statement: Die Software muss einen vorgeschlagenen Run-Status erzeugen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-008
+  - PSyR-009
+  - PSyR-010
+  child_verification_ids:
+  - TV-PSwR-017-001
+  - TV-PSwR-017-002
+  - TV-PSwR-017-003
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-017
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-018
+  title: Automated tests for core processing stages
+  statement: Für alle zentralen Verarbeitungsstufen müssen automatisierte Tests vorhanden
+    sein.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-003
+  - PSyR-005
+  - PSyR-006
+  - PSyR-018
+  - PSyR-020
+  - PSyR-023
+  - PSyR-030
+  - PSyR-034
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-018
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-019
+  title: Traceability links in code/tests
+  statement: Code und Tests müssen Traceability-Verweise auf Anforderungen enthalten.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-018
+  - PSyR-020
+  - PSyR-023
+  - PSyR-030
+  - PSyR-034
+  - PSyR-043
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-019
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-020
+  title: Daily rolling base values
+  statement: The software shall provide daily rolling base values.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - recovered_from_traceability_and_open_issues
+  - version_origin_v2_2
+  parent_system_ids:
+  - PSyR-012
+  - PSyR-013
+  child_verification_ids: []
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+  - file: docs/requirements/OpenIssues.md
+    role: recovered_requirement_context
+  notes:
+  - This requirement is implemented and traced in the legacy traceability matrix but
+    is missing as an explicit standalone entry in ProtoSwR.md. It is therefore migrated
+    from traceability and open-issue evidence and should later be re-established in
+    the authoritative requirement source set.
+- id: PSwR-021
+  title: Rolling aggregation
+  statement: The software shall provide rolling aggregation.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - recovered_from_traceability_and_open_issues
+  - version_origin_v2_2
+  parent_system_ids:
+  - PSyR-012
+  - PSyR-013
+  - PSyR-014
+  child_verification_ids:
+  - TV-PSwR-021-001
+  - TV-PSwR-021-002
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+  - file: docs/requirements/OpenIssues.md
+    role: recovered_requirement_context
+  notes:
+  - This requirement is implemented and traced in the legacy traceability matrix but
+    is missing as an explicit standalone entry in ProtoSwR.md. It is therefore migrated
+    from traceability and open-issue evidence and should later be re-established in
+    the authoritative requirement source set.
+- id: PSwR-022
+  title: Shared snapshot logic
+  statement: The software shall provide shared snapshot logic.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - recovered_from_traceability_and_open_issues
+  - version_origin_v2_2
+  parent_system_ids:
+  - PSyR-011
+  - PSyR-012
+  child_verification_ids:
+  - TV-PSwR-022-001
+  - TV-PSwR-022-002
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+  - file: docs/requirements/OpenIssues.md
+    role: recovered_requirement_context
+  notes:
+  - This requirement is implemented and traced in the legacy traceability matrix but
+    is missing as an explicit standalone entry in ProtoSwR.md. It is therefore migrated
+    from traceability and open-issue evidence and should later be re-established in
+    the authoritative requirement source set.
+- id: PSwR-023
+  title: Historical derived stage/trend/confidence
+  statement: The software shall provide historical derived stage/trend/confidence.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - recovered_from_traceability_and_open_issues
+  - version_origin_v2_2
+  parent_system_ids:
+  - PSyR-012
+  - PSyR-017
+  child_verification_ids: []
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+  - file: docs/requirements/OpenIssues.md
+    role: recovered_requirement_context
+  notes:
+  - This requirement is implemented and traced in the legacy traceability matrix but
+    is missing as an explicit standalone entry in ProtoSwR.md. It is therefore migrated
+    from traceability and open-issue evidence and should later be re-established in
+    the authoritative requirement source set.
+- id: PSwR-024
+  title: As-of-date rule
+  statement: The software shall provide as-of-date rule.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - recovered_from_traceability_and_open_issues
+  - version_origin_v2_2
+  parent_system_ids:
+  - PSyR-012
+  child_verification_ids:
+  - TV-PSwR-024-001
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+  - file: docs/requirements/OpenIssues.md
+    role: recovered_requirement_context
+  notes:
+  - This requirement is implemented and traced in the legacy traceability matrix but
+    is missing as an explicit standalone entry in ProtoSwR.md. It is therefore migrated
+    from traceability and open-issue evidence and should later be re-established in
+    the authoritative requirement source set.
+- id: PSwR-025
+  title: Missing-day handling
+  statement: The software shall provide missing-day handling.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - recovered_from_traceability_and_open_issues
+  - version_origin_v2_2
+  parent_system_ids:
+  - PSyR-012
+  - PSyR-017
+  child_verification_ids: []
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+  - file: docs/requirements/OpenIssues.md
+    role: recovered_requirement_context
+  notes:
+  - This requirement is implemented and traced in the legacy traceability matrix but
+    is missing as an explicit standalone entry in ProtoSwR.md. It is therefore migrated
+    from traceability and open-issue evidence and should later be re-established in
+    the authoritative requirement source set.
+- id: PSwR-026
+  title: Minimum coverage
+  statement: The software shall provide minimum coverage.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - recovered_from_traceability_and_open_issues
+  - version_origin_v2_2
+  parent_system_ids:
+  - PSyR-012
+  - PSyR-017
+  child_verification_ids:
+  - TV-PSwR-026-001
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+  - file: docs/requirements/OpenIssues.md
+    role: recovered_requirement_context
+  notes:
+  - This requirement is implemented and traced in the legacy traceability matrix but
+    is missing as an explicit standalone entry in ProtoSwR.md. It is therefore migrated
+    from traceability and open-issue evidence and should later be re-established in
+    the authoritative requirement source set.
+- id: PSwR-027
+  title: Coverage impact on confidence
+  statement: The software shall provide coverage impact on confidence.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - recovered_from_traceability_and_open_issues
+  - version_origin_v2_2
+  parent_system_ids:
+  - PSyR-012
+  - PSyR-017
+  child_verification_ids:
+  - TV-PSwR-027-001
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+  - file: docs/requirements/OpenIssues.md
+    role: recovered_requirement_context
+  notes:
+  - This requirement is implemented and traced in the legacy traceability matrix but
+    is missing as an explicit standalone entry in ProtoSwR.md. It is therefore migrated
+    from traceability and open-issue evidence and should later be re-established in
+    the authoritative requirement source set.
+- id: PSwR-028
+  title: Historical trend comparison
+  statement: The software shall provide historical trend comparison.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - recovered_from_traceability_and_open_issues
+  - version_origin_v2_2
+  parent_system_ids:
+  - PSyR-012
+  - PSyR-017
+  child_verification_ids: []
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+  - file: docs/requirements/OpenIssues.md
+    role: recovered_requirement_context
+  notes:
+  - This requirement is implemented and traced in the legacy traceability matrix but
+    is missing as an explicit standalone entry in ProtoSwR.md. It is therefore migrated
+    from traceability and open-issue evidence and should later be re-established in
+    the authoritative requirement source set.
+- id: PSwR-029
+  title: Historical mandatory artifacts
+  statement: The software shall provide historical mandatory artifacts.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - recovered_from_traceability_and_open_issues
+  - version_origin_v2_2
+  parent_system_ids:
+  - PSyR-012
+  - PSyR-015
+  - PSyR-016
+  - PSyR-017
+  child_verification_ids: []
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+  - file: docs/requirements/OpenIssues.md
+    role: recovered_requirement_context
+  notes:
+  - This requirement is implemented and traced in the legacy traceability matrix but
+    is missing as an explicit standalone entry in ProtoSwR.md. It is therefore migrated
+    from traceability and open-issue evidence and should later be re-established in
+    the authoritative requirement source set.
+- id: PSwR-030
+  title: Historical shared time-series file
+  statement: The software shall provide historical shared time-series file.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - recovered_from_traceability_and_open_issues
+  - version_origin_v2_2
+  parent_system_ids:
+  - PSyR-016
+  child_verification_ids: []
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+  - file: docs/requirements/OpenIssues.md
+    role: recovered_requirement_context
+  notes:
+  - This requirement is implemented and traced in the legacy traceability matrix but
+    is missing as an explicit standalone entry in ProtoSwR.md. It is therefore migrated
+    from traceability and open-issue evidence and should later be re-established in
+    the authoritative requirement source set.
+- id: PSwR-031
+  title: Optional compact daily reports
+  statement: The software shall provide optional compact daily reports.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - recovered_from_traceability_and_open_issues
+  - version_origin_v2_2
+  parent_system_ids:
+  - PSyR-015
+  child_verification_ids:
+  - TV-PSwR-031-001
+  - TV-PSwR-031-002
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+  - file: docs/requirements/OpenIssues.md
+    role: recovered_requirement_context
+  notes:
+  - This requirement is implemented and traced in the legacy traceability matrix but
+    is missing as an explicit standalone entry in ProtoSwR.md. It is therefore migrated
+    from traceability and open-issue evidence and should later be re-established in
+    the authoritative requirement source set.
+- id: PSwR-032
+  title: Historical plot structure
+  statement: The software shall provide historical plot structure.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - recovered_from_traceability_and_open_issues
+  - version_origin_v2_2
+  parent_system_ids:
+  - PSyR-012
+  - PSyR-015
+  - PSyR-016
+  child_verification_ids: []
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+  - file: docs/requirements/OpenIssues.md
+    role: recovered_requirement_context
+  notes:
+  - This requirement is implemented and traced in the legacy traceability matrix but
+    is missing as an explicit standalone entry in ProtoSwR.md. It is therefore migrated
+    from traceability and open-issue evidence and should later be re-established in
+    the authoritative requirement source set.
+- id: PSwR-033
+  title: Snapshot annual context metrics
+  statement: The software shall provide snapshot annual context metrics.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - recovered_from_traceability_and_open_issues
+  - version_origin_v2_2
+  parent_system_ids:
+  - PSyR-011
+  - PSyR-015
+  child_verification_ids:
+  - TV-PSwR-033-001
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+  - file: docs/requirements/OpenIssues.md
+    role: recovered_requirement_context
+  notes:
+  - This requirement is implemented and traced in the legacy traceability matrix but
+    is missing as an explicit standalone entry in ProtoSwR.md. It is therefore migrated
+    from traceability and open-issue evidence and should later be re-established in
+    the authoritative requirement source set.
+- id: PSwR-034
+  title: Constant historical helper sources
+  statement: The software shall provide constant historical helper sources.
+  status: provisional_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - recovered_from_traceability_and_open_issues
+  - source_status_implemented_with_provisional_scope
+  - version_origin_v2_2
+  parent_system_ids:
+  - PSyR-012
+  - PSyR-015
+  child_verification_ids:
+  - TV-PSwR-034-001
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+  - file: docs/requirements/OpenIssues.md
+    role: recovered_requirement_context
+  notes:
+  - This requirement is implemented and traced in the legacy traceability matrix but
+    is missing as an explicit standalone entry in ProtoSwR.md. It is therefore migrated
+    from traceability and open-issue evidence and should later be re-established in
+    the authoritative requirement source set.
+- id: PSwR-035
+  title: Parametric historical target countries
+  statement: The software shall allow the historical target-country set to be configured
+    for the active comparison set rather than hard-coding a fixed country list.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - parameterized_capability
+  - recovered_from_traceability_and_open_issues
+  - version_origin_v2_2
+  parent_system_ids:
+  - PSyR-013
+  child_verification_ids:
+  - TV-PSwR-035-001
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+  - file: docs/requirements/OpenIssues.md
+    role: recovered_requirement_context
+  notes:
+  - This requirement is implemented and traced in the legacy traceability matrix but
+    is missing as an explicit standalone entry in ProtoSwR.md. It is therefore migrated
+    from traceability and open-issue evidence and should later be re-established in
+    the authoritative requirement source set.
+- id: PSwR-036
+  title: Canonical observation schema
+  statement: Die Software muss neue Quellen zunaechst in ein kanonisches Observation-Schema
+    ueberfuehren koennen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-018
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-036
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-037
+  title: Observation mandatory fields
+  statement: Die Software muss im kanonischen Observation-Schema mindestens `source_id`,
+    `layer`, `signal_family`, `country`, `period_start`, `period_end`, `raw_value`,
+    `normalized_value`, `unit`, `provenance` und `quality/completeness` fuehren koennen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-018
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-037
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-038
+  title: Mixed native periods in observations
+  statement: Die Software muss im kanonischen Observation-Schema unterschiedliche
+    native Perioden der Quellen fuehren koennen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-022
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-038
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-039
+  title: Adapter contract
+  statement: Die Software muss fuer neue Quellen einen klaren, pragmatischen Adapter-Contract
+    mit Pflichtfeldern, Validierung, Provenance und definiertem Normalisierungsausgang
+    bereitstellen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-018
+  - PSyR-022
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-039
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-040
+  title: Source-specific normalization
+  statement: Die Software muss pro Quelle explizit konfigurierbare einfache Normalisierungsregeln
+    auf ein Teilsignal `s_i` in `[0,1]` anwenden koennen. Fuer ausgewaehlte Quellen
+    muss zusaetzlich ein transparenter Normalisierungs-Scope (`per_country` oder `global`)
+    konfigurierbar sein.
+  status: provisional_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - parameterized_capability
+  - source_status_implemented_with_provisional_scope
+  parent_system_ids:
+  - PSyR-018
+  - PSyR-021
+  - PSyR-022
+  child_verification_ids:
+  - TV-PSwR-040-001
+  - TV-PSwR-040-002
+  - TV-PSwR-040-003
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-040
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-041
+  title: Group fusion
+  statement: Die Software muss Quellen innerhalb ihrer Gruppe ueber eine einfache
+    transparente gewichtete Mittelung fusionieren koennen.
+  status: provisional_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - source_status_implemented_with_provisional_scope
+  parent_system_ids:
+  - PSyR-019
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-041
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-042
+  title: Fusion total score
+  statement: Die Software muss aus den Gruppensignalen einen parallelen Fusion-Gesamtscore
+    ueber transparente konfigurierbare Gruppengewichte berechnen koennen. Ein gruppenuebergreifender
+    Bonusmechanismus darf optional vorhanden sein, muss im ersten V3.1-MVP aber standardmaessig
+    deaktiviert bleiben.
+  status: provisional_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - parameterized_capability
+  - source_status_implemented_with_provisional_scope
+  - version_origin_v3_1
+  parent_system_ids:
+  - PSyR-020
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-042
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-043
+  title: Target periods for fusion
+  statement: Die Software muss fuer die Fusion definierte Zielperioden verarbeiten
+    koennen, ohne die nativen Quellperioden in der Provenance zu verlieren.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-022
+  - PSyR-023
+  - PSyR-027
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-043
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-044
+  title: Observation provenance
+  statement: Die Software muss Provenance fuer neue Quellen mindestens bis auf Observation-/Signal-Ebene
+    fuehren.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-018
+  - PSyR-022
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-044
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-045
+  title: Fusion confidence
+  statement: Die Software muss im Fusion-Pfad Confidence getrennt vom Score fuehren
+    und sichtbar ausgeben. Die Confidence-Berechnung soll explizit Coverage-, Aktualitaets-,
+    Vollstaendigkeits- und Konsistenzkomponenten ausweisen und darf moderate Penalties
+    fuer Einzel-Layer-Dominanz bzw. `limited`-Gruppenabdeckung enthalten.
+  status: provisional_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - source_status_implemented_with_provisional_scope
+  parent_system_ids:
+  - PSyR-020
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-045
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-046
+  title: Group scores
+  statement: Die Software muss fuer die Layer/Gruppen numerische Gruppenscores erzeugen
+    koennen. Nicht tief integrierte Gruppen duerfen im V3.1-MVP als `not_available`
+    markiert werden, sofern `Market/Food` und `Structural` als echte Scores vorliegen.
+    Ab V4.2 muss `Governance` als eigenstaendige Gruppe numerisch ausweisbar sein.
+  status: provisional_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - source_status_implemented_with_provisional_scope
+  - version_origin_v3_1
+  - version_origin_v4_2
+  parent_system_ids:
+  - PSyR-019
+  - PSyR-020
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-046
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-047
+  title: Parallel run path
+  statement: Die Software muss den neuen Fusion-Pfad parallel zum bestehenden Cluster-/Score-Pfad
+    betreiben koennen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-020
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-047
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-048
+  title: FAO FFPI loader
+  statement: Die Software muss `FAO FFPI` laden und in das kanonische Observation-Schema
+    ueberfuehren koennen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-021
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-048
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-049
+  title: FAO FPMA loader
+  statement: Die Software muss `FAO FPMA` laden und in das kanonische Observation-Schema
+    ueberfuehren koennen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-021
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-049
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-050
+  title: UN Comtrade loader
+  statement: Die Software muss `UN Comtrade` laden und in das kanonische Observation-Schema
+    ueberfuehren koennen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-021
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-050
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-051
+  title: Fusion artifacts
+  statement: Die Software muss fuer den V3.1-Fusion-Pfad strukturierte Exporte, Handout-Bloecke
+    und Plots erzeugen koennen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v3_1
+  parent_system_ids:
+  - PSyR-020
+  - PSyR-028
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-051
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-052
+  title: Keep cluster view
+  statement: Die Software darf die bestehende Cluster-Sicht (`Spannung`, `Eskalation`,
+    `Verwundbarkeit`) im V3.1-MVP nicht durch die neue Layer-/Gruppensicht ersetzen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v3_1
+  parent_system_ids:
+  - PSyR-019
+  - PSyR-020
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-052
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-053
+  title: Consistent fusion country-plot mapping
+  statement: Die Software muss Fusion-Plotdateien fuer den Handout-Laenderkontext
+    robust den Laendern zuordnen koennen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-028
+  child_verification_ids:
+  - TV-PSwR-053-001
+  - TV-PSwR-053-002
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-053
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-054
+  title: Extended V3.x source config validation
+  statement: Die Software muss im V3.x-Config-Block zusaetzliche Quellen `GDACS`,
+    `UNHCR` und `narrative_input` inklusive Normalisierung validieren koennen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v3
+  parent_system_ids:
+  - PSyR-024
+  - PSyR-025
+  - PSyR-026
+  child_verification_ids:
+  - TV-PSwR-054-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-054
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-055
+  title: Narrative input schema support
+  statement: Die Software muss fuer den Narrative-Adapter mindestens `source_id`,
+    `country`, `period_start`, `period_end`, `topic`, `narrative_direction`, `relevance`,
+    `confidence`, `provenance` verarbeiten koennen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-026
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-055
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-056
+  title: Historical monthly period generation
+  statement: Die Software muss fuer den historischen Fusion-Pfad explizite monatliche
+    Zielperioden erzeugen und nachvollziehbar fuehren.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-027
+  child_verification_ids:
+  - TV-PSwR-056-002
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-056
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-057
+  title: Historical source signal export
+  statement: Die Software muss historische Source-Signale pro Zielperiode als strukturierten
+    Export bereitstellen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-023
+  - PSyR-027
+  child_verification_ids:
+  - TV-PSwR-057-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-057
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-058
+  title: Group status semantics (`ok/limited/not_available`)
+  statement: Die Software muss fuer Fusion-Gruppen mindestens `ok`, `limited` und
+    `not_available` unterscheiden koennen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-023
+  - PSyR-028
+  child_verification_ids:
+  - TV-PSwR-058-001
+  - TV-PSwR-058-002
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-058
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-059
+  title: GDACS loader
+  statement: Die Software muss `GDACS` laden, in kanonische Beobachtungen ueberfuehren
+    und dem Layer `Shock` zuordnen koennen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-024
+  child_verification_ids:
+  - TV-PSwR-059-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-059
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-060
+  title: UNHCR loader
+  statement: Die Software muss `UNHCR` laden, in kanonische Beobachtungen ueberfuehren
+    und dem Layer `Displacement` zuordnen koennen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-025
+  child_verification_ids:
+  - TV-PSwR-060-001
+  - TV-PSwR-060-002
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-060
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-061
+  title: Narrative input loader
+  statement: Die Software muss strukturierte Narrative-/Expert-Inputs laden, in kanonische
+    Beobachtungen ueberfuehren und dem Layer `Narrative` zuordnen koennen.
+  status: provisional_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - source_status_implemented_with_provisional_scope
+  parent_system_ids:
+  - PSyR-026
+  child_verification_ids:
+  - TV-PSwR-061-001
+  - TV-PSwR-061-002
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-061
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-062
+  title: Historical fusion group scores
+  statement: Die Software muss historische Fusion-Gruppenscores je Land/Periode erzeugen
+    und exportieren.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-023
+  - PSyR-028
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-062
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-063
+  title: Historical fusion total scores
+  statement: Die Software muss historische Fusion-Gesamtscores je Land/Periode erzeugen
+    und exportieren. Der historische Total-Export muss die Gruppenabdeckung je Periode
+    explizit enthalten (`available_group_count`, `expected_group_count`, `available_group_ratio`).
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-023
+  - PSyR-028
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-063
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-064
+  title: Historical dominant-driver hints
+  statement: 'Die Software muss im historischen Fusion-Pfad dominante Gruppenbeitraege
+    fuer juengste Aenderungen ausweisen koennen. Mindestens sichtbar sein sollen:
+    staerkster positiver Beitrags-Layer, zweitstaerkster positiver Beitrags-Layer
+    und staerkste Gruppenveraenderung zum Vorzeitpunkt.'
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-023
+  - PSyR-028
+  child_verification_ids:
+  - TV-PSwR-064-001
+  - TV-PSwR-064-002
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-064
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-065
+  title: Historical fusion plots (global + country)
+  statement: Die Software muss historische Fusion-Plots (Gruppen + Gesamt) global
+    und landbezogen erzeugen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-028
+  child_verification_ids:
+  - TV-PSwR-065-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-065
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-066
+  title: Historical fusion handout section
+  statement: Die Software muss im Handout einen klar getrennten V3.2-Historical-Fusion-Block
+    ausgeben.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v3_2
+  parent_system_ids:
+  - PSyR-028
+  child_verification_ids:
+  - TV-PSwR-066-001
+  - TV-PSwR-066-002
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-066
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-067
+  title: Additive compatibility to V2.x/V3.1
+  statement: Die Software muss V3.2 additiv integrieren, ohne Snapshot/Historical-Cluster/Review-Candidates
+    oder V3.1-Snapshot-Fusion zu regressieren.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v2
+  - version_origin_v3_1
+  - version_origin_v3_2
+  parent_system_ids:
+  - PSyR-020
+  - PSyR-023
+  - PSyR-028
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-067
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-068
+  title: Event group explicit not_available marker
+  statement: Die Software darf die Gruppe `event` in V3.2 weiterhin als `not_available`
+    ausgeben, sofern dies explizit markiert bleibt. Ab V3.3 wird diese Uebergangsregel
+    durch die operative Event-Integration (`PSwR-073`) abgeloest.
+  status: provisional_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - source_status_implemented_with_provisional_scope
+  - version_origin_v3_2
+  - version_origin_v3_3
+  parent_system_ids:
+  - PSyR-023
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-068
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-069
+  title: Fusion status includes historical counts
+  statement: Die Software muss den Fusion-Status-Export um historische Record-Zaehlungen
+    erweitern. Nicht-blockierende Plausibilitaets-Warnings sollen im Fusion-Status
+    sichtbar werden koennen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-028
+  child_verification_ids:
+  - TV-PSwR-069-001
+  - TV-PSwR-069-002
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-069
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-070
+  title: Bonus default remains disabled in historical path
+  statement: Die Software muss den gruppenuebergreifenden Bonusmechanismus auch im
+    historischen Fusion-Pfad standardmaessig deaktiviert halten, solange er in der
+    Konfiguration deaktiviert ist.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-023
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-070
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-071
+  title: GDELT event adapter
+  statement: Die Software muss mindestens einen echten Event-Adapter bereitstellen,
+    der beobachtbare Event-Rohdaten laedt, validiert und als kanonische Observationen
+    fuer den Layer `Event` ausgibt.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-029
+  child_verification_ids:
+  - TV-PSwR-071-001
+  - TV-PSwR-071-002
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-071
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-072
+  title: Event periodization + normalization
+  statement: Die Software muss Event-Rohdaten transparent in periodische Event-Signale
+    ueberfuehren und normalisieren koennen. Die Ableitung soll mindestens Event-Haeufigkeit,
+    Event-Schwere, Recency und Quellqualitaet beruecksichtigen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-029
+  child_verification_ids:
+  - TV-PSwR-072-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-072
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-073
+  title: Event effectiveness in snapshot/historical fusion
+  statement: Die Software muss den Event-Layer in `group_scores`, `historical_group_scores`,
+    `fusion_total_scores` und `historical_total_scores` wirksam integrieren. Event
+    muss in Explainability-Feldern (z. B. `top_positive_group_*`, `strongest_change_group`)
+    als moeglicher Treiber sichtbar sein.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-029
+  child_verification_ids:
+  - TV-PSwR-073-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-073
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-074
+  title: Event-specific plausibility warnings
+  statement: Die Software muss nicht-blockierende Event-spezifische Plausibilitaetschecks/Warnungen
+    bereitstellen (z. B. geringe Event-Abdeckung, stale Event-Signale, geringe Differenzierung).
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-029
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-074
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-075
+  title: Exportable validation framework
+  statement: Die Software muss einen strukturierten, exportierbaren Validierungsrahmen
+    (`validation_framework`) mit Kriterien, Kalibrierprofil und erwarteter Laenderrangfolge
+    erzeugen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-030
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-075
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-076
+  title: Versioned reference episode path
+  statement: Die Software muss Referenzepisoden als klar versionierbaren Artefaktpfad
+    laden und parallel in den Laufexporten bereitstellen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-030
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-076
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-077
+  title: Episode/ranking validation metrics
+  statement: Die Software muss pragmatische Validierungsmetriken fuer Peak-Hit/Miss,
+    Timing-Fit/Reaktionsverzug, Ranking-Plausibilitaet und Gruppenreaktion berechnen
+    und exportieren.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-030
+  child_verification_ids:
+  - TV-PSwR-077-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-077
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-078
+  title: Fusion calibration profile
+  statement: Die Software muss ein explizites Kalibrierprofil fuer Fusion-Stage-/Trend-Schwellen,
+    Dominanzgrenzen und Ranking-Erwartungen konfigurierbar fuehren.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - parameterized_capability
+  parent_system_ids:
+  - PSyR-030
+  child_verification_ids:
+  - TV-PSwR-078-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-078
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-079
+  title: Event recency/stale handling in score path
+  statement: Die Software muss stale Event-Signale im Fusion-Scorepfad ueber transparente
+    Recency-/Decay-Regeln behandeln und stale-bezogene Warnschwellen explizit konfigurierbar
+    machen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - parameterized_capability
+  parent_system_ids:
+  - PSyR-030
+  - PSyR-032
+  child_verification_ids:
+  - TV-PSwR-079-001
+  - TV-PSwR-079-002
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-079
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-080
+  title: Validation summary in status/review bundle
+  statement: Die Software muss eine strukturierte Validation Summary in `fusion_status.json`,
+    Handout, Acceptance-Snapshot und Review-Bundle ausgeben.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-031
+  child_verification_ids:
+  - TV-PSwR-080-001
+  - TV-PSwR-080-002
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-080
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-081
+  title: Analyst-friendly layer diagnostics
+  statement: Die Software muss diagnostische Felder fuer Dominanz, stale Signale,
+    strukturelle Ausreisser sowie breite vs. schmale Layer-Unterstuetzung bereitstellen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-031
+  child_verification_ids:
+  - TV-PSwR-081-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-081
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-082
+  title: Historical validation helper artifacts
+  statement: Die Software muss zusaetzliche reviewbare Historical-Validation-Artefakte
+    (z. B. Episodenvergleich, Timing-Hinweise, Layer-Diagnostik) im Fusion-Exportraum
+    bereitstellen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-031
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-082
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-083
+  title: Explicit freshness/staleness model
+  statement: Die Software muss ein konfigurierbares Freshness-/Staleness-Modell je
+    Gruppe bereitstellen (fresh/aging/stale, Decay-Parameter), das transparent dokumentiert,
+    testbar und exportierbar ist.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - parameterized_capability
+  parent_system_ids:
+  - PSyR-032
+  child_verification_ids:
+  - TV-PSwR-083-001
+  - TV-PSwR-083-002
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-083
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-084
+  title: Recency/decay effect for dynamic layers
+  statement: Die Software muss die Recency-/Decay-Wirkung fuer dynamische Layer (insbesondere
+    `event`) so anwenden, dass neue Signale zeitnah sichtbar werden und alte Signale
+    nachvollziehbar an Einfluss verlieren.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-032
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-084
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-085
+  title: Snapshot freshness diagnostics
+  statement: Die Software muss pro Land/Gruppenbeitrag operative Freshness-Diagnosen
+    exportieren (z. B. letzte frische Beobachtung, Freshness-Klasse, Fresh/aging/stale-Beitragsanteile).
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-033
+  child_verification_ids:
+  - TV-PSwR-085-001
+  - TV-PSwR-085-002
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-085
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-086
+  title: Historical responsiveness metrics
+  statement: Die Software muss pragmatische historische Responsiveness-Metriken exportieren
+    (z. B. Delta-Intensitaet, signifikante Aenderungsquote, Reaktivitaetsprofil, juengste
+    Aenderungsdetektion).
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-033
+  child_verification_ids:
+  - TV-PSwR-086-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-086
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-087
+  title: Freshness-sensitive confidence hardening
+  statement: Die Software muss stale-/aging-Anteile in der Fusion-Confidence explizit
+    beruecksichtigen, ohne Score und Confidence konzeptionell zu vermischen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-032
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-087
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-088
+  title: V4.1 calibration parameters in config
+  statement: Die Software muss V4.1-spezifische Freshness-/Responsiveness-Kalibrierparameter
+    validieren und versionierbar im Konfigurationsprofil fuehren.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v4_1
+  parent_system_ids:
+  - PSyR-032
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-088
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-089
+  title: Operational warnings and review hints
+  statement: Die Software muss wenige, hochrelevante operative Warnhinweise bereitstellen
+    (z. B. low fresh coverage, stale burden, dynamische Readiness-Luecken, Response-lag-Reviewhinweis).
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-033
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-089
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-090
+  title: V4.1 view in handout and bundle
+  statement: Die Software muss die operative Frische-/Responsiveness-Sicht in Handout,
+    `validation_summary`, Acceptance-Snapshot und Review-Bundle transportieren.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v4_1
+  parent_system_ids:
+  - PSyR-033
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-090
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-091
+  title: Governance source/adapter contract
+  statement: Die Software muss einen expliziten Governance-Adapterpfad bereitstellen
+    (`governance_input`), der periodische Governance-/politische Stabilitaetssignale
+    mit Pflichtfeldern, Provenance und Qualitaet in kanonische Observationen ueberfuehrt.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-034
+  child_verification_ids:
+  - TV-PSwR-091-001
+  - TV-PSwR-091-002
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-091
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-092
+  title: Governance normalization
+  statement: Die Software muss Governance-Rohsignale ueber eine transparente, dokumentierte
+    Heuristik in ein normiertes Teilsignal `[0,1]` ueberfuehren und quellspezifisch
+    konfigurierbar normalisieren.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - parameterized_capability
+  parent_system_ids:
+  - PSyR-034
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-092
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-093
+  title: Governance effectiveness in snapshot/historical fusion
+  statement: Die Software muss Governance in `group_scores`, `historical_group_scores`,
+    `fusion_total_scores` und `historical_total_scores` als wirksamen, nachvollziehbaren
+    Beitrag integrieren.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-034
+  child_verification_ids:
+  - TV-PSwR-093-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-093
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-094
+  title: Governance diagnostics/warnings/confidence hints
+  statement: Die Software muss governance-spezifische Diagnose-/Warning-Felder bereitstellen
+    (z. B. elevated governance instability, stale governance support), ohne Warning-Flut
+    und ohne Score-/Confidence-Vermischung.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-035
+  child_verification_ids:
+  - TV-PSwR-094-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-094
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-095
+  title: Governance validation/reference-episode extension
+  statement: Die Software muss den Validierungsrahmen und Referenzepisoden so erweitern,
+    dass Governance als eigener Review-Anker in Peak/Timing/Layer-Reaktionsmetriken
+    pruefbar ist.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-035
+  child_verification_ids:
+  - TV-PSwR-095-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-095
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-096
+  title: Governance visibility in handout/acceptance/review-bundle
+  statement: Die Software muss Governance als klar benannten Analysebaustein in Handout,
+    Validation Summary, Acceptance Snapshot und Review-Bundle sichtbar ausgeben.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-035
+  child_verification_ids:
+  - TV-PSwR-096-001
+  - TV-PSwR-096-002
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-096
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-097
+  title: Enforced 10-country configuration
+  statement: The software shall apply a default 10-country comparative baseline consistently
+    in configuration and pipeline validation while keeping the active comparison set
+    explicit and configurable where supported.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - normalized_from_fixed_10_country_wording
+  - parameterized_capability
+  - version_origin_v4_3
+  parent_system_ids:
+  - PSyR-036
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-097
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+  notes:
+  - Legacy fixed-baseline wording was normalized to the accepted default baseline
+    of 10 countries and 365 days where applicable.
+- id: PSwR-098
+  title: 356-day country profile metrics export
+  statement: The software shall compute and export per-country profile metrics over
+    the default 365-day comparison horizon, including current score, annual extrema,
+    range, volatility, average burden, peak indicators, and freshness and confidence
+    context; the horizon shall remain configurable.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - normalized_from_356_day_variant
+  parent_system_ids:
+  - PSyR-037
+  child_verification_ids:
+  - TV-PSwR-098-001
+  - TV-PSwR-098-002
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-098
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+  notes:
+  - Legacy fixed-baseline wording was normalized to the accepted default baseline
+    of 10 countries and 365 days where applicable.
+- id: PSwR-099
+  title: Compact main comparison table
+  statement: Die Software muss eine analystisch kompakte Hauptvergleichstabelle fuer
+    alle 10 Laender exportieren, inklusive aktueller Lage, Freshness-Status, Jahresprofil-Kennzahlen
+    und dominantem Beitragsraum.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-038
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-099
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-100
+  title: Deep diagnostic tables (peaks/group profiles)
+  statement: Die Software muss mindestens zwei vertiefende Diagnostiktabellen exportieren
+    (z. B. Top-Peaks je Land, mittlere Gruppenbeitraege/Supportprofile), die nicht
+    redundant zur Hauptvergleichstabelle sind.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-038
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-100
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-101
+  title: Per-country V4.3 profile plots
+  statement: The software shall generate one comparative profile plot per country
+    over the default 365-day horizon and show the total fusion trajectory together
+    with the central driver groups in a consistent visualization; the horizon shall
+    remain configurable.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - normalized_from_356_day_variant
+  - version_origin_v4_3
+  parent_system_ids:
+  - PSyR-038
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-101
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+  notes:
+  - Legacy fixed-baseline wording was normalized to the accepted default baseline
+    of 10 countries and 365 days where applicable.
+- id: PSwR-102
+  title: Cross-country comparison plots + ranking trajectory
+  statement: Die Software muss laenderuebergreifende V4.3-Vergleichsplots erzeugen
+    (mindestens Multi-Land-Gesamtverlauf und Ranking-Trajektorie ueber die Zeit).
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v4_3
+  parent_system_ids:
+  - PSyR-038
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-102
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-103
+  title: Handout global-first comparative structure
+  statement: Die Software muss das Handout so strukturieren, dass ein globaler 10-Laender-Vergleichsteil
+    vor den Laenderkapiteln steht und jedes Land danach gleich tief dargestellt wird.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-038
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-103
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-104
+  title: V4.3 comparative data in acceptance/review bundle
+  statement: Die Software muss V4.3-Vergleichsartefakte (Hauptvergleich, Peaks, Gruppenprofile,
+    Ranking-Trajektorie) in Acceptance Snapshot und Review-Bundle transportieren.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v4_3
+  parent_system_ids:
+  - PSyR-038
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-104
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-105
+  title: Hardened peak detection in annual trajectory
+  statement: The software shall detect peaks in the default annual trajectory of each
+    country using configurable prominence, rise/fall, width, and separation heuristics
+    instead of raw maxima only.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - normalized_from_356_day_variant
+  - parameterized_capability
+  parent_system_ids:
+  - PSyR-039
+  child_verification_ids:
+  - TV-PSwR-105-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-105
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+  notes:
+  - Legacy fixed-baseline wording was normalized to the accepted default baseline
+    of 10 countries and 365 days where applicable.
+- id: PSwR-106
+  title: Calibrated peak attribution/support config space
+  statement: Die Software muss V4.3.1-spezifische Peak-Attributionsparameter (z. B.
+    Prominenz, Separation, Single-Group-Dominanz, Global-/Country-Share-Schwellen,
+    Event-Support-Schwellen) im Config-Pfad validieren und versionierbar fuehren.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v4_3_1
+  parent_system_ids:
+  - PSyR-039
+  child_verification_ids:
+  - TV-PSwR-106-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-106
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-107
+  title: Global-vs-country peak decomposition
+  statement: Die Software muss fuer erkannte Peaks explizite globale und laenderspezifische
+    Beitragsanteile berechnen und als strukturierte Diagnostik exportieren, damit
+    globale Synchronisationswellen nicht als rein laenderspezifische Hochpunkte fehlgelesen
+    werden.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-039
+  child_verification_ids:
+  - TV-PSwR-107-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-107
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-108
+  title: Peak attribution artifacts
+  statement: Die Software muss je Peak einen expliziten Attributionsdatensatz exportieren
+    (`peak_attribution.csv`) mit mindestens Zeitpunkt, Rang, Peak-Staerke, dominanter/sekundaerer
+    Gruppe, Support-Breite, Freshness-Anteil und Attributionslabel.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-039
+  - PSyR-040
+  child_verification_ids:
+  - TV-PSwR-108-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-108
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-109
+  title: Event marker registry and peak-event support matching
+  statement: 'Die Software muss einen versionierbaren Analystenpfad fuer Event-Marker
+    (MVP: fixture-/registry-basiert) unterstuetzen und je Peak als Artefakt (`peak_event_support.csv`)
+    ausweisen, ob Event-Support stark, schwach oder nicht vorhanden ist.'
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-039
+  - PSyR-040
+  child_verification_ids:
+  - TV-PSwR-109-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-109
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-110
+  title: Peak confidence and trajectory profile diagnostics
+  statement: Die Software muss Peak-Confidence und Trajectory-Profile je Land berechnen
+    und exportieren (`trajectory_profiles.csv`), inklusive Warnindikatoren fuer schmale,
+    stale oder global getriebene Peak-Lagen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-039
+  - PSyR-040
+  child_verification_ids: []
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-110
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-111
+  title: Handout and plot visibility for attribution/synchronization
+  statement: Die Software muss pro Land Peak-Attributionsplots sowie einen globalen
+    Peak-Synchronisationsplot erzeugen und im Handout explizit einbinden, inklusive
+    kompakter Peak-Label (`event_supported`, `weakly_supported`, `globally_co_moving`,
+    `model_driven`).
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-040
+  child_verification_ids:
+  - TV-PSwR-111-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-111
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-112
+  title: V4.3.1 artifacts in acceptance/review bundle
+  statement: Die Software muss `peak_attribution`, `peak_event_support`, `trajectory_profiles`,
+    `global_peak_synchronization` und `event_marker_registry` im Acceptance Snapshot
+    und Review Bundle als eigenstaendige Review-Artefakte transportieren.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v4_3_1
+  parent_system_ids:
+  - PSyR-040
+  child_verification_ids:
+  - TV-PSwR-112-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-112
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-113
+  title: Event registry data model
+  statement: Die Software muss ein kompaktes, robustes Event-Registry-Schema mit analystenpflegbaren
+    Pflichtfeldern bereitstellen (mindestens `event_id`, `country`, `title`, `start_date`,
+    `end_date`, `event_type`, `summary`, `source_category`, `source_reference`, `confidence`,
+    `relevance_groups`, `expected_effect_direction`, `expected_peak_window_start`,
+    `expected_peak_window_end`, `notes`).
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-041
+  child_verification_ids:
+  - TV-PSwR-113-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-113
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-114
+  title: Initial 10-country registry fixture
+  statement: The software shall provide an initial analyst-maintained event-registry
+    fixture for the default 10-country comparison baseline.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - default_10_country_baseline
+  parent_system_ids:
+  - PSyR-041
+  child_verification_ids:
+  - TV-PSwR-114-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-114
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-115
+  title: Peak-event matching export
+  statement: Die Software muss je Peak einen expliziten Peak-Event-Match-Datensatz
+    exportieren (`peak_event_matches.csv`) mit Match-Klasse, Match-Confidence, Evidenzkette
+    und Unsicherheitsmarkern.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-042
+  child_verification_ids:
+  - TV-PSwR-115-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-115
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-116
+  title: Event-alignment match classes
+  statement: 'Die Software muss mindestens folgende Match-Klassen unterscheiden und
+    exportieren: `direct_match`, `plausible_context_match`, `weak_match`, `no_credible_match`,
+    `multi_event_overlap`.'
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-042
+  child_verification_ids:
+  - TV-PSwR-116-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-116
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-117
+  title: Country event-alignment maturity
+  statement: Die Software muss country-level Alignment-Maturity als eigenes Artefakt
+    (`country_event_alignment.csv`) ausweisen, inklusive Trajectory-Kontext, Coverage-Qualitaet,
+    Top-Events und offener Unsicherheiten.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-043
+  child_verification_ids:
+  - TV-PSwR-117-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-117
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-118
+  title: Event coverage diagnostics
+  statement: Die Software muss global und pro Land Event-Coverage-Metriken exportieren
+    (`event_coverage_summary.csv`), inkl. credible/no-match/multi-overlap-Anteilen.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-043
+  child_verification_ids:
+  - TV-PSwR-118-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-118
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-119
+  title: Event-alignment review file
+  statement: Die Software muss eine kompakte analystische Review-Datei fuer Event-Alignment
+    bereitstellen (`event_alignment_review.md`) mit Summary, Coverage und manueller
+    Review-Queue.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-043
+  child_verification_ids:
+  - TV-PSwR-119-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-119
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-120
+  title: V4.3.2 artifacts in acceptance/review bundle
+  statement: Die Software muss `event_registry`, `peak_event_matches`, `event_coverage_summary`,
+    `country_event_alignment` und Event-Alignment-Summary/-Review im Acceptance Snapshot
+    und Review Bundle transportieren.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v4_3_2
+  parent_system_ids:
+  - PSyR-043
+  child_verification_ids:
+  - TV-PSwR-120-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-120
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-121
+  title: Event-alignment plot support
+  statement: Die Software muss pro Land einen Event-Alignment-Plot bereitstellen,
+    der Fusion-Verlauf, Peak-Marker und registrierte Event-Fenster in analystisch
+    lesbarer Form kombiniert.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-043
+  child_verification_ids:
+  - TV-PSwR-121-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-121
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-122
+  title: V4.3.2 calibration parameters in config
+  statement: Die Software muss Event-Alignment-Kalibrierparameter im Config-Pfad validieren
+    und versionierbar fuehren (zeitliche Distanz, direct/context/weak-Schwellen, multi-overlap-Minimum,
+    Registry-Pfad).
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v4_3_2
+  parent_system_ids:
+  - PSyR-042
+  - PSyR-043
+  child_verification_ids:
+  - TV-PSwR-122-001
+  - TV-PSwR-122-002
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-122
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-123
+  title: Event-alignment view in handout
+  statement: Die Software muss die Event-Alignment-Sicht im Handout global und pro
+    Land explizit darstellen (Match-Klassen, Match-Confidence, global-vs-country-Kontext,
+    offene Unsicherheiten).
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags: []
+  parent_system_ids:
+  - PSyR-043
+  child_verification_ids:
+  - TV-PSwR-123-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-123
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+- id: PSwR-124
+  title: Additive V4.3.2 integration without regression
+  statement: Die Software muss V4.3.2 additiv integrieren, ohne bestehende V2.x-/V3.x-/V4.0-/V4.1-/V4.2-/V4.3-/V4.3.1-Pfade
+    zu regressieren.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - version_origin_v2
+  - version_origin_v3
+  - version_origin_v4_0
+  - version_origin_v4_1
+  - version_origin_v4_2
+  - version_origin_v4_3
+  - version_origin_v4_3_1
+  - version_origin_v4_3_2
+  parent_system_ids:
+  - PSyR-043
+  child_verification_ids:
+  - TV-PSwR-124-001
+  source_refs:
+  - file: docs/requirements/ProtoSwR.md
+    id: PSwR-124
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context

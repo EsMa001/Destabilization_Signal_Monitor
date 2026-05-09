@@ -17,9 +17,14 @@ metadata:
   - provisional_requirement
   - retired_requirement
   notes:
-  - Stakeholder requirements are normalized to the accepted 10-country and 365-day defaults where applicable.
-  - Bidirectional trace fields are present; child links remain empty until formal system derivation is completed.
-  - Historical-origin wording from the original markdown source is preserved via source_refs and migration_tags rather than as active baseline text.
+  - Stakeholder requirements are normalized to the accepted 10-country and 365-day
+    defaults where applicable.
+  - Bidirectional trace fields are present; child links remain empty until formal
+    system derivation is completed.
+  - Historical-origin wording from the original markdown source is preserved via source_refs
+    and migration_tags rather than as active baseline text.
+  - Recovered the historical dual-view stakeholder lineage PSR-008..PSR-011 from traceability
+    and open-issue evidence to preserve top-down continuity for the software migration.
 schema_guidance:
   required_fields:
   - id
@@ -38,7 +43,8 @@ schema_guidance:
 requirements:
 - id: PSR-001
   title: Goal of the prototype
-  statement: The prototype shall identify short-term anomalies in media and context data and make possible indications of political or societal destabilization visible.
+  statement: The prototype shall identify short-term anomalies in media and context
+    data and make possible indications of political or societal destabilization visible.
   status: candidate_baseline_requirement
   baseline_classification: active_baseline
   migration_tags:
@@ -56,7 +62,8 @@ requirements:
     role: baseline_decision_context
 - id: PSR-002
   title: Default country baseline and configurable country scope
-  statement: The prototype shall operate by default on a 10-country baseline and shall allow the selected country set to be parameterized when needed.
+  statement: The prototype shall operate by default on a 10-country baseline and shall
+    allow the selected country set to be parameterized when needed.
   status: candidate_baseline_requirement
   baseline_classification: active_baseline
   migration_tags:
@@ -73,7 +80,8 @@ requirements:
     role: baseline_decision_context
 - id: PSR-003
   title: Analytical usability and presentability
-  statement: The prototype shall be analytically usable for internal review and at the same time presentable to stakeholders.
+  statement: The prototype shall be analytically usable for internal review and at
+    the same time presentable to stakeholders.
   status: candidate_baseline_requirement
   baseline_classification: active_baseline
   migration_tags: []
@@ -118,7 +126,8 @@ requirements:
     role: baseline_decision_context
 - id: PSR-006
   title: Comparable country presentation structure
-  statement: All selected countries shall be presented using the same logical reporting structure.
+  statement: All selected countries shall be presented using the same logical reporting
+    structure.
   status: candidate_baseline_requirement
   baseline_classification: active_baseline
   migration_tags:
@@ -150,9 +159,104 @@ requirements:
     id: PSR-007
   - file: docs/planning/2026-05-09_baseline_decisions.md
     role: baseline_decision_context
+- id: PSR-008
+  title: Dual standard result view
+  statement: The prototype shall provide Current Snapshot and Historical Rolling Trend
+    as two co-equal standard result views of the regular run.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - recovered_from_traceability_and_open_issues
+  - version_origin_v2_2
+  parent_stakeholder_ids: []
+  child_system_ids:
+  - PSyR-011
+  - PSyR-012
+  - PSyR-013
+  - PSyR-014
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    id: PSR-008
+  - file: docs/requirements/OpenIssues.md
+    role: recovered_requirement_context
+  notes:
+  - This stakeholder requirement was recovered from the legacy traceability matrix
+    and open-issue set because it is not yet present as an explicit standalone entry
+    in ProtoSR.md.
+- id: PSR-009
+  title: Annual context in snapshot outputs
+  statement: Snapshot outputs shall include annual context so that the current result
+    can be interpreted against its recent trajectory.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - recovered_from_traceability_and_open_issues
+  - version_origin_v2_2
+  parent_stakeholder_ids: []
+  child_system_ids:
+  - PSyR-013
+  - PSyR-015
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    id: PSR-009
+  - file: docs/requirements/OpenIssues.md
+    role: recovered_requirement_context
+  notes:
+  - This stakeholder requirement was recovered from the legacy traceability matrix
+    and open-issue set because it is not yet present as an explicit standalone entry
+    in ProtoSR.md.
+- id: PSR-010
+  title: Historical validation capability
+  statement: The prototype shall support historical validation and review of the signal
+    behavior over time.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - recovered_from_traceability_and_open_issues
+  - version_origin_v2_2
+  parent_stakeholder_ids: []
+  child_system_ids:
+  - PSyR-012
+  - PSyR-015
+  - PSyR-017
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    id: PSR-010
+  - file: docs/requirements/OpenIssues.md
+    role: recovered_requirement_context
+  notes:
+  - This stakeholder requirement was recovered from the legacy traceability matrix
+    and open-issue set because it is not yet present as an explicit standalone entry
+    in ProtoSR.md.
+- id: PSR-011
+  title: Strict separation of result spaces
+  statement: Snapshot and historical result spaces shall remain strictly separated
+    in artifacts and presentation.
+  status: implemented_requirement
+  baseline_classification: active_baseline
+  migration_tags:
+  - recovered_from_traceability_and_open_issues
+  - version_origin_v2_2
+  parent_stakeholder_ids: []
+  child_system_ids:
+  - PSyR-011
+  - PSyR-012
+  - PSyR-014
+  - PSyR-016
+  - PSyR-017
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    id: PSR-011
+  - file: docs/requirements/OpenIssues.md
+    role: recovered_requirement_context
+  notes:
+  - This stakeholder requirement was recovered from the legacy traceability matrix
+    and open-issue set because it is not yet present as an explicit standalone entry
+    in ProtoSR.md.
 - id: PSR-012
   title: Multi-source architecture
-  statement: The prototype shall support a transparent multi-source architecture with a clear layer/group view.
+  statement: The prototype shall support a transparent multi-source architecture with
+    a clear layer/group view.
   status: candidate_baseline_requirement
   baseline_classification: active_baseline
   migration_tags:
@@ -169,7 +273,8 @@ requirements:
     role: baseline_decision_context
 - id: PSR-013
   title: Parallel fusion path
-  statement: The prototype shall provide a parallel fusion path in addition to the existing result space without replacing the existing cluster view.
+  statement: The prototype shall provide a parallel fusion path in addition to the
+    existing result space without replacing the existing cluster view.
   status: candidate_baseline_requirement
   baseline_classification: active_baseline
   migration_tags:
@@ -201,7 +306,8 @@ requirements:
     role: baseline_decision_context
 - id: PSR-015
   title: Visible market/food fusion extension
-  statement: The multi-source extension shall provide a transparent Market/Food layer with additional fusion output that is visible to analysts.
+  statement: The multi-source extension shall provide a transparent Market/Food layer
+    with additional fusion output that is visible to analysts.
   status: candidate_baseline_requirement
   baseline_classification: active_baseline
   migration_tags:
@@ -217,7 +323,9 @@ requirements:
     role: baseline_decision_context
 - id: PSR-016
   title: Historical fusion result space
-  statement: The prototype shall provide an additional historically analyzable fusion result space with monthly group and fusion trajectories without replacing the existing cluster-historical space.
+  statement: The prototype shall provide an additional historically analyzable fusion
+    result space with monthly group and fusion trajectories without replacing the
+    existing cluster-historical space.
   status: candidate_baseline_requirement
   baseline_classification: active_baseline
   migration_tags:
@@ -235,7 +343,8 @@ requirements:
     role: baseline_decision_context
 - id: PSR-017
   title: Expanded layer coverage
-  statement: The prototype shall operationally populate the Shock, Displacement, and Narrative layers.
+  statement: The prototype shall operationally populate the Shock, Displacement, and
+    Narrative layers.
   status: candidate_baseline_requirement
   baseline_classification: active_baseline
   migration_tags:
@@ -253,7 +362,9 @@ requirements:
     role: baseline_decision_context
 - id: PSR-018
   title: Time-aware fusion with driver hints
-  statement: The historical fusion path shall be time-aware and analyst-friendly, with visible dominant group contributions for recent increases and interpretable coverage and driver hints.
+  statement: The historical fusion path shall be time-aware and analyst-friendly,
+    with visible dominant group contributions for recent increases and interpretable
+    coverage and driver hints.
   status: candidate_baseline_requirement
   baseline_classification: active_baseline
   migration_tags:
@@ -270,7 +381,8 @@ requirements:
     role: baseline_decision_context
 - id: PSR-019
   title: Consistent fusion plot embedding
-  statement: Handout overview and country sections shall consistently reference existing fusion plot files.
+  statement: Handout overview and country sections shall consistently reference existing
+    fusion plot files.
   status: candidate_baseline_requirement
   baseline_classification: active_baseline
   migration_tags:
@@ -285,7 +397,9 @@ requirements:
     role: baseline_decision_context
 - id: PSR-020
   title: Operational event layer
-  statement: The prototype shall operationalize the Event layer with a real source, snapshot and historical effect, and analyst-facing explainability within the fusion space.
+  statement: The prototype shall operationalize the Event layer with a real source,
+    snapshot and historical effect, and analyst-facing explainability within the fusion
+    space.
   status: candidate_baseline_requirement
   baseline_classification: active_baseline
   migration_tags:
@@ -301,7 +415,9 @@ requirements:
     role: baseline_decision_context
 - id: PSR-021
   title: External validation and calibration
-  statement: The prototype shall provide an explicit and traceable validation and calibration framework integrating historical reference episodes, metrics, and diagnosable calibration guidance for the multi-layer monitor.
+  statement: The prototype shall provide an explicit and traceable validation and
+    calibration framework integrating historical reference episodes, metrics, and
+    diagnosable calibration guidance for the multi-layer monitor.
   status: candidate_baseline_requirement
   baseline_classification: active_baseline
   migration_tags:
@@ -317,7 +433,9 @@ requirements:
     role: baseline_decision_context
 - id: PSR-022
   title: Operational freshness and responsiveness
-  statement: The prototype shall explicitly expose and improve operational freshness and responsiveness so that snapshot statements distinguish clearly between fresh, aging, and stale signals.
+  statement: The prototype shall explicitly expose and improve operational freshness
+    and responsiveness so that snapshot statements distinguish clearly between fresh,
+    aging, and stale signals.
   status: candidate_baseline_requirement
   baseline_classification: active_baseline
   migration_tags:
@@ -333,7 +451,10 @@ requirements:
     role: baseline_decision_context
 - id: PSR-023
   title: Governance and political stability dimension
-  statement: The prototype shall integrate an explicit governance and political stability contribution space so that political capability, institutional stability, legitimacy, and socio-political cohesion are reflected systematically in snapshot, historical fusion, and validation.
+  statement: The prototype shall integrate an explicit governance and political stability
+    contribution space so that political capability, institutional stability, legitimacy,
+    and socio-political cohesion are reflected systematically in snapshot, historical
+    fusion, and validation.
   status: candidate_baseline_requirement
   baseline_classification: active_baseline
   migration_tags:
@@ -350,7 +471,10 @@ requirements:
     role: baseline_decision_context
 - id: PSR-024
   title: Comparative default baseline with parameterizable annual profiles
-  statement: The prototype shall provide a default cross-country comparison baseline of 10 countries, with each country analyzed, compared, validated, and reported over a full default 365-day profile; the profile horizon shall remain parameterizable when needed.
+  statement: The prototype shall provide a default cross-country comparison baseline
+    of 10 countries, with each country analyzed, compared, validated, and reported
+    over a full default 365-day profile; the profile horizon shall remain parameterizable
+    when needed.
   status: candidate_baseline_requirement
   baseline_classification: active_baseline
   migration_tags:
@@ -370,7 +494,10 @@ requirements:
     role: baseline_decision_context
 - id: PSR-025
   title: Peak attribution and event-alignment hardening
-  statement: The prototype shall harden peak interpretation within the default 365-day historical trajectory so that global background waves are better separated from country-specific peaks, peaks are explicitly attributed, and event-supported versus weakly supported peak situations are distinguishable.
+  statement: The prototype shall harden peak interpretation within the default 365-day
+    historical trajectory so that global background waves are better separated from
+    country-specific peaks, peaks are explicitly attributed, and event-supported versus
+    weakly supported peak situations are distinguishable.
   status: candidate_baseline_requirement
   baseline_classification: active_baseline
   migration_tags:
@@ -387,7 +514,9 @@ requirements:
     role: baseline_decision_context
 - id: PSR-026
   title: Analyst event registry and real-world alignment
-  statement: The prototype shall provide a structured analyst event-registry and review path that links peaks and central trajectory phases per country to real-world events while keeping the core pipeline runnable without mandatory live-web dependency.
+  statement: The prototype shall provide a structured analyst event-registry and review
+    path that links peaks and central trajectory phases per country to real-world
+    events while keeping the core pipeline runnable without mandatory live-web dependency.
   status: candidate_baseline_requirement
   baseline_classification: active_baseline
   migration_tags:
