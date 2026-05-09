@@ -1,0 +1,31 @@
+metadata:
+  artifact_type: software_requirements
+  migration_status: skeleton_initialized
+  baseline_decision_source: docs/planning/2026-05-09_baseline_decisions.md
+  source_documents:
+    - docs/requirements/ProtoSwR.md
+  classification_rules:
+    - active_baseline
+    - historical_origin
+    - parameterized_capability
+    - legacy_variant
+  allowed_statuses:
+    - candidate_baseline_requirement
+    - accepted_baseline_requirement
+    - implemented_requirement
+    - provisional_requirement
+    - retired_requirement
+schema_guidance:
+  required_fields:
+    - id
+    - title
+    - statement
+    - status
+    - baseline_classification
+    - source_refs
+    - parent_system_ids
+  optional_fields:
+    - rationale
+    - notes
+    - supersedes
+requirements: []

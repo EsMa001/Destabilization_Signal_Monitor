@@ -1,0 +1,62 @@
+metadata:
+  artifact_type: migration_baseline_map
+  migration_status: initial_classification_rules_defined
+  baseline_decision_source: docs/planning/2026-05-09_baseline_decisions.md
+classification_dimensions:
+  baseline_classes:
+    - active_baseline
+    - historical_origin
+    - parameterized_capability
+    - legacy_variant
+  artifact_classes:
+    - stakeholder_requirement
+    - system_requirement
+    - software_requirement
+    - verification_artifact
+    - open_issue
+normalization_rules:
+  - rule_id: MBR-001
+    statement: The active default country baseline is 10 countries.
+    applies_to:
+      - stakeholder_requirement
+      - system_requirement
+      - software_requirement
+    expected_classification: active_baseline
+  - rule_id: MBR-002
+    statement: Country count configurability is a required capability and should be modeled explicitly, not treated as contradiction to the 10-country default.
+    applies_to:
+      - stakeholder_requirement
+      - system_requirement
+      - software_requirement
+    expected_classification: parameterized_capability
+  - rule_id: MBR-003
+    statement: The active default historical horizon is 365 days.
+    applies_to:
+      - stakeholder_requirement
+      - system_requirement
+      - software_requirement
+    expected_classification: active_baseline
+  - rule_id: MBR-004
+    statement: Horizon configurability is a required capability and should be modeled explicitly.
+    applies_to:
+      - stakeholder_requirement
+      - system_requirement
+      - software_requirement
+    expected_classification: parameterized_capability
+  - rule_id: MBR-005
+    statement: Historical 3-country framing is historical-origin context unless explicitly reintroduced as an active bounded mode.
+    applies_to:
+      - stakeholder_requirement
+      - system_requirement
+      - software_requirement
+    expected_classification: historical_origin
+  - rule_id: MBR-006
+    statement: Existing 356-day defaults are legacy-variant candidates unless justified and re-modeled explicitly.
+    applies_to:
+      - stakeholder_requirement
+      - system_requirement
+      - software_requirement
+      - open_issue
+    expected_classification: legacy_variant
+notes:
+  - This file does not yet classify individual requirements; it defines the migration rules for doing so.

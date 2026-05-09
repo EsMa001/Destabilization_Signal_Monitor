@@ -1,0 +1,24 @@
+metadata:
+  artifact_type: open_issues
+  migration_status: skeleton_initialized
+  baseline_decision_source: docs/planning/2026-05-09_baseline_decisions.md
+  source_documents:
+    - docs/requirements/OpenIssues.md
+  allowed_statuses:
+    - candidate_open_issue
+    - open_issue
+    - resolved_issue
+    - retired_issue
+schema_guidance:
+  required_fields:
+    - id
+    - title
+    - statement
+    - status
+    - affected_artifact_ids
+    - source_refs
+  optional_fields:
+    - resolution_note
+    - resolution_type
+    - escalation_required
+issues: []

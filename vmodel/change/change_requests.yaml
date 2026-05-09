@@ -1,0 +1,11 @@
+metadata:
+  artifact_type: change_requests
+  migration_status: skeleton_initialized
+schema_guidance:
+  required_fields:
+    - id
+    - title
+    - status
+    - affected_artifact_ids
+    - rationale
+change_requests: []

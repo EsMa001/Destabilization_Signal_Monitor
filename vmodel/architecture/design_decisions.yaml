@@ -1,0 +1,16 @@
+metadata:
+  artifact_type: design_decisions
+  migration_status: skeleton_initialized
+  source_documents:
+    - docs/architecture/Architecture.md
+    - docs/architecture/RepositoryLayout.md
+    - docs/method/ProtoMethod.md
+schema_guidance:
+  required_fields:
+    - id
+    - title
+    - decision
+    - rationale
+    - status
+    - source_refs
+decisions: []

@@ -1,0 +1,14 @@
+metadata:
+  artifact_type: trace_links
+  migration_status: skeleton_initialized
+  source_documents:
+    - docs/traceability/TraceabilityMatrix.md
+schema_guidance:
+  allowed_link_types:
+    - derives
+    - refines
+    - verifies
+    - implements
+    - governs
+    - addresses
+links: []
