@@ -1,24 +1,1010 @@
 metadata:
   artifact_type: open_issues
-  migration_status: skeleton_initialized
+  migration_status: initial_population
   baseline_decision_source: docs/planning/2026-05-09_baseline_decisions.md
   source_documents:
-    - docs/requirements/OpenIssues.md
+  - docs/requirements/OpenIssues.md
+  - docs/traceability/TraceabilityMatrix.md
+  - docs/planning/2026-05-09_wp08_software_derivation.md
   allowed_statuses:
-    - candidate_open_issue
-    - open_issue
-    - resolved_issue
-    - retired_issue
+  - candidate_open_issue
+  - open_issue
+  - resolved_issue
+  - retired_issue
+  notes:
+  - Legacy free-text statuses were normalized to open_issue or resolved_issue for
+    the YAML migration.
+  - WP-09 added migration-governance follow-up issues where the recovered requirement
+    baseline or verification baseline remains only partially formalized in the legacy
+    source set.
 schema_guidance:
   required_fields:
-    - id
-    - title
-    - statement
-    - status
-    - affected_artifact_ids
-    - source_refs
+  - id
+  - title
+  - statement
+  - status
+  - affected_artifact_ids
+  - source_refs
   optional_fields:
-    - resolution_note
-    - resolution_type
-    - escalation_required
-issues: []
+  - resolution_note
+  - resolution_type
+  - escalation_required
+issues:
+- id: OI-001
+  title: Inconsistent country naming (`Deutschland` vs `Germany`) is not explicitly
+    normalized
+  statement: Inconsistent country naming (`Deutschland` vs `Germany`) is not explicitly
+    normalized.
+  status: open_issue
+  affected_artifact_ids:
+  - PSR-002
+  - PSyR-001
+  - PSwR-002
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-001
+  resolution_note: V1 defines canonical country names (`Iran`, `Israel`, `Germany`)
+    and maps `Deutschland -> Germany` during loading.
+  resolution_type: follow_up_required
+  escalation_required: false
+- id: OI-002
+  title: GDELT/UCDP input schema and ingestion mode are not specified (API vs snapshot
+    files)
+  statement: GDELT/UCDP input schema and ingestion mode are not specified (API vs
+    snapshot files).
+  status: open_issue
+  affected_artifact_ids:
+  - PSwR-003
+  - PSwR-004
+  - PSyR-005
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-002
+  resolution_note: V1 uses CSV snapshots with mandatory fields `date`, `country`,
+    `category|event_type`, `raw_value`; adapters validate fields.
+  resolution_type: follow_up_required
+  escalation_required: false
+- id: OI-003
+  title: Feature/subscore formulas and weights are not defined quantitatively
+  statement: Feature/subscore formulas and weights are not defined quantitatively.
+  status: open_issue
+  affected_artifact_ids:
+  - PSwR-007
+  - PSwR-008
+  - PSwR-009
+  - PSwR-010
+  - PSwR-011
+  - ALG-001
+  - ALG-002
+  - ALG-003
+  - ALG-004
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-003
+  resolution_note: V1 uses transparent equal-weight aggregation within each cluster
+    (arithmetic mean of validated subscores), documented as provisional.
+  resolution_type: follow_up_required
+  escalation_required: false
+- id: OI-004
+  title: Stage thresholds and trend boundaries are described qualitatively without
+    numeric defaults
+  statement: Stage thresholds and trend boundaries are described qualitatively without
+    numeric defaults.
+  status: open_issue
+  affected_artifact_ids:
+  - PSwR-012
+  - PSwR-013
+  - ALG-005
+  - ALG-006
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-004
+  resolution_note: V1 uses fixed defaults (`25/50/75` for stage, robust delta logic
+    for 7d vs 30d trend) and marks them calibratable.
+  resolution_type: follow_up_required
+  escalation_required: false
+- id: OI-005
+  title: Confidence components are listed but not quantified or weighted
+  statement: Confidence components are listed but not quantified or weighted.
+  status: open_issue
+  affected_artifact_ids:
+  - PSwR-014
+  - ALG-007
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-005
+  resolution_note: V1 computes confidence from data density, signal consistency, deviation
+    strength, and source plausibility (all 0-100, weighted).
+  resolution_type: follow_up_required
+  escalation_required: false
+- id: OI-006
+  title: Exact selection rule for "last run" and reference run artifacts is not specified
+  statement: Exact selection rule for "last run" and reference run artifacts is not
+    specified.
+  status: open_issue
+  affected_artifact_ids:
+  - PSyR-009
+  - PSyR-010
+  - ProtoRunbook
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-006
+  resolution_note: V1 defines `outputs/runs/current_run` as the last run and stores
+    the frozen reference in `outputs/reference/current_reference`.
+  resolution_type: follow_up_required
+  escalation_required: false
+- id: OI-007
+  title: Handout/report format and required sections are not formally defined
+  statement: Handout/report format and required sections are not formally defined.
+  status: open_issue
+  affected_artifact_ids:
+  - PSR-003
+  - PSR-005
+  - PSyR-006
+  - PSyR-007
+  - PSwR-016
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-007
+  resolution_note: V1 produces a Markdown handout with trend plots, cluster tables,
+    and short interpretations; exports are CSV/JSON.
+  resolution_type: follow_up_required
+  escalation_required: false
+- id: OI-008
+  title: Manual run-status override is required conceptually, but trigger mechanism
+    and persistence schema are unspecified
+  statement: Manual run-status override is required conceptually, but trigger mechanism
+    and persistence schema are unspecified.
+  status: open_issue
+  affected_artifact_ids:
+  - PSR-007
+  - PSwR-017
+  - PSyR-008
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-008
+  resolution_note: V1 uses optional environment variable `PROTO_RUN_STATUS_OVERRIDE`
+    with strict value validation and stores both proposed and effective status in
+    run metadata.
+  resolution_type: follow_up_required
+  escalation_required: false
+- id: OI-009
+  title: Required config-validation constraints (allowed country aliases, mandatory
+    keys, boundary checks) are not defined in the
+  statement: Required config-validation constraints (allowed country aliases, mandatory
+    keys, boundary checks) are not defined in the requirements documents.
+  status: open_issue
+  affected_artifact_ids:
+  - PSwR-002
+  - PSyR-001
+  - PSyR-002
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-009
+  resolution_note: V1 will enforce minimal validation set (mandatory sections, integer
+    windows > 0, required version keys, known country aliases) and mark stricter schema
+    rules as future refinement.
+  resolution_type: follow_up_required
+  escalation_required: false
+- id: OI-010
+  title: Bridge-uplift transfer function from `severity` to feature score is not specified
+    (linear, capped, weighted by confidenc
+  statement: Bridge-uplift transfer function from `severity` to feature score is not
+    specified (linear, capped, weighted by confidence, cluster-specific).
+  status: open_issue
+  affected_artifact_ids:
+  - PSwR-007
+  - PSwR-008
+  - ALG-001
+  - ALG-002
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-010
+  resolution_note: V1 keeps a simple provisional linear mapping `severity * 100`,
+    clamped to 0-100, independent of country/cluster; calibration is deferred.
+  resolution_type: follow_up_required
+  escalation_required: false
+- id: OI-011
+  title: Requirements do not define whether missing subscores should reduce cluster
+    score or only confidence
+  statement: Requirements do not define whether missing subscores should reduce cluster
+    score or only confidence.
+  status: open_issue
+  affected_artifact_ids:
+  - PSwR-010
+  - PSwR-011
+  - PSwR-014
+  - ALG-004
+  - ALG-007
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-011
+  resolution_note: V1 computes cluster scores from available validated subscores and
+    models missingness via confidence components (data density + source plausibility).
+  resolution_type: follow_up_required
+  escalation_required: false
+- id: OI-014
+  title: Historical Rolling Trend is not yet formalized as an official mandatory second
+    result area of the standard run
+  statement: Historical Rolling Trend is not yet formalized as an official mandatory
+    second result area of the standard run.
+  status: resolved_issue
+  affected_artifact_ids:
+  - PSR-008
+  - PSR-010
+  - PSyR-011
+  - PSyR-012
+  - PSyR-013
+  - PSwR-020
+  - PSwR-021
+  - PSwR-022
+  - PSwR-029
+  - PSwR-030
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-014
+  resolution_note: closed_v2_2 (implemented with separated snapshot/historical artifacts)
+  resolution_type: implemented_in_legacy_baseline
+  escalation_required: false
+- id: OI-015
+  title: The as-of-date rule for historical replay is now required conceptually, but
+    exact source-specific availability semantics
+  statement: The as-of-date rule for historical replay is now required conceptually,
+    but exact source-specific availability semantics are not yet formally defined
+    in code/config.
+  status: resolved_issue
+  affected_artifact_ids:
+  - PSwR-024
+  - PM-011
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-015
+  resolution_note: closed_v2_2 (as-of-date enforced in historical rolling calculation)
+  resolution_type: implemented_in_legacy_baseline
+  escalation_required: false
+- id: OI-016
+  title: Missing-day handling and rolling-window minimum coverage are now specified
+    conceptually, but exact confidence penalty ma
+  statement: Missing-day handling and rolling-window minimum coverage are now specified
+    conceptually, but exact confidence penalty mapping is not yet quantified.
+  status: resolved_issue
+  affected_artifact_ids:
+  - PSwR-025
+  - PSwR-026
+  - PSwR-027
+  - ALG-012
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-016
+  resolution_note: closed_v2_2 (min_valid_days + explicit coverage-based confidence
+    implemented)
+  resolution_type: implemented_in_legacy_baseline
+  escalation_required: false
+- id: OI-017
+  title: Bridge-file and context-table contributions are to be treated as time-constant
+    in the Historical Rolling Trend, but this
+  statement: Bridge-file and context-table contributions are to be treated as time-constant
+    in the Historical Rolling Trend, but this is a provisional simplification without
+    historical source versioning.
+  status: open_issue
+  affected_artifact_ids:
+  - PSwR-034
+  - PM-013
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-017
+  resolution_note: V2.2 documents constant historical handling as provisional and
+    defers full historical versioning to a later iteration.
+  resolution_type: follow_up_required
+  escalation_required: false
+- id: OI-018
+  title: Historical validation is desired, but no explicit curated event-layer is
+    yet available for automatic event-to-peak inter
+  statement: Historical validation is desired, but no explicit curated event-layer
+    is yet available for automatic event-to-peak interpretation.
+  status: open_issue
+  affected_artifact_ids:
+  - PSR-009
+  - PSwR-029
+  - PM-015
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-018
+  resolution_note: V2.2 limits the handout to compact text plus fixed annual context
+    metrics and records a future event-layer as dedicated follow-up work.
+  resolution_type: follow_up_required
+  escalation_required: false
+- id: OI-019
+  title: '`PSyR-002` keeps 7d/30d/12m analysis windows while `PSyR-014` requires exactly
+    one active historical rolling window per '
+  statement: '`PSyR-002` keeps 7d/30d/12m analysis windows while `PSyR-014` requires
+    exactly one active historical rolling window per run. The relationship between
+    these window concepts is not yet explicitly normalized in the requirement texts.'
+  status: open_issue
+  affected_artifact_ids:
+  - PSyR-002
+  - PSyR-014
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-019
+  resolution_note: Keep 7d/30d/12m as legacy/base processing windows and treat `historical.window_days`
+    as the single official rolling window for V2.2 output derivation. Document this
+    as normative in upcoming requirement cleanup.
+  resolution_type: follow_up_required
+  escalation_required: false
+- id: OI-020
+  title: If no historical point reaches `min_valid_days`, snapshot derivation from
+    the last valid historical point becomes undefi
+  statement: If no historical point reaches `min_valid_days`, snapshot derivation
+    from the last valid historical point becomes undefined.
+  status: open_issue
+  affected_artifact_ids:
+  - PSwR-022
+  - PSwR-026
+  - PSwR-033
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-020
+  resolution_note: Use the latest historical point with numeric rolling value (even
+    below minimum coverage) and mark reduced confidence via coverage penalty; keep
+    `kein_vergleich` trend for below-threshold points.
+  resolution_type: follow_up_required
+  escalation_required: false
+- id: OI-021
+  title: The first V2.2 output review shows that snapshot values can remain populated
+    although the historical rolling end-point i
+  statement: The first V2.2 output review shows that snapshot values can remain populated
+    although the historical rolling end-point is not valid at run date. The exact
+    normative status of this fallback is still not fully clarified in the requirements
+    text.
+  status: resolved_issue
+  affected_artifact_ids:
+  - PSwR-022
+  - PSwR-026
+  - PSwR-033
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-021
+  resolution_note: '- Umsetzung V2.2.1:
+
+    - Snapshot-Herkunft wird pro Land/Cluster explizit ausgewiesen (`historical_valid_endpoint`,
+    `historical_latest_valid_before_run_date`, `historical_numeric_fallback_below_min_valid_days`,
+    `raw_latest_fallback_no_historical_value`).
+
+    - Bei `historical_numeric_fallback_below_min_valid_days` wird eine explizite zusätzliche
+    Snapshot-Confidence-Reduktion angewendet.
+
+    - Kennzeichnung erfolgt in:
+
+    - `exports/snapshot/summary_export.json`
+
+    - `exports/snapshot/snapshot_status.json`
+
+    - Handout (`Snapshot-Herkunft`-Zeile je Cluster)'
+  resolution_type: implemented_in_legacy_baseline
+  escalation_required: false
+- id: OI-022
+  title: 'The first V2.2 output review shows that `vulnerability` currently behaves
+    across all three countries as a near-constant '
+  statement: The first V2.2 output review shows that `vulnerability` currently behaves
+    across all three countries as a near-constant structural/baseline cluster over
+    the historical horizon.
+  status: resolved_issue
+  affected_artifact_ids:
+  - PSwR-009
+  - PSwR-034
+  - PM-013
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-022
+  resolution_note: '- Umsetzung V2.2.1:
+
+    - V2.2.1 ordnet `vulnerability` explizit als derzeit strukturellen Baseline-Cluster
+    ein.
+
+    - Technische Grundlage: `constant_clusters={"vulnerability"}` im Historical-Rolling-Pfad.
+
+    - Sichtbare Kennzeichnung in:
+
+    - `exports/historical/historical_status.json` (`constant_clusters`, `method_notes.vulnerability_cluster_role`)
+
+    - Handout-Historical-Block (methodischer Baseline-Hinweis am Cluster)'
+  resolution_type: implemented_in_legacy_baseline
+  escalation_required: false
+- id: OI-023
+  title: The first V2.2 output review shows a strong `Germany / tension / protest_subscore`
+    jump that dominates the cluster incre
+  statement: The first V2.2 output review shows a strong `Germany / tension / protest_subscore`
+    jump that dominates the cluster increase and should be checked for factual/data
+    plausibility.
+  status: resolved_issue
+  affected_artifact_ids:
+  - PSwR-007
+  - PSwR-010
+  - PSwR-011
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-023
+  resolution_note: '- Umsetzung V2.2.1:
+
+    - Befund: kein Implementierungsartefakt.
+
+    - Der Sprung ist daten-/regelgetrieben:
+
+    - GDELT `Germany/protest`: `28 -> 31`
+
+    - Bridge-Marker `protest_marker` mit `severity=0.4` erzeugt per V1-Regel (`severity
+    * 100`) einen Uplift von `+40`.
+
+    - Ergebnis `protest_subscore`: `28 -> 71`.
+
+    - Der Clusteranstieg ist durch transparente Mittelung erklärbar; der Protest-Teilpfad
+    dominiert den Delta-Beitrag erwartungskonform.
+
+    - Abgesichert durch Integrations-Test (`TV-PSwR-007-002`).'
+  resolution_type: implemented_in_legacy_baseline
+  escalation_required: false
+- id: OI-024
+  title: 'The first V2.2 output review shows that yearly historical plots are functionally
+    present but still partly hard to read; '
+  statement: The first V2.2 output review shows that yearly historical plots are functionally
+    present but still partly hard to read; additionally, the handout still shows encoding/umlaut
+    rendering problems.
+  status: resolved_issue
+  affected_artifact_ids:
+  - PSR-003
+  - PSR-005
+  - PSwR-016
+  - PSwR-032
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-024
+  resolution_note: '- Umsetzung V2.2.1:
+
+    - Plots:
+
+    - Snapshot `figsize=(11, 5.5)`, Historical Cluster `figsize=(14, 7)`, Historical
+    Subscores `figsize=(16, 8)`.
+
+    - Datumsachsen im Historical-Kontext mit AutoDateLocator/ConciseDateFormatter
+    und verbesserter Tick-Dichte.
+
+    - `tight_layout()` + `autofmt_xdate()` für bessere Beschriftungslesbarkeit.
+
+    - Encoding:
+
+    - Handout und kompakter Historical-Textreport werden mit UTF-8-BOM (`utf-8-sig`)
+    geschrieben.
+
+    - Umlaute in Handout-Texten sind normiert (z. B. `gültig`, `eingeschränkt`).'
+  resolution_type: implemented_in_legacy_baseline
+  escalation_required: false
+- id: OI-025
+  title: V3.1 introduces a canonical observation schema, but the exact mandatory/optional
+    field set and the minimal adapter contr
+  statement: V3.1 introduces a canonical observation schema, but the exact mandatory/optional
+    field set and the minimal adapter contract still need normative text beyond the
+    current design intention.
+  status: resolved_issue
+  affected_artifact_ids:
+  - PSyR-018
+  - PSwR-036
+  - PSwR-037
+  - PSwR-044
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-025
+  resolution_note: '- Umsetzung V3.1:
+
+    - Kanonisches Observation-Schema implementiert (`proto/observations/models.py`,
+    `proto/observations/schema.py`).
+
+    - Adapter-Contract implementiert (`proto/observations/adapter_contract.py`).
+
+    - Pflichtfelder und Validierungsregeln sind in Code und Tests explizit abgesichert.'
+  resolution_type: implemented_in_legacy_baseline
+  escalation_required: false
+- id: OI-026
+  title: The first V3.1 fusion MVP shall use transparent manual group/source weights,
+    but exact default values remain provisional
+  statement: The first V3.1 fusion MVP shall use transparent manual group/source weights,
+    but exact default values remain provisional and should be documented as heuristic
+    rather than validated.
+  status: resolved_issue
+  affected_artifact_ids:
+  - PSwR-040
+  - PSwR-041
+  - PSwR-042
+  - ALG-014
+  - ALG-015
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-026
+  resolution_note: '- Umsetzung V3.1:
+
+    - Manuelle konfigurierbare Source-/Group-Weights sind aktiv im Fusion-Pfad.
+
+    - Die Defaultwerte bleiben explizit heuristisch/provisorisch und sind nicht als
+    kalibrierte Endwerte zu lesen.
+
+    - Umsetzung V4.0:
+
+    - Fusion-Gewichte wurden anhand eines expliziten Validierungsrahmens nachgeschaerft
+    und als Kalibrierprofil versioniert.
+
+    - Ranking-/Dominanz-/Timing-Metriken sind als laufbegleitende Review-Kriterien
+    operationalisiert.'
+  resolution_type: implemented_in_legacy_baseline
+  escalation_required: false
+- id: OI-027
+  title: V3.1 allows multiple native temporal resolutions, but the exact target-period
+    alignment rules for monthly, warning-style
+  statement: V3.1 allows multiple native temporal resolutions, but the exact target-period
+    alignment rules for monthly, warning-style and trade/exposure sources still need
+    a final normative wording.
+  status: resolved_issue
+  affected_artifact_ids:
+  - PSyR-022
+  - PSwR-038
+  - PSwR-043
+  - PM-022
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-027
+  resolution_note: '- Umsetzung V3.1:
+
+    - Native Perioden bleiben pro Observation erhalten (`period_start`, `period_end`,
+    `native_periodicity`).
+
+    - Fusion arbeitet auf definierter Zielperiode (`target_period_days`) und waehlt
+    je Quelle/Land den letzten gueltigen Punkt bis Run-Datum.'
+  resolution_type: implemented_in_legacy_baseline
+  escalation_required: false
+- id: OI-028
+  title: A cross-group reinforcement bonus is desired as an optional mechanism, but
+    it should not be active by default before bas
+  statement: A cross-group reinforcement bonus is desired as an optional mechanism,
+    but it should not be active by default before basic layer behavior is understood
+    and reviewed.
+  status: resolved_issue
+  affected_artifact_ids:
+  - PSwR-042
+  - ALG-016
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-028
+  resolution_note: '- Umsetzung V3.1:
+
+    - Bonusmechanismus im Fusion-Score implementiert, aber in der Standardkonfiguration
+    deaktiviert.'
+  resolution_type: implemented_in_legacy_baseline
+  escalation_required: false
+- id: OI-029
+  title: The overall V3 scope includes `Narrative`, `Shock`, `Displacement`, and future
+    event-source expansion, but the first imp
+  statement: The overall V3 scope includes `Narrative`, `Shock`, `Displacement`, and
+    future event-source expansion, but the first implementation block is intentionally
+    focused on Food/Structural MVP and parallel architecture enablement.
+  status: resolved_issue
+  affected_artifact_ids:
+  - PSR-012
+  - PSyR-019
+  - PSyR-020
+  - PM-017
+  - PM-023
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-029
+  resolution_note: '- Umsetzung V3.2/V3.3:
+
+    - V3.2: `Market/Food`, `Structural`, `Shock`, `Displacement` und `Narrative` liefern
+    echte Gruppenscores.
+
+    - V3.3: `Event` ist als realer Layer integriert und nicht mehr pauschal `not_available`.'
+  resolution_type: implemented_in_legacy_baseline
+  escalation_required: false
+- id: OI-030
+  title: Landbezogene Fusion-Plot-Einbindung im Handout war inkonsistent, obwohl Plotdateien
+    physisch vorhanden waren
+  statement: Landbezogene Fusion-Plot-Einbindung im Handout war inkonsistent, obwohl
+    Plotdateien physisch vorhanden waren.
+  status: resolved_issue
+  affected_artifact_ids:
+  - PSR-019
+  - PSwR-053
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-030
+  resolution_note: '- Umsetzung V3.1.1/V3.2:
+
+    - Landmapping fuer Plotdateien robust erweitert (`_plots_by_country`).
+
+    - Handout referenziert vorhandene Fusion-Plotdateien konsistent in Gesamt- und
+    Laenderbloeken.'
+  resolution_type: implemented_in_legacy_baseline
+  escalation_required: false
+- id: OI-031
+  title: Narrative-Input ist im V3.2-MVP strukturiert integriert, aber semantische
+    Validierung (Topic-Taxonomie, Richtungslabel-H
+  statement: Narrative-Input ist im V3.2-MVP strukturiert integriert, aber semantische
+    Validierung (Topic-Taxonomie, Richtungslabel-Harmonisierung, Redaktionsprozess)
+    bleibt methodisch offen.
+  status: open_issue
+  affected_artifact_ids:
+  - PSyR-026
+  - PSwR-061
+  - PM-026
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-031
+  resolution_note: V3.3 fuehrt ein kuratiertes Narrative-Validierungsprofil mit kontrollierten
+    Labelsets und Review-Workflow ein.
+  resolution_type: follow_up_required
+  escalation_required: false
+- id: OI-032
+  title: Monatliche Zielperioden sind implementiert, aber langfristige Regeln fuer
+    alternative Zielperioden (z
+  statement: Monatliche Zielperioden sind implementiert, aber langfristige Regeln
+    fuer alternative Zielperioden (z. B. quartalsweise oder event-getriebene Fenster)
+    sind noch nicht normativ festgelegt.
+  status: open_issue
+  affected_artifact_ids:
+  - PSyR-027
+  - PSwR-056
+  - PSwR-057
+  - PM-024
+  - PM-025
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-032
+  resolution_note: Zielperioden-Regeln in einem dedizierten Erweiterungsprofil (`monthly`/`quarterly`)
+    normieren; V3.2 bleibt bewusst auf `monthly`.
+  resolution_type: follow_up_required
+  escalation_required: false
+- id: OI-033
+  title: Die Gruppe `Event` ist im Zielmodell vorhanden, aber im V3.2-MVP weiterhin
+    nicht tief befuellt
+  statement: Die Gruppe `Event` ist im Zielmodell vorhanden, aber im V3.2-MVP weiterhin
+    nicht tief befuellt.
+  status: resolved_issue
+  affected_artifact_ids:
+  - PSyR-019
+  - PSwR-068
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-033
+  resolution_note: '- Umsetzung V3.3:
+
+    - Erste echte Event-Quelle integriert (`gdelt_event`).
+
+    - Event-Observationen werden periodisiert und normalisiert in den Fusion-Pfad
+    eingespeist.
+
+    - Event wirkt in Snapshot- und Historical-Fusion (`group_scores`, `historical_group_scores`,
+    `fusion_total_scores`, `historical_total_scores`).
+
+    - Event erscheint in Explainability, Handout, Exporten und Plots.
+
+    - Event-spezifische nicht-blockierende Plausibilitaetswarnungen sind aktiv.'
+  resolution_type: implemented_in_legacy_baseline
+  escalation_required: false
+- id: OI-034
+  title: V3.3 integriert den Event-Layer mit einer ersten echten Quelle, aber die
+    Robustheit gegen source-spezifische Biases blei
+  statement: V3.3 integriert den Event-Layer mit einer ersten echten Quelle, aber
+    die Robustheit gegen source-spezifische Biases bleibt bei Ein-Quellen-Eventbetrieb
+    begrenzt.
+  status: open_issue
+  affected_artifact_ids:
+  - PSyR-029
+  - PSwR-071
+  - PSwR-072
+  - PM-032
+  - PM-033
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-034
+  resolution_note: In einem Folgeblock mindestens eine zweite komplementaere Event-Quelle
+    (z. B. UCDP-Event-Adapter im Fusion-Raum) integrieren und gegen `gdelt_event`
+    cross-checken.
+  resolution_type: follow_up_required
+  escalation_required: false
+- id: OI-035
+  title: Referenzepisoden sind in V4.0 bewusst analystennahe Review-Anker und kein
+    formal gelabelter Ground Truth; inter-analysti
+  statement: Referenzepisoden sind in V4.0 bewusst analystennahe Review-Anker und
+    kein formal gelabelter Ground Truth; inter-analystische Konsistenzregeln sind
+    noch nicht normiert.
+  status: open_issue
+  affected_artifact_ids:
+  - PSR-021
+  - PSyR-030
+  - PSwR-076
+  - PSwR-077
+  - PM-036
+  - PM-037
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-035
+  resolution_note: Fuer einen Folgeblock ein kuratiertes Review-Protokoll (Doppelreview,
+    Konfliktauflösung, Episoden-Freeze-Regeln) als Validierungsgovernance ergänzen.
+  resolution_type: follow_up_required
+  escalation_required: false
+- id: OI-036
+  title: V4.0 markiert stale Event-Signale und geringe fruehe Layer-Abdeckung transparent,
+    kann diese Datenluecken methodisch abe
+  statement: V4.0 markiert stale Event-Signale und geringe fruehe Layer-Abdeckung
+    transparent, kann diese Datenluecken methodisch aber nicht vollständig kompensieren.
+  status: open_issue
+  affected_artifact_ids:
+  - PSwR-079
+  - PSwR-082
+  - PM-039
+  - PM-040
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-036
+  resolution_note: Event-Quelle erweitern (zweite Quelle) und historisierte Layer-Abdeckung
+    in einem Folgeblock vertiefen; bis dahin Warn-/Interpretationshinweise verpflichtend
+    beibehalten.
+  resolution_type: follow_up_required
+  escalation_required: false
+- id: OI-037
+  title: 'V4.1 verbessert die Freshness-/Responsiveness-Logik methodisch, aber operative
+    Frische bleibt durch reale Update-Latenz '
+  statement: V4.1 verbessert die Freshness-/Responsiveness-Logik methodisch, aber
+    operative Frische bleibt durch reale Update-Latenz einzelner Quellen begrenzt
+    (insbesondere Event bei laenger ausbleibenden neuen Datenpunkten).
+  status: open_issue
+  affected_artifact_ids:
+  - PSR-022
+  - PSyR-032
+  - PSyR-033
+  - PSwR-083
+  - PSwR-086
+  - PSwR-089
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-037
+  resolution_note: In einem Folgeblock ein schlankes operatives Refresh-Protokoll
+    (staleness SLA je Quelle, ingestion health checks, optional second event source)
+    einfuehren, ohne den Scope in Richtung unkontrollierter Quellenausweitung zu verschieben.
+  resolution_type: follow_up_required
+  escalation_required: false
+- id: OI-038
+  title: V4.2 fuehrt Governance als eigenstaendigen Layer ein, nutzt im MVP aber einen
+    einzelnen strukturierten Governance-Inputp
+  statement: V4.2 fuehrt Governance als eigenstaendigen Layer ein, nutzt im MVP aber
+    einen einzelnen strukturierten Governance-Inputpfad. Damit bleibt die externe
+    Triangulation gegen alternative Governance-Quellen/Methoden begrenzt.
+  status: open_issue
+  affected_artifact_ids:
+  - PSR-023
+  - PSyR-034
+  - PSyR-035
+  - PSwR-091
+  - PSwR-095
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-038
+  resolution_note: In einem Folgeblock ein schlankes Governance-Reviewprotokoll mit
+    Cross-Checks (mindestens zweite Referenzperspektive oder kuratierte Experten-Doppelreview-Regeln)
+    einfuehren, ohne den Scope in unkontrollierte Quellenausweitung zu treiben.
+  resolution_type: follow_up_required
+  escalation_required: false
+- id: OI-039
+  title: V4.3 erweitert den Vergleich auf 10 Laender mit vollstaendigen 356-Tage-Profilen,
+    aber die länderübergreifende Vergleich
+  statement: V4.3 erweitert den Vergleich auf 10 Laender mit vollstaendigen 356-Tage-Profilen,
+    aber die länderübergreifende Vergleichbarkeit bleibt methodisch durch heterogene
+    Datenfrische und unterschiedliche Quellabdeckung partiell eingeschraenkt.
+  status: open_issue
+  affected_artifact_ids:
+  - PSR-024
+  - PSyR-037
+  - PSwR-098
+  - PSwR-100
+  - PM-053
+  - PM-054
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-039
+  resolution_note: In einem Folgeblock ein schlankes Vergleichbarkeits-Protokoll einfuehren
+    (coverage-/freshness-adjusted comparison labels, optionale robuste Normalisierungschecks),
+    ohne den Scope in eine neue Grossmethodik auszuweiten.
+  resolution_type: follow_up_required
+  escalation_required: false
+- id: OI-040
+  title: V4.3.1 fuehrt Peak-Attribution und Event-Alignment robust ein, aber Event-Support
+    basiert im MVP auf einer analystischen
+  statement: V4.3.1 fuehrt Peak-Attribution und Event-Alignment robust ein, aber Event-Support
+    basiert im MVP auf einer analystischen Marker-Registry und nicht auf einer formal
+    kuratierten, extern validierten Event-Ground-Truth-Pipeline.
+  status: open_issue
+  affected_artifact_ids:
+  - PSR-025
+  - PSyR-040
+  - PSwR-109
+  - PSwR-110
+  - PM-059
+  - PM-060
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-040
+  resolution_note: In einem Folgeblock ein leichtgewichtiges Event-Alignment-Governance-Protokoll
+    definieren (Marker-Pflegeprozess, Doppelreview-Regeln, Freeze-Versionierung, Konfliktaufloesung),
+    ohne den Produktcode um verpflichtende Live-Web-Recherche zu erweitern.
+  resolution_type: follow_up_required
+  escalation_required: false
+- id: OI-041
+  title: V4.3.2 etabliert einen belastbaren Registry-/Alignment-Pfad, aber inter-analystische
+    Konsistenzregeln fuer Registry-Pfle
+  statement: V4.3.2 etabliert einen belastbaren Registry-/Alignment-Pfad, aber inter-analystische
+    Konsistenzregeln fuer Registry-Pflege, Evidence-Confidence-Kalibrierung und Review-Freeze-Zyklen
+    sind noch nicht voll formalisiert.
+  status: open_issue
+  affected_artifact_ids:
+  - PSR-026
+  - PSyR-041
+  - PSyR-043
+  - PSwR-113
+  - PSwR-118
+  - PSwR-120
+  - PM-064
+  - PM-068
+  - PM-070
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-041
+  resolution_note: In einem Folgeblock ein schlankes Registry-Governance-Protokoll
+    definieren (Pflege-Rollen, minimale Evidenzstandards je `source_category`, Delta-Review
+    bei Registry-Aenderungen, periodischer Freeze), ohne den Scope in verpflichtende
+    Live-Recherche oder neue Grossarchitektur auszuweiten.
+  resolution_type: follow_up_required
+  escalation_required: false
+- id: OI-042
+  title: Das neue Frontend-MVP benoetigt stabile API-Endpunkte fuer Overview-/Run-Detail-/Artifact-Daten
+  statement: Das neue Frontend-MVP benoetigt stabile API-Endpunkte fuer Overview-/Run-Detail-/Artifact-Daten.
+    Diese sind im aktuellen Integrationsstand nicht in jeder Umgebung garantiert verfuegbar.
+  status: open_issue
+  affected_artifact_ids:
+  - Frontend handoff AP-04
+  - AP-05
+  - AP-08
+  - AP-10
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-042
+  resolution_note: Frontend nutzt bis zur API-Vollabdeckung eine zentrale API-Fallback-Schicht
+    im Client (keine verteilten Seiten-Mocks), markiert als MVP-Zwischenzustand.
+  resolution_type: follow_up_required
+  escalation_required: false
+- id: OI-043
+  title: Phase-2-Seiten (Country Detail, Compare, Coverage, Artifacts) benoetigen
+    spezialisierte Aggregatendpunkte
+  statement: Phase-2-Seiten (Country Detail, Compare, Coverage, Artifacts) benoetigen
+    spezialisierte Aggregatendpunkte. Diese sind im aktuellen Integrationsstand nicht
+    durchgaengig als stabile Verträge verfuegbar.
+  status: open_issue
+  affected_artifact_ids:
+  - Frontend handoff AP-01
+  - AP-04
+  - AP-06
+  - AP-07
+  - AP-08
+  - AP-10
+  - AP-11
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-043
+  resolution_note: API-Client bleibt API-first, nutzt aber klar dokumentierte derive-pfade
+    aus stabilen Kernendpunkten (`overview`, `runs`, `options`) mit zentralen Fallback-Records,
+    bis dedizierte Endpunkte verbindlich bereitstehen.
+  resolution_type: follow_up_required
+  escalation_required: false
+- id: OI-044
+  title: Die neue FastAPI-MVP-Schicht deckt den Run-Lifecycle stabil ab, aber dedizierte
+    Analysten-Endpunkte (`/overview`, `/coun
+  statement: Die neue FastAPI-MVP-Schicht deckt den Run-Lifecycle stabil ab, aber
+    dedizierte Analysten-Endpunkte (`/overview`, `/countries/*`, `/compare`, `/coverage`,
+    `/artifacts`) sind im Backend noch nicht als verbindliche API-Vertraege umgesetzt.
+  status: open_issue
+  affected_artifact_ids:
+  - Backend API MVP AP-04
+  - AP-08
+  source_refs:
+  - file: docs/requirements/OpenIssues.md
+    id: OI-044
+  resolution_note: In einem Folgeblock die spezialisierten Read-Model-Endpunkte backendseitig
+    ergaenzen, damit Frontend-Derive-Pfade schrittweise entfallen koennen.
+  resolution_type: follow_up_required
+  escalation_required: false
+- id: OI-045
+  title: Legacy markdown source set drift after V2.2 lineage recovery
+  statement: The legacy markdown requirement sources no longer form a complete authoritative
+    baseline because PSR-008..011, PSyR-011..017, and PSwR-020..035 are implemented
+    and traceable but not all exist as standalone entries in ProtoSR.md, ProtoSyR.md,
+    and ProtoSwR.md.
+  status: open_issue
+  affected_artifact_ids:
+  - PSR-008
+  - PSR-009
+  - PSR-010
+  - PSR-011
+  - PSyR-011
+  - PSyR-012
+  - PSyR-013
+  - PSyR-014
+  - PSyR-015
+  - PSyR-016
+  - PSyR-017
+  - PSwR-020
+  - PSwR-021
+  - PSwR-022
+  - PSwR-023
+  - PSwR-024
+  - PSwR-025
+  - PSwR-026
+  - PSwR-027
+  - PSwR-028
+  - PSwR-029
+  - PSwR-030
+  - PSwR-031
+  - PSwR-032
+  - PSwR-033
+  - PSwR-034
+  - PSwR-035
+  source_refs:
+  - file: docs/planning/2026-05-09_wp08_software_derivation.md
+    role: migration_context
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: implementation_trace_context
+  - file: docs/requirements/OpenIssues.md
+    role: supporting_context
+  resolution_note: Either backfill the legacy markdown sources to full parity or formally
+    retire them as authoritative requirement sources in favor of the YAML baseline.
+  resolution_type: follow_up_required
+  escalation_required: false
+- id: OI-046
+  title: Generic legacy test references are not yet formalized into explicit governed
+    verification artifacts
+  statement: A subset of implemented software requirements is only backed by generic
+    test-file references or manual review markers in the legacy traceability matrix,
+    without explicit governed verification artifact IDs.
+  status: open_issue
+  affected_artifact_ids:
+  - PSwR-018
+  - PSwR-019
+  - PSwR-036
+  - PSwR-037
+  - PSwR-038
+  - PSwR-039
+  - PSwR-041
+  - PSwR-042
+  - PSwR-043
+  - PSwR-044
+  - PSwR-045
+  - PSwR-046
+  - PSwR-047
+  - PSwR-048
+  - PSwR-049
+  - PSwR-050
+  - PSwR-051
+  - PSwR-052
+  - PSwR-062
+  - PSwR-063
+  - PSwR-067
+  - PSwR-068
+  - PSwR-070
+  - PSwR-074
+  - PSwR-097
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    role: verification_trace_context
+  - file: vmodel/verification/test_specifications.yaml
+    role: governance_placeholder_context
+  resolution_note: Formalize the generated governance placeholders into explicit stable
+    verification artifacts and retire raw generic references in the legacy matrix
+    over time.
+  resolution_type: follow_up_required
+  escalation_required: false

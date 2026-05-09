@@ -1,6 +1,6 @@
 metadata:
   artifact_type: test_specifications
-  migration_status: initial_population_partial
+  migration_status: governance_hardened
   baseline_decision_source: docs/planning/2026-05-09_baseline_decisions.md
   source_documents:
   - docs/traceability/TraceabilityMatrix.md
@@ -16,6 +16,10 @@ metadata:
     legacy traceability matrix.
   - Rows that only reference test files or generic pytest execution without an explicit
     TV-* identifier remain to be formalized in a later verification work package.
+  - Explicit legacy TV-* identifiers remain authoritative where present.
+  - For legacy rows without explicit TV-* IDs, WP-09 adds GV-* candidate governance
+    placeholders so generic test references become machine-trackable without inventing
+    legacy TV IDs.
 schema_guidance:
   required_fields:
   - id
@@ -25,10 +29,344 @@ schema_guidance:
   - source_refs
   - status
   optional_fields:
-  - test_level
   - automation_status
   - implementation_refs
+  - test_level
 specifications:
+- id: GV-PSwR-018-001
+  title: Governance placeholder for legacy generic verification reference of PSwR-018
+  verification_type: governance_placeholder
+  linked_requirement_ids:
+  - PSwR-018
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-018
+  status: candidate_verification_artifact
+  test_level: mixed
+  automation_status: partially_formalized
+  implementation_refs:
+  - command: python -m pytest
+- id: GV-PSwR-019-001
+  title: Governance placeholder for legacy generic verification reference of PSwR-019
+  verification_type: governance_placeholder
+  linked_requirement_ids:
+  - PSwR-019
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-019
+  status: candidate_verification_artifact
+  test_level: mixed
+  automation_status: partially_formalized
+  implementation_refs:
+  - command: python -m pytest
+  - note: manual_review_required
+- id: GV-PSwR-036-001
+  title: Governance placeholder for legacy generic verification reference of PSwR-036
+  verification_type: governance_placeholder
+  linked_requirement_ids:
+  - PSwR-036
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-036
+  status: candidate_verification_artifact
+  test_level: integration
+  automation_status: partially_formalized
+  implementation_refs:
+  - path: tests/test_observations.py
+- id: GV-PSwR-037-001
+  title: Governance placeholder for legacy generic verification reference of PSwR-037
+  verification_type: governance_placeholder
+  linked_requirement_ids:
+  - PSwR-037
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-037
+  status: candidate_verification_artifact
+  test_level: integration
+  automation_status: partially_formalized
+  implementation_refs:
+  - path: tests/test_observations.py
+  - path: tests/test_sources.py
+- id: GV-PSwR-038-001
+  title: Governance placeholder for legacy generic verification reference of PSwR-038
+  verification_type: governance_placeholder
+  linked_requirement_ids:
+  - PSwR-038
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-038
+  status: candidate_verification_artifact
+  test_level: integration
+  automation_status: partially_formalized
+  implementation_refs:
+  - path: tests/test_observations.py
+- id: GV-PSwR-039-001
+  title: Governance placeholder for legacy generic verification reference of PSwR-039
+  verification_type: governance_placeholder
+  linked_requirement_ids:
+  - PSwR-039
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-039
+  status: candidate_verification_artifact
+  test_level: integration
+  automation_status: partially_formalized
+  implementation_refs:
+  - path: tests/test_sources.py
+  - path: tests/test_observations.py
+- id: GV-PSwR-041-001
+  title: Governance placeholder for legacy generic verification reference of PSwR-041
+  verification_type: governance_placeholder
+  linked_requirement_ids:
+  - PSwR-041
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-041
+  status: candidate_verification_artifact
+  test_level: integration
+  automation_status: partially_formalized
+  implementation_refs:
+  - path: tests/test_fusion.py
+- id: GV-PSwR-042-001
+  title: Governance placeholder for legacy generic verification reference of PSwR-042
+  verification_type: governance_placeholder
+  linked_requirement_ids:
+  - PSwR-042
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-042
+  status: candidate_verification_artifact
+  test_level: integration
+  automation_status: partially_formalized
+  implementation_refs:
+  - path: tests/test_fusion.py
+  - path: tests/test_config.py
+- id: GV-PSwR-043-001
+  title: Governance placeholder for legacy generic verification reference of PSwR-043
+  verification_type: governance_placeholder
+  linked_requirement_ids:
+  - PSwR-043
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-043
+  status: candidate_verification_artifact
+  test_level: integration
+  automation_status: partially_formalized
+  implementation_refs:
+  - path: tests/test_fusion.py
+  - path: tests/test_observations.py
+- id: GV-PSwR-044-001
+  title: Governance placeholder for legacy generic verification reference of PSwR-044
+  verification_type: governance_placeholder
+  linked_requirement_ids:
+  - PSwR-044
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-044
+  status: candidate_verification_artifact
+  test_level: system
+  automation_status: partially_formalized
+  implementation_refs:
+  - path: tests/test_observations.py
+  - path: tests/test_pipeline.py
+- id: GV-PSwR-045-001
+  title: Governance placeholder for legacy generic verification reference of PSwR-045
+  verification_type: governance_placeholder
+  linked_requirement_ids:
+  - PSwR-045
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-045
+  status: candidate_verification_artifact
+  test_level: system
+  automation_status: partially_formalized
+  implementation_refs:
+  - path: tests/test_fusion.py
+  - path: tests/test_pipeline.py
+- id: GV-PSwR-046-001
+  title: Governance placeholder for legacy generic verification reference of PSwR-046
+  verification_type: governance_placeholder
+  linked_requirement_ids:
+  - PSwR-046
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-046
+  status: candidate_verification_artifact
+  test_level: integration
+  automation_status: partially_formalized
+  implementation_refs:
+  - path: tests/test_fusion.py
+- id: GV-PSwR-047-001
+  title: Governance placeholder for legacy generic verification reference of PSwR-047
+  verification_type: governance_placeholder
+  linked_requirement_ids:
+  - PSwR-047
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-047
+  status: candidate_verification_artifact
+  test_level: system
+  automation_status: partially_formalized
+  implementation_refs:
+  - path: tests/test_pipeline.py
+- id: GV-PSwR-048-001
+  title: Governance placeholder for legacy generic verification reference of PSwR-048
+  verification_type: governance_placeholder
+  linked_requirement_ids:
+  - PSwR-048
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-048
+  status: candidate_verification_artifact
+  test_level: integration
+  automation_status: partially_formalized
+  implementation_refs:
+  - path: tests/test_sources.py
+- id: GV-PSwR-049-001
+  title: Governance placeholder for legacy generic verification reference of PSwR-049
+  verification_type: governance_placeholder
+  linked_requirement_ids:
+  - PSwR-049
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-049
+  status: candidate_verification_artifact
+  test_level: integration
+  automation_status: partially_formalized
+  implementation_refs:
+  - path: tests/test_sources.py
+- id: GV-PSwR-050-001
+  title: Governance placeholder for legacy generic verification reference of PSwR-050
+  verification_type: governance_placeholder
+  linked_requirement_ids:
+  - PSwR-050
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-050
+  status: candidate_verification_artifact
+  test_level: integration
+  automation_status: partially_formalized
+  implementation_refs:
+  - path: tests/test_sources.py
+- id: GV-PSwR-051-001
+  title: Governance placeholder for legacy generic verification reference of PSwR-051
+  verification_type: governance_placeholder
+  linked_requirement_ids:
+  - PSwR-051
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-051
+  status: candidate_verification_artifact
+  test_level: system
+  automation_status: partially_formalized
+  implementation_refs:
+  - path: tests/test_pipeline.py
+- id: GV-PSwR-052-001
+  title: Governance placeholder for legacy generic verification reference of PSwR-052
+  verification_type: governance_placeholder
+  linked_requirement_ids:
+  - PSwR-052
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-052
+  status: candidate_verification_artifact
+  test_level: system
+  automation_status: partially_formalized
+  implementation_refs:
+  - path: tests/test_pipeline.py
+- id: GV-PSwR-062-001
+  title: Governance placeholder for legacy generic verification reference of PSwR-062
+  verification_type: governance_placeholder
+  linked_requirement_ids:
+  - PSwR-062
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-062
+  status: candidate_verification_artifact
+  test_level: system
+  automation_status: partially_formalized
+  implementation_refs:
+  - path: tests/test_fusion.py
+  - path: tests/test_pipeline.py
+- id: GV-PSwR-063-001
+  title: Governance placeholder for legacy generic verification reference of PSwR-063
+  verification_type: governance_placeholder
+  linked_requirement_ids:
+  - PSwR-063
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-063
+  status: candidate_verification_artifact
+  test_level: system
+  automation_status: partially_formalized
+  implementation_refs:
+  - path: tests/test_fusion.py
+  - path: tests/test_pipeline.py
+- id: GV-PSwR-067-001
+  title: Governance placeholder for legacy generic verification reference of PSwR-067
+  verification_type: governance_placeholder
+  linked_requirement_ids:
+  - PSwR-067
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-067
+  status: candidate_verification_artifact
+  test_level: system
+  automation_status: partially_formalized
+  implementation_refs:
+  - path: tests/test_pipeline.py
+- id: GV-PSwR-068-001
+  title: Governance placeholder for legacy generic verification reference of PSwR-068
+  verification_type: governance_placeholder
+  linked_requirement_ids:
+  - PSwR-068
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-068
+  status: candidate_verification_artifact
+  test_level: system
+  automation_status: partially_formalized
+  implementation_refs:
+  - path: tests/test_pipeline.py
+- id: GV-PSwR-070-001
+  title: Governance placeholder for legacy generic verification reference of PSwR-070
+  verification_type: governance_placeholder
+  linked_requirement_ids:
+  - PSwR-070
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-070
+  status: candidate_verification_artifact
+  test_level: integration
+  automation_status: partially_formalized
+  implementation_refs:
+  - path: tests/test_fusion.py
+- id: GV-PSwR-074-001
+  title: Governance placeholder for legacy generic verification reference of PSwR-074
+  verification_type: governance_placeholder
+  linked_requirement_ids:
+  - PSwR-074
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-074
+  status: candidate_verification_artifact
+  test_level: system
+  automation_status: partially_formalized
+  implementation_refs:
+  - path: tests/test_pipeline.py
+- id: GV-PSwR-097-001
+  title: Governance placeholder for legacy generic verification reference of PSwR-097
+  verification_type: governance_placeholder
+  linked_requirement_ids:
+  - PSwR-097
+  source_refs:
+  - file: docs/traceability/TraceabilityMatrix.md
+    requirement_id: PSwR-097
+  status: candidate_verification_artifact
+  test_level: integration
+  automation_status: partially_formalized
+  implementation_refs:
+  - path: tests/test_config.py
 - id: TV-PSwR-001-INT-001
   title: Verification for PSwR-001
   verification_type: automated_test
