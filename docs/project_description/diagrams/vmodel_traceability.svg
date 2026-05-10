@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="740" viewBox="0 0 1200 740" role="img" aria-label="V-Model-Light und Traceability-Governance">
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 22px Arial, sans-serif; fill: #0f172a; }
+      .subtitle { font: 400 12px Arial, sans-serif; fill: #475569; }
+      .box { fill: #ffffff; stroke: #334155; stroke-width: 1.4; rx: 10; }
+      .box-blue { fill: #e0f2fe; stroke: #0284c7; }
+      .box-green { fill: #dcfce7; stroke: #16a34a; }
+      .box-orange { fill: #ffedd5; stroke: #ea580c; }
+      .box-purple { fill: #ede9fe; stroke: #7c3aed; }
+      .box-red { fill: #ffe4e6; stroke: #e11d48; }
+      .box-gray { fill: #f1f5f9; stroke: #64748b; }
+      .label { font: 700 13px Arial, sans-serif; fill: #0f172a; }
+      .small { font: 400 11px Arial, sans-serif; fill: #334155; }
+      .tiny { font: 400 9px Arial, sans-serif; fill: #475569; }
+      .arrow { stroke: #334155; stroke-width: 1.6; fill: none; marker-end: url(#arrow); }
+      .dashed { stroke-dasharray: 6 4; }
+      .boundary { fill: none; stroke: #94a3b8; stroke-width: 1.2; stroke-dasharray: 8 5; rx: 14; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#334155" />
+    </marker>
+  </defs>
+  <rect class="bg" width="100%" height="100%"/>
+  <text x="24" y="34" class="title">V-Model-Light und Traceability-Governance</text>
+  
+  <text x="24" y="56" class="subtitle">Machine-readable Baseline mit bidirektionalen Links, Testspezifikationen, Open Issues und Function-Level-Code-Links</text>
+  <rect x="70" y="110" width="210" height="90" class="box box-blue"/><text x="92" y="142" class="label">PSR-* Stakeholder</text><text x="92" y="168" class="small">26 Anforderungen</text>
+  <rect x="370" y="110" width="210" height="90" class="box box-blue"/><text x="392" y="142" class="label">PSyR-* System</text><text x="392" y="168" class="small">43 Anforderungen</text>
+  <rect x="670" y="110" width="210" height="90" class="box box-blue"/><text x="692" y="142" class="label">PSwR-* Software</text><text x="692" y="168" class="small">124 Anforderungen</text>
+  <rect x="960" y="110" width="170" height="90" class="box box-green"/><text x="982" y="142" class="label">Python Code</text><text x="982" y="168" class="small">480 Funktionen</text>
+  <path d="M280 155 L370 155" class="arrow"/><path d="M580 155 L670 155" class="arrow"/><path d="M880 155 L960 155" class="arrow"/>
+
+  <rect x="670" y="310" width="210" height="95" class="box box-purple"/><text x="692" y="342" class="label">TV-* Verification</text><text x="692" y="368" class="small">156 test specs</text><text x="692" y="390" class="small">120 pytest passed</text>
+  <rect x="960" y="310" width="170" height="95" class="box box-purple"/><text x="982" y="342" class="label">Tests</text><text x="982" y="368" class="small">unit / integration / e2e</text><text x="982" y="390" class="small">trace annotations</text>
+  <path d="M775 200 L775 310" class="arrow"/><path d="M960 360 L880 360" class="arrow"/>
+
+  <rect x="370" y="500" width="250" height="95" class="box box-red"/><text x="392" y="532" class="label">OI-* Open Issues</text><text x="392" y="558" class="small">46 Issues: 28 offen, 18 geloest</text><text x="392" y="580" class="small">methodische und future debt</text>
+  <rect x="700" y="500" width="270" height="95" class="box box-gray"/><text x="722" y="532" class="label">trace_links.yaml</text><text x="722" y="558" class="small">2462 function-level links</text><text x="722" y="580" class="small">implements / verifies / governs / addresses</text>
+  <path d="M775 405 C720 455 570 455 495 500" class="arrow dashed"/>
+  <path d="M1045 200 C1090 400 1010 520 970 550" class="arrow dashed"/>
+  <path d="M880 155 C1010 240 920 430 835 500" class="arrow dashed"/>
+
+</svg>

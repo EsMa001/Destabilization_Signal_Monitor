@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820" role="img" aria-label="Programmablauf: Standardlauf proto.pipeline.run_proto">
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 22px Arial, sans-serif; fill: #0f172a; }
+      .subtitle { font: 400 12px Arial, sans-serif; fill: #475569; }
+      .box { fill: #ffffff; stroke: #334155; stroke-width: 1.4; rx: 10; }
+      .box-blue { fill: #e0f2fe; stroke: #0284c7; }
+      .box-green { fill: #dcfce7; stroke: #16a34a; }
+      .box-orange { fill: #ffedd5; stroke: #ea580c; }
+      .box-purple { fill: #ede9fe; stroke: #7c3aed; }
+      .box-red { fill: #ffe4e6; stroke: #e11d48; }
+      .box-gray { fill: #f1f5f9; stroke: #64748b; }
+      .label { font: 700 13px Arial, sans-serif; fill: #0f172a; }
+      .small { font: 400 11px Arial, sans-serif; fill: #334155; }
+      .tiny { font: 400 9px Arial, sans-serif; fill: #475569; }
+      .arrow { stroke: #334155; stroke-width: 1.6; fill: none; marker-end: url(#arrow); }
+      .dashed { stroke-dasharray: 6 4; }
+      .boundary { fill: none; stroke: #94a3b8; stroke-width: 1.2; stroke-dasharray: 8 5; rx: 14; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#334155" />
+    </marker>
+  </defs>
+  <rect class="bg" width="100%" height="100%"/>
+  <text x="24" y="34" class="title">Programmablauf: Standardlauf proto.pipeline.run_proto</text>
+  
+  <text x="24" y="56" class="subtitle">Sequenz eines offiziellen Standardlaufs mit additiven Ergebnisraeumen</text>
+  <rect x="70" y="95" width="190" height="70" class="box box-blue"/><text x="92" y="122" class="label">1. Config laden</text><text x="92" y="145" class="small">countries, windows, weights</text>
+  <rect x="340" y="95" width="190" height="70" class="box box-blue"/><text x="362" y="122" class="label">2. Quellen laden</text><text x="362" y="145" class="small">legacy + V3 sources</text>
+  <rect x="610" y="95" width="190" height="70" class="box box-green"/><text x="632" y="122" class="label">3. Normalisieren</text><text x="632" y="145" class="small">features / observations</text>
+  <rect x="880" y="95" width="190" height="70" class="box box-green"/><text x="902" y="122" class="label">4. Scores</text><text x="902" y="145" class="small">sub, cluster, group, total</text>
+  <path d="M260 130 L340 130" class="arrow"/><path d="M530 130 L610 130" class="arrow"/><path d="M800 130 L880 130" class="arrow"/>
+
+  <rect x="110" y="245" width="260" height="110" class="box box-orange"/><text x="132" y="272" class="label">Snapshot</text><text x="132" y="296" class="small">letzter gueltiger rolling Punkt</text><text x="132" y="318" class="small">oder markierter Fallback</text>
+  <rect x="470" y="245" width="260" height="110" class="box box-orange"/><text x="492" y="272" class="label">Historical rolling trend</text><text x="492" y="296" class="small">taegliche rolling windows</text><text x="492" y="318" class="small">valid_days + confidence</text>
+  <rect x="830" y="245" width="260" height="110" class="box box-orange"/><text x="852" y="272" class="label">Monthly fusion history</text><text x="852" y="296" class="small">12 Monate / Gruppen</text><text x="852" y="318" class="small">Peak / trajectory / event alignment</text>
+  <path d="M975 165 C975 200 960 220 960 245" class="arrow"/><path d="M975 165 C720 210 600 220 600 245" class="arrow"/><path d="M975 165 C520 205 240 220 240 245" class="arrow"/>
+
+  <rect x="190" y="450" width="230" height="100" class="box box-purple"/><text x="212" y="478" class="label">Exports</text><text x="212" y="503" class="small">features, scores, fusion, validation</text><text x="212" y="525" class="small">CSV / JSON</text>
+  <rect x="485" y="450" width="230" height="100" class="box box-purple"/><text x="507" y="478" class="label">Plots</text><text x="507" y="503" class="small">snapshot, historical, fusion</text><text x="507" y="525" class="small">event alignment figures</text>
+  <rect x="780" y="450" width="230" height="100" class="box box-purple"/><text x="802" y="478" class="label">Handout / Bundle</text><text x="802" y="503" class="small">Markdown report</text><text x="802" y="525" class="small">acceptance snapshot</text>
+  <path d="M240 355 C250 400 305 410 305 450" class="arrow"/><path d="M600 355 L600 450" class="arrow"/><path d="M960 355 C955 400 895 410 895 450" class="arrow"/>
+
+  <rect x="340" y="650" width="230" height="80" class="box box-gray"/><text x="362" y="678" class="label">Run metadata</text><text x="362" y="702" class="small">versions, windows, status</text>
+  <rect x="650" y="650" width="230" height="80" class="box box-gray"/><text x="672" y="678" class="label">Comparison</text><text x="672" y="702" class="small">last run + reference run</text>
+  <path d="M305 550 C380 610 455 610 455 650" class="arrow"/><path d="M895 550 C820 610 765 610 765 650" class="arrow"/><path d="M570 690 L650 690" class="arrow"/>
+
+</svg>

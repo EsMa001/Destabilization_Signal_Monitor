@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-label="Mathematische Modellstruktur: Features, Cluster und Fusion">
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 22px Arial, sans-serif; fill: #0f172a; }
+      .subtitle { font: 400 12px Arial, sans-serif; fill: #475569; }
+      .box { fill: #ffffff; stroke: #334155; stroke-width: 1.4; rx: 10; }
+      .box-blue { fill: #e0f2fe; stroke: #0284c7; }
+      .box-green { fill: #dcfce7; stroke: #16a34a; }
+      .box-orange { fill: #ffedd5; stroke: #ea580c; }
+      .box-purple { fill: #ede9fe; stroke: #7c3aed; }
+      .box-red { fill: #ffe4e6; stroke: #e11d48; }
+      .box-gray { fill: #f1f5f9; stroke: #64748b; }
+      .label { font: 700 13px Arial, sans-serif; fill: #0f172a; }
+      .small { font: 400 11px Arial, sans-serif; fill: #334155; }
+      .tiny { font: 400 9px Arial, sans-serif; fill: #475569; }
+      .arrow { stroke: #334155; stroke-width: 1.6; fill: none; marker-end: url(#arrow); }
+      .dashed { stroke-dasharray: 6 4; }
+      .boundary { fill: none; stroke: #94a3b8; stroke-width: 1.2; stroke-dasharray: 8 5; rx: 14; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#334155" />
+    </marker>
+  </defs>
+  <rect class="bg" width="100%" height="100%"/>
+  <text x="24" y="34" class="title">Mathematische Modellstruktur: Features, Cluster und Fusion</text>
+  
+  <text x="24" y="56" class="subtitle">Transparente Heuristik statt Black-Box-Modell; Scores werden auf definierte Skalen geklemmt und separat mit Confidence bewertet</text>
+  <rect x="60" y="120" width="250" height="130" class="box box-blue"/><text x="82" y="148" class="label">Legacy Clusterpfad</text><text x="82" y="178" class="small">f_i in [0,100]</text><text x="82" y="204" class="small">subscore = mean(features)</text><text x="82" y="230" class="small">cluster = mean(subscores)</text>
+  <rect x="470" y="120" width="290" height="130" class="box box-green"/><text x="492" y="148" class="label">Stage / Trend</text><text x="492" y="178" class="small">stage via thresholds: 30 / 56 / 80</text><text x="492" y="204" class="small">trend = sign(mean_7d - mean_baseline)</text><text x="492" y="230" class="small">epsilon = 1.25</text>
+  <rect x="900" y="120" width="240" height="130" class="box box-purple"/><text x="922" y="148" class="label">Interpretation</text><text x="922" y="178" class="small">niedrig / erhoeht / hoch / sehr hoch</text><text x="922" y="204" class="small">ruecklaeufig / stabil / zunehmend</text><text x="922" y="230" class="small">confidence low/mid/high</text>
+  <path d="M310 185 L470 185" class="arrow"/><path d="M760 185 L900 185" class="arrow"/>
+
+  <rect x="60" y="370" width="250" height="150" class="box box-blue"/><text x="82" y="398" class="label">Canonical observations</text><text x="82" y="428" class="small">s_i in [0,1]</text><text x="82" y="452" class="small">provenance + quality</text><text x="82" y="476" class="small">native period + target period</text>
+  <rect x="470" y="370" width="290" height="150" class="box box-green"/><text x="492" y="398" class="label">Group score</text><text x="492" y="428" class="small">G_g = 100 * sum(w_i s_i d_i) / sum(w_i)</text><text x="492" y="452" class="small">d_i = freshness/event decay</text><text x="492" y="476" class="small">status: ok / limited / not_available</text>
+  <rect x="900" y="370" width="240" height="150" class="box box-purple"/><text x="922" y="398" class="label">Fusion total</text><text x="922" y="428" class="small">F = sum(W_g G_g) / sum(W_g)</text><text x="922" y="452" class="small">optional synergy bonus disabled</text><text x="922" y="476" class="small">confidence separate from score</text>
+  <path d="M310 445 L470 445" class="arrow"/><path d="M760 445 L900 445" class="arrow"/>
+
+  <rect x="330" y="595" width="540" height="60" class="box box-orange"/><text x="352" y="622" class="label">Validation layer</text><text x="352" y="646" class="small">freshness diagnostics, ranking plausibility, peak detection, event alignment, review queue</text>
+  <path d="M600 520 L600 595" class="arrow"/><path d="M1020 520 C1020 580 870 570 870 625" class="arrow"/>
+
+</svg>

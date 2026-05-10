@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-label="Repository-Struktur und Artefaktlandschaft">
+  <defs>
+    <style>
+      .bg { fill:#f8fafc; }
+      .title { font:700 22px Arial,sans-serif; fill:#0f172a; }
+      .subtitle { font:400 12px Arial,sans-serif; fill:#475569; }
+      .box { fill:#fff; stroke:#334155; stroke-width:1.4; rx:10; }
+      .blue { fill:#e0f2fe; stroke:#0284c7; }
+      .green { fill:#dcfce7; stroke:#16a34a; }
+      .orange { fill:#ffedd5; stroke:#ea580c; }
+      .purple { fill:#ede9fe; stroke:#7c3aed; }
+      .gray { fill:#f1f5f9; stroke:#64748b; }
+      .label { font:700 13px Arial,sans-serif; fill:#0f172a; }
+      .small { font:400 11px Arial,sans-serif; fill:#334155; }
+      .tiny { font:400 9px Arial,sans-serif; fill:#475569; }
+      .arrow { stroke:#334155; stroke-width:1.6; fill:none; marker-end:url(#a); }
+      .dash { stroke-dasharray:6 4; }
+    </style>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#334155"/></marker>
+  </defs>
+  <rect class="bg" width="100%" height="100%"/>
+  <text x="24" y="34" class="title">Repository-Struktur und Artefaktlandschaft</text>
+  
+  <text x="24" y="56" class="subtitle">Projektorganisation fuer Code, Governance, Daten, Tests, Tools und generierte Artefakte</text>
+  <rect x="50" y="100" width="250" height="590" class="box gray"/>
+  <text x="72" y="128" class="label">Governance / Dokumente</text>
+  <text x="72" y="160" class="small">README.md</text>
+  <text x="72" y="186" class="small">IMPLEMENT.md</text>
+  <text x="72" y="212" class="small">docs/requirements/*</text>
+  <text x="72" y="238" class="small">docs/method/*</text>
+  <text x="72" y="264" class="small">docs/testing/*</text>
+  <text x="72" y="290" class="small">docs/traceability/*</text>
+  <text x="72" y="338" class="label">V-Model target</text>
+  <text x="72" y="366" class="small">vmodel/requirements/*</text>
+  <text x="72" y="392" class="small">vmodel/verification/*</text>
+  <text x="72" y="418" class="small">vmodel/change/*</text>
+  <text x="72" y="444" class="small">vmodel/traceability/*</text>
+  <text x="72" y="470" class="small">docs/planning/*</text>
+
+  <rect x="360" y="100" width="250" height="590" class="box blue"/>
+  <text x="382" y="128" class="label">Produktcode</text>
+  <text x="382" y="160" class="small">proto/pipeline/*</text>
+  <text x="382" y="186" class="small">proto/sources/*</text>
+  <text x="382" y="212" class="small">proto/features/*</text>
+  <text x="382" y="238" class="small">proto/scoring/*</text>
+  <text x="382" y="264" class="small">proto/observations/*</text>
+  <text x="382" y="290" class="small">proto/fusion/*</text>
+  <text x="382" y="316" class="small">proto/reporting/*</text>
+  <text x="382" y="342" class="small">proto/runs/*</text>
+  <text x="382" y="388" class="label">API</text>
+  <text x="382" y="416" class="small">api/main.py</text>
+  <text x="382" y="442" class="small">api/routes/*</text>
+  <text x="382" y="468" class="small">api/services/*</text>
+  <text x="382" y="494" class="small">api/schemas/*</text>
+
+  <rect x="670" y="100" width="220" height="590" class="box green"/>
+  <text x="692" y="128" class="label">Qualitaet / Support</text>
+  <text x="692" y="160" class="small">tests/*</text>
+  <text x="692" y="186" class="small">tools/*</text>
+  <text x="692" y="212" class="small">scripts/*</text>
+  <text x="692" y="238" class="small">config/default.yaml</text>
+  <text x="692" y="264" class="small">AGENTS.md</text>
+  <text x="692" y="312" class="label">Daten</text>
+  <text x="692" y="340" class="small">data/gdelt/*</text>
+  <text x="692" y="366" class="small">data/ucdp/*</text>
+  <text x="692" y="392" class="small">data/context/*</text>
+  <text x="692" y="418" class="small">data/bridge/*</text>
+  <text x="692" y="444" class="small">data/fao_*/*</text>
+  <text x="692" y="470" class="small">data/un_*/*</text>
+  <text x="692" y="496" class="small">data/validation/*</text>
+
+  <rect x="950" y="100" width="190" height="590" class="box orange"/>
+  <text x="972" y="128" class="label">Generierte Outputs</text>
+  <text x="972" y="160" class="small">outputs/runs/current_run/</text>
+  <text x="990" y="186" class="tiny">exports/snapshot/*</text>
+  <text x="990" y="208" class="tiny">exports/historical/*</text>
+  <text x="990" y="230" class="tiny">exports/fusion/*</text>
+  <text x="990" y="252" class="tiny">plots/*</text>
+  <text x="990" y="274" class="tiny">handout.md</text>
+  <text x="990" y="296" class="tiny">run_metadata.json</text>
+  <text x="990" y="318" class="tiny">run_comparison.json</text>
+  <text x="990" y="340" class="tiny">reference_comparison.json</text>
+  <text x="972" y="388" class="small">outputs/reference/*</text>
+  <text x="972" y="436" class="small">review bundles</text>
+
+  <path d="M300 260 L360 260" class="arrow"/>
+  <path d="M610 260 L670 260" class="arrow"/>
+  <path d="M890 260 L950 260" class="arrow"/>
+  <path d="M300 420 C500 500 770 520 950 520" class="arrow dash"/>
+
+</svg>

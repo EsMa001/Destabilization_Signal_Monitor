@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-label="Quellen-zu-Layer- und Gruppenabbildung">
+  <defs>
+    <style>
+      .bg { fill:#f8fafc; }
+      .title { font:700 22px Arial,sans-serif; fill:#0f172a; }
+      .subtitle { font:400 12px Arial,sans-serif; fill:#475569; }
+      .box { fill:#fff; stroke:#334155; stroke-width:1.4; rx:10; }
+      .blue { fill:#e0f2fe; stroke:#0284c7; }
+      .green { fill:#dcfce7; stroke:#16a34a; }
+      .orange { fill:#ffedd5; stroke:#ea580c; }
+      .purple { fill:#ede9fe; stroke:#7c3aed; }
+      .gray { fill:#f1f5f9; stroke:#64748b; }
+      .label { font:700 13px Arial,sans-serif; fill:#0f172a; }
+      .small { font:400 11px Arial,sans-serif; fill:#334155; }
+      .tiny { font:400 9px Arial,sans-serif; fill:#475569; }
+      .arrow { stroke:#334155; stroke-width:1.6; fill:none; marker-end:url(#a); }
+      .dash { stroke-dasharray:6 4; }
+    </style>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#334155"/></marker>
+  </defs>
+  <rect class="bg" width="100%" height="100%"/>
+  <text x="24" y="34" class="title">Quellen-zu-Layer- und Gruppenabbildung</text>
+  
+  <text x="24" y="56" class="subtitle">Heterogene Eingangsdaten werden ueber kanonische Observations in den additiven Multi-Source-Fusionpfad ueberfuehrt</text>
+  <rect x="60" y="110" width="260" height="520" class="box blue"/>
+  <text x="82" y="138" class="label">Datenquellen</text>
+  <text x="82" y="170" class="small">GDELT events</text>
+  <text x="82" y="198" class="small">UCDP events</text>
+  <text x="82" y="226" class="small">Bridge events</text>
+  <text x="82" y="254" class="small">Country context</text>
+  <text x="82" y="296" class="small">FAO FFPI</text>
+  <text x="82" y="324" class="small">FAO FPMA</text>
+  <text x="82" y="352" class="small">UN Comtrade</text>
+  <text x="82" y="380" class="small">GDACS</text>
+  <text x="82" y="408" class="small">UNHCR</text>
+  <text x="82" y="436" class="small">Narrative input</text>
+  <text x="82" y="464" class="small">Governance input</text>
+  <text x="82" y="500" class="tiny">Legacy cluster path uses GDELT, UCDP, Bridge, Context</text>
+  <text x="82" y="524" class="tiny">Fusion path extends with additional V3+ sources</text>
+
+  <rect x="420" y="180" width="240" height="180" class="box green"/>
+  <text x="442" y="208" class="label">Canonical Observation Schema</text>
+  <text x="442" y="236" class="small">country, source_id, layer</text>
+  <text x="442" y="260" class="small">signal_family, raw_value</text>
+  <text x="442" y="284" class="small">normalized_value, quality</text>
+  <text x="442" y="308" class="small">period_start / period_end</text>
+  <text x="442" y="332" class="small">provenance, native_periodicity</text>
+
+  <rect x="780" y="100" width="300" height="560" class="box purple"/>
+  <text x="802" y="128" class="label">Fusion-Gruppen</text>
+  <text x="802" y="162" class="small">event  <= gdelt_event</text>
+  <text x="802" y="192" class="small">narrative  <= narrative_input</text>
+  <text x="802" y="222" class="small">governance  <= governance_input</text>
+  <text x="802" y="252" class="small">market_food  <= fao_ffpi + fao_fpma</text>
+  <text x="802" y="282" class="small">shock  <= gdacs</text>
+  <text x="802" y="312" class="small">displacement  <= unhcr</text>
+  <text x="802" y="342" class="small">structural  <= un_comtrade</text>
+  <text x="802" y="388" class="small">Group weights:</text>
+  <text x="820" y="414" class="tiny">event 0.16, narrative 0.14, governance 0.15</text>
+  <text x="820" y="436" class="tiny">market_food 0.18, shock 0.14, displacement 0.13</text>
+  <text x="820" y="458" class="tiny">structural 0.10</text>
+  <text x="802" y="510" class="small">Historical fusion:</text>
+  <text x="820" y="534" class="tiny">monthly target periodicity</text>
+  <text x="820" y="556" class="tiny">12-month horizon</text>
+  <text x="820" y="578" class="tiny">validation + event alignment</text>
+
+  <path d="M320 220 C360 220 375 220 420 220" class="arrow"/>
+  <path d="M660 270 C710 270 730 270 780 270" class="arrow"/>
+  <path d="M320 470 C420 470 350 330 420 330" class="arrow dash"/>
+
+</svg>

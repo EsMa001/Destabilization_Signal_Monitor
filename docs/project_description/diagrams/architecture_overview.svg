@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-label="Projektarchitektur: Country Destabilization Prototype">
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 22px Arial, sans-serif; fill: #0f172a; }
+      .subtitle { font: 400 12px Arial, sans-serif; fill: #475569; }
+      .box { fill: #ffffff; stroke: #334155; stroke-width: 1.4; rx: 10; }
+      .box-blue { fill: #e0f2fe; stroke: #0284c7; }
+      .box-green { fill: #dcfce7; stroke: #16a34a; }
+      .box-orange { fill: #ffedd5; stroke: #ea580c; }
+      .box-purple { fill: #ede9fe; stroke: #7c3aed; }
+      .box-red { fill: #ffe4e6; stroke: #e11d48; }
+      .box-gray { fill: #f1f5f9; stroke: #64748b; }
+      .label { font: 700 13px Arial, sans-serif; fill: #0f172a; }
+      .small { font: 400 11px Arial, sans-serif; fill: #334155; }
+      .tiny { font: 400 9px Arial, sans-serif; fill: #475569; }
+      .arrow { stroke: #334155; stroke-width: 1.6; fill: none; marker-end: url(#arrow); }
+      .dashed { stroke-dasharray: 6 4; }
+      .boundary { fill: none; stroke: #94a3b8; stroke-width: 1.2; stroke-dasharray: 8 5; rx: 14; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#334155" />
+    </marker>
+  </defs>
+  <rect class="bg" width="100%" height="100%"/>
+  <text x="24" y="34" class="title">Projektarchitektur: Country Destabilization Prototype</text>
+  
+  <text x="24" y="56" class="subtitle">Anforderungen-getriebene Analysepipeline mit klassischem Clusterpfad, Multi-Source-Fusion, API, Reporting und V-Model-Governance</text>
+  <rect x="30" y="86" width="1138" height="610" class="boundary"/>
+  <text x="48" y="110" class="small">Governed product baseline</text>
+
+  <rect x="60" y="140" width="210" height="310" class="box box-blue"/>
+  <text x="82" y="166" class="label">Rohdaten / Quellen</text>
+  <text x="82" y="194" class="small">GDELT events</text>
+  <text x="82" y="216" class="small">UCDP events</text>
+  <text x="82" y="238" class="small">Bridge events</text>
+  <text x="82" y="260" class="small">Country context</text>
+  <text x="82" y="296" class="small">FAO FFPI / FPMA</text>
+  <text x="82" y="318" class="small">UN Comtrade</text>
+  <text x="82" y="340" class="small">GDACS, UNHCR</text>
+  <text x="82" y="362" class="small">Narrative / Governance input</text>
+  <text x="82" y="404" class="tiny">data/* + config/default.yaml</text>
+
+  <rect x="330" y="120" width="230" height="150" class="box box-green"/>
+  <text x="352" y="146" class="label">Klassischer Clusterpfad</text>
+  <text x="352" y="174" class="small">Feature builders</text>
+  <text x="352" y="196" class="small">Subscores</text>
+  <text x="352" y="218" class="small">Cluster scores</text>
+  <text x="352" y="240" class="small">Stage / Trend / Confidence</text>
+
+  <rect x="330" y="330" width="230" height="170" class="box box-green"/>
+  <text x="352" y="356" class="label">V3+ Fusionpfad</text>
+  <text x="352" y="384" class="small">Canonical observations</text>
+  <text x="352" y="406" class="small">Source signals</text>
+  <text x="352" y="428" class="small">Group scores</text>
+  <text x="352" y="450" class="small">Fusion total score</text>
+  <text x="352" y="472" class="small">Freshness / validation</text>
+
+  <rect x="620" y="120" width="240" height="170" class="box box-orange"/>
+  <text x="642" y="146" class="label">Zeitlogik / Historie</text>
+  <text x="642" y="174" class="small">Snapshot</text>
+  <text x="642" y="196" class="small">Historical rolling trend</text>
+  <text x="642" y="218" class="small">Monthly fusion history</text>
+  <text x="642" y="240" class="small">Peak / event alignment</text>
+  <text x="642" y="262" class="small">Run/reference comparison</text>
+
+  <rect x="620" y="350" width="240" height="150" class="box box-purple"/>
+  <text x="642" y="376" class="label">Outputs / Reporting</text>
+  <text x="642" y="404" class="small">CSV / JSON exports</text>
+  <text x="642" y="426" class="small">Plots</text>
+  <text x="642" y="448" class="small">Handout Markdown</text>
+  <text x="642" y="470" class="small">Review bundle</text>
+
+  <rect x="920" y="140" width="200" height="150" class="box box-red"/>
+  <text x="942" y="166" class="label">FastAPI MVP</text>
+  <text x="942" y="194" class="small">Health / info</text>
+  <text x="942" y="216" class="small">Options / config</text>
+  <text x="942" y="238" class="small">Runs / status</text>
+  <text x="942" y="260" class="small">Artifacts / bundle</text>
+
+  <rect x="920" y="370" width="200" height="150" class="box box-gray"/>
+  <text x="942" y="396" class="label">V-Model-Light</text>
+  <text x="942" y="424" class="small">PSR / PSyR / PSwR</text>
+  <text x="942" y="446" class="small">TV-* verification</text>
+  <text x="942" y="468" class="small">OI-* open issues</text>
+  <text x="942" y="490" class="small">2462 function links</text>
+
+  <path d="M270 250 C300 230 300 210 330 200" class="arrow"/>
+  <path d="M270 330 C300 360 300 395 330 410" class="arrow"/>
+  <path d="M560 200 L620 200" class="arrow"/>
+  <path d="M560 420 L620 420" class="arrow"/>
+  <path d="M740 290 L740 350" class="arrow"/>
+  <path d="M860 430 L920 430" class="arrow"/>
+  <path d="M860 215 L920 215" class="arrow dashed"/>
+  <path d="M1020 370 L1020 300" class="arrow dashed"/>
+
+</svg>
