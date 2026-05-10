@@ -19,6 +19,9 @@ Dieses Verzeichnis enthaelt eine konsolidierte Projektbeschreibung des Country D
 5. `exports/README.md`  
    Beschreibung der exportfaehigen HTML-, DOCX- und PDF-Fassungen.
 
+6. `content_improvement_proposals.md`  
+   Inhaltliche Verbesserungsvorschlaege, priorisierte Ausbauideen und ausgearbeitete naechste Dokumentationsbloecke.
+
 ## Exportfassungen
 
 Im Verzeichnis `exports/` liegen automatisiert erzeugte:
