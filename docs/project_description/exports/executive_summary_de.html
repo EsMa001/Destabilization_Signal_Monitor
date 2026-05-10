@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>executive_summary_de</title>
+<style>
+body { font-family: Arial, Helvetica, sans-serif; line-height: 1.5; color: #0f172a; max-width: 980px; margin: 40px auto; padding: 0 24px; }
+h1,h2,h3,h4 { color: #0f172a; }
+h1 { border-bottom: 2px solid #cbd5e1; padding-bottom: 8px; }
+h2 { margin-top: 32px; border-bottom: 1px solid #e2e8f0; padding-bottom: 4px; }
+img { max-width: 100%; border: 1px solid #cbd5e1; border-radius: 8px; background: #fff; padding: 8px; }
+table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+th, td { border: 1px solid #cbd5e1; padding: 8px 10px; vertical-align: top; }
+th { background: #f8fafc; text-align: left; }
+code { background: #f1f5f9; padding: 2px 4px; border-radius: 4px; }
+pre code { display: block; padding: 12px; overflow-x: auto; }
+blockquote { border-left: 4px solid #94a3b8; margin-left: 0; padding-left: 12px; color: #334155; }
+.smallnote { margin-top: 36px; font-size: 12px; color: #475569; }
+@media print { body { max-width: none; margin: 0; } img { page-break-inside: avoid; } h2, h3 { page-break-after: avoid; } }
+</style>
+</head>
+<body>
+<h1>Executive Summary (DE): Country Destabilization Prototype</h1>
+<h2>1. Zweck des Projekts</h2>
+<p>Der Country Destabilization Prototype ist ein analyseorientierter Software-Prototyp zur fruehen Sichtbarmachung moeglicher politischer und gesellschaftlicher Destabilisierungssignale. Er verarbeitet heterogene Datenquellen und erzeugt daraus nachvollziehbare Indikatoren, historische Trenddarstellungen, Fusionsscores und Review-Artefakte fuer Analysten.</p>
+<p>Das Ziel ist nicht, politische Entwicklungen autonom vorherzusagen oder Entscheidungen zu automatisieren. Ziel ist vielmehr ein transparentes, reproduzierbares und engineering-taugliches Monitoringsystem, das Auffaelligkeiten strukturiert sichtbar macht und menschliche Analyse unterstuetzt.</p>
+<h2>2. Was das System heute leistet</h2>
+<p>Der aktuelle Stand kombiniert zwei komplementaere Ergebnisraeume:</p>
+<ol>
+<li>Klassischer Clusterpfad</li>
+<li>Spannung (<code>tension</code>)</li>
+<li>Eskalation (<code>escalation</code>)</li>
+<li>
+<p>strukturelle Verwundbarkeit (<code>vulnerability</code>)</p>
+</li>
+<li>
+<p>Additiver Multi-Source-Fusionpfad</p>
+</li>
+<li><code>event</code></li>
+<li><code>narrative</code></li>
+<li><code>governance</code></li>
+<li><code>market_food</code></li>
+<li><code>shock</code></li>
+<li><code>displacement</code></li>
+<li><code>structural</code></li>
+</ol>
+<p>Zusatzfaehigkeiten:
+- Snapshot-Bewertung
+- Historical Rolling Trend
+- monatliche historische Fusion
+- Laenderprofile ueber 356 Tage
+- Peak-Erkennung und Peak-Attribution
+- Event-Alignment gegen Event-Registry
+- Review-Queue fuer analystisch kritische Faelle
+- API-MVP fuer Runs, Status und Artefakte
+- V-Model-Light-/Requirements-as-Code-Governance</p>
+<h2>3. Methodischer Kern</h2>
+<p>Der Prototyp ist bewusst kein Black-Box-System. Die Kernlogik beruht auf transparenten, testbaren Heuristiken:</p>
+<ul>
+<li>Features werden zu Subscores und Cluster-Scores aggregiert.</li>
+<li>Stage-Mapping erfolgt ueber explizite Schwellen.</li>
+<li>Trends basieren auf 7d-vs-30d-Vergleichen.</li>
+<li>Neue Quellen werden in ein kanonisches Observation-Schema transformiert.</li>
+<li>Gruppenwerte werden ueber gewichtete Mittel mit Freshness-/Decay-Logik berechnet.</li>
+<li>Fusion-Confidence wird getrennt vom Score gefuehrt.</li>
+<li>Validation bewertet nicht "Wahrheit", sondern Plausibilitaet, Grounding und Review-Bedarf.</li>
+</ul>
+<p>Dadurch bleibt jederzeit nachvollziehbar,
+- welche Quelle beigetragen hat,
+- wie alt ein Signal ist,
+- wie stark ein Layer dominiert,
+- wie belastbar ein Ergebnis ist.</p>
+<h2>4. Governance- und Engineering-Reife</h2>
+<p>Das Projekt ist fuer einen Prototyp aussergewoehnlich stark formalisiert:</p>
+<ul>
+<li>26 Stakeholder Requirements</li>
+<li>43 System Requirements</li>
+<li>124 Software Requirements</li>
+<li>156 Verification Specifications</li>
+<li>46 Open Issues</li>
+<li>2462 Function-Level-Trace-Links</li>
+<li>480 traceability-annotierte Python-Funktionen</li>
+<li>zuletzt 120 bestandene Tests</li>
+</ul>
+<p>Das bedeutet: Architektur, Methode, Code und Tests sind nicht lose nebeneinander entwickelt worden, sondern ueber Requirements, Algorithmen, Method Rules und Verifikationsartefakte gekoppelt.</p>
+<h2>5. Staerken des aktuellen Stands</h2>
+<p>Die groessten Staerken sind:</p>
+<ul>
+<li>klare Modularisierung des Systems,</li>
+<li>gute Trennung von Rohdaten, Bewertung und Reporting,</li>
+<li>hohe Nachvollziehbarkeit der Bewertungslogik,</li>
+<li>parallele Unterstuetzung von klassischem Clusterpfad und Multi-Source-Fusion,</li>
+<li>starke Traceability und Requirements-Governance,</li>
+<li>gute Grundlage fuer Review, Kalibrierung und Ausbau.</li>
+</ul>
+<h2>6. Wichtigste offene Punkte</h2>
+<p>Trotz des hohen technischen Ausbaus bleiben zentrale Punkte offen:</p>
+<ol>
+<li>Methodische Kalibrierung</li>
+<li>
+<p>Gewichte, Schwellen und Decay-Regeln sind transparent, aber noch nicht abschliessend empirisch kalibriert.</p>
+</li>
+<li>
+<p>Daten- und Event-Governance</p>
+</li>
+<li>
+<p>Event-Registry, Narrative-Semantik und Governance-Input benoetigen weitere Standardisierung.</p>
+</li>
+<li>
+<p>Produktisierung</p>
+</li>
+<li>
+<p>API ist aktuell MVP; spezialisierte Read Models und robuste Persistenz fehlen noch.</p>
+</li>
+<li>
+<p>Wissenschaftliche Validierung</p>
+</li>
+<li>Das System ist plausibilitaetsstark, aber noch kein umfassend evaluiertes wissenschaftliches Modell.</li>
+</ol>
+<h2>7. Empfehlung fuer die naechsten Schritte</h2>
+<p>Kurzfristig empfehlenswert:</p>
+<ul>
+<li>API-Read-Model-Hardening</li>
+<li>Erweiterung von Event-Registry und Referenzepisoden</li>
+<li>systematische Kalibrierungsstudie fuer Gewichte und Schwellen</li>
+<li>Schliessen priorisierter Open Issues</li>
+<li>schrittweise Frontend-/API-Produktisierung</li>
+</ul>
+<h2>8. Management-Fazit</h2>
+<p>Der Prototyp ist heute bereits ein substantielles, technisch ernstzunehmendes Analyse- und Engineering-Artefakt. Er eignet sich sehr gut als belastbare Entwicklungsbasis fuer:</p>
+<ul>
+<li>eine methodisch kontrollierte Weiterentwicklung,</li>
+<li>einen analystischen Demonstrator,</li>
+<li>ein MBSE-/Requirements-as-Code-Referenzprojekt,</li>
+<li>eine spaetere Produktisierungsroadmap.</li>
+</ul>
+<p>Der groesste Mehrwert liegt aktuell nicht in fertiger Produktreife, sondern in der Kombination aus inhaltlicher Reichweite, erklaerbarer Methodik und sauberer Governance-Struktur.</p>
+<div class="smallnote">Exportfaehige HTML-Fassung, automatisch aus Markdown erzeugt.</div>
+</body>
+</html>

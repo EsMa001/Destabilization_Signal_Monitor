@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>detailed_documentation</title>
+<style>
+body { font-family: Arial, Helvetica, sans-serif; line-height: 1.5; color: #0f172a; max-width: 980px; margin: 40px auto; padding: 0 24px; }
+h1,h2,h3,h4 { color: #0f172a; }
+h1 { border-bottom: 2px solid #cbd5e1; padding-bottom: 8px; }
+h2 { margin-top: 32px; border-bottom: 1px solid #e2e8f0; padding-bottom: 4px; }
+img { max-width: 100%; border: 1px solid #cbd5e1; border-radius: 8px; background: #fff; padding: 8px; }
+table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+th, td { border: 1px solid #cbd5e1; padding: 8px 10px; vertical-align: top; }
+th { background: #f8fafc; text-align: left; }
+code { background: #f1f5f9; padding: 2px 4px; border-radius: 4px; }
+pre code { display: block; padding: 12px; overflow-x: auto; }
+blockquote { border-left: 4px solid #94a3b8; margin-left: 0; padding-left: 12px; color: #334155; }
+.smallnote { margin-top: 36px; font-size: 12px; color: #475569; }
+@media print { body { max-width: none; margin: 0; } img { page-break-inside: avoid; } h2, h3 { page-break-after: avoid; } }
+</style>
+</head>
+<body>
+<h1>Detaillierte Projektdokumentation: Country Destabilization Prototype</h1>
+<p>Stand: Branch <code>hermes/vmodel-assessment</code>, Commit-Kontext nach Function-Level-Traceability-Hardening.<br />
+Zielgruppe: Engineering, Requirements/MBSD, Analyse-Methodik, Review und Weiterentwicklung.</p>
+<h2>1. Executive Summary</h2>
+<p>Der Country Destabilization Prototype ist ein requirements-getrieben entwickelter Analyseprototyp zur Erkennung kurzfristiger Auffaelligkeiten in Medien-, Ereignis- und Kontextdaten. Er soll moegliche Hinweise auf politische oder gesellschaftliche Destabilisierung sichtbar machen und analystenfreundlich aufbereiten. Das System ist kein operatives Warnsystem, keine vollautomatische Lagebewertung und kein Black-Box-ML-Modell. Es ist ein modularer, erklaerbarer und stark tracebarer Software-Prototyp, der heterogene Datenquellen in strukturierte Indikatoren, Plots, Exporte und Review-Artefakte ueberfuehrt.</p>
+<p>Der aktuelle Stand kombiniert:</p>
+<ul>
+<li>einen klassischen Clusterpfad fuer <code>tension</code>, <code>escalation</code> und <code>vulnerability</code>,</li>
+<li>einen additiven V3+-Fusionpfad fuer <code>event</code>, <code>narrative</code>, <code>governance</code>, <code>market_food</code>, <code>shock</code>, <code>displacement</code>, <code>structural</code>,</li>
+<li>historische Rolling-Window-Bewertungen,</li>
+<li>monatliche historische Fusion,</li>
+<li>V4.3-Laenderprofile und Ranking-Trajektorien,</li>
+<li>V4.3.1 Peak-Hardening und Peak-Attribution,</li>
+<li>V4.3.2 Event-Alignment gegen eine Event-Registry,</li>
+<li>FastAPI-MVP-Endpunkte fuer Runs, Status und Artefakte,</li>
+<li>V-Model-Light-/Requirements-as-Code-Governance.</li>
+</ul>
+<p>Der Prototyp ist aktuell sehr weit instrumentiert: 480 Python-Funktionen sind traceability-annotiert; <code>vmodel/traceability/trace_links.yaml</code> enthaelt 2462 Function-Level-Links; 156 Verification-Artefakte sind maschinenlesbar dokumentiert; die letzte vollstaendige Testausfuehrung ergab <code>120 passed</code>.</p>
+<h2>2. Ziel des Projekts</h2>
+<h3>2.1 Fachliches Ziel</h3>
+<p>Das fachliche Ziel ist die Erkennung und Darstellung kurzfristiger Destabilisierungssignale. Der Prototyp soll Daten aus verschiedenen Quellen so verdichten, dass Analysten folgende Fragen effizienter bearbeiten koennen:</p>
+<ol>
+<li>Gibt es aktuell auffaellige Signale fuer gesellschaftlich-politische Spannung?</li>
+<li>Gibt es interne oder externe Eskalationsdynamik?</li>
+<li>Gibt es strukturelle Verwundbarkeit, die akute Signale verstaerken kann?</li>
+<li>Welche Laender zeigen im Vergleich erhoehte Fusion-Scores?</li>
+<li>Welche Layer treiben eine Auffaelligkeit?</li>
+<li>Ist ein Peak durch reale Ereignisse plausibel geerdet oder eher modell-/datengetrieben?</li>
+<li>Wie belastbar ist ein Ergebnis hinsichtlich Quellenabdeckung, Aktualitaet, Vollstaendigkeit und Konsistenz?</li>
+</ol>
+<h3>2.2 Engineering-Ziel</h3>
+<p>Das Engineering-Ziel ist ein nachvollziehbarer, testbarer und weiterentwickelbarer Prototyp. Zentral ist die Trennung zwischen:</p>
+<ul>
+<li>Rohdaten,</li>
+<li>Features,</li>
+<li>Scores,</li>
+<li>Fusion- und Validation-Logik,</li>
+<li>Reporting,</li>
+<li>API,</li>
+<li>Governance.</li>
+</ul>
+<p>Das Projekt folgt dem Grundsatz: Implementierung ist Evidenz, nicht Autoritaet. Anforderungen, Methodenregeln, Algorithmen, Tests und Code muessen tracebar bleiben.</p>
+<h3>2.3 Nicht-Ziele</h3>
+<p>Explizite Nicht-Ziele sind:</p>
+<ul>
+<li>keine autonome politische Entscheidungsmaschine,</li>
+<li>keine vollstaendige globale Echtzeitlage,</li>
+<li>keine Black-Box-Fusion,</li>
+<li>keine Aussage ueber Kausalitaet im strengen wissenschaftlichen Sinn,</li>
+<li>keine produktive Hochverfuegbarkeitsarchitektur,</li>
+<li>keine abschliessend kalibrierte Risiko- oder Prognosewahrscheinlichkeit.</li>
+</ul>
+<h2>3. Aktueller Stand in Zahlen</h2>
+<table>
+<thead>
+<tr>
+<th>Artefaktklasse</th>
+<th style="text-align: right;">Stand</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stakeholder Requirements</td>
+<td style="text-align: right;">26</td>
+</tr>
+<tr>
+<td>System Requirements</td>
+<td style="text-align: right;">43</td>
+</tr>
+<tr>
+<td>Software Requirements</td>
+<td style="text-align: right;">124</td>
+</tr>
+<tr>
+<td>Implementierte Software Requirements</td>
+<td style="text-align: right;">123</td>
+</tr>
+<tr>
+<td>Retired Software Requirements</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td>Verification Specifications</td>
+<td style="text-align: right;">156</td>
+</tr>
+<tr>
+<td>Open Issues gesamt</td>
+<td style="text-align: right;">46</td>
+</tr>
+<tr>
+<td>Davon offen</td>
+<td style="text-align: right;">28</td>
+</tr>
+<tr>
+<td>Davon geloest</td>
+<td style="text-align: right;">18</td>
+</tr>
+<tr>
+<td>Function-Level Trace Links</td>
+<td style="text-align: right;">2462</td>
+</tr>
+<tr>
+<td>Python-Funktionen</td>
+<td style="text-align: right;">480</td>
+</tr>
+<tr>
+<td>Python-Klassen</td>
+<td style="text-align: right;">86</td>
+</tr>
+<tr>
+<td>Letzter Full-Test</td>
+<td style="text-align: right;">120 passed</td>
+</tr>
+</tbody>
+</table>
+<p>Wichtige Codebereiche:</p>
+<table>
+<thead>
+<tr>
+<th>Bereich</th>
+<th>Zweck</th>
+<th style="text-align: right;">Groesse grob</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>proto/</code></td>
+<td>Kernpipeline, Quellen, Scoring, Fusion, Reporting</td>
+<td style="text-align: right;">ca. 17k LOC</td>
+</tr>
+<tr>
+<td><code>api/</code></td>
+<td>FastAPI-MVP</td>
+<td style="text-align: right;">ca. 1.3k LOC</td>
+</tr>
+<tr>
+<td><code>tests/</code></td>
+<td>Unit-/Integration-/End-to-End-nahe Tests</td>
+<td style="text-align: right;">ca. 6.5k LOC</td>
+</tr>
+<tr>
+<td><code>tools/</code></td>
+<td>Review-Bundle, Frontend-/Support-Tools</td>
+<td style="text-align: right;">ca. 1.5k LOC</td>
+</tr>
+<tr>
+<td><code>scripts/</code></td>
+<td>Scaffold-/Fixture-Generatoren</td>
+<td style="text-align: right;">ca. 0.8k LOC</td>
+</tr>
+</tbody>
+</table>
+<h2>4. Architekturuebersicht</h2>
+<p>Die Architektur ist in Schichten aufgebaut. Datenquellen und Konfiguration werden geladen, in interne Modelle ueberfuehrt, ueber Feature- und Observation-Pfade verdichtet, bewertet und schliesslich als Reports, Plots, Exporte und API-Artefakte bereitgestellt.</p>
+<p><img alt="Projektarchitektur" src="diagrams/architecture_overview.svg" /></p>
+<p>Ergaenzend zeigt die folgende Abbildung die organisatorische Repository-Struktur. Dadurch wird sichtbar, wie sich Produktcode, Governance-Artefakte, Tests, Tools, Daten und generierte Outputs zueinander verhalten.</p>
+<p><img alt="Repository-Struktur" src="diagrams/repository_structure.svg" /></p>
+<h3>4.1 Wichtige Packages</h3>
+<h4><code>proto.pipeline</code></h4>
+<p>Zentrale Orchestrierung. <code>proto/pipeline/run_proto.py</code> fuehrt den Standardlauf aus. <code>proto/pipeline/config.py</code> validiert die Konfiguration und erzeugt typisierte Config-Objekte.</p>
+<h4><code>proto.sources</code></h4>
+<p>Quelladapter fuer GDELT, UCDP, Bridge, Context, FAO FFPI, FAO FPMA, UN Comtrade, GDACS, UNHCR, Narrative Input, Governance Input und GDELT Event.</p>
+<h4><code>proto.features</code></h4>
+<p>Feature-Builders fuer klassische Cluster:</p>
+<ul>
+<li><code>gdelt_features.py</code>: Spannungssignale,</li>
+<li><code>escalation_features.py</code>: Eskalationssignale,</li>
+<li><code>vulnerability_features.py</code>: strukturelle Verwundbarkeit.</li>
+</ul>
+<h4><code>proto.scoring</code></h4>
+<p>Klassisches Scoring:</p>
+<ul>
+<li><code>subscores.py</code>: Subscore-Bildung,</li>
+<li><code>cluster_scores.py</code>: Aggregation zu Cluster-Scores,</li>
+<li><code>thresholds.py</code>: Stage-Mapping,</li>
+<li><code>trend.py</code>: 7d-vs-30d-Trendlogik,</li>
+<li><code>confidence.py</code>: klassische Confidence,</li>
+<li><code>trend_history.py</code>: historische Rolling-Window-Zeitreihen.</li>
+</ul>
+<h4><code>proto.observations</code></h4>
+<p>Kanonisches Observation-Schema und Normalisierung fuer neue Quellen. Hier wird die V3+-Quellvielfalt in ein gemeinsames internes Format gebracht.</p>
+<h4><code>proto.fusion</code></h4>
+<p>Multi-Source-Fusion, Freshness, Confidence und Validation. Besonders wichtig:</p>
+<ul>
+<li><code>scoring.py</code>: Source Signals, Group Scores, Total Scores, Historical Fusion,</li>
+<li><code>confidence.py</code>: getrennte Confidence-Logik,</li>
+<li><code>freshness.py</code>: Freshness-Klassifikation und Decay,</li>
+<li><code>validation.py</code>: Ranking-, Peak-, Event-Alignment- und Review-Diagnostik.</li>
+</ul>
+<h4><code>proto.reporting</code></h4>
+<p>Exports, Plots, Handout, Praesentationslogik. <code>handout.py</code> baut die laengere Markdown-Auswertung; <code>plots.py</code> erzeugt Snapshot-, Historical-, Fusion- und Event-Alignment-Plots.</p>
+<h4><code>proto.runs</code></h4>
+<p>Run-Metadaten, Vergleich mit vorherigem Lauf, Referenzlauf-Handling und Statuslogik.</p>
+<h4><code>api/</code></h4>
+<p>FastAPI-MVP fuer:</p>
+<ul>
+<li><code>/health</code>,</li>
+<li><code>/info</code>,</li>
+<li>Options und Config Template,</li>
+<li>Run-Erstellung,</li>
+<li>Run-Status,</li>
+<li>Run-Summary,</li>
+<li>Run-Artefakte,</li>
+<li>Bundle-/Artifact-Downloads.</li>
+</ul>
+<h2>5. Datenquellen und Eingangsdaten</h2>
+<p>Aktuelle Datenquellen im Repository:</p>
+<table>
+<thead>
+<tr>
+<th>Quelle</th>
+<th>Pfad</th>
+<th>Rolle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GDELT</td>
+<td><code>data/gdelt/gdelt_events.csv</code></td>
+<td>Medien-/Eventsignale fuer Spannung und Event-Layer</td>
+</tr>
+<tr>
+<td>UCDP</td>
+<td><code>data/ucdp/ucdp_events.csv</code></td>
+<td>Konflikt-/Gewaltereignisse</td>
+</tr>
+<tr>
+<td>Bridge</td>
+<td><code>data/bridge/bridge_events.csv</code></td>
+<td>kuratierte Ereignisbruecke</td>
+</tr>
+<tr>
+<td>Context</td>
+<td><code>data/context/country_context.csv</code></td>
+<td>strukturelle Kontextdaten</td>
+</tr>
+<tr>
+<td>FAO FFPI</td>
+<td><code>data/fao_ffpi/fao_ffpi.csv</code></td>
+<td>Food price index / market_food</td>
+</tr>
+<tr>
+<td>FAO FPMA</td>
+<td><code>data/fao_fpma/fao_fpma.csv</code></td>
+<td>Food price monitoring / market_food</td>
+</tr>
+<tr>
+<td>UN Comtrade</td>
+<td><code>data/un_comtrade/un_comtrade.csv</code></td>
+<td>structural</td>
+</tr>
+<tr>
+<td>GDACS</td>
+<td><code>data/gdacs/gdacs_events.csv</code></td>
+<td>shock</td>
+</tr>
+<tr>
+<td>UNHCR</td>
+<td><code>data/unhcr/unhcr_displacement.csv</code></td>
+<td>displacement</td>
+</tr>
+<tr>
+<td>Narrative Input</td>
+<td><code>data/narrative_input/narrative_input.csv</code></td>
+<td>narrative</td>
+</tr>
+<tr>
+<td>Governance Input</td>
+<td><code>data/governance_input/governance_input.csv</code></td>
+<td>governance</td>
+</tr>
+<tr>
+<td>Event Registry</td>
+<td><code>data/validation/event_registry.csv</code></td>
+<td>Event-Alignment</td>
+</tr>
+<tr>
+<td>Reference Episodes</td>
+<td><code>data/validation/reference_episodes.csv</code></td>
+<td>Validierung / Plausibilitaet</td>
+</tr>
+</tbody>
+</table>
+<p>Die folgende Abbildung zeigt die inhaltliche Zuordnung der Quellen zu Layern und Gruppen des Fusionsraums.</p>
+<p><img alt="Quellen-zu-Layer-Mapping" src="diagrams/source_to_layer_mapping.svg" /></p>
+<p>Die Konfiguration liegt in <code>config/default.yaml</code>. Sie definiert Laender, Zeitfenster, historische Parameter, Versionen, Output-Pfade, Scoring-Schwellen, V3.1-Quellen, Gruppen, Gewichte, Confidence-Gewichte, Freshness-Modell und Event-Alignment-Schwellen.</p>
+<h2>6. Programmablauf</h2>
+<p><img alt="Programmablauf" src="diagrams/program_flow.svg" /></p>
+<p>Der Standardlauf arbeitet in dieser Reihenfolge:</p>
+<ol>
+<li>Konfiguration laden und validieren.</li>
+<li>Rohquellen laden.</li>
+<li>Klassische Features erzeugen.</li>
+<li>Klassische Subscores und Cluster-Scores berechnen.</li>
+<li>Stufen, Trends und Confidence ableiten.</li>
+<li>Historische Rolling-Window-Zeitreihen berechnen.</li>
+<li>Snapshot aus historischem gueltigem Endpunkt oder dokumentiertem Fallback ableiten.</li>
+<li>Neue Quellen in kanonische Observations transformieren.</li>
+<li>Fusion Source Signals bilden.</li>
+<li>Group Scores und Fusion Total Score berechnen.</li>
+<li>Historische monatliche Fusion erzeugen.</li>
+<li>Validation-/Freshness-/Responsiveness-Diagnostik berechnen.</li>
+<li>V4.3-Laenderprofile und Ranking-Trajektorien erstellen.</li>
+<li>V4.3.1-Peaks, Peak-Attribution und Synchronisationsmetriken ableiten.</li>
+<li>V4.3.2 Event-Alignment gegen Event-Registry berechnen.</li>
+<li>Exporte und Plots schreiben.</li>
+<li>Handout und Review-Artefakte erzeugen.</li>
+<li>Run-Metadaten und Run-Status speichern.</li>
+<li>Vergleich mit vorherigem Run und Referenzrun erzeugen.</li>
+</ol>
+<h2>7. Mathematische und heuristische Ansaetze</h2>
+<p><img alt="Mathematische Modellstruktur" src="diagrams/mathematical_model.svg" /></p>
+<h3>7.1 Feature- und Subscore-Skalen</h3>
+<p>Klassische Features werden auf <code>[0,100]</code> gefuehrt. Die Funktion <code>_clamp_score</code> begrenzt Werte auf diesen Bereich:</p>
+<p>[
+clip_{0,100}(x) = \max(0, \min(100, x)).
+]</p>
+<p>Die Subscore-Bildung nutzt einfache Mittelwerte. Beispiele:</p>
+<ul>
+<li>Spannung:</li>
+<li><code>protest_signal -&gt; protest_subscore</code>,</li>
+<li><code>crisis_discourse_signal -&gt; crisis_subscore</code>,</li>
+<li><code>negativity_signal -&gt; negativity_subscore</code>,</li>
+<li>
+<p>optional <code>stability_signal -&gt; stability_inverse_subscore = 100 - stability_signal</code>.</p>
+</li>
+<li>
+<p>Eskalation:</p>
+</li>
+<li>interne Dynamik aus <code>internal_violence_signal</code>, <code>repression_signal</code>, <code>domestic_attack_signal</code>,</li>
+<li>externe Dynamik aus <code>war_activity_signal</code>, <code>external_attack_signal</code>, <code>regional_spillover_signal</code>,</li>
+<li>Peak-Subscore als Maximum,</li>
+<li>
+<p>Intensity-Subscore als Mittel aus interner und externer Dynamik.</p>
+</li>
+<li>
+<p>Verwundbarkeit:</p>
+</li>
+<li>wirtschaftliche Verwundbarkeit,</li>
+<li>hybride Verwundbarkeit,</li>
+<li>Governance-Stress.</li>
+</ul>
+<h3>7.2 Cluster-Score</h3>
+<p>Ein Cluster-Score ist der einfache Mittelwert der Subscores:</p>
+<p>[
+C_{c,k,t} = \frac{1}{n}\sum_{j=1}^{n} S_{c,k,j,t}.
+]</p>
+<p>Die Wahl einer einfachen Aggregation ist bewusst: Sie ist erklaerbar, testbar und fuer einen Prototyp mit begrenzter Kalibriergrundlage robuster als eine schwer begruendbare komplexe Gewichtung.</p>
+<h3>7.3 Stage-Mapping</h3>
+<p>Der Standardwertsatz lautet:</p>
+<ul>
+<li><code>score &lt; 30</code>: niedrig,</li>
+<li><code>30 &lt;= score &lt; 56</code>: erhoeht,</li>
+<li><code>56 &lt;= score &lt; 80</code>: hoch,</li>
+<li><code>score &gt;= 80</code>: sehr hoch.</li>
+</ul>
+<p>Formal:</p>
+<p>[
+stage(C)=
+\begin{cases}
+low, &amp; C &lt; 30\
+elevated, &amp; 30 \le C &lt; 56\
+high, &amp; 56 \le C &lt; 80\
+very\ high, &amp; C \ge 80.
+\end{cases}
+]</p>
+<h3>7.4 Trendlogik</h3>
+<p>Der Trend vergleicht einen kurzfristigen Mittelwert gegen eine Baseline:</p>
+<p>[
+\Delta = \overline{C}<em>{short} - \overline{C}</em>{baseline}.
+]</p>
+<p>Mit <code>epsilon = 1.25</code> gilt:</p>
+<ul>
+<li><code>Delta &gt; epsilon</code>: zunehmend,</li>
+<li><code>Delta &lt; -epsilon</code>: ruecklaeufig,</li>
+<li>sonst stabil.</li>
+</ul>
+<p>Der historische Pfad nutzt Rolling-Window-Logik mit <code>window_days=7</code>, <code>min_valid_days=5</code> und <code>aggregation=rolling_mean</code>.</p>
+<h3>7.5 Snapshot-Ableitung aus Historie</h3>
+<p>Der Snapshot wird nicht unabhaengig vom historischen Pfad berechnet. Stattdessen gilt folgende Prioritaet:</p>
+<ol>
+<li>gueltiger Historical-Endpunkt am Run-Datum,</li>
+<li>sonst letzter gueltiger Historical-Punkt vor Run-Datum,</li>
+<li>sonst letzter numerischer Historical-Punkt unterhalb <code>min_valid_days</code>, explizit markiert und mit Confidence-Penalty,</li>
+<li>sonst Raw-Fallback.</li>
+</ol>
+<p>Diese Logik verhindert, dass Snapshot und historische Zeitreihe methodisch auseinanderlaufen.</p>
+<h3>7.6 Kanonische Observations</h3>
+<p>Der V3+-Pfad transformiert Quellen in <code>ObservationRecord</code>-Strukturen. Eine Observation enthaelt mindestens:</p>
+<ul>
+<li><code>source_id</code>,</li>
+<li><code>country</code>,</li>
+<li><code>period_start</code>, <code>period_end</code>,</li>
+<li><code>layer</code>,</li>
+<li><code>signal_family</code>,</li>
+<li><code>raw_value</code>,</li>
+<li><code>normalized_value</code>,</li>
+<li><code>unit</code>,</li>
+<li><code>provenance</code>,</li>
+<li><code>quality_completeness</code>,</li>
+<li><code>native_periodicity</code>.</li>
+</ul>
+<p>Die Normalisierung nutzt je nach Quelle z. B. <code>z_score</code>, <code>percentile</code> oder <code>baseline_deviation</code>.</p>
+<h3>7.7 Gruppenfusion</h3>
+<p>Fuer jede Gruppe <code>g</code> und jedes Land <code>c</code> werden aktuelle Source Signals selektiert. Der Gruppenwert ist:</p>
+<p>[
+G_{c,g} = 100 \cdot \frac{\sum_i w_i \cdot s_i \cdot d_i}{\sum_i w_i}
+]</p>
+<p>mit:</p>
+<ul>
+<li><code>w_i</code>: Quellgewicht,</li>
+<li><code>s_i</code>: normalisiertes Signal in <code>[0,1]</code>,</li>
+<li><code>d_i</code>: Freshness-/Decay-Faktor.</li>
+</ul>
+<p>Bei fehlenden Quellen wird der Gruppenstatus <code>not_available</code>; bei teilweiser Abdeckung <code>limited</code>; bei vollstaendiger erwarteter Abdeckung <code>ok</code>.</p>
+<h3>7.8 Fusion Total Score</h3>
+<p>Der Fusion Score aggregiert verfuegbare Gruppen:</p>
+<p>[
+F_c = \frac{\sum_g W_g \cdot G_{c,g}}{\sum_g W_g}.
+]</p>
+<p>Aktuelle Gruppengewichte:</p>
+<table>
+<thead>
+<tr>
+<th>Gruppe</th>
+<th style="text-align: right;">Gewicht</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>event</td>
+<td style="text-align: right;">0.16</td>
+</tr>
+<tr>
+<td>narrative</td>
+<td style="text-align: right;">0.14</td>
+</tr>
+<tr>
+<td>governance</td>
+<td style="text-align: right;">0.15</td>
+</tr>
+<tr>
+<td>market_food</td>
+<td style="text-align: right;">0.18</td>
+</tr>
+<tr>
+<td>shock</td>
+<td style="text-align: right;">0.14</td>
+</tr>
+<tr>
+<td>displacement</td>
+<td style="text-align: right;">0.13</td>
+</tr>
+<tr>
+<td>structural</td>
+<td style="text-align: right;">0.10</td>
+</tr>
+</tbody>
+</table>
+<p>Ein optionaler Bonus bei mehreren hohen Gruppen ist konfiguriert, aber aktuell deaktiviert. Das ist methodisch sinnvoll, solange die Synergieannahme nicht empirisch validiert ist.</p>
+<h3>7.9 Confidence</h3>
+<p>Confidence wird bewusst vom Score getrennt. Die Gruppen-Confidence kombiniert:</p>
+<p>[
+Conf_g = \frac{
+0.35 \cdot coverage +
+0.25 \cdot recency +
+0.25 \cdot completeness +
+0.15 \cdot consistency
+}{1.0}
+]</p>
+<p>Die Total-Confidence nutzt analoge Komponenten und zieht Penalties ab:</p>
+<ul>
+<li>Dominanz-Penalty bei zu hohem Anteil einer einzelnen Gruppe,</li>
+<li>Limited-Penalty bei hohem Anteil limitierter Gruppen.</li>
+</ul>
+<p>Qualitative Confidence-Level:</p>
+<ul>
+<li><code>&lt; 34</code>: niedrig,</li>
+<li><code>&lt; 67</code>: mittel,</li>
+<li>sonst hoch.</li>
+</ul>
+<h3>7.10 Freshness und Decay</h3>
+<p>Das Freshness-Modell klassifiziert Signale in <code>fresh</code>, <code>aging</code> und <code>stale</code>. Je Gruppe koennen eigene Parameter gesetzt werden, z. B. fuer Event sehr kurze Freshness-Fenster und fuer Structural sehr lange Fenster. Der Decay-Faktor reduziert veraltete Signale, ohne sie abrupt zu entfernen.</p>
+<h3>7.11 Validierung, Peaks und Event-Alignment</h3>
+<p>Die Validation-Schicht erzeugt keine absolute Ground Truth, sondern Plausibilitaets- und Review-Hilfen:</p>
+<ul>
+<li>Ranking-Plausibilitaet gegen erwartete Rangfolge,</li>
+<li>Episodenvergleich gegen Referenzepisoden,</li>
+<li>Layer-Dominanzdiagnostik,</li>
+<li>Freshness Coverage,</li>
+<li>historische Responsiveness,</li>
+<li>Laenderprofile ueber 356 Tage,</li>
+<li>Peak-Erkennung mit Prominenz, Rise/Fall und Mindestabstand,</li>
+<li>Peak-Attribution nach Event-Support, globalem Anteil, laenderspezifischem Anteil und Modellanteil,</li>
+<li>Event-Alignment gegen Event-Registry,</li>
+<li>Review Queue fuer Peaks ohne glaubwuerdiges Event-Match oder mit Mehrfachueberlappung.</li>
+</ul>
+<h2>8. Output-Artefakte</h2>
+<p>Typische Output-Struktur:</p>
+<pre><code class="language-text">outputs/runs/current_run/
+  run_metadata.json
+  run_comparison.json
+  reference_comparison.json
+  handout.md
+  exports/
+    snapshot/
+      features_export.csv
+      scores_export.csv
+      summary_export.json
+      snapshot_status.json
+    historical/
+      historical_timeseries.csv
+      historical_status.json
+    fusion/
+      observations.csv
+      source_signals.csv
+      group_scores.csv
+      fusion_total_scores.json
+      validation_summary.json
+      validation_* .csv/json
+  plots/
+    snapshot/
+    historical/
+    fusion/
+</code></pre>
+<p>Der Handout ist das wichtigste menschlich lesbare Ergebnis. Er kombiniert Run Summary, Snapshot, historische Trends, Fusion-Uebersicht, Validierung, Laenderprofile, Peak-/Event-Alignment und Review-Hinweise.</p>
+<h2>9. API-MVP</h2>
+<p>Das API-MVP dient als Backend-Schicht fuer Frontend-/Integrationsszenarien. Es bietet:</p>
+<ul>
+<li>Health und Info,</li>
+<li>Options fuer Laender und Layer,</li>
+<li>Config Template,</li>
+<li>Run-Erstellung,</li>
+<li>Run-Status,</li>
+<li>Run-Details,</li>
+<li>Summary,</li>
+<li>Artefaktlisten,</li>
+<li>Bundle- und Artifact-Download.</li>
+</ul>
+<p>Die API ist aktuell ein MVP. Spezialisierte Analysten-Endpunkte fuer Overview, Country Detail, Compare, Coverage und Artifacts sind als Weiterentwicklung sichtbar, aber noch nicht vollstaendig als dedizierte Backend-Contracts umgesetzt.</p>
+<h2>10. V-Model-Light / Requirements-as-Code</h2>
+<p><img alt="V-Model Traceability" src="diagrams/vmodel_traceability.svg" /></p>
+<p>Die Governance-Struktur unter <code>vmodel/</code> ist inzwischen die massgebliche maschinenlesbare Zielstruktur fuer migrierte Artefakte. Sie enthaelt:</p>
+<ul>
+<li><code>vmodel/requirements/stakeholder_requirements.yaml</code>,</li>
+<li><code>vmodel/requirements/system_requirements.yaml</code>,</li>
+<li><code>vmodel/requirements/software_requirements.yaml</code>,</li>
+<li><code>vmodel/verification/test_specifications.yaml</code>,</li>
+<li><code>vmodel/change/open_issues.yaml</code>,</li>
+<li><code>vmodel/traceability/trace_links.yaml</code>.</li>
+</ul>
+<h3>10.1 Traceability-Regeln</h3>
+<p>Wichtige ID-Klassen:</p>
+<ul>
+<li><code>PSR-*</code>: Stakeholder Requirements,</li>
+<li><code>PSyR-*</code>: System Requirements,</li>
+<li><code>PSwR-*</code>: Software Requirements,</li>
+<li><code>PM-*</code>: Method Rules,</li>
+<li><code>ALG-*</code>: Algorithms,</li>
+<li><code>TV-*</code>: Test/Verification Artefacts,</li>
+<li><code>OI-*</code>: Open Issues,</li>
+<li><code>AP-*</code>: API-/Frontend-Handoff-Artefakte aus Legacy Traceability,</li>
+<li><code>SUP-*</code>: Support-Scope-Artefakte.</li>
+</ul>
+<p>Alle wichtigen Module, Funktionen und Tests tragen Traceability-Verweise. Die Function-Level-Traceability wurde automatisiert aus AST und Traceability-Kommentaren extrahiert.</p>
+<h3>10.2 Verifikationsstand</h3>
+<ul>
+<li>156 Verification Specifications sind als implementiert dokumentiert.</li>
+<li>120 Tests wurden zuletzt erfolgreich ausgefuehrt.</li>
+<li>Python compile check war erfolgreich.</li>
+<li>Function-Level-Coverage: 480 Funktionen, 0 fehlende Annotationen, 0 unlinked unique function IDs.</li>
+</ul>
+<h2>11. Inhaltlicher aktueller Stand</h2>
+<h3>11.1 Umgesetzte Faehigkeiten</h3>
+<ul>
+<li>konfigurierbarer 10-Laender-Standardraum,</li>
+<li>klassische Clusterbewertung,</li>
+<li>Snapshot und historische Rolling Trends,</li>
+<li>Run-Metadaten,</li>
+<li>Run-Status,</li>
+<li>Run-Vergleich und Referenzvergleich,</li>
+<li>strukturierte Exporte,</li>
+<li>Plots,</li>
+<li>Handout,</li>
+<li>V3+-Observations und Fusion,</li>
+<li>Governance-, Narrative-, Event-, Shock-, Displacement-, Structural- und Market/Food-Layer,</li>
+<li>historische Monatsfusion,</li>
+<li>Validation Summary,</li>
+<li>Ranking- und Freshness-Diagnostik,</li>
+<li>Peak-Attribution,</li>
+<li>Event-Alignment,</li>
+<li>Review Queue,</li>
+<li>FastAPI-MVP,</li>
+<li>Review-Bundle-/Acceptance-Snapshot-Support,</li>
+<li>V-Model-Light-Governance.</li>
+</ul>
+<h3>11.2 Reifegrad-Einschaetzung</h3>
+<table>
+<thead>
+<tr>
+<th>Bereich</th>
+<th>Reifegrad</th>
+<th>Bemerkung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kernpipeline</td>
+<td>hoch fuer Prototyp</td>
+<td>lauffaehig, getestet, modular</td>
+</tr>
+<tr>
+<td>Klassisches Scoring</td>
+<td>hoch fuer MVP</td>
+<td>einfache transparente Heuristik</td>
+</tr>
+<tr>
+<td>Fusionpfad</td>
+<td>mittel-hoch</td>
+<td>breit implementiert, Kalibrierung weiter offen</td>
+</tr>
+<tr>
+<td>Validation/Event-Alignment</td>
+<td>mittel</td>
+<td>gute Diagnostik, aber Event-Registry/Empirie ausbauen</td>
+</tr>
+<tr>
+<td>API</td>
+<td>mittel</td>
+<td>MVP vorhanden, dedizierte Read-Models offen</td>
+</tr>
+<tr>
+<td>Frontend</td>
+<td>ausserhalb dieser Kerndoku, aber vorbereitet</td>
+<td>API-Gaps dokumentiert</td>
+</tr>
+<tr>
+<td>Requirements Governance</td>
+<td>hoch</td>
+<td>YAML-Baseline, Tests, Trace Links vorhanden</td>
+</tr>
+<tr>
+<td>Wissenschaftliche Validierung</td>
+<td>niedrig-mittel</td>
+<td>methodisch plausibel, aber keine abgeschlossene empirische Validierung</td>
+</tr>
+</tbody>
+</table>
+<h2>12. Offene Punkte</h2>
+<h3>12.1 Methodik und Kalibrierung</h3>
+<ol>
+<li>Gewichte und Schwellen sind transparent, aber noch nicht breit empirisch kalibriert.</li>
+<li>Fusion Score ist ein heuristischer Index, keine Wahrscheinlichkeit.</li>
+<li>Confidence-Komponenten sind plausibel, aber noch nicht gegen umfangreiche Ground-Truth-Datensaetze validiert.</li>
+<li>Stage-Grenzen fuer Fusion und Cluster sollten mit Referenzepisoden und Expertenreview kalibriert werden.</li>
+<li>Der optionale Multi-Group-Bonus ist bewusst deaktiviert; seine Aktivierung braucht eine belastbare methodische Begruendung.</li>
+</ol>
+<h3>12.2 Daten und Quellen</h3>
+<ol>
+<li>Event-Registry muss in Umfang, Qualitaet und Versionierung ausgebaut werden.</li>
+<li>Narrative Inputs benoetigen perspektivisch eine semantische Governance: kontrollierte Taxonomie, Review-Regeln, Richtungsharmonisierung.</li>
+<li>Governance Inputs benoetigen Quellen- und Aktualisierungsgovernance.</li>
+<li>Historisierte Helper Sources koennten spaeter versioniert werden; aktuell gibt es eine bewusst konstante Baseline-Regel.</li>
+<li>Laendernamen und Aliase muessen weiter robust normalisiert werden.</li>
+</ol>
+<h3>12.3 Produktisierung</h3>
+<ol>
+<li>Dedizierte API-Endpunkte fuer Overview, Country Detail, Compare, Coverage und Artifacts.</li>
+<li>Persistente Run-Datenhaltung statt nur filesystem-basierter MVP-Struktur.</li>
+<li>Authentifizierung und Rollenmodell fuer API/Frontend.</li>
+<li>Deployment-Konzept fuer reproduzierbare Umgebungen.</li>
+<li>Performance- und Skalierungstests fuer groessere Laender-/Quellenraeume.</li>
+</ol>
+<h3>12.4 Verifikation und Validierung</h3>
+<ol>
+<li>Erweiterung von Testdaten auf realistischere historische Szenarien.</li>
+<li>Systematische Regression gegen eingefrorene Referenzruns.</li>
+<li>Quantitative Evaluationsmetriken gegen externe Ereignisdaten.</li>
+<li>Review-Prozess fuer False Positives / False Negatives.</li>
+<li>Separate Validierung des Event-Alignment-Scorings.</li>
+</ol>
+<h3>12.5 Requirements/Governance</h3>
+<ol>
+<li>Open Issues weiter abarbeiten: aktuell 28 offen.</li>
+<li>Branch-Baseline weiter stabilisieren und ggf. PR/Merge-Strategie definieren.</li>
+<li>Legacy Markdown und YAML-Baseline konsistent halten oder Legacy explizit nur historisch einfrieren.</li>
+<li>Requirement-Status fuer System- und Stakeholder-Layer weiter schaerfen: viele sind noch <code>candidate_baseline_requirement</code>, obwohl die Software-Layer stark implementiert sind.</li>
+</ol>
+<h2>13. Moegliche Weiterentwicklungspunkte</h2>
+<h3>13.1 Methodische Roadmap</h3>
+<ul>
+<li>Kalibrierpaket mit Referenzepisoden, Expertenlabels und Sensitivitaetsanalyse.</li>
+<li>Vergleich unterschiedlicher Aggregationsmodelle: Mittelwert, robustes Mittel, gewichtete Quantile, Bayesian score fusion.</li>
+<li>Formalisierte Unsicherheitsfortpflanzung zwischen Quellen-, Gruppen- und Total-Confidence.</li>
+<li>Explizite Trennung zwischen akutem Event-Risiko und strukturellem Baseline-Risiko.</li>
+<li>Counterfactual-/Ablation-Reports: Wie veraendert sich der Score ohne eine Gruppe?</li>
+</ul>
+<h3>13.2 Software-Roadmap</h3>
+<ul>
+<li>API Read Models fuer alle Frontend-Sichten.</li>
+<li>Persistenzschicht fuer Runs, Artefakte und Traceability Snapshots.</li>
+<li>CLI fuer Standardlauf, Validierung, Bundle-Erzeugung und Baseline-Vergleich.</li>
+<li>Automatische Generierung einer Trace-Matrix aus YAML + Function Links.</li>
+<li>CI-Gates fuer Traceability-Coverage, YAML-Konsistenz und Full-Test-Suite.</li>
+</ul>
+<h3>13.3 Analyse- und UX-Roadmap</h3>
+<ul>
+<li>Analyst Dashboard mit Overview, Country Detail, Compare, Coverage, Artifacts.</li>
+<li>Interaktive Peak-/Event-Alignment-Review.</li>
+<li>Drilldown von Fusion Total Score auf Gruppen, Quellen und Einzelbeobachtungen.</li>
+<li>Confidence-Erklaerung je Score.</li>
+<li>Exportierbare Executive Summaries.</li>
+</ul>
+<h3>13.4 Governance-Roadmap</h3>
+<ul>
+<li>Change-Request-Prozess fuer neue Anforderungen.</li>
+<li>Review-Gates fuer neue Quellen und neue Algorithmen.</li>
+<li>Requirements-basierte Akzeptanzkriterien pro Work Package.</li>
+<li>Versionierte Method Baselines.</li>
+<li>Abnahmeprotokoll fuer jede signifikante Baseline-Aenderung.</li>
+</ul>
+<h2>14. Empfehlung fuer die naechsten Arbeitspakete</h2>
+<ol>
+<li>
+<p><strong>WP-A: API Read Model Hardening</strong><br />
+   Dedizierte Backend-Endpunkte fuer Overview, Countries, Compare, Coverage und Artifacts einfuehren.</p>
+</li>
+<li>
+<p><strong>WP-B: Evaluation Dataset Baseline</strong><br />
+   Referenzepisoden und Event-Registry systematisch erweitern, inklusive Expertenlabels und erwarteter Signatur.</p>
+</li>
+<li>
+<p><strong>WP-C: Method Calibration Report</strong><br />
+   Sensitivitaetsanalyse fuer Gewichte, Schwellen, Freshness, Event-Alignment und Dominanz-Penalties.</p>
+</li>
+<li>
+<p><strong>WP-D: Governance Cleanup</strong><br />
+   Offene OI-Liste priorisieren, Stakeholder/System-Requirement-Status schaerfen, Trace-Matrix-Generator aus Function Links bauen.</p>
+</li>
+<li>
+<p><strong>WP-E: Frontend/API Integration</strong><br />
+   Analysten-Dashboard gegen stabile API-Vertraege anbinden und Fallback-Pfade abbauen.</p>
+</li>
+</ol>
+<h2>15. Kurzfazit</h2>
+<p>Das Projekt steht aktuell auf einem starken Prototyp-Reifegrad: Die Software ist modular, getestet, tracebar und inhaltlich breit ausgebaut. Der groesste Wert liegt in der Kombination aus erklaerbarer Analyseheuristik und strenger Engineering-Governance. Die groessten Risiken liegen nicht mehr primaer in fehlender Implementierung, sondern in fachlicher Kalibrierung, Daten-/Event-Governance, Produktisierung und wissenschaftlicher Validierung.</p>
+<div class="smallnote">Exportfaehige HTML-Fassung, automatisch aus Markdown erzeugt.</div>
+</body>
+</html>
