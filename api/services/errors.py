@@ -23,7 +23,7 @@ class ApiServiceError(Exception):
         # Traceability:
         # - AP-07
         self.trace_id = self.trace_id or uuid4().hex
-        super().__init__(self.message)
+        Exception.__init__(self, self.message)
 
 
 def error_payload(error: ApiServiceError) -> dict[str, object]:

@@ -878,9 +878,15 @@ def test_pipeline_snapshot_matches_latest_historical_point(tmp_path, monkeypatch
     main()
 
     summary = _load_json(Path("outputs/runs/current_run/exports/snapshot/summary_export.json"))
-    summary_by_key = {(row["country"], row["cluster"]): float(row["cluster_score"]) for row in summary}
+    summary_by_key = {
+        (row["country"], row["cluster"]): (
+            float(row["cluster_score"]),
+            row["snapshot_source_date"],
+        )
+        for row in summary
+    }
 
-    latest_by_key: dict[tuple[str, str], tuple[str, float]] = {}
+    historical_by_key_and_date: dict[tuple[str, str, str], float] = {}
     with Path("outputs/runs/current_run/exports/historical/historical_timeseries.csv").open(
         encoding="utf-8"
     ) as handle:
@@ -890,16 +896,14 @@ def test_pipeline_snapshot_matches_latest_historical_point(tmp_path, monkeypatch
                 continue
             if row["rolling_value"] in {"", "None"}:
                 continue
-            key = (row["country"], row["cluster"])
-            point_date = row["date"]
-            point_value = float(row["rolling_value"])
-            previous = latest_by_key.get(key)
-            if previous is None or point_date > previous[0]:
-                latest_by_key[key] = (point_date, point_value)
+            key = (row["country"], row["cluster"], row["date"])
+            historical_by_key_and_date[key] = float(row["rolling_value"])
 
-    for key, summary_value in summary_by_key.items():
-        assert key in latest_by_key
-        assert round(summary_value, 4) == round(latest_by_key[key][1], 4)
+    for (country, cluster), (summary_value, source_date) in summary_by_key.items():
+        assert source_date is not None
+        historical_key = (country, cluster, source_date)
+        assert historical_key in historical_by_key_and_date
+        assert round(summary_value, 4) == round(historical_by_key_and_date[historical_key], 4)
 
 
 def test_pipeline_marks_historical_trend_for_limited_status(tmp_path, monkeypatch):
@@ -949,6 +953,7 @@ def test_pipeline_snapshot_marks_under_coverage_fallback_and_penalty(tmp_path, m
     )
     assert germany_tension["snapshot_source_mode"] in {
         "historical_valid_endpoint",
+        "historical_latest_valid_before_run_date",
         "historical_numeric_fallback_below_min_valid_days",
     }
     if germany_tension["snapshot_source_mode"] == "historical_numeric_fallback_below_min_valid_days":
@@ -956,6 +961,10 @@ def test_pipeline_snapshot_marks_under_coverage_fallback_and_penalty(tmp_path, m
         assert germany_tension["snapshot_source_is_valid"] is False
         assert germany_tension["snapshot_source_valid_days"] < germany_tension["snapshot_source_min_valid_days"]
         assert germany_tension["snapshot_confidence_penalty_applied"] > 0.0
+    elif germany_tension["snapshot_source_mode"] == "historical_latest_valid_before_run_date":
+        assert germany_tension["snapshot_endpoint_is_valid"] is False
+        assert germany_tension["snapshot_source_is_valid"] is True
+        assert germany_tension["snapshot_confidence_penalty_applied"] == 0.0
     else:
         assert germany_tension["snapshot_endpoint_is_valid"] is True
         assert germany_tension["snapshot_confidence_penalty_applied"] == 0.0
