@@ -2,6 +2,11 @@
 
 Stand: nach Erstellung des Projektbeschreibungs-Pakets (`paper`, `formal paper`, `executive summary`, `detailed documentation`, Exportfassungen).
 
+Update 2026-05-11:
+- Die Verbesserungsbloecke `Semantik der Scores`, `Clusterpfad vs. Fusionpfad`, `Unsicherheitsmodell`, `Method Boundary` und ein erstes `Evaluationsdesign` wurden inzwischen in `detailed_documentation.md` integriert.
+- `scientific_paper.md` und `scientific_paper_formal.md` wurden ebenfalls um explizitere Interpretations- und Evaluationshinweise ergaenzt.
+- Die nachfolgenden Vorschlaege bleiben als Ausbauideen gueltig, sind jetzt aber teilweise schon in Grundform umgesetzt.
+
 ## Ziel dieses Dokuments
 
 Dieses Dokument entwickelt sinnvolle inhaltliche Verbesserungen fuer die bereits erzeugte Projektdokumentation. Es geht nicht primaer um Layout- oder Sprachkosmetik, sondern um Verbesserungen des Informationswerts, der fachlichen Schaerfe, der Nachvollziehbarkeit und der Nutzbarkeit fuer unterschiedliche Zielgruppen.

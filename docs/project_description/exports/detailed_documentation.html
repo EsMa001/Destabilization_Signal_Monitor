@@ -517,6 +517,265 @@ Conf_g = \frac{
 <li>Event-Alignment gegen Event-Registry,</li>
 <li>Review Queue fuer Peaks ohne glaubwuerdiges Event-Match oder mit Mehrfachueberlappung.</li>
 </ul>
+<h3>7.12 Semantik und Interpretationsgrenzen der Scores</h3>
+<p>Die wichtigste methodische Leitplanke lautet: Ein Score ist im aktuellen Projektstand kein direkter Realwelt-Risiko- oder Prognosewert. Er beschreibt einen Modellzustand innerhalb eines definierten Beobachtungs- und Aggregationsschemas.</p>
+<p>Fuer den klassischen Clusterpfad bedeutet das:</p>
+<ul>
+<li>Ein hoher Cluster-Score zeigt eine hohe aggregierte Signalstaerke innerhalb der modellierten Featurefamilien.</li>
+<li>Er zeigt nicht automatisch eine objektive oder kausal gesicherte Destabilisierung im politischen Sinn.</li>
+<li>Er ist stark davon abhaengig, welche Features in den Cluster aufgenommen wurden und wie gut diese Features die beobachtete Dynamik in der konkreten Situation repraesentieren.</li>
+</ul>
+<p>Fuer den Fusionpfad gilt analog:</p>
+<ul>
+<li>Ein hoher Fusion-Score zeigt eine gewichtete Auffaelligkeit ueber mehrere Layer bei gegebener Freshness-, Coverage- und Decay-Logik.</li>
+<li>Er ist kein Wahrscheinlichkeitswert fuer Krieg, Regimekollaps oder gesellschaftlichen Umbruch.</li>
+<li>Er verdichtet heterogene Beobachtungen in einen gemeinsamen Ergebnisraum und muss deshalb immer zusammen mit Gruppenstatus, Layerbeitraegen und Confidence gelesen werden.</li>
+</ul>
+<p>Wichtige Interpretationsmuster:</p>
+<table>
+<thead>
+<tr>
+<th>Muster</th>
+<th>Inhaltliche Bedeutung</th>
+<th>Analystische Reaktion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hoher Score, hohe Confidence</td>
+<td>starke Auffaelligkeit mit relativ guter Evidenzbasis</td>
+<td>vertiefte inhaltliche Pruefung, Priorisierung fuer Review</td>
+</tr>
+<tr>
+<td>hoher Score, niedrige Confidence</td>
+<td>starke Auffaelligkeit bei lueckenhafter oder alternder Evidenz</td>
+<td>vorsichtige Interpretation, Datenlage und dominante Quellen zuerst pruefen</td>
+</tr>
+<tr>
+<td>niedriger Score, hohe Confidence</td>
+<td>robuste Nicht-Auffaelligkeit im beobachteten Modell</td>
+<td>Monitoring fortsetzen, keine Eskalation allein aus dem Score ableiten</td>
+</tr>
+<tr>
+<td>niedriger Score, niedrige Confidence</td>
+<td>wenig beobachtete Auffaelligkeit bei zugleich schwacher Datenbasis</td>
+<td>nicht mit Entwarnung verwechseln; Coverage/Freshness separat betrachten</td>
+</tr>
+</tbody>
+</table>
+<p>Explizit unzulaessige Interpretationen sind:</p>
+<ul>
+<li>kausale Zuschreibungen allein aus dem Score,</li>
+<li>operative Policy- oder Sicherheitsentscheidungen ohne zusaetzliche menschliche Analyse,</li>
+<li>direkte Vergleichbarkeit mit externen Indizes ohne gemeinsame Kalibrierung,</li>
+<li>Gleichsetzung von <code>Confidence</code> mit inhaltlicher Wahrheit.</li>
+</ul>
+<h3>7.13 Vergleich von Clusterpfad und Fusionpfad</h3>
+<p>Beide Ergebnisraeume existieren bewusst parallel, weil sie unterschiedliche Staerken und Risiken haben.</p>
+<table>
+<thead>
+<tr>
+<th>Aspekt</th>
+<th>Clusterpfad</th>
+<th>Fusionpfad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Primaerer Zweck</td>
+<td>Kontinuitaet, einfache Lesbarkeit, robuste Kernsicht</td>
+<td>breitere Multi-Source-Sicht mit staerkerer Diagnostik</td>
+</tr>
+<tr>
+<td>Datenbasis</td>
+<td>Legacy-Kernquellen und klassische Features</td>
+<td>heterogene Quellbasis ueber kanonische Observations</td>
+</tr>
+<tr>
+<td>Ergebnisraum</td>
+<td>Spannung, Eskalation, Verwundbarkeit</td>
+<td><code>event</code>, <code>narrative</code>, <code>governance</code>, <code>market_food</code>, <code>shock</code>, <code>displacement</code>, <code>structural</code> plus Gesamtscore</td>
+</tr>
+<tr>
+<td>Zeithorizont</td>
+<td>Snapshot und rolling history</td>
+<td>Snapshot und monatliche historische Fusion</td>
+</tr>
+<tr>
+<td>Interpretierbarkeit</td>
+<td>sehr hoch</td>
+<td>hoch, aber komplexer wegen Layer-/Coverage-Logik</td>
+</tr>
+<tr>
+<td>Robustheit gegen partielle Quellluecken</td>
+<td>relativ hoch</td>
+<td>gruppen- und layerabhaengig</td>
+</tr>
+<tr>
+<td>Diagnostische Schaerfe</td>
+<td>mittel</td>
+<td>hoch bis sehr hoch</td>
+</tr>
+<tr>
+<td>Hauptrisiko</td>
+<td>Vereinfachung und begrenzte Quellbreite</td>
+<td>Ueberkomplexitaet, Kalibrierungsdrift, dominante Einzelgruppen</td>
+</tr>
+</tbody>
+</table>
+<p>Faustregel fuer die Nutzung:</p>
+<ul>
+<li>Der Clusterpfad ist der bevorzugte Ergebnisraum fuer stabile, schnell lesbare Basisbeobachtung.</li>
+<li>Der Fusionpfad ist der bevorzugte Ergebnisraum fuer vertiefte Diagnose, Schichtanalyse, Quelltriangulation und Event-Grounding.</li>
+<li>Wenn beide Ergebnisraeume in dieselbe Richtung zeigen, steigt die analystische Plausibilitaet.</li>
+<li>Wenn beide deutlich divergieren, ist dies kein Fehlerindikator an sich, sondern ein Signal fuer erhoehte Review-Beduerftigkeit.</li>
+</ul>
+<h3>7.14 Unsicherheitsmodell und Datenqualitaetskette</h3>
+<p>Das Unsicherheitsmodell ist mehrstufig. Unsicherheit entsteht nicht erst am Ende bei der Anzeige von <code>Confidence</code>, sondern entlang der gesamten Verarbeitungskette.</p>
+<ol>
+<li>Quellseitige Unsicherheit</li>
+<li>Verfuegbarkeit einzelner Quellen,</li>
+<li>zeitliche Latenz,</li>
+<li>unvollstaendige Abdeckung,</li>
+<li>
+<p>semantische bzw. taxonomische Ambiguitaet.</p>
+</li>
+<li>
+<p>Transformationsunsicherheit</p>
+</li>
+<li>Wahl der Normalisierung,</li>
+<li>Mapping auf das kanonische Observation-Schema,</li>
+<li>Verdichtung unterschiedlicher nativer Periodizitaeten,</li>
+<li>
+<p>Pflege von Gewichten, Schwellen und Layerzuordnungen.</p>
+</li>
+<li>
+<p>Aggregationsunsicherheit</p>
+</li>
+<li>dominante Einzelquellen oder Einzelgruppen,</li>
+<li>fehlende erwartete Gruppen,</li>
+<li>alternde historische Punkte,</li>
+<li>
+<p>methodische Empfindlichkeit gegen Parameterwahl.</p>
+</li>
+<li>
+<p>Ausgabeunsicherheit</p>
+</li>
+<li>starker Score trotz schwacher Confidence,</li>
+<li>Alignment ohne eindeutiges Event-Grounding,</li>
+<li>Peaks mit Mehrfachueberlappungen,</li>
+<li>Review-Queue-Eintraege ohne klares Matching.</li>
+</ol>
+<p>Die Systemlogik bildet diese Unsicherheit ueber mehrere Mechanismen ab:</p>
+<ul>
+<li><code>quality_completeness</code> auf Observation-Ebene,</li>
+<li>Gruppenstatus wie <code>ok</code>, <code>limited</code>, <code>not_available</code>,</li>
+<li>Freshness-/Decay-Faktoren,</li>
+<li>getrennte Score- und Confidence-Fuehrung,</li>
+<li>Dominanz- und Limited-Penalties,</li>
+<li>Event-Alignment-Match-Klassen und Review-Queue.</li>
+</ul>
+<p>Praktische Leseregeln fuer Analysten:</p>
+<table>
+<thead>
+<tr>
+<th>Unsicherheitsmuster</th>
+<th>Typische Ursache</th>
+<th>Empfohlene Reaktion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hohe Auffaelligkeit, niedrige Confidence</td>
+<td>wenige oder alternde dominante Quellen</td>
+<td>Quellenlage, Freshness und Abdeckung zuerst pruefen</td>
+</tr>
+<tr>
+<td>hohe Confidence, schwache Auffaelligkeit</td>
+<td>breite, konsistente Nicht-Auffaelligkeit</td>
+<td>als robuste Ruhephase interpretieren, aber externe Kontextpruefung beibehalten</td>
+</tr>
+<tr>
+<td>starke Layer-Dominanz</td>
+<td>einzelne Gruppe treibt Gesamtscore</td>
+<td>auf Gruppen- und Source-Signals herunterbrechen</td>
+</tr>
+<tr>
+<td>schwaches Event-Grounding</td>
+<td>Peak ohne gutes Registry-Match</td>
+<td>manuelle Fallpruefung und Event-Registry-Hardening priorisieren</td>
+</tr>
+</tbody>
+</table>
+<h3>7.15 Methodische Grenzen und Gueltigkeitsbereich</h3>
+<p>Der Prototyp ist fuer kurzfristige Signalerkennung und analystische Review-Unterstuetzung gebaut. Das ist sein Gueltigkeitsbereich.</p>
+<p>Abgedeckt werden insbesondere:</p>
+<ul>
+<li>heuristische, zeitnahe Sichtbarmachung auffaelliger Dynamiken,</li>
+<li>laendervergleichende Beobachtung innerhalb eines gemeinsamen Modells,</li>
+<li>nachvollziehbare Aggregation heterogener Quellen,</li>
+<li>technische und governance-seitige Reproduzierbarkeit.</li>
+</ul>
+<p>Nicht oder nur eingeschraenkt abgedeckt werden:</p>
+<ul>
+<li>tiefe geopolitische Kausalmodelle,</li>
+<li>belastbare Langfristvorhersagen von Regime- oder Kriegspfaden,</li>
+<li>qualitative Akteursintentionen ohne strukturierte Inputs,</li>
+<li>normative oder operative Entscheidungsempfehlungen.</li>
+</ul>
+<p>Methodische Grenzen je Layer:</p>
+<ul>
+<li><code>event</code>: hohe zeitliche Naehe, aber stark registry- und coverage-abhaengig,</li>
+<li><code>narrative</code>: potenziell sehr frueh sensitiv, aber semantisch taxonomie- und labelanfaellig,</li>
+<li><code>governance</code>: nuetzlich fuer strukturelle Fragilitaet, aber schwach fuer sehr kurzfristige Dynamik,</li>
+<li><code>market_food</code>: relevant fuer soziooekonomischen Druck, aber interpretativ kontextabhaengig,</li>
+<li><code>shock</code> und <code>displacement</code>: wichtige Zusatzsicht, aber stark von externer Datenqualitaet und Periodizitaet abhaengig,</li>
+<li><code>structural</code>: robuste Baseline, aber bewusst traege gegenueber kurzfristigen Ereignisimpulsen.</li>
+</ul>
+<p>Deshalb gilt als zentrale Redlichkeitsregel:</p>
+<blockquote>
+<p>Score = modellierter Systemzustand unter gegebenen Annahmen, nicht Ground Truth.</p>
+</blockquote>
+<p>Ebenso gilt fuer das Event-Alignment:</p>
+<blockquote>
+<p>Alignment = Plausibilitaets- und Grounding-Hinweis, nicht Beweis einer kausalen Erklaerung.</p>
+</blockquote>
+<h3>7.16 Evaluationsdesign fuer den naechsten Reifegrad</h3>
+<p>Fuer den Uebergang vom plausiblen Prototyp zu einem methodisch belastbareren Forschungs- oder Produktartefakt ist ein explizites Evaluationsdesign notwendig. Ein geeignetes Minimaldesign sollte vier Ebenen enthalten:</p>
+<ol>
+<li>Signalqualitaet</li>
+<li>Sind Peaks zeitlich plausibel?</li>
+<li>
+<p>Erkennen Cluster- und Fusionpfad bekannte Episoden?</p>
+</li>
+<li>
+<p>Kalibrierung</p>
+</li>
+<li>Wie sensibel reagieren Ergebnisse auf Gewichte, Schwellen und Freshness-Parameter?</li>
+<li>
+<p>Wo entstehen stabile Rangfolgen, wo Parameterdrift?</p>
+</li>
+<li>
+<p>Unsicherheitsguete</p>
+</li>
+<li>Korrelieren hohe Confidence-Werte mit besserem Event-Grounding und stabileren Ergebnisraeumen?</li>
+<li>
+<p>Signalisieren Penalties tatsaechlich problematische Datenlagen?</p>
+</li>
+<li>
+<p>Analystische Nutzbarkeit</p>
+</li>
+<li>Verbessern Review-Queue, Layerdiagnostik und Handout die Bearbeitung realer Faelle?</li>
+<li>Welche Darstellungen reduzieren Fehlinterpretationen?</li>
+</ol>
+<p>Geeignete Evaluationsartefakte waeren:</p>
+<ul>
+<li>eine kuratierte Event- und Referenzepisodenbasis,</li>
+<li>annotierte Fallstudien fuer mehrere Laender und Zeitfenster,</li>
+<li>Parameter-Sweeps fuer Gewichte, Schwellen und Decay-Regeln,</li>
+<li>systematische Vergleichsauswertungen zwischen Clusterpfad und Fusionpfad,</li>
+<li>Review-Protokolle oder Expertenratings fuer interpretative Guete.</li>
+</ul>
 <h2>8. Output-Artefakte</h2>
 <p>Typische Output-Struktur:</p>
 <pre><code class="language-text">outputs/runs/current_run/

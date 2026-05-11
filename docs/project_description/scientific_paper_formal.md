@@ -110,6 +110,18 @@ Validation focuses on analytical plausibility rather than truth certification. T
 - event alignment against an event registry,
 - review queues for weak or ambiguous event grounding.
 
+### 5.5 Score semantics and interpretation boundaries
+
+The system's scores must be interpreted as modeled analytical states rather than direct real-world outcome probabilities. A high legacy cluster score indicates strong aggregated signal intensity in the configured feature families. A high fusion score indicates weighted anomaly intensity across multiple layers under the configured freshness, coverage, and decay logic. Neither should be read as a direct probability of regime breakdown, war, or other end-state outcomes.
+
+This distinction matters especially when score and confidence diverge. High score with low confidence indicates strong apparent anomaly under weak or aging evidence. Low score with high confidence indicates relatively robust non-anomaly in the observed model. The architecture is deliberately designed to preserve this distinction instead of collapsing it into a single opaque number.
+
+### 5.6 Method boundaries
+
+The prototype is intended for short-term signal detection and analyst support. It is not a complete geopolitical causal model, not a long-range predictive engine, and not a substitute for domain judgment. Layer-specific limitations also remain important: event layers depend on registry and coverage quality, narrative layers remain sensitive to semantic taxonomy quality, governance and structural layers are informative but comparatively slow-moving, and auxiliary layers such as shock or displacement inherit external periodicity and completeness constraints.
+
+The methodological bottom line is therefore: score represents model state under explicit assumptions, while event alignment represents grounding support rather than proof of causality.
+
 ## 6. Outputs and Workflow
 
 A standard run loads the configuration and sources, computes legacy features and cluster scores, transforms additive sources into canonical observations, calculates fusion signals, writes historical and validation outputs, and finally produces plots, handout, metadata, and run comparisons.
@@ -154,7 +166,18 @@ The most relevant current limitations are:
 - no claim of final predictive validity,
 - related-work framing present, but external literature integration still to be completed.
 
-## 10. Conclusion
+## 10. Evaluation Outlook
+
+A disciplined next step is an explicit evaluation program. At minimum, this should test four questions:
+
+1. Signal quality: do cluster and fusion outputs identify known episodes at plausible times?
+2. Calibration robustness: how sensitive are rankings and peaks to weights, thresholds, and decay parameters?
+3. Uncertainty quality: do confidence values and penalties correlate with better or worse grounding quality?
+4. Analyst utility: do review queues, dominance diagnostics, and handout artifacts improve real review workflows?
+
+This suggests a concrete evidence package for future work: curated event/reference sets, annotated multi-country case studies, parameter sweeps, and expert-review protocols.
+
+## 11. Conclusion
 
 The Country Destabilization Prototype demonstrates a useful pattern for explainable multi-source monitoring under strong software-governance constraints. Its primary value lies in combining analyst-oriented signal generation with requirements-as-code traceability and validation infrastructure. This makes it a compelling foundation for future methodological calibration, API/frontend productization, and a more formal scientific evaluation program.
 

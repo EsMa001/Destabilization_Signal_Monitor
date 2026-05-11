@@ -13,6 +13,8 @@ Politische und gesellschaftliche Destabilisierung entsteht selten aus einem einz
 
 Der Country Destabilization Prototype adressiert dieses Problem als erklaerbares, requirements-getriebenes Softwaresystem. Das Ziel ist nicht ein operatives Vollsystem und auch keine probabilistische Vorhersage im engeren Sinne, sondern ein reviewbarer Monitor, der kurzfristige Auffaelligkeiten sichtbar macht, Quellen- und Confidence-Kontext ausweist und manuelle Analyseentscheidungen vorbereitet. Der Prototyp arbeitet aktuell mit einer konfigurierten Standardbasis von zehn Laendern: Germany, Israel, Iran, Ukraine, Russia, Japan, China, Taiwan, Poland und Nigeria. Historische Sichtweisen nutzen 7-Tage-Rolling-Window-Logik, 30-Tage-Vergleiche, monatliche Fusionshistorie und 356-Tage-Jahresprofile.
 
+Zwei Interpretationsregeln sind fuer das gesamte Paper zentral. Erstens ist ein Score im aktuellen Projektstand ein modellierter Signalzustand innerhalb eines definierten Beobachtungs- und Aggregationsschemas und kein Wahrscheinlichkeitswert fuer Regimekollaps, Krieg oder gesellschaftlichen Zusammenbruch. Zweitens ist `Confidence` ein Evidenzqualitaetsindikator und kein Wahrheitszertifikat. Gerade diese Trennung ist wesentlich, weil das System starke Auffaelligkeiten bewusst sichtbar laesst, auch wenn die Evidenzbasis noch lueckenhaft oder alternd ist.
+
 ## 2. Systemuebersicht
 
 Abbildung 1 zeigt die Hauptarchitektur. Die Software trennt Rohdaten, Features/Observations, Scores, Reporting und Governance. Die zentrale Laufsteuerung liegt in `proto/pipeline/run_proto.py`; Datenmodelle, Quellenadapter, Feature-Builders, Scoring, Fusion, Validation, Reporting und Run-Management sind in separaten Python-Packages gekapselt. Ein FastAPI-MVP stellt Health-, Options-, Run-, Status- und Artifact-Endpunkte bereit.
@@ -20,6 +22,8 @@ Abbildung 1 zeigt die Hauptarchitektur. Die Software trennt Rohdaten, Features/O
 ![Projektarchitektur](diagrams/architecture_overview.svg)
 
 Der klassische Ergebnisraum berechnet drei Cluster: gesellschaftlich-politische Spannung, gewaltsame Eskalation und strukturelle/systemische Verwundbarkeit. Parallel dazu erzeugt der V3+-Pfad eine Multi-Source-Fusion mit sieben Gruppen. Beide Ergebnisraeume bleiben bewusst nebeneinander bestehen: Der Clusterpfad bietet Kontinuitaet und einfache Interpretierbarkeit, der Fusionpfad erweitert die Quellbreite und fuehrt Validierungs- und Event-Alignment-Diagnostik ein.
+
+Methodisch ist wichtig, dass diese beiden Pfade nicht gegeneinander ausgespielt werden sollten. Der Clusterpfad ist die stabilere, schneller lesbare Basissicht. Der Fusionpfad ist die breitere, diagnostisch schaerfere Erweiterung. Konvergierende Ergebnisse erhoehen die analystische Plausibilitaet; deutliche Divergenzen sind ein Review-Signal und kein automatischer Fehlerhinweis.
 
 Abbildung 2 zeigt die Abbildung der Quellen auf den Fusionsraum. Besonders wichtig ist, dass die neuen Quellen nicht direkt auf den Gesamtscore wirken, sondern immer zuerst in ein kanonisches Observation-Schema ueberfuehrt werden. Dadurch bleiben Herkunft, Zeitbezug und Qualitaetsinformation entlang der Verarbeitung sichtbar.
 
